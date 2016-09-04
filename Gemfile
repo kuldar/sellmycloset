@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 gem 'rails',                   '5.0.0'
 gem 'bcrypt',                  '3.1.11'
+gem 'carrierwave',             '0.11.2'
+gem 'mini_magick',             '4.5.1'
+gem 'fog',                     '1.38.0'
 gem 'puma', 									 '3.4.0'
 gem 'sass-rails',              '5.0.6'
 gem 'uglifier',                '3.0.0'
@@ -11,6 +14,7 @@ gem 'turbolinks',              '5.0.0'
 gem 'jbuilder',                '2.4.1'
 gem 'slim-rails',              '3.1.1'
 gem 'bourbon',                 '4.2.7'
+gem 'administrate', github: 'greetpoint/administrate', branch: 'rails5'
 
 group :development do
 	gem 'sqlite3', '1.3.11'

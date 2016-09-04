@@ -1,0 +1,21 @@
+.wrapper-m
+	.grid
+		- @products.each do |product|
+			.grid-item
+				= render product
+
+javascript:
+	$(document).on('turbolinks:load', function() {
+
+		$("[data-modal='product']").on('ajax:success', function(e, data, status, xhr) {
+			var productModal = new Modal({
+		    content: xhr.responseText
+			}).open();
+		}).on('ajax:error', function(xhr, error) { console.log('error'); });
+
+		$('.grid').masonry({
+			itemSelector: '.grid-item',
+			columnWidth: 200
+		});
+
+  });

@@ -1,0 +1,30 @@
+.product
+	= link_to product, remote: true, class: 'product-image', data: { modal: 'product' } do
+		= image_tag product.photo
+
+	.product-info
+		.product-info-header
+			= link_to product.title, product, remote: true, class: 'product-title', data: { modal: 'product' }
+			.product-buy-btn <strong>Osta</strong> <span class='dot'>&middot;</span> #{ number_to_currency product.price }
+
+		.product-description
+			= product.description
+			<span>#adidas</span> <span>#pluus</span>
+
+		.product-info-footer
+			.product-seller
+				= image_tag 'users/user1.jpg', class: 'product-seller-photo'
+				.product-seller-info
+					.product-seller-name Mari Murakas
+					.product-seller-username @murakashot
+
+			.product-meta
+				a.product-meta-btn href='#'
+					.product-meta-btn-count 5
+					.product-meta-btn-icon
+						= render_icon 'comment-icon.svg'
+					
+				a.product-meta-btn href='#'
+					.product-meta-btn-count 19
+					.product-meta-btn-icon
+						= render_icon 'like-icon.svg'

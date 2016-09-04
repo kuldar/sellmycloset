@@ -28,6 +28,13 @@
 	margin-right: auto;
 }
 
+.wrapper-m {
+	@include clearfix;
+	max-width: 50rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .wrapper-s {
 	@include clearfix;
 	max-width: 35rem;
