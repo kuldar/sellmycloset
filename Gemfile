@@ -20,9 +20,9 @@ group :development do
 	gem 'sqlite3', '1.3.11'
 	gem 'byebug',  '9.0.0', platform: :mri
 	gem 'web-console',           '3.1.1'
-  gem 'listen',                '3.0.8'
-  gem 'spring',                '1.7.2'
-  gem 'spring-watcher-listen', '2.0.0'
+	gem 'listen',                '3.0.8'
+	gem 'spring',                '1.7.2'
+	gem 'spring-watcher-listen', '2.0.0'
 end
 
 group :production do
