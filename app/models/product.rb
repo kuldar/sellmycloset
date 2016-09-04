@@ -9,6 +9,11 @@ class Product < ApplicationRecord
 
   mount_uploader :photo, PictureUploader
 
+  belongs_to :user
+  has_many :likes
+  validates :user_id, presence: true
+  validates :photo, :title, :description, :price, presence: true
+
   def to_param
   	[id, title.parameterize].join('-')
   end

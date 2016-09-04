@@ -14,6 +14,7 @@ gem 'turbolinks',              '5.0.0'
 gem 'jbuilder',                '2.4.1'
 gem 'slim-rails',              '3.1.1'
 gem 'bourbon',                 '4.2.7'
+gem 'devise',                	 '4.2.0'
 gem 'administrate', github: 'greetpoint/administrate', branch: 'rails5'
 
 group :development do

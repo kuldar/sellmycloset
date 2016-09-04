@@ -6,6 +6,7 @@ class AddProducts < ActiveRecord::Migration[5.0]
   		t.string 	:description
   		t.float   :price
   		t.integer :status
+      t.belongs_to  :user, foreign_key: true
 
   		t.timestamps
   	end

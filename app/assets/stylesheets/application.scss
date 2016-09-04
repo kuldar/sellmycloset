@@ -34,21 +34,54 @@ $red: #eb410d;
 //  Temporary Styles  //
 ////////////////////////
 
-.grid {
-	// @include display(flex);
-	// @include flex-direction(column);
-	// @include flex-wrap(wrap);
-	
-	.grid-item {
-		width: 50%;
-		padding: 0.5rem;
+//////////////
+//  Header  //
+//////////////
+
+.header {
+	background-color: $white;
+	box-shadow: 0 1px 2px rgba($black, 0.1);
+	padding: 1.5rem 0;
+	margin-bottom: 1rem;
+
+	.wrapper { padding: 0 1.5rem; }
+}
+
+.logo {
+	float: left;
+	font-size: 1.25rem;
+	line-height: 1em;
+}
+
+.header-nav {
+	@include clearfix;
+	float: right;
+	font-size: 1rem;
+	line-height: 1.25rem;
+}
+
+.header-nav-link {
+	float: left;
+	margin-left: 1.5rem;
+	padding: 0.25rem 0;
+
+	&:first-child { margin-left: 0; }
+	&:active {
+		position: relative;
+		top: 1px;
 	}
 }
 
-.col {
-	// margin: 0 0.5rem;
-	// @include flex(1);
-	// .product { margin-bottom: 1rem; }
+
+.grid {
+	@include display(flex);
+	@include flex-wrap(wrap);
+	@include align-items(center);
+	
+	.grid-item {
+		padding: 0.5rem;
+		width: 50%;
+	}
 }
 
 //////////////////////
@@ -181,6 +214,11 @@ $red: #eb410d;
 	float: right;
 }
 
+.product-meta-btn-container {
+	@include clearfix;
+	float: left;
+}
+
 .product-meta-btn {
 	@include clearfix;
 	float: left;
@@ -188,9 +226,6 @@ $red: #eb410d;
 	margin-left: 1rem;
 	border-radius: 0.25rem;
 	padding: 0.5rem 0.75rem;
-
-	&.is-liked
-	.product-meta-btn-icon { color: $red; }
 }
 
 .product-meta-btn-count {
@@ -204,6 +239,7 @@ $red: #eb410d;
 	float: left;
 	color: $gray;
 	svg { display: block; }
+	&.is-liked { color: $red; }
 }
 
 ////////////////////////

@@ -1,0 +1,10 @@
+= form_for(@product) do |f|
+  = render 'shared/error_messages', object: f.object
+
+  = image_tag @product.photo if @product.photo?
+  = f.file_field :photo
+  = f.text_field :title, placeholder: "Toote nimi"
+  = f.text_field :description, placeholder: "Toote kirjeldus"
+  = f.number_field :price, placeholder: "Hind"
+
+  = f.submit 'Lisa'

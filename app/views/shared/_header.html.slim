@@ -1,0 +1,17 @@
+header.header
+	.wrapper
+
+		/ Logo
+		= link_to root_path, class: 'logo' do
+			strong Reshop
+
+		/ Header Nav
+		nav.header-nav
+			= link_to 'Uued', products_path, class: 'header-nav-link'
+			- if user_signed_in?
+				= link_to 'Lisa kuulutus', new_product_path, class: 'header-nav-link'
+				= link_to 'Seaded', edit_registration_path(current_user), class: 'header-nav-link'
+				= link_to 'Välju', destroy_user_session_path, method: :delete, class: 'header-nav-link'
+			- else
+				= link_to 'Sisene', new_user_session_path, class: 'header-nav-link'
+				= link_to 'Liitu', new_user_registration_path, class: 'header-nav-link'
