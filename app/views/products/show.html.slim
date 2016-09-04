@@ -1,0 +1,55 @@
+.wrapper-s
+	.product.single-product
+		.product-image
+			= image_tag "products/product1.jpg"
+
+		.product-info
+			.product-info-header
+				.product-title Tumesinine Gucci päevapluus
+				a.product-buy-btn href='#' <strong>Osta</strong> <span class='dot'>&middot;</span> 25€
+
+			.product-description
+				| Mingi teistsugune kirjeldus selle toote alla, lorem ipsum dolor sit ames, yo. Paar korda kantud, enamus ajast kapis seisnud lihtsalt. <a href='#' class='product-hashtag'>#adidas</a> <a href='#' class='product-hashtag'>#pluus</a>
+
+			.product-info-footer
+				.product-seller
+					= image_tag 'users/user1.jpg', class: 'product-seller-photo'
+					.product-seller-info
+						.product-seller-name Mari Murakas
+						a.product-seller-username href='#' @murakashot
+
+				.product-meta
+					a.product-meta-btn href='#'
+						.product-meta-btn-count 5
+						.product-meta-btn-icon
+							= render_icon 'comment-icon.svg'
+
+					a.product-meta-btn.is-liked href='#'
+						.product-meta-btn-count 29
+						.product-meta-btn-icon
+							= render_icon 'like-icon.svg'
+
+		.product-comments-container
+			.product-comments
+				.product-comment
+					= image_tag 'users/user2.jpg', class: 'product-comment-user-photo'
+					.product-comment-body
+						a.product-comment-user-name href='#' Olga Kuri
+						| Päris badäss pusa, kust said?
+
+				.product-comment
+					= image_tag 'users/user1.jpg', class: 'product-comment-user-photo'
+					.product-comment-body
+						a.product-comment-user-name href='#' Mari Murakas
+						| A niisama, leidsin hea diili ühest poest. Lol Kirjutan siia veel veits teksti, et näha mis juhtub kui kommentaar mitme rea peale venib.
+
+				.product-comment
+					= image_tag 'users/user2.jpg', class: 'product-comment-user-photo'
+					.product-comment-body
+						a.product-comment-user-name href='#' Olga Kuri
+						| Normaalne, päris tuus :D
+
+			.product-comment-form
+				.product-comment-form-icon
+					= render_icon 'comment-icon.svg'
+				textarea.product-comment-input placeholder='Lisa kommentaar..' rows='1'

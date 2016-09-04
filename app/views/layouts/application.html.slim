@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+  
+    meta name="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    title reshop
+    meta name="description" content="reshop.ee"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = csrf_meta_tags
+
+  body
+
+    .container
+      = yield
+
+    / Debug
+    - debug(params) if Rails.env.development?

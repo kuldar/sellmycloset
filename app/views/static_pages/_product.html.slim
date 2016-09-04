@@ -1,0 +1,28 @@
+.product
+	/ .product-image style="background-image:url('#{ image_url 'products/product1.jpg' }')"
+	.product-image
+		= image_tag "products/product#{n}.jpg"
+
+	.product-info
+		.product-info-header
+			.product-title Tumesinine Gucci päevapluus
+			.product-buy-btn <strong>Osta</strong> <span class='dot'>&middot;</span> 25€
+
+		.product-description
+			| Mingi teistsugune kirjeldus selle toote alla, lorem ipsum dolor sit ames, yo. Paar korda kantud, enamus ajast kapis seisnud lihtsalt. <span>#adidas</span> <span>#pluus</span>
+
+		.product-info-footer
+			.product-seller
+				= image_tag 'users/user1.jpg', class: 'product-seller-photo'
+				/ .product-seller-info
+				/ 	.product-seller-name Mari Murakas
+				/ 	.product-seller-username @murakashot
+
+			.product-meta
+				.product-meta-btn
+					.product-meta-btn-count 5
+					= image_tag 'comment-icon.svg', class: 'product-meta-btn-icon'
+					
+				.product-meta-btn
+					.product-meta-btn-count 5
+					= image_tag 'like-icon.svg', class: 'product-meta-btn-icon'

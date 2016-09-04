@@ -1,0 +1,36 @@
+//////////////
+//  Layout  //
+//////////////
+
+.container { padding: 1rem; }
+
+.main {
+	@include flex(1);
+}
+
+.sidebar {
+	width: 25%;
+	margin-right: 0.5rem;
+}
+
+.flex-wrapper {
+	@include display(flex);
+	@include align-items(flex-start);
+	max-width: 60rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wrapper {
+	@include clearfix;
+	max-width: 70rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wrapper-s {
+	@include clearfix;
+	max-width: 35rem;
+	margin-left: auto;
+	margin-right: auto;
+}
