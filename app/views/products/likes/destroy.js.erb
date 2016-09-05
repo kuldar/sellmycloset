@@ -1,1 +1,1 @@
-$("#likes-<%= j @product.id.to_s %>").html("<%= j render partial: 'products/likes', locals: { product: @product } %>");
+$("[data-likes='<%= j @product.id.to_s %>']").html("<%= j render partial: 'products/likes', locals: { product: @product } %>");
