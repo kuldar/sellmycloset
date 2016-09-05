@@ -5,6 +5,6 @@ class AddColumnsToUsers < ActiveRecord::Migration[5.0]
   	add_column :users, :avatar, 					:string
   	add_column :users, :instagram_handle, :string
   	add_column :users, :facebook_handle, 	:string
-  	add_column :users, :web_url, 					:string
+  	add_column :users, :role,		 					:integer, default: 0
   end
 end

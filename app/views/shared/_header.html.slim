@@ -7,10 +7,15 @@ header.header
 
 		/ Header Nav
 		nav.header-nav
-			= link_to 'Uued', products_path, class: 'header-nav-link'
+			= link_to 'Uued tooted', products_path, class: 'header-nav-link'
 			- if user_signed_in?
-				= link_to 'Minu kuulutused', user_path(current_user), class: 'header-nav-link'
-				= link_to 'Lisa kuulutus', new_product_path, class: 'header-nav-link'
+				- if current_user.buyer?
+					= link_to 'Hakka müüjaks', '#', class: 'header-nav-link'
+				- elsif current_user.seller?
+					= link_to 'Lisa kuulutus', new_product_path, class: 'header-nav-link'
+					= link_to 'Minu kuulutused', user_path(current_user), class: 'header-nav-link'
+				- elsif current_user.admin?
+					= link_to 'Admin', admin_root_path, class: 'header-nav-link'
 				= link_to 'Seaded', edit_registration_path(current_user), class: 'header-nav-link'
 				= link_to 'Välju', destroy_user_session_path, method: :delete, class: 'header-nav-link'
 			- else

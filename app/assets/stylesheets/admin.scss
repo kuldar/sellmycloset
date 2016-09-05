@@ -1,0 +1,84 @@
+/////////////////
+//  Variables  //
+/////////////////
+
+// Fonts
+$main-font: 'Helvetica Neue', sans-serif;
+
+//  Colors
+$black: #000000;
+$white: #ffffff;
+
+$light-gray: #f0f2f5;
+$light-gray-2: #e1e1e2;
+$gray: #b7b8ba;
+$dark-gray: #61656d;
+
+$green: #00b068;
+$red: #eb410d;
+
+///////////////
+//  Imports  //
+///////////////
+
+// Assets
+@import 'bourbon';
+
+//////////////
+//  Header  //
+//////////////
+
+body {
+	font-size: 1rem;
+  font-family: $main-font;
+  line-height: 1.25em;
+}
+
+.wrapper {
+	@include clearfix;
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.admin-header {
+
+	.header {
+		display: block;
+		background-color: $white;
+		box-shadow: 0 1px 2px rgba($black, 0.1);
+		padding: 1.5rem 0;
+		margin-bottom: 1rem;
+
+		.wrapper { padding: 0 1.5rem; }
+	}
+
+	.logo {
+		color: $black;
+		float: left;
+		font-size: 1.25rem;
+		line-height: 1em;
+		&:hover { text-decoration: underline; }
+	}
+
+	.header-nav {
+		@include clearfix;
+		float: right;
+		font-size: 1rem;
+		line-height: 1.25rem;
+	}
+
+	.header-nav-link {
+		color: $black;
+		float: left;
+		margin-left: 1.5rem;
+		padding: 0.25rem 0;
+
+		&:hover { text-decoration: underline; }
+		&:first-child { margin-left: 0; }
+		&:active {
+			position: relative;
+			top: 1px;
+		}
+	}
+}

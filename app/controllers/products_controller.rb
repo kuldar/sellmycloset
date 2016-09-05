@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
-	before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 	before_action :set_product, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_seller, only: [:new, :create]
+	before_action :authenticate_product_seller, only: [:edit, :update, :destroy]
 
 	def index
 		@products = Product.all
@@ -48,6 +49,14 @@ class ProductsController < ApplicationController
 
 		def set_product
 			@product = Product.find(params[:id])
+		end
+
+		def authenticate_seller
+			redirect_to root_url if current_user.buyer?
+		end
+
+		def authenticate_product_seller
+			current_user == @product.user
 		end
 
 		def product_params

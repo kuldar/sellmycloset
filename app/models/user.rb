@@ -2,6 +2,13 @@ class User < ApplicationRecord
 
 	VALID_SLUG_REGEX = /\A[a-zA-Z0-9]*\z/
 
+  enum role: {
+    buyer:  0,
+    seller: 1,
+    editor: 2,
+    admin:  3
+  }
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -21,6 +28,7 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
 
 	validates :name, presence: true
+  validates :name, presence: true
 	validates :username, presence: true, 
                        format: { with: VALID_SLUG_REGEX },
                        uniqueness: { case_sensitive: false }

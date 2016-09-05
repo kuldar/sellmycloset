@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20160905065710) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["user_id", "created_at"], name: "index_products_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
@@ -69,7 +70,7 @@ ActiveRecord::Schema.define(version: 20160905065710) do
     t.string   "avatar"
     t.string   "instagram_handle"
     t.string   "facebook_handle"
-    t.string   "web_url"
+    t.integer  "role",                   default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
