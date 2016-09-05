@@ -9,7 +9,7 @@
 
 		.product-description
 			= product.description
-			<span>#adidas</span> <span>#pluus</span>
+			= render product.tags
 
 		.product-info-footer
 			= link_to product.user, class: 'product-seller' do

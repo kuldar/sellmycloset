@@ -27,5 +27,7 @@ Rails.application.routes.draw do
   # Relationships
   resources :relationships, only: [:create, :destroy]
 
+  # Static pages
+  get :become_seller, to: 'static_pages#become_seller'
 
 end

@@ -8,4 +8,7 @@ class StaticPagesController < ApplicationController
 		end
 	end
 
+	def become_seller
+	end
+
 end
