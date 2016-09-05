@@ -1,7 +1,7 @@
 Rails.application.configure do
 
   config.after_initialize do
-    Rails.application.routes.default_url_options[:host] = 'reshop-test.herokuapp.com'
+    Rails.application.routes.default_url_options[:host] = 'reshop-staging.herokuapp.com'
   end
 
   # Settings specified here will take precedence over those in config/application.rb.
@@ -68,7 +68,7 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: 'reshop-test.herokuapp.com', protocol: 'http'}
+  config.action_mailer.default_url_options = { host: 'reshop-staging.herokuapp.com', protocol: 'http'}
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
     :port           => '587',
