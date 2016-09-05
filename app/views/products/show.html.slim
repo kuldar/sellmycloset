@@ -19,8 +19,8 @@
 					.product-seller-username = '@'+ @product.user.username
 
 			.product-meta
-				a.product-meta-btn href='#'
-					.product-meta-btn-count 5
+				.product-meta-btn
+					.product-meta-btn-count = @product.comments.count
 					.product-meta-btn-icon
 						svg xmlns='http://www.w3.org/2000/svg' width='18' height='16.875' viewBox='0 0 18 16.875'
 						  path fill='currentColor' d='M1071.65,703.98c0-4.042-4.01-7.312-9-7.312s-9,3.27-9,7.312a6.99,6.99,0,0,0,3.71,5.916,5.634,5.634,0,0,1-1.35,3,0.407,0.407,0,0,0-.09.413,0.38,0.38,0,0,0,.36.229,7.228,7.228,0,0,0,4.85-2.355,12.173,12.173,0,0,0,1.52.105C1067.64,711.293,1071.65,708.023,1071.65,703.98Z' transform='translate(-1053.66 -696.656)'
@@ -28,27 +28,14 @@
 				.product-meta-btn-container id="likes-#{@product.id}" = render partial: 'likes', locals: { product: @product }
 
 	.product-comments-container
-		.product-comments
-			.product-comment
-				= image_tag 'users/user2.jpg', class: 'product-comment-user-photo'
-				.product-comment-body
-					a.product-comment-user-name href='#' Olga Kuri
-					| Päris badäss pusa, kust said?
 
-			.product-comment
-				= image_tag 'users/user1.jpg', class: 'product-comment-user-photo'
-				.product-comment-body
-					a.product-comment-user-name href='#' Mari Murakas
-					| A niisama, leidsin hea diili ühest poest. Lol Kirjutan siia veel veits teksti, et näha mis juhtub kui kommentaar mitme rea peale venib.
-
-			.product-comment
-				= image_tag 'users/user2.jpg', class: 'product-comment-user-photo'
-				.product-comment-body
-					a.product-comment-user-name href='#' Olga Kuri
-					| Normaalne, päris tuus :D
-
-		.product-comment-form
-			.product-comment-form-icon
-				svg xmlns='http://www.w3.org/2000/svg' width='18' height='16.875' viewBox='0 0 18 16.875'
-				  path fill='currentColor' d='M1071.65,703.98c0-4.042-4.01-7.312-9-7.312s-9,3.27-9,7.312a6.99,6.99,0,0,0,3.71,5.916,5.634,5.634,0,0,1-1.35,3,0.407,0.407,0,0,0-.09.413,0.38,0.38,0,0,0,.36.229,7.228,7.228,0,0,0,4.85-2.355,12.173,12.173,0,0,0,1.52.105C1067.64,711.293,1071.65,708.023,1071.65,703.98Z' transform='translate(-1053.66 -696.656)'
-			textarea.product-comment-input placeholder='Lisa kommentaar..' rows='1'
+		.product-comments data-comments="#{@product.id}"
+			= render @product.comments			
+		- if user_signed_in?
+			= render 'comments/comment_form'
+		- else
+			.product-comments-cta
+				=> link_to 'Liitu', new_user_registration_path
+				| või
+				=< link_to 'logi sisse', new_user_session_path
+				| , et kommenteerida..

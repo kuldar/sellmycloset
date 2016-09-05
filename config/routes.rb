@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 	# Products
 	resources :products do
     resource :like, module: :products
+    resources :comments
   end
 
 end

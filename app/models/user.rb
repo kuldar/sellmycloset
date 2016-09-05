@@ -9,6 +9,7 @@ class User < ApplicationRecord
          
 	has_many :products, dependent: :destroy
   has_many :likes
+  has_many :comments
 
 	validates :name, presence: true
 	validates :username, presence: true, 

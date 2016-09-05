@@ -17,6 +17,12 @@ $dark-gray: #61656d;
 $green: #00b068;
 $red: #eb410d;
 
+@mixin min-width($breaking-point) {
+  @media only screen and (min-width: $breaking-point) {
+    @content;
+  }
+}
+
 ///////////////
 //  Imports  //
 ///////////////
@@ -79,8 +85,13 @@ $red: #eb410d;
 	@include align-items(center);
 	
 	.grid-item {
-		padding: 0.5rem;
-		width: 50%;
+		width: 100%;
+		padding: 0.5rem 1rem;
+
+		@include min-width(40rem) {
+			padding: 0.5rem;
+			width: 50%;
+		}
 	}
 }
 
@@ -184,7 +195,7 @@ $red: #eb410d;
 
 .product-seller-photo {
 	float: left;
-	margin-right: 1rem;
+	margin-right: 0.75rem;
 	display: block;
 	width: 2rem;
 	height: 2rem;
@@ -251,16 +262,18 @@ $red: #eb410d;
 	padding: 1rem 2.5rem 1.25rem 2.5rem;
 }
 
-.product-comments {
-	margin-bottom: 0.5rem;
-	border-bottom: 1px solid $light-gray-2;
-	padding-bottom: 0.5rem;
-}
+.product-comments {}
 
 // Product Comment
 
 .product-comment {
 	margin: 0.75rem 0;
+
+	&:last-child {
+		margin-bottom: 0.5rem;
+		border-bottom: 1px solid $light-gray-2;
+		padding-bottom: 1.25rem;
+	}
 }
 
 .product-comment-user-photo {
@@ -271,6 +284,7 @@ $red: #eb410d;
 }
 
 .product-comment-body {
+	@include clearfix;
 	margin-left: 1.75rem;
 	color: $dark-gray;
 }
@@ -279,6 +293,22 @@ $red: #eb410d;
 	font-weight: bold;
 	color: $black;
 	margin-right: 0.5rem;
+}
+
+.product-comment-delete-btn {
+	float: right;
+	color: $dark-gray;
+	font-style: italic;
+	opacity: 0.5;
+	&:hover { opacity: 1; }
+}
+
+// Product Comments CTA
+
+.product-comments-cta {
+	color: $dark-gray;
+	padding: 0.5rem 0;
+	a { font-weight: bold; }
 }
 
 // Product Comment Form
@@ -300,7 +330,7 @@ $red: #eb410d;
 	margin: 0.675rem 0.5rem 0 0;
 }
 
-.product-comment-input {
+.product-comment-form-input {
 	@include flex(1);
 	display: block;
 	height: auto;
