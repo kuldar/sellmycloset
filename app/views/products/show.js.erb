@@ -1,0 +1,3 @@
+$("[data-behavior='modal']").html("<%= j render 'product', locals: { product: @product } %>");
+$("[data-behavior='modal-overlay']").removeClass('is-hidden');
+$("body").addClass('has-modal');

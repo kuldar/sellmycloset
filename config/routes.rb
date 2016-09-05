@@ -2,7 +2,11 @@ Rails.application.routes.draw do
 
 	# Users
   devise_for :users
-  resources	 :users
+  resources	 :users do
+    member do
+      get :following, :followers
+    end
+  end
 
   # Admin
   namespace :admin do
@@ -12,12 +16,16 @@ Rails.application.routes.draw do
   end
 
   # Root
-	root 'products#index'
+	root 'static_pages#home'
 
 	# Products
 	resources :products do
     resource :like, module: :products
     resources :comments
   end
+
+  # Relationships
+  resources :relationships, only: [:create, :destroy]
+
 
 end

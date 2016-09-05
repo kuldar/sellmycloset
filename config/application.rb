@@ -14,5 +14,8 @@ module Reshop
 
     # config.i18n.default_locale = :et
     config.i18n.default_locale = :en
+
+    # Configuration needed for graceful degradation of form submission.
+    config.action_view.embed_authenticity_token_in_remote_forms = true
   end
 end

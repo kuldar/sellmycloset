@@ -1,20 +1,9 @@
 h1 = @user.name
-= link_to 'Jälgi', '#'
-= link_to 'Loobu jälgimisest', '#'
+
+= render 'shared/stats'
+= render 'follow_form' if signed_in?
 
 .grid
 	- @user.products.each do |product|
 		.grid-item
-			= render product
-
-javascript:
-	$(document).on('turbolinks:load', function() {
-
-		$("[data-modal='product']").on('ajax:success', function(e, data, status, xhr) {
-			console.log(xhr.responseText);
-			var productModal = new Modal({
-		    content: xhr.responseText
-			}).open();
-		}).on('ajax:error', function(xhr, error) { console.log(error); });
-
-  });
+			= render 'products/feed_product', product: product

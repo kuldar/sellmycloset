@@ -1,0 +1,29 @@
+.product
+	= link_to product, remote: true, class: 'product-image', data: { modal: 'product' } do
+		= image_tag product.photo
+
+	.product-info
+		.product-info-header
+			= link_to product.title, product, remote: true, class: 'product-title', data: { modal: 'product' }
+			.product-buy-btn <strong>Osta</strong> <span class='dot'>&middot;</span> #{ number_to_currency product.price }
+
+		.product-description
+			= product.description
+			<span>#adidas</span> <span>#pluus</span>
+
+		.product-info-footer
+			= link_to product.user, class: 'product-seller' do
+				= image_tag product.user.avatar, class: 'product-seller-photo'
+				.product-seller-info
+					.product-seller-name = product.user.name
+					.product-seller-username = '@' + product.user.username
+
+			.product-meta
+				a.product-meta-btn href='#'
+					.product-meta-btn-count = product.comments.count
+					.product-meta-btn-icon
+						svg xmlns='http://www.w3.org/2000/svg' width='18' height='16.875' viewBox='0 0 18 16.875'
+						  path fill='currentColor' d='M1071.65,703.98c0-4.042-4.01-7.312-9-7.312s-9,3.27-9,7.312a6.99,6.99,0,0,0,3.71,5.916,5.634,5.634,0,0,1-1.35,3,0.407,0.407,0,0,0-.09.413,0.38,0.38,0,0,0,.36.229,7.228,7.228,0,0,0,4.85-2.355,12.173,12.173,0,0,0,1.52.105C1067.64,711.293,1071.65,708.023,1071.65,703.98Z' transform='translate(-1053.66 -696.656)'
+					
+				.product-meta-btn-container id="likes-#{product.id}" 
+					= render partial: 'products/likes', locals: { product: product }

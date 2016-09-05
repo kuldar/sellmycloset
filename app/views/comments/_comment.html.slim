@@ -1,7 +1,7 @@
 .product-comment data-comment="#{comment.id}"
 	= image_tag comment.user.avatar, class: 'product-comment-user-photo'
 	- if user_signed_in? && current_user == comment.user
-		= link_to 'kustuta', [@product, comment], method: :delete, remote: true, class: 'product-comment-delete-btn'
+		= link_to 'x', [@product, comment], method: :delete, remote: true, class: 'product-comment-delete-btn'
 	.product-comment-body
 		a.product-comment-user-name href='#' = comment.user.name
 		= comment.body

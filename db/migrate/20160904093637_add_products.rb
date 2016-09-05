@@ -10,5 +10,7 @@ class AddProducts < ActiveRecord::Migration[5.0]
 
   		t.timestamps
   	end
+
+    add_index :products, [:user_id, :created_at]
   end
 end
