@@ -3,5 +3,5 @@
 	- if user_signed_in? && current_user == comment.user
 		= link_to 'x', [@product, comment], method: :delete, remote: true, class: 'product-comment-delete-btn'
 	.product-comment-body
-		a.product-comment-user-name href='#' = comment.user.name
+		= link_to comment.user.name, comment.user, class: 'product-comment-user-name'
 		= comment.body
