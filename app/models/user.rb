@@ -40,6 +40,18 @@ class User < ApplicationRecord
                      OR user_id = :user_id", user_id: id)
   end
 
+  def avatar_url
+    if avatar?
+      avatar
+    else
+      placeholder_avatar(:email)
+    end
+  end
+
+  def placeholder_avatar(email)
+    'https://api.adorable.io/avatars/100/' + email.to_param
+  end
+
   def likes?(product)
   	product.likes.where(user_id: id).any?
   end

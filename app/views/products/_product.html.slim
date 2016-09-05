@@ -13,7 +13,7 @@
 
 		.product-info-footer
 			= link_to @product.user, class: 'product-seller' do
-				= image_tag @product.user.avatar, class: 'product-seller-photo'
+				= image_tag @product.user.avatar_url, class: 'product-seller-photo'
 				.product-seller-info
 					.product-seller-name = @product.user.name
 					.product-seller-username = '@'+ @product.user.username
