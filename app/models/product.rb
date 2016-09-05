@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  acts_as_taggable
 
 	enum status: {
     draft:      0,

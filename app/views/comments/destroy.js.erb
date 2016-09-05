@@ -1,1 +1,2 @@
 $("[data-comment='<%= j @comment.id.to_s %>']").remove();
+$("[data-comments-counter='<%= j @comment.product.id.to_s %>']").html("<%= j render partial: 'products/comments_counter', locals: { product: @comment.product } %>");

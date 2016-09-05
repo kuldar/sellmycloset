@@ -167,7 +167,6 @@ $red: #eb410d;
 // Product Description
 
 .product-description {
-	color: $dark-gray;
 	margin-bottom: 1rem;
 }
 
@@ -175,6 +174,7 @@ $red: #eb410d;
 	font-weight: bold;
 	background-color: $light-gray;
 	padding: 0 0.25rem;
+	margin: 0 0.125rem;
 }
 
 // Product Footer
@@ -286,7 +286,6 @@ $red: #eb410d;
 .product-comment-body {
 	@include clearfix;
 	margin-left: 1.75rem;
-	color: $dark-gray;
 }
 
 .product-comment-user-name {
@@ -305,7 +304,6 @@ $red: #eb410d;
 // Product Comments CTA
 
 .product-comments-cta {
-	color: $dark-gray;
 	padding: 0.5rem 0;
 	a { font-weight: bold; }
 }

@@ -65,7 +65,8 @@ class ProductsController < ApplicationController
 				:description,
 				:photo,
 				:price,
-				:status)
+				:status,
+				:tag_list)
 		end
 
 end
