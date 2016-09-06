@@ -1,4 +1,16 @@
-.grid
-	- @products.each do |product|
-		.grid-item
-			= render 'products/feed_product', product: product
+.grid#grid.is-loading
+	- 5.times do
+		- @products.each do |product|
+			.grid-item
+				= render 'products/feed_product', product: product
+
+javascript:
+	$('#grid').imagesLoaded( function() {
+		
+		$('#grid').wookmark({
+		  itemWidth: 400,
+		  flexibleWidth: true
+		});
+
+		$('#grid').removeClass('is-loading');
+	});

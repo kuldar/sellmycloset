@@ -14,4 +14,6 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require modal
+//= require lib/wookmark.js
+//= require lib/imagesloaded.pkgd.js
 //= require turbolinks
