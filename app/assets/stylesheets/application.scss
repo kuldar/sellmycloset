@@ -3,7 +3,7 @@
 /////////////////
 
 // Fonts
-$main-font: 'Helvetica Neue', sans-serif;
+$main-font: 'Droid Sans', 'Helvetica Neue', 'Helvetica', sans-serif;
 
 //  Colors
 $black: #000000;
@@ -11,11 +11,15 @@ $white: #ffffff;
 
 $light-gray: #f0f2f5;
 $light-gray-2: #e1e1e2;
-$gray: #b7b8ba;
+// $gray: #b7b8ba;
+$gray: #b0afb7;
 $dark-gray: #61656d;
 
 $green: #00b068;
 $red: #eb410d;
+$pink: #ff8b72;
+
+$bezier: cubic-bezier(.175, .885, .32, 1.275);
 
 @mixin min-width($breaking-point) {
   @media only screen and (min-width: $breaking-point) {
@@ -28,6 +32,7 @@ $red: #eb410d;
 ///////////////
 
 // Assets
+@import 'https://fonts.googleapis.com/css?family=Droid+Sans:400,700';
 @import 'bourbon';
 
 // Partials
@@ -39,6 +44,20 @@ $red: #eb410d;
 ////////////////////////
 //  Temporary Styles  //
 ////////////////////////
+
+@keyframes heartPulse {
+  0% { transform: scale(1); }
+  115% { transform: scale(0.9); }
+  50% { transform: scale(1.5); }
+}
+
+@keyframes heartUnlike {
+  50% { transform: scale(.75) ; }
+}
+
+.animate-pulse {
+	@include animation(heartPulse .25s $bezier both);
+}
 
 //////////////
 //  Header  //
@@ -82,7 +101,6 @@ $red: #eb410d;
 .grid {
 	@include display(flex);
 	@include flex-wrap(wrap);
-	@include align-items(center);
 	
 	.grid-item {
 		width: 100%;
@@ -100,10 +118,15 @@ $red: #eb410d;
 //////////////////////
 
 .single-product {
+	max-width: 30rem;
+	margin: 0 auto;
+
 	.product-info {
 		padding: 2.5rem 2.5rem 1.25rem 2.5rem;
 	}
 }
+
+.feed-product {}
 
 ///////////////
 //  Product  //
@@ -152,16 +175,22 @@ $red: #eb410d;
 
 .product-buy-btn {
 	color: $white;
-	background-color: $green;
+	background-color: $pink;
 	box-shadow: inset 0 -1px 0 rgba($black, 0.1);
-	border-radius: 0.25rem;
+	border-radius: 10rem;
 	padding: 0.5rem 0.75rem;
 	text-transform: uppercase;
 	line-height: 1em;
 
-	.dot, .price { opacity: 0.75; }
+	.dot, 
+	.price { opacity: 0.75; }
+
 	strong { font-weight: bold; }
-	&:hover { text-decoration: none; }
+
+	&:hover {
+		text-decoration: none;
+		background-color: darken($pink, 0.3);
+	}
 }
 
 // Product Description
@@ -175,6 +204,8 @@ $red: #eb410d;
 	background-color: $light-gray;
 	padding: 0 0.25rem;
 	margin: 0 0.125rem;
+	display: inline-block;
+	white-space: nowrap;
 }
 
 // Product Footer
@@ -234,14 +265,22 @@ $red: #eb410d;
 	@include clearfix;
 	float: left;
 	background-color: $light-gray;
-	margin-left: 1rem;
-	border-radius: 0.25rem;
+	margin-left: 0.75rem;
+	border-radius: 10rem;
 	padding: 0.5rem 0.75rem;
+
+	&:hover { background-color: darken($light-gray, 3); }
+	&:active {
+		position: relative;
+		top: 1px;
+	}
 }
 
 .product-meta-btn-count {
+	position: relative;
+	top: 1px;
 	float: left;
-	margin-right: 0.5rem;
+	margin-right: 0.325rem;
 	line-height: 1em;
 	font-weight: bold;
 }
@@ -250,7 +289,7 @@ $red: #eb410d;
 	float: left;
 	color: $gray;
 	svg { display: block; }
-	&.is-liked { color: $red; }
+	&.is-liked { color: $pink; }
 }
 
 ////////////////////////
@@ -333,7 +372,6 @@ $red: #eb410d;
 	height: auto;
 	padding: 0.5rem 0;
 	background-color: transparent;
-	color: $dark-gray;
 	resize: none;
 	outline: none;
 	border: none;

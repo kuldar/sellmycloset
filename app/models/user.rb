@@ -5,14 +5,15 @@ class User < ApplicationRecord
   enum role: {
     buyer:  0,
     seller: 1,
-    editor: 2,
-    admin:  3
+    brand:  2,
+    editor: 3,
+    admin:  4
   }
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  mount_uploader :avatar, PictureUploader
+  mount_uploader :avatar, AvatarUploader
          
 	has_many :products, dependent: :destroy
   has_many :likes
@@ -44,12 +45,12 @@ class User < ApplicationRecord
     if avatar?
       avatar
     else
-      placeholder_avatar(:email)
+      placeholder_avatar(email)
     end
   end
 
   def placeholder_avatar(email)
-    'https://api.adorable.io/avatars/100/' + email.to_param
+    "https://api.adorable.io/avatars/100/#{email.to_param}"
   end
 
   def likes?(product)

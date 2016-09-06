@@ -10,7 +10,6 @@ class ProductDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     user: Field::BelongsTo,
     id: Field::Number,
-    photo: ImageField,
     title: Field::String,
     description: Field::String,
     price: Field::Number,
@@ -33,7 +32,6 @@ class ProductDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :photo,
     :id,
     :user,
     :title,
@@ -47,7 +45,6 @@ class ProductDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :user,
-    :photo,
     :title,
     :description,
     :price,

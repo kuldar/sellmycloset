@@ -1,6 +1,7 @@
 .product.single-product
 	.product-image
-		= image_tag @product.photo
+		- @product.product_images.each do |p|
+			= image_tag p.image_url
 
 	.product-info
 		.product-info-header

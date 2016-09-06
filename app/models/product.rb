@@ -8,15 +8,16 @@ class Product < ApplicationRecord
     cancelled: 	3
   }
 
-  mount_uploader :photo, PictureUploader
-
   belongs_to :user
   has_many :likes
   has_many :comments
+  
+  has_many                      :product_images, dependent: :destroy
+  accepts_nested_attributes_for :product_images, allow_destroy: true
 
   default_scope -> { order(created_at: :desc) }
 
   validates :user_id, presence: true
-  validates :photo, :title, :description, :price, presence: true
+  validates :title, :description, :price, presence: true
 
 end

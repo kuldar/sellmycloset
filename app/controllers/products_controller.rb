@@ -13,25 +13,34 @@ class ProductsController < ApplicationController
 
 	def new
 		@product = current_user.products.build
+		@product_image = @product.product_images.build
 	end
 
 	def create
     @product = current_user.products.build(product_params)
 
     if @product.save
-      flash[:success] = t('.flash_success')
-      redirect_to @product
-    else
+    	params[:product_images]['image'].each do |image|
+    		@product_image = @product.product_images.create!(image: image, product_id: @product.id)
+    	end
+  		flash[:success] = t('.flash_success')
+    	redirect_to @product
+  	else
       flash[:error] = t('.flash_error')
       render 'new'
-    end
+	  end
+
 	end
 
 	def edit
   end
 
+  # Todo, update update method with product_images support
 	def update
 		if @product.update_attributes(product_params)
+			params[:product_images]['image'].each do |image|
+				@product_image = @product.product_images.create!(image: image, product_id: @product.id)
+			end
       flash[:success] = t('.flash_success')
       redirect_to @product
     else
@@ -63,10 +72,10 @@ class ProductsController < ApplicationController
 			params.require(:product).permit(
 				:title,
 				:description,
-				:photo,
 				:price,
 				:status,
-				:tag_list)
+				:tag_list,
+				product_images_attributes: [:id, :product_id, :image])
 		end
 
 end

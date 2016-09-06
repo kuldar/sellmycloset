@@ -1,6 +1,6 @@
-.product
+.product.feed-product
 	= link_to product, remote: true, class: 'product-image', data: { modal: 'product' } do
-		= image_tag product.photo
+		= image_tag product.product_images.first.image_url
 
 	.product-info
 		.product-info-header

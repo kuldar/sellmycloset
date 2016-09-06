@@ -1,11 +1,22 @@
-= form_for(@product) do |f|
+= form_for(@product, html: { multipart: true }) do |f|
   = render 'shared/error_messages', object: f.object
 
-  = image_tag @product.photo if @product.photo?
-  = f.file_field :photo
+  = f.fields_for :product_images do |i|
+    = i.label :image, 'Upload image'
+    = i.file_field :image, multiple: true, id: 'upload-image', name: 'product_images[image][]'
+
+  / input id="product_images_ids" name="product_images" type="hidden" value=""
+  / input data-url="/product_images" id="product_upload" multiple="multiple" name="images[]" type="file"
+
+	/ = f.fields_for :product_images do |p|
+	/ 	= p.label :image
+	/ 	= p.file_field :product_image, multiple: true, name: 'product_images[image][]'
+	/ 	= p.hidden_field :_destroy, data: { behavior: 'delete-product-image-toggle' }
+	/ 	= p.link_to 'Delete', '#', data: { behavior: 'delete-product-image' }
+
   = f.text_field :title, placeholder: "Toote nimi"
   = f.text_field :description, placeholder: "Toote kirjeldus"
   = f.number_field :price, placeholder: "Hind"
   = f.text_field :tag_list, placeholder: "Hashtags"
 
-  = f.submit 'Lisa'
+  = f.submit 'Lisa', id: 'submit-data'
