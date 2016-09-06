@@ -1,24 +1,25 @@
 .product.single-product
 	.product-image
+		.product-seller
+			= image_tag @product.user.avatar_url, class: 'product-seller-photo'
+			.product-seller-info
+				.product-seller-name = @product.user.name
+				.product-seller-username = '@' + @product.user.username
+
 		- @product.product_images.each do |p|
 			= image_tag p.image_url
 
 	.product-info
 		.product-info-header
 			.product-title= @product.title
-			a.product-buy-btn href='#' <strong>Osta</strong> <span class='dot'>&middot;</span> <span class='price'>#{number_to_currency(@product.price)}</span>
 
 		.product-description
 			=> @product.description
 			= render @product.tags
 
 		.product-info-footer
-			= link_to @product.user, class: 'product-seller' do
-				= image_tag @product.user.avatar_url, class: 'product-seller-photo'
-				.product-seller-info
-					.product-seller-name = @product.user.name
-					.product-seller-username = '@'+ @product.user.username
-
+			a.product-buy-btn href='#' <strong>Osta</strong> <span class='dot'>&middot;</span> <span class='price'>#{number_to_currency(@product.price)}</span>
+			
 			.product-meta
 				.product-meta-btn-container data-comments-counter="#{@product.id}" 
 					= render partial: 'products/comments_counter', locals: { product: @product }
