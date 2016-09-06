@@ -6,12 +6,13 @@ $(document).keyup(function(event) {
   }
 });
 
-$(document).on('click touch', "[data-behavior='modal-overlay']", function() {
+$(document).on('click tap', "[data-behavior='modal-overlay']", function(event) {
 	$("[data-behavior='modal-overlay']").addClass('is-hidden');
   $("[data-behavior='modal']").html('');
   $("body").removeClass('has-modal');
+  event.preventDefault();
 });
 
-$(document).on('click touch', "[data-behavior='modal']", function(event) {
+$(document).on('click tap', "[data-behavior='modal']", function(event) {
   event.stopPropagation();
 });

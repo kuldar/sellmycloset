@@ -111,21 +111,6 @@ $bezier: cubic-bezier(.175, .885, .32, 1.275);
 	padding: 0.5rem;
 }
 
-// .grid {
-// 	// @include display(flex);
-// 	// @include flex-wrap(wrap);
-	
-// 	.grid-item {
-// 		// width: 100%;
-// 		// padding: 0.5rem 1rem;
-
-// 		@include min-width(40rem) {
-// 			// padding: 0.5rem;
-// 			// width: 50%;
-// 		}
-// 	}
-// }
-
 //////////////////////
 //  Single Product  //
 //////////////////////
@@ -135,7 +120,19 @@ $bezier: cubic-bezier(.175, .885, .32, 1.275);
 	margin: 0 auto;
 
 	.product-info {
-		padding: 2.5rem 2.5rem 1.25rem 2.5rem;
+		padding: 2rem 1.5rem 1.25rem 1.5rem;
+
+		@include min-width(25rem) {
+			padding: 2.5rem 2.5rem 1.25rem 2.5rem;
+		}
+	}
+
+	.product-comments-container {
+		padding: 1rem 1.5rem 1.25rem 1.5rem;
+
+		@include min-width(25rem) {
+			padding: 1rem 2.5rem 1.25rem 2.5rem;
+		}
 	}
 }
 
