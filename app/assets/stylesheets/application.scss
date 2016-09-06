@@ -143,6 +143,7 @@ $bezier: cubic-bezier(.175, .885, .32, 1.275);
 ///////////////
 
 .product {
+	position: relative;
 	border-radius: 0.5rem;
 	overflow: hidden;
 	background-color: $white;
@@ -178,7 +179,7 @@ $bezier: cubic-bezier(.175, .885, .32, 1.275);
 .product-title {
 	@include flex(1);
 	margin-right: 1rem;
-	font-size: 1.5rem;
+	font-size: 1.25rem;
 	font-weight: bold;
 	line-height: 1em;
 }
@@ -222,9 +223,9 @@ $bezier: cubic-bezier(.175, .885, .32, 1.275);
 
 .product-info-footer {
 	@include clearfix;
-	margin-top: 1.25rem;
-	border-top: 1px solid $light-gray-2;
-	padding-top: 1.25rem;
+	margin-top: 1.5rem;
+	// border-top: 1px solid $light-gray-2;
+	// padding-top: 1.25rem;
 }
 
 // Product Seller
@@ -251,12 +252,16 @@ $bezier: cubic-bezier(.175, .885, .32, 1.275);
 .product-seller-name {
 	font-weight: bold;
 	line-height: 1em;
-	margin-bottom: 0.125rem;
+	// display: none;
+	// margin-bottom: 0.125rem;
+	line-height: 2rem;
 }
 
 .product-seller-username {
 	color: $dark-gray;
-	line-height: 1em;
+	// line-height: 1em;
+	// line-height: 2rem;
+	display: none;
 }
 
 // Product Meta
