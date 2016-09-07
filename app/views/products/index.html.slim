@@ -2,10 +2,9 @@
 	- unless signed_in?
 		.grid-item
 			= render 'shared/signup_cta'
-	- 5.times do
-		- @products.each do |product|
-			.grid-item
-				= render 'products/feed_product', product: product
+	- @products.each do |product|
+		.grid-item
+			= render 'products/feed_product', product: product
 
 javascript:
 	$('#grid').imagesLoaded( function() {

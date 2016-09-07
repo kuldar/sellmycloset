@@ -13,7 +13,7 @@ class ProductDashboard < Administrate::BaseDashboard
     title: Field::String,
     description: Field::String,
     price: Field::Number,
-    status: Field::String.with_options(searchable: false),
+    status: Field::String.with_options(searchable: true),
   }.freeze
 
   # COLLECTION_ATTRIBUTES

@@ -13,7 +13,8 @@ class UserDashboard < Administrate::BaseDashboard
     avatar: ImageField,
     name: Field::String,
     username: Field::String,
-    email: Field::String
+    email: Field::String,
+    role: Field::String.with_options(searchable: true),
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -33,6 +34,7 @@ class UserDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :id,
+    :role,
     :name,
     :username,
     :email,
@@ -43,6 +45,7 @@ class UserDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
+    :role,
     :avatar,
     :id,
     :name,
