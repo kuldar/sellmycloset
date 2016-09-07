@@ -1,0 +1,76 @@
+//////////////////
+//  Signup CTA  //
+//////////////////
+
+.signup-cta {
+	@include display(flex);
+	@include flex-direction(column);
+	@include justify-content(flex-end);
+	padding: 2rem;
+	height: 23rem;
+	border-radius: 0.5rem;
+	overflow: hidden;
+	background-color: $white;
+	background-image: image-url('illustrations/signup_cta_bg.jpg');
+	background-position: top;
+	background-size: cover;
+	background-repeat: no-repeat;
+	box-shadow: 0 1px 3px rgba($dark-gray, 0.1);
+}
+
+.signup-cta-pre-title {
+	color: $gray;
+	margin-bottom: 0.5rem;
+}
+
+.signup-cta-title {
+	margin: 0 2.5rem 1.5rem 0;
+	font-size: 1.5rem;
+	line-height: 1.125em;
+}
+
+.signup-cta-btns {
+	@include display(flex);
+	@include align-items(center);
+}
+
+.signup-cta-fb-btn {
+	@include flex(1);
+	text-align: center;
+	background-color: $facebook-blue;
+	color: $white;
+	font-weight: bold;
+	border-radius: 5rem;
+	line-height: 1rem;
+	margin-right: 1rem;
+	padding: 0.5rem 1rem;
+
+	&:hover {
+		background-color: darken($facebook-blue, 5);
+		text-decoration: none;
+	}
+
+	&:active {
+		position: relative;
+		top: 1px;
+	}
+}
+
+.signup-cta-btn {
+	text-align: center;
+	padding: 0.5rem 0.75rem;
+	color: $dark-gray;
+	border: 1px solid rgba($gray, 0.5);
+	border-radius: 5rem;
+	line-height: 1rem;
+
+	&:hover {
+		border: 1px solid rgba($gray, 1);
+		text-decoration: none;
+	}
+
+	&:active {
+		position: relative;
+		top: 1px;
+	}
+}

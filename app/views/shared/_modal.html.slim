@@ -1,3 +1,7 @@
 .modal-overlay.is-hidden data-behavior='modal-overlay'
-	.modal data-behavior='modal'
-	.modal-close = image_tag 'close-icon.svg'
+	.modal-container data-behavior='modal-container'
+		.modal-side-col.is-prev data-behavior='modal-prev'
+		.modal-main-col
+			.modal data-behavior='modal'
+		.modal-side-col.is-next data-behavior='modal-next'
+	.modal-close-btn data-behavior='modal-close' Sulge

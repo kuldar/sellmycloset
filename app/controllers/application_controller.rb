@@ -13,6 +13,8 @@ class ApplicationController < ActionController::Base
       :password_confirmation,
       :remember_me,
       :avatar,
+      :cover,
+      :about,
       :avatar_cache
     ])
 
@@ -24,6 +26,8 @@ class ApplicationController < ActionController::Base
       :password_confirmation,
       :current_password,
       :avatar,
+      :cover,
+      :about,
       :avatar_cache
     ])
   end

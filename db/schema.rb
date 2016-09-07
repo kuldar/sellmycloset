@@ -97,7 +97,9 @@ ActiveRecord::Schema.define(version: 20160906065215) do
     t.datetime "updated_at",                          null: false
     t.string   "name"
     t.string   "username"
+    t.text     "about"
     t.string   "avatar"
+    t.string   "cover"
     t.string   "instagram_handle"
     t.string   "facebook_handle"
     t.integer  "role",                   default: 0

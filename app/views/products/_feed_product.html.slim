@@ -2,22 +2,23 @@
 	= link_to product, remote: true, class: 'product-image', data: { modal: 'product' } do
 		.product-seller
 			= image_tag product.user.avatar_url, class: 'product-seller-photo'
-			.product-seller-info
-				.product-seller-name = product.user.name
-				.product-seller-username = '@' + product.user.username
+			.product-seller-name = product.user.name
 
 		= image_tag product.product_images.first.image_url
 
 	.product-info
 		.product-info-header
-			= link_to product.title, product, remote: true, class: 'product-title', data: { modal: 'product' }
+			= link_to product.title, product, class: 'product-title'
 
 		.product-description
-			= product.description
+			= emojify product.description
 			= render product.tags
 
 		.product-info-footer
-			a.product-buy-btn data-remote=true href='#' <strong>Osta</strong> <span class='dot'>&middot;</span> <span class='price'>#{number_to_currency(product.price)}</span>
+			- if current_user == product.user
+				= link_to 'Muuda toodet', edit_product_path(product), class: 'product-outline-btn'
+			- else
+				a.product-buy-btn data-remote=true href='#' <strong>Osta</strong> <span class='dot'>&middot;</span> <span class='price'>#{number_to_currency(product.price)}</span>
 			.product-meta
 				.product-meta-btn-container data-comments-counter="#{product.id}"
 					= render partial: 'products/comments_counter', locals: { product: product }

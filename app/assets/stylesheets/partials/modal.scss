@@ -14,34 +14,70 @@
   left: 0;
   width: 100%;
   height: 100%;
-  padding: 0.5rem;
+  // padding: 0.5rem;
   cursor: pointer;
   background-color: rgba($dark-gray, 0.9);
-  // background-color: rgba($light-gray, 0.9);
-  // background-color: rgba($gray, 0.9);
 
   &.is-hidden {
     display: none;
   }
 }
 
-.modal {
+.modal-container {
+  @include display(flex);
   cursor: default;
-  max-width: 30rem;
-  margin: 2rem auto;
+  max-width: 40rem;
+  margin: 0;
 
-  @include min-width(25rem) {
-    margin: 0 auto 2rem auto;
+  @include min-width(30rem) { margin: 1rem auto; }
+}
+
+.modal-side-col {
+  display: none;
+  width: 5rem;
+  padding: 1.5rem 0;
+
+  &.is-prev a { border-radius: 0; }
+  &.is-next a { border-radius: 0; }
+
+  @include min-width(30rem) {
+    @include display(flex);
+  }
+
+  @include min-width(40rem) {
+    &.is-prev a { border-radius: 0.75rem 0 0 0.75rem; }
+    &.is-next a { border-radius: 0 0.75rem 0.75rem 0; }
   }
 }
 
-.modal-close {
+.modal-main-col {
+  padding: 0.5rem;
+  @include min-width(30rem) { padding: 0; }
+}
+
+.modal-arrow-btn {
+  @include display(flex);
+  @include flex(1);
+  cursor: pointer;
+  opacity: 0.7;
+  background-color: rgba($black, 0.5);
+
+  &:hover { opacity: 1; }
+  img { margin: 0 auto; }
+}
+
+.modal-close-btn {
+  cursor: pointer;
+  opacity: 0.5;
+  display: table;
+  text-transform: uppercase;
+  margin: 2rem auto;
   color: $white;
   text-align: center;
-  margin-bottom: 3rem;
+  line-height: 2rem;
+  border-radius: 5rem;
+  border: 1px solid rgba($light-gray, 0.5);
+  padding: 0 3rem;
 
-  img {
-    opacity: 0.5;
-    &:hover { opacity: 1; }
-  }
+  &:hover { opacity: 1; }
 }

@@ -2,8 +2,13 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= image_tag(current_user.avatar, style: 'display:block;width:10rem;') if current_user.avatar? %>
+    <%= image_tag(current_user.avatar, style: 'display:block;width:10rem;') unless current_user.avatar.blank? %>
     <%= f.file_field :avatar %>
+  </div>
+
+  <div class="field">
+    <%= image_tag(current_user.cover, style: 'display:block;width:10rem;') unless current_user.cover.blank? %>
+    <%= f.file_field :cover %>
   </div>
 
   <div class="field">
@@ -19,6 +24,11 @@
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :about %><br />
+    <%= f.text_area :about %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

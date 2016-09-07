@@ -1,9 +1,10 @@
-h1 = @user.name
-
-= render 'shared/stats'
-= render 'follow_form' if signed_in?
-
 .grid#grid.is-loading
+	- if signed_in?
+		.grid-item
+			= render 'shared/user_card', user: @user
+	- else
+		.grid-item
+			= render 'shared/signup_cta'
 	- @user.products.each do |product|
 		.grid-item
 			= render 'products/feed_product', product: product

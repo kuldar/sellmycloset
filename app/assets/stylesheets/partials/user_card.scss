@@ -1,0 +1,166 @@
+/////////////////
+//  User Card  //
+/////////////////
+
+.user-card {
+	@include display(flex);
+	@include flex-direction(column);
+	@include justify-content(flex-end);
+	padding: 2rem;
+	position: relative;
+	height: 30rem;
+	border-radius: 0.5rem;
+	overflow: hidden;
+	background-color: $black;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	color: $white;
+	box-shadow: 0 1px 3px rgba($dark-gray, 0.1);
+	&:after {
+		content: '';
+		z-index: 20;
+		background-color: red;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		@include background(linear-gradient(
+			rgba($black, 0) 20%,
+			rgba($black, 0.1) 30%,
+			rgba($black, 0.5) 50%,
+			rgba($black, 0.85))
+		);
+	}
+}
+
+.user-card-header {
+	@include display(flex);
+	position: relative;
+	z-index: 30;
+	margin-bottom: 1rem;
+}
+
+.user-card-avatar {
+	width: 5rem;
+	height: 5rem;
+	overflow: hidden;
+	border-radius: 99rem;
+	margin-right: 1rem;
+
+	img {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+}
+
+.user-card-info {
+	@include flex(1);
+	padding-top: 1rem;
+}
+
+.user-card-name {
+	font-size: 1.325rem;
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+}
+
+.user-card-about {
+	color: rgba($white, 0.7);
+	margin-bottom: 0.5rem;
+
+	a {
+		text-decoration: underline;
+		color: $white;
+	}
+}
+
+.user-card-username {
+	font-size: 1.25rem;
+	opacity: 0.5;
+}
+
+// User stats
+
+.user-card-stats {
+	@include display(flex);
+	position: relative;
+	z-index: 30;
+	border-top: 1px solid rgba($white, 0.2);
+}
+
+.user-card-stat {
+	@include flex(1);
+	padding: 1rem 0 0 0;
+}
+
+.user-card-stat-key {
+	color: rgba($white, 0.6);
+	font-weight: bold;
+	font-size: 0.875rem;
+	text-transform: uppercase;
+	margin-bottom: 0.5rem;
+}
+
+.user-card-stat-value {
+	font-size: 1.5rem;
+	&.is-muted { color: rgba($white, 0.6); }
+}
+
+// User actions
+
+.user-card-actions {
+	@include display(flex);
+	padding-bottom: 1rem;
+	position: relative;
+	z-index: 30;
+}
+
+.user-card-btn-container {
+	@include flex(1);
+}
+
+.user-card-btn {
+	outline: none;
+	border-radius: 99rem;
+	border: 1px solid rgba($white, 0.5);
+	text-align: center;
+	line-height: 1em;
+	padding: 0.5rem 1rem;
+
+	&:hover {
+		text-decoration: none;
+		border-color: rgba($white, 0.6);
+	}
+	&:active {
+		position: relative;
+		top: 1px;
+	}
+
+
+	&.is-unfollow {
+		width: 100%;
+		background-color: transparent;
+	}
+
+	&.is-follow,
+	&.is-add-product {
+		width: 100%;
+		text-transform: uppercase;
+		font-weight: bold;
+		border: none;
+		background-color: $green;
+	}
+
+	&.is-outline {
+		margin-left: 1rem;
+
+		img {
+			height: 1em;
+			width: auto;
+			display: block;
+		}
+	}
+}

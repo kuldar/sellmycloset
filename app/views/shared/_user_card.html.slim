@@ -1,0 +1,40 @@
+/ User Card
+.user-card style="#{ 'background-image:url(' + user.cover.to_s + ');' }"
+
+	/ User Header
+	.user-card-header
+		.user-card-avatar = image_tag user.avatar_url
+		.user-card-info
+			.user-card-name = user.name
+			.user-card-about = emojify raw sanitize user.about, attributes: %w(href) unless user.about.blank?
+
+	/ User Actions
+	.user-card-actions
+		- if current_user == user
+			= link_to 'Uus pakkumine', new_product_path, class: 'user-card-btn is-add-product'
+			= link_to 'Muuda', edit_registration_path(current_user), class: 'user-card-btn is-outline'
+		- else
+			.user-card-btn-container data-follow-form="#{user.id}"
+				- if current_user.following?(user)
+					= render 'unfollow'
+				- else
+					= render 'follow'
+			= link_to '#', class: 'user-card-btn is-outline' do
+				= image_tag 'twitter-icon-white.svg'
+			= link_to '#', class: 'user-card-btn is-outline' do
+				= image_tag 'facebook-icon-white.svg'
+
+	/ User Stats
+	.user-card-stats
+
+		.user-card-stat
+			.user-card-stat-key Pakkumisi
+			.user-card-stat-value class="#{ "is-muted" if user.products.active.count == 0 }" = user.products.active.count
+
+		.user-card-stat
+			.user-card-stat-key Tehinguid
+			.user-card-stat-value class="#{ "is-muted" if user.products.sold.count == 0 }" = user.products.sold.count
+
+		.user-card-stat
+			.user-card-stat-key Jälgijaid
+			.user-card-stat-value data-follow-count="#{user.id}" class="#{ "is-muted" if user.followers.count == 0 }" = user.followers.count

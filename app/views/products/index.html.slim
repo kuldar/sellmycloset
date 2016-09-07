@@ -1,4 +1,7 @@
 .grid#grid.is-loading
+	- unless signed_in?
+		.grid-item
+			= render 'shared/signup_cta'
 	- 5.times do
 		- @products.each do |product|
 			.grid-item
@@ -6,10 +9,17 @@
 
 javascript:
 	$('#grid').imagesLoaded( function() {
+
+		function getWindowWidth() {
+      return Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+    }
 		
 		$('#grid').wookmark({
-		  itemWidth: 400,
-		  flexibleWidth: true
+		  itemWidth: 300,
+		  offset: 0,
+		  flexibleWidth: function () {
+        return getWindowWidth() < 500 ? '100%' : 400;
+      }
 		});
 
 		$('#grid').removeClass('is-loading');

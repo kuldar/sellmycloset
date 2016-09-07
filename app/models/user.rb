@@ -14,6 +14,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   mount_uploader :avatar, AvatarUploader
+  mount_uploader :cover, CoverUploader
          
 	has_many :products, dependent: :destroy
   has_many :likes
@@ -42,11 +43,15 @@ class User < ApplicationRecord
   end
 
   def avatar_url
-    if avatar?
-      avatar
-    else
-      placeholder_avatar(email)
-    end
+    try(:avatar) || placeholder_avatar(email)
+  end
+
+  def instagram_url
+    "https://www.instagram.com/" + instagram_handle if instagram_handle
+  end
+
+  def facebook_url
+    "https://www.facebook.com/" + facebook_handle if facebook_handle
   end
 
   def placeholder_avatar(email)

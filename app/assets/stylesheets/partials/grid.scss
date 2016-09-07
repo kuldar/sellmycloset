@@ -1,0 +1,16 @@
+////////////
+//  Grid  //
+////////////
+
+.grid {
+	@include transition(opacity, 0.2s);
+	margin-top: 0.5rem;
+	position: relative;
+	opacity: 1;
+
+	&.is-loading { opacity: 0; }
+}
+
+.grid-item {
+	padding: 0.5rem;
+}

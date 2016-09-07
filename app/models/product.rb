@@ -20,4 +20,12 @@ class Product < ApplicationRecord
   validates :user_id, presence: true
   validates :title, :description, :price, presence: true
 
+  def next
+    Product.where('id < ?', id).first
+  end
+
+  def prev
+    Product.where('id > ?', id).last
+  end
+
 end
