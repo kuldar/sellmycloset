@@ -1,11 +1,11 @@
 .product.single-product
-	.product-image
-		.product-seller
+	.product-image-container
+		= link_to @product.user, class: 'product-seller' do
 			= image_tag @product.user.avatar_url, class: 'product-seller-photo'
 			.product-seller-name = @product.user.name
 
-		- @product.product_images.each do |p|
-			= image_tag p.image_url
+		= link_to @product, remote: true, class: 'product-image', data: { modal: 'product' } do
+			= image_tag @product.product_images.first.image_url
 
 	.product-info
 		.product-info-header
@@ -30,9 +30,10 @@
 	.product-comments-container
 
 		.product-comments data-comments-feed="#{@product.id}"
-			= render @product.comments
+			- @product.comments.each do |comment|
+				= render 'comments/comment', product: @product, comment: comment
 		- if user_signed_in?
-			= render 'comments/comment_form'
+			= render 'comments/comment_form', product: @product
 		- else
 			.product-comments-cta
 				=> link_to 'Liitu', new_user_registration_path

@@ -1,10 +1,11 @@
 .product.feed-product
-	= link_to product, remote: true, class: 'product-image', data: { modal: 'product' } do
-		.product-seller
+	.product-image-container
+		= link_to product.user, class: 'product-seller' do
 			= image_tag product.user.avatar_url, class: 'product-seller-photo'
 			.product-seller-name = product.user.name
-
-		= image_tag product.product_images.first.image_url
+		
+		= link_to product, remote: true, class: 'product-image', data: { modal: 'product' } do
+			= image_tag product.product_images.first.image_url
 
 	.product-info
 		.product-info-header
@@ -24,3 +25,17 @@
 					= render partial: 'products/comments_counter', locals: { product: product }
 				.product-meta-btn-container data-likes-counter="#{product.id}"
 					= render partial: 'products/likes_counter', locals: { product: product }
+
+	.product-comments-container data-comments="#{product.id}"
+
+		.product-comments data-comments-feed="#{product.id}"
+			- product.comments.each do |comment|
+				= render 'comments/comment', product: product, comment: comment
+		- if user_signed_in?
+			= render 'comments/comment_form', product: product
+		- else
+			.product-comments-cta
+				=> link_to 'Liitu', new_user_registration_path
+				| või
+				=< link_to 'logi sisse', new_user_session_path
+				| , et kommenteerida..

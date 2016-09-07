@@ -25,9 +25,21 @@
 
 // Product Image
 
-.product-image {
+.product-image-container {
 	position: relative;
 	display: block;
+}
+
+.product-image {
+	display: block;
+	border-radius: 0.5rem 0.5rem 0 0;
+	overflow: hidden;
+
+	img {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
 
 	&:after {
 		content: '';
@@ -43,20 +55,13 @@
 			rgba($black, 0.75))
 		);
 	}
-
-	& > img {
-		border-radius: 0.5rem 0.5rem 0 0;
-		overflow: hidden;
-		display: block;
-		width: 100%;
-		height: auto;
-	}
 }
 
 // Product Seller
 
 .product-seller {
 	@include clearfix;
+	display: block;
 	position: absolute;
 	z-index: 20;
 	float: left;

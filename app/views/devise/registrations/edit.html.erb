@@ -31,6 +31,16 @@
     <%= f.text_area :about %>
   </div>
 
+  <div class="field">
+    <%= f.label :facebook_handle %><br />
+    <%= f.text_field :facebook_handle %>
+  </div>
+
+  <div class="field">
+    <%= f.label :instagram_handle %><br />
+    <%= f.text_field :instagram_handle %>
+  </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>

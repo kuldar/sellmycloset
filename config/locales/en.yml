@@ -21,6 +21,9 @@
 
 en:
   hello: "Hello world"
+  products:
+    create:
+      flash_success: "New product successfully added! :sparkles:"
   number:
    currency:
       format:

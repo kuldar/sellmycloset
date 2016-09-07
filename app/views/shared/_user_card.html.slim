@@ -21,10 +21,12 @@
 					= render 'follow'
 				- else
 					= link_to 'Jälgi', '#', class: 'user-card-btn is-primary'
-			= link_to '#', class: 'user-card-btn is-outline' do
-				= image_tag 'instagram-icon-white.svg'
-			= link_to '#', class: 'user-card-btn is-outline' do
-				= image_tag 'facebook-icon-white.svg'
+			- if user.instagram_handle?
+				= link_to user.instagram_url, target: '_blank', class: 'user-card-btn is-outline' do
+					= image_tag 'instagram-icon-white.svg'
+			- if user.facebook_handle?
+				= link_to user.facebook_url, target: '_blank', class: 'user-card-btn is-outline' do
+					= image_tag 'facebook-icon-white.svg'
 
 	/ User Stats
 	.user-card-stats

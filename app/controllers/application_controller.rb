@@ -14,6 +14,8 @@ class ApplicationController < ActionController::Base
       :remember_me,
       :avatar,
       :remote_avatar_url,
+      :facebook_handle,
+      :instagram_handle,
       :cover,
       :about,
     ])
@@ -27,6 +29,8 @@ class ApplicationController < ActionController::Base
       :current_password,
       :avatar,
       :remote_avatar_url,
+      :facebook_handle,
+      :instagram_handle,
       :cover,
       :about,
     ])
