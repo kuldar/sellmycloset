@@ -1,3 +1,3 @@
-$("[data-comments='<%= j @product.id.to_s %>']").append("<%= j render partial: 'comments/comment', locals: { comment: @comment } %>");
+$("[data-comments-feed='<%= j @product.id.to_s %>']").append("<%= j render partial: 'comments/comment', locals: { comment: @comment } %>");
 $("[data-comments-counter='<%= j @product.id.to_s %>']").html("<%= j render partial: 'products/comments_counter', locals: { product: @product } %>");
 $("#comment_body").val('');

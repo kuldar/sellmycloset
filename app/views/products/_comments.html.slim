@@ -1,0 +1,10 @@
+.product-comments data-comments="#{product.id}"
+	= render product.comments
+- if user_signed_in?
+	= render 'comments/comment_form'
+- else
+	.product-comments-cta
+		=> link_to 'Liitu', new_user_registration_path
+		| või
+		=< link_to 'logi sisse', new_user_session_path
+		| , et kommenteerida..

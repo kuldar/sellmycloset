@@ -29,7 +29,7 @@
 
 	.product-comments-container
 
-		.product-comments data-comments="#{@product.id}"
+		.product-comments data-comments-feed="#{@product.id}"
 			= render @product.comments
 		- if user_signed_in?
 			= render 'comments/comment_form'
