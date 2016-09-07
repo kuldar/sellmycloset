@@ -24,7 +24,7 @@ class User < ApplicationRecord
          
 	has_many :products, dependent: :destroy
   has_many :likes
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :active_relationships,   class_name: 'Relationship',
                                     foreign_key: 'follower_id',
                                     dependent: :destroy
@@ -36,11 +36,10 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
 
 	validates :name, presence: true
-	# validates :username, presence: true, 
- #                       format: { with: VALID_SLUG_REGEX },
- #                       uniqueness: { case_sensitive: false }
+	validates :username, format: { with: VALID_SLUG_REGEX },
+                       uniqueness: { case_sensitive: false }
 
-  # before_create :set_username
+  before_create :set_username
 
   def feed
     following_ids = "SELECT followed_id FROM relationships
@@ -50,7 +49,11 @@ class User < ApplicationRecord
   end
 
   def avatar_url
-    try(:avatar) || placeholder_avatar(email)
+    if avatar?
+      avatar
+    else
+      placeholder_avatar(email)
+    end
   end
 
   def instagram_url
@@ -100,10 +103,21 @@ class User < ApplicationRecord
     end
   end
 
-  # private
-    # def set_username
-    #   # TODO: Add validation for username
-    #   self.username ||= self.name.gsub(' ', '').downcase 
-    # end
+  private
+    def set_username
+      if self.username.blank?
+        username = self.name.gsub(' ','').downcase
+        temp_username = username
+        num = 1
+
+        while(User.where(username: username).count > 0)
+          username = "#{temp_username}#{num}"
+          num += 1
+        end
+
+        self.username = username
+      end
+
+    end
 
 end

@@ -67,3 +67,13 @@ $bezier: cubic-bezier(.175, .885, .32, 1.275);
 .animate-pulse {
 	@include animation(heartPulse .25s $bezier both);
 }
+
+.box {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: $white;
+  box-shadow: 0 1px 3px rgba($dark-gray, 0.1);
+  padding: 2rem;
+  max-width: 30rem;
+  margin: 2rem auto;
+}
