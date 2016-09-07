@@ -7,10 +7,19 @@
 
 javascript:
 	$('#grid').imagesLoaded( function() {
+
+		function getWindowWidth() {
+      return Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+    }
 		
 		$('#grid').wookmark({
-		  itemWidth: 400,
-		  flexibleWidth: true
+		  itemWidth: function () {
+        return getWindowWidth() < 480 ? 300 : 360;
+      },
+		  offset: 0,
+		  flexibleWidth: function () {
+        return getWindowWidth() < 480 ? '100%' : 480;
+      }
 		});
 
 		$('#grid').removeClass('is-loading');
