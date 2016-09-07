@@ -12,15 +12,17 @@
 	.user-card-actions
 		- if current_user == user
 			= link_to 'Uus pakkumine', new_product_path, class: 'user-card-btn is-add-product'
-			= link_to 'Muuda', edit_registration_path(current_user), class: 'user-card-btn is-outline'
+			= link_to 'Seaded', edit_registration_path(current_user), class: 'user-card-btn is-outline'
 		- else
 			.user-card-btn-container data-follow-form="#{user.id}"
-				- if current_user.following?(user)
+				- if signed_in? && current_user.following?(user)
 					= render 'unfollow'
-				- else
+				- elsif signed_in?
 					= render 'follow'
+				- else
+					= link_to 'Jälgi', '#', class: 'user-card-btn is-primary'
 			= link_to '#', class: 'user-card-btn is-outline' do
-				= image_tag 'twitter-icon-white.svg'
+				= image_tag 'instagram-icon-white.svg'
 			= link_to '#', class: 'user-card-btn is-outline' do
 				= image_tag 'facebook-icon-white.svg'
 

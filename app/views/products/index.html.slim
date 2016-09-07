@@ -14,10 +14,12 @@ javascript:
     }
 		
 		$('#grid').wookmark({
-		  itemWidth: 300,
+		  itemWidth: function () {
+        return getWindowWidth() < 480 ? 300 : 360;
+      },
 		  offset: 0,
 		  flexibleWidth: function () {
-        return getWindowWidth() < 500 ? '100%' : 400;
+        return getWindowWidth() < 480 ? '100%' : 480;
       }
 		});
 

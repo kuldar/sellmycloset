@@ -14,6 +14,7 @@ class UserDashboard < Administrate::BaseDashboard
     name: Field::String,
     username: Field::String,
     email: Field::String,
+    password: Field::String,
     role: Field::String.with_options(searchable: true),
   }.freeze
 
@@ -47,11 +48,11 @@ class UserDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :role,
     :avatar,
-    :id,
     :name,
     :username,
     :email,
     :products,
+    :password,
   ].freeze
 
   # Overwrite this method to customize how products are displayed

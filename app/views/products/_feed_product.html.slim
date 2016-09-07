@@ -16,7 +16,7 @@
 
 		.product-info-footer
 			- if current_user == product.user
-				= link_to 'Muuda toodet', edit_product_path(product), class: 'product-outline-btn'
+				= link_to 'Muuda', edit_product_path(product), class: 'product-outline-btn'
 			- else
 				a.product-buy-btn data-remote=true href='#' <strong>Osta</strong> <span class='dot'>&middot;</span> <span class='price'>#{number_to_currency(product.price)}</span>
 			.product-meta

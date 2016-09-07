@@ -1,13 +1,9 @@
 .grid#grid.is-loading
-	- if signed_in?
-		.grid-item
-			= render 'shared/user_card', user: @user
-	- else
-		.grid-item
-			= render 'shared/signup_cta'
+	.grid-item = render 'shared/user_card', user: @user
+	- unless signed_in?
+		.grid-item = render 'shared/signup_cta'
 	- @user.products.each do |product|
-		.grid-item
-			= render 'products/feed_product', product: product
+		.grid-item = render 'products/feed_product', product: product
 
 javascript:
 	$('#grid').imagesLoaded( function() {

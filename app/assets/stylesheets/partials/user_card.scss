@@ -139,14 +139,15 @@
 		top: 1px;
 	}
 
-
 	&.is-unfollow {
 		width: 100%;
 		background-color: transparent;
 	}
 
+	&.is-primary,
 	&.is-follow,
 	&.is-add-product {
+		display: block;
 		width: 100%;
 		text-transform: uppercase;
 		font-weight: bold;
