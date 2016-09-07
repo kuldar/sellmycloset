@@ -1,6 +1,6 @@
 class AvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
-  process resize_to_limit: [800, 800]
+  process resize_to_limit: [500, 500]
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick

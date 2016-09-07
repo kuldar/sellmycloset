@@ -13,9 +13,9 @@ class ApplicationController < ActionController::Base
       :password_confirmation,
       :remember_me,
       :avatar,
+      :remote_avatar_url,
       :cover,
       :about,
-      :avatar_cache
     ])
 
     devise_parameter_sanitizer.permit(:account_update, keys:[
@@ -26,9 +26,9 @@ class ApplicationController < ActionController::Base
       :password_confirmation,
       :current_password,
       :avatar,
+      :remote_avatar_url,
       :cover,
       :about,
-      :avatar_cache
     ])
   end
 end

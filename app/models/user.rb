@@ -10,8 +10,14 @@ class User < ApplicationRecord
     admin:  4
   }
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise  :database_authenticatable, 
+          :registerable,
+          :recoverable, 
+          :rememberable,
+          :trackable,
+          :validatable,
+          :omniauthable,
+          omniauth_providers: [:facebook]
 
   mount_uploader :avatar, AvatarUploader
   mount_uploader :cover, CoverUploader
@@ -30,10 +36,11 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
 
 	validates :name, presence: true
-  validates :name, presence: true
-	validates :username, presence: true, 
-                       format: { with: VALID_SLUG_REGEX },
-                       uniqueness: { case_sensitive: false }
+	# validates :username, presence: true, 
+ #                       format: { with: VALID_SLUG_REGEX },
+ #                       uniqueness: { case_sensitive: false }
+
+  # before_create :set_username
 
   def feed
     following_ids = "SELECT followed_id FROM relationships
@@ -73,5 +80,30 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
+      user.email = auth.info.email
+      user.name = auth.info.name
+      user.remote_avatar_url = "#{auth.info.image.gsub('http:','https:')}?width=500&height=500"
+      user.password = Devise.friendly_token[0,20]
+    end
+  end
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info']
+        user.email = data['email'] if user.email.blank?
+        user.username = data['name'].gsub(' ', '').downcase
+        user.name = data['name'] if user.name.blank?
+      end
+    end
+  end
+
+  # private
+    # def set_username
+    #   # TODO: Add validation for username
+    #   self.username ||= self.name.gsub(' ', '').downcase 
+    # end
 
 end
