@@ -1,0 +1,248 @@
+//////////////////////
+//  Select2 Stlyes  //
+//////////////////////
+
+.select2-container {
+  box-sizing: border-box;
+
+  display: inline-block;
+  margin: 0;
+  position: relative;
+  vertical-align: middle;
+
+	//////////////
+  //  Single  //
+  //////////////
+
+  .select2-selection--single {
+  	outline: none;
+  	background-color: $white;
+  	border-radius: 0.325rem;
+  	border: 1px solid $light-gray-2;
+	  
+	  cursor: pointer;
+	  display: block;
+	  height: 2.5rem;
+
+	  user-select: none;
+	  -webkit-user-select: none;
+	  box-sizing: border-box;
+
+    .select2-selection__arrow {
+      width: 0.875rem;
+      height: 0.875rem;
+      background-image: image-url('dropdown-icon.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 0.875rem 0.875rem;
+      position: absolute;
+      top: 0.875rem;
+      right: 0.875rem;
+    }
+
+	  .select2-selection__rendered {
+	    display: block;
+	    padding: 0 0.875rem;
+	    line-height: 2.5rem;
+
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+	  }
+
+	  .select2-selection__clear {
+	    position: relative;
+	  }
+
+	  &:focus,
+	  &:active {
+	  	border-color: $blue;
+	  }
+	}
+
+	////////////////
+	//  Multiple  //
+	////////////////
+
+	.select2-selection--multiple {
+	  box-sizing: border-box;
+
+	  cursor: pointer;
+	  display: block;
+
+	  min-height: 32px;
+
+	  user-select: none;
+	  -webkit-user-select: none;
+
+	  .select2-selection__rendered {
+	    display: inline-block;
+	    overflow: hidden;
+	    padding-left: 8px;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+	  }
+	}
+
+	//////////////
+	//  Search  //
+	//////////////
+
+	.select2-search--inline {
+	  float: left;
+
+	  .select2-search__field {
+	    box-sizing: border-box;
+	    border: none;
+	    font-size: 100%;
+	    margin-top: 5px;
+	    padding: 0;
+
+	    &::-webkit-search-cancel-button {
+	      -webkit-appearance: none;
+	    }
+	  }
+	}
+}
+
+.select2-dropdown {
+  background-color: $white;
+
+  border: 1px solid $blue;
+  border-radius: 0.325rem;
+
+  box-sizing: border-box;
+
+  display: block;
+
+  position: absolute;
+  left: -100000px;
+
+  width: 100%;
+
+  z-index: 1051;
+}
+
+.select2-results {
+  display: block;
+}
+
+.select2-results__options {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.select2-results__option--highlighted {
+	background-color: $blue;
+	color: $white;
+}
+
+.select2-results__option {
+  padding: 0.5rem 0.875rem;
+
+  user-select: none;
+  -webkit-user-select: none;
+
+  &[aria-selected] {
+    cursor: pointer;
+  }
+}
+
+.select2-container--open {
+	
+	&.select2-container--below {
+		.select2-selection--single {
+			border-bottom: none;
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+			border-color: $blue;
+		}
+	}
+
+	&.select2-container--above {
+		.select2-selection--single {
+			border-top: none;
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+			border-color: $blue;
+		}
+	}
+
+}
+
+.select2-container--open .select2-dropdown {
+  left: 0;
+}
+
+.select2-container--open .select2-dropdown--above {
+  border-bottom: none;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.select2-container--open .select2-dropdown--below {
+  border-top: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.select2-search--dropdown {
+  display: block;
+  padding: 0.5rem;
+
+  .select2-search__field {
+    padding: 0 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 0.25rem;
+    border: none;
+    outline: none;
+    background-color: $light-gray;
+    line-height: 2rem;
+
+    &::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+    }
+  }
+
+  &.select2-search--hide {
+    display: none;
+  }
+}
+
+//////////////////
+//  Close Mask  //
+//////////////////
+
+.select2-close-mask {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  min-height: 100%;
+  min-width: 100%;
+  height: auto;
+  width: auto;
+  opacity: 0;
+  z-index: 99;
+
+  // styles required for IE to work
+
+  background-color: #fff;
+  filter: alpha(opacity=0);
+}
+
+.select2-hidden-accessible {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+}

@@ -5,12 +5,13 @@ class Product < ApplicationRecord
     draft:      0,
     active:     1,
     sold: 			2,
-    cancelled: 	3
+    cancelled:  3
   }
 
   belongs_to :user
   has_many :likes
   has_many :comments, dependent: :destroy
+  has_one :sale, foreign_key: 'product_id', class_name: 'Transaction'
   
   has_many                      :product_images, dependent: :destroy
   accepts_nested_attributes_for :product_images, allow_destroy: true

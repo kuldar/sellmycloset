@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
 
+  get '/test', to: 'static_pages#test'
+
 	# Users
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'registrations' }
-  # devise_scope :user do
-  #   delete 'sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session
-  # end
 
   resources	 :users do
     member do
@@ -16,6 +15,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :products
     resources :users
+    resources :transactions
     root to: "products#index"
   end
 
@@ -26,7 +26,11 @@ Rails.application.routes.draw do
 	resources :products do
     resource :like, module: :products
     resources :comments
+    resource :transaction
   end
+
+  # Payments
+  # resources :payments, only: [:create]
 
   # Relationships
   resources :relationships, only: [:create, :destroy]

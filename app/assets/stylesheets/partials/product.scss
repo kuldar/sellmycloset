@@ -131,8 +131,10 @@
 	text-transform: uppercase;
 	line-height: 1em;
 
-	.dot, 
-	.price { opacity: 0.75; }
+	.price {
+		opacity: 0.75;
+		padding-left: 0.25rem;
+	}
 
 	strong { font-weight: bold; }
 

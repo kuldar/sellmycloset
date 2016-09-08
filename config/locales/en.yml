@@ -31,4 +31,64 @@ en:
         delimiter: ','
         separator: '.'
         precision: 0
-        format: '%u%n'
+        format: '%u %n'
+
+  time:
+    am: enne lõunat
+    formats:
+      default: ! "%d. %B %Y, %H:%M"
+      long: ! "%a, %d. %b %Y, %H:%M:%S %z"
+      short: ! "%d.%m.%y, %H:%M"
+    pm: "pärast lõunat"
+
+  datetime:
+    distance_in_words:
+      less_than_x_minutes:
+        one: "vähem kui minut"
+        other: "vähem kui %{count} minutit"
+      x_minutes:
+        one: "1 minut"
+        other: "%{count} minutit"
+      about_x_hours:
+        one: "umbes üks tund"
+        other: "umbes %{count} tundi"
+
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: umbes 1 tund
+        other: umbes %{count} tundi
+      about_x_months:
+        one: umbes 1 kuu
+        other: umbes %{count} kuud
+      about_x_years:
+        one: umbes 1 aasta
+        other: umbes %{count} aastat
+      almost_x_years:
+        one: peaaegu 1 aasta
+        other: peaaegu %{count} aastat
+      half_a_minute: pool minutit
+      less_than_x_minutes:
+        one: vähem kui minut
+        other: vähem kui %{count} minutit
+      less_than_x_seconds:
+        one: vähem kui sekund
+        other: vähem kui %{count} sekundit
+      over_x_years:
+        one: üle 1 aasta
+        other: üle %{count} aasta
+      x_days:
+        one: 1 päev
+        other: "%{count} päeva"
+      x_minutes:
+        one: 1 minut
+        other: "%{count} minutit"
+      x_months:
+        one: 1 kuu
+        other: "%{count} kuud"
+      x_years:
+        one: 1 aasta
+        other: "%{count} aastat"  
+      x_seconds:
+        one: 1 sekund
+        other: "%{count} sekundit"

@@ -1,0 +1,135 @@
+.transaction-wrapper
+  .transaction
+    .transaction-product
+      .transaction-product-image-container
+        = link_to @product.user, class: 'transaction-product-seller' do
+          = image_tag @product.user.avatar_url, class: 'transaction-product-seller-photo'
+          .transaction-product-seller-name = @product.user.name
+
+        .transaction-product-image style="background-image:url('#{@product.product_images.first.image_url}')"
+        
+      .transaction-product-body
+        .transaction-product-info
+          .transaction-product-title = @product.title
+          .transaction-product-description = emojify @product.description
+
+        .transaction-product-cost
+          .transaction-product-price = number_to_currency @product.price
+          .transaction-shipping-price + #{number_to_currency(3)} postikulu
+
+
+
+    .transaction-form
+      = form_for product_transaction_path, url: { action: 'show' }, method: 'post', data: { behavior: 'payment-form' } do |f|
+
+        .transaction-shipping
+          select.transaction-shipping-select data-select="#{@product.id}"
+            option
+            option Mustamäe pakiautomaat
+            option Laagri pakiautomaat
+            option Viru Keskuse pakiautomaat
+
+        - if current_user.has_payment_info?
+          = f.hidden_field :buyer_id, value: current_user.id
+          = f.hidden_field :seller_id, value: @product.user.id
+          button.transaction-form-submit-btn type='submit'
+            | <strong>Maksa</strong> <span class='price'>#{ number_to_currency(@product.price + 3) }</span>
+
+        - else
+          .transaction-form-card
+            #error-message
+            
+            .transaction-form-section
+              label.transaction-form-label for='card-number' Kaardi number
+              #card-number.transaction-form-input
+
+            .transaction-form-section
+              label.transaction-form-label for='cvv' CVV
+              #cvv.transaction-form-input
+
+            .transaction-form-section
+              label.transaction-form-label for='expiration-date' Kehtivuse kuupäev
+              #expiration-date.transaction-form-input
+            
+          = f.hidden_field :buyer_id, value: current_user.id
+          = f.hidden_field :seller_id, value: @product.user.id
+          input type='hidden' name='payment_method_nonce'
+          input.transaction-form-submit-btn type='submit' value="Maksa #{ number_to_currency(@product.price + 3) }" disabled=true data-behavior='payment-submit'
+
+javascript:
+  $(document).ready(function () {
+    $('[data-select="#{@product.id}"]').select2({
+      placeholder: 'Vali sobivaim postiautomaat'
+    });
+  });
+  
+- unless current_user.has_payment_info?
+  script#braintree-client-token type="application/json"
+    = @braintree_client_token
+
+  javascript:
+    var form = document.querySelector('[data-behavior="payment-form"]');
+    var submit = document.querySelector('[data-behavior="payment-submit"]');
+    var clientToken = document.getElementById('braintree-client-token').innerHTML;
+    var nonce = document.querySelector('[name="payment_method_nonce"]')
+
+    braintree.client.create({
+      authorization: clientToken
+    }, function (clientErr, clientInstance) {
+      if (clientErr) {
+        console.error(clientErr);
+        return;
+      }
+
+      braintree.hostedFields.create({
+        client: clientInstance,
+        vault: true,
+        styles: {
+          'input': {
+            'font-family': 'Proxima Nova',
+            'font-size': '16px'
+          },
+          'input.invalid': {
+            'color': '#eb410d'
+          }
+        },
+        fields: {
+          number: {
+            selector: '#card-number',
+            placeholder: '4111 1111 1111 1111'
+          },
+          cvv: {
+            selector: '#cvv',
+            placeholder: '123'
+          },
+          expirationDate: {
+            selector: '#expiration-date',
+            placeholder: '10 / 2019'
+          }
+        }
+      }, function (hostedFieldsErr, hostedFieldsInstance) {
+        if (hostedFieldsErr) {
+          console.error(hostedFieldsErr);
+          return;
+        }
+
+        submit.removeAttribute('disabled');
+
+        form.addEventListener('submit', function (event) {
+          event.preventDefault();
+
+          hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
+            if (tokenizeErr) {
+              console.error(tokenizeErr);
+              return;
+            }
+
+            // If this was a real integration, this is where you would
+            // send the nonce to your server.
+            console.log('Got a nonce: ' + payload.nonce);
+            nonce.value = payload.nonce;
+            form.submit();
+          });
+        }, false);
+      });
+    });

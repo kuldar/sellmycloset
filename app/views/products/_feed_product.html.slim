@@ -16,10 +16,14 @@
 			= render product.tags
 
 		.product-info-footer
-			- if current_user == product.user
-				= link_to 'Muuda', edit_product_path(product), class: 'product-outline-btn'
+			- if product.sold?
+				span.product-outline-btn Müüdud #{ time_ago_in_words product.sale.created_at } tagasi
 			- else
-				a.product-buy-btn data-remote=true href='#' <strong>Osta</strong> <span class='dot'>&middot;</span> <span class='price'>#{number_to_currency(product.price)}</span>
+				- if current_user == product.user
+					= link_to 'Muuda', edit_product_path(product), class: 'product-outline-btn'
+				- else
+					= link_to new_product_transaction_path(product), class: 'product-buy-btn' do
+						| <strong>Osta</strong> <span class='price'>#{number_to_currency(product.price)}</span>
 			.product-meta
 				.product-meta-btn-container data-comments-counter="#{product.id}"
 					= render partial: 'products/comments_counter', locals: { product: product }

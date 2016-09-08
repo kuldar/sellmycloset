@@ -48,6 +48,20 @@ class User < ApplicationRecord
                      OR user_id = :user_id", user_id: id)
   end
 
+  def first_name
+    if name.split.count > 1
+      name.split[0..-2].join(' ')
+    else
+      name
+    end
+  end
+
+  def last_name
+    if name.split.count > 1
+      name.split.last
+    end
+  end
+
   def avatar_url
     if avatar?
       avatar
@@ -65,7 +79,8 @@ class User < ApplicationRecord
   end
 
   def placeholder_avatar(email)
-    "https://api.adorable.io/avatars/100/#{email.to_param}"
+    # "https://api.adorable.io/avatars/100/#{email.to_param}"
+    "http://placehold.it/100x100"
   end
 
   def likes?(product)
@@ -82,6 +97,25 @@ class User < ApplicationRecord
 
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  def has_payment_info?
+    braintree_customer_id
+  end
+
+  def purchase(product)
+    Transaction.create(
+        product_id: product.id,
+        buyer_id: id,
+        seller_id: product.user.id
+      )
+  end
+
+  def purchases
+    # transactions_ids = "SELECT followed_id FROM relationships
+    #                  WHERE  follower_id = :user_id"
+    # Product.where("user_id IN (#{following_ids})
+    #                  OR user_id = :user_id", user_id: id)
   end
 
   def self.from_omniauth(auth)

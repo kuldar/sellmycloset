@@ -9,6 +9,7 @@ header.header
 	nav.header-nav
 		= link_to 'Uued tooted', products_path, class: 'header-nav-link'
 		- if user_signed_in?
+			/ = link_to 'Minu ostud', user_purchases_path(current_user), class: 'header-nav-link'
 			- if current_user.buyer?
 				= link_to 'Hakka müüjaks', become_seller_path, class: 'header-nav-link'
 			- elsif current_user.seller?
