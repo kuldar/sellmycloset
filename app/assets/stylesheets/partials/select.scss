@@ -10,6 +10,7 @@
   position: relative;
   vertical-align: middle;
 
+
 	//////////////
   //  Single  //
   //////////////
@@ -65,23 +66,39 @@
 	////////////////
 
 	.select2-selection--multiple {
+    outline: none;
+    background-color: $white;
+    border-radius: 0.325rem;
+    border: 1px solid $light-gray-2;
+    min-height: 2.5rem;
 	  box-sizing: border-box;
-
 	  cursor: pointer;
 	  display: block;
-
-	  min-height: 32px;
-
 	  user-select: none;
 	  -webkit-user-select: none;
 
 	  .select2-selection__rendered {
-	    display: inline-block;
+	    display: block;
 	    overflow: hidden;
-	    padding-left: 8px;
+	    padding: 0.25rem 0.875rem 0.5rem 0.875rem;
 	    text-overflow: ellipsis;
 	    white-space: nowrap;
 	  }
+
+    .select2-selection__choice {
+      float: left;
+      margin: 0.25rem 0.5rem 0 0;
+      background-color: $blue;
+      border-radius: 5rem;
+      padding: 0.25rem 0.75rem;
+      line-height: 1.5rem;
+      color: $white;
+
+      .select2-selection__choice__remove {
+        font-weight: bold;
+        margin-right: 0.5rem;
+      }
+    }
 	}
 
 	//////////////
@@ -89,13 +106,16 @@
 	//////////////
 
 	.select2-search--inline {
+    margin-top: 0.25rem;
+    line-height: 2rem;
 	  float: left;
 
 	  .select2-search__field {
 	    box-sizing: border-box;
 	    border: none;
+      outline: none;
 	    font-size: 100%;
-	    margin-top: 5px;
+	    margin-top: 0.25rem;
 	    padding: 0;
 
 	    &::-webkit-search-cancel-button {
@@ -149,10 +169,19 @@
   }
 }
 
+.select2-container--focus {
+  &.select2-container {
+    .select2-selection--multiple {
+      border-color: $blue;
+    }
+  }
+}
+
 .select2-container--open {
 	
 	&.select2-container--below {
-		.select2-selection--single {
+		.select2-selection--single,
+    .select2-selection--multiple {
 			border-bottom: none;
 			border-bottom-left-radius: 0;
 			border-bottom-right-radius: 0;
@@ -161,7 +190,8 @@
 	}
 
 	&.select2-container--above {
-		.select2-selection--single {
+		.select2-selection--single,
+    .select2-selection--multiple {
 			border-top: none;
 			border-top-left-radius: 0;
 			border-top-right-radius: 0;
