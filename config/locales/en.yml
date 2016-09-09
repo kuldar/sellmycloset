@@ -20,10 +20,44 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  site:
+    name: "SellMyCloset"
+    title: "Sell and discover new preloved fashion - SellMyCloset.co"
+    description: ""
+    facebook_url: "https://facebook.com/sellmycloset"
+    twitter_url: "https://twitter.com/sellmycloset"
+    twitter_handle: "@sellmycloset"
+    email: "hello@sellmycloset.co"
+
+  shared:
+    header:
+      log_in: "Log in"
+      log_out: "Log out"
+      join: "Join"
+      add_product: "Add a product"
+      my_products: "My products"
+      become_seller: "Become a seller"
+      admin: "Admin"
+      settings: "Settings"
+
   products:
+    product_form:
+      upload_images: "Upload the images"
+      product_title: "Title"
+      product_title_placeholder: "Short product title"
+      product_description: "Description"
+      product_description_placeholder: "Few senteces about the history and condition of the product."
+      product_price: "Price"
+      product_price_placeholder: "€ 10"
+      product_hashtags: "Hashtags"
+      product_hashtags_placeholder: "#brand, #keywords, #condition"
+      add_product: "Sell the product"
+
     create:
       flash_success: "New product successfully added! :sparkles:"
+  
+
+
   number:
    currency:
       format:
@@ -32,63 +66,3 @@ en:
         separator: '.'
         precision: 0
         format: '%u %n'
-
-  time:
-    am: enne lõunat
-    formats:
-      default: ! "%d. %B %Y, %H:%M"
-      long: ! "%a, %d. %b %Y, %H:%M:%S %z"
-      short: ! "%d.%m.%y, %H:%M"
-    pm: "pärast lõunat"
-
-  datetime:
-    distance_in_words:
-      less_than_x_minutes:
-        one: "vähem kui minut"
-        other: "vähem kui %{count} minutit"
-      x_minutes:
-        one: "1 minut"
-        other: "%{count} minutit"
-      about_x_hours:
-        one: "umbes üks tund"
-        other: "umbes %{count} tundi"
-
-  datetime:
-    distance_in_words:
-      about_x_hours:
-        one: umbes 1 tund
-        other: umbes %{count} tundi
-      about_x_months:
-        one: umbes 1 kuu
-        other: umbes %{count} kuud
-      about_x_years:
-        one: umbes 1 aasta
-        other: umbes %{count} aastat
-      almost_x_years:
-        one: peaaegu 1 aasta
-        other: peaaegu %{count} aastat
-      half_a_minute: pool minutit
-      less_than_x_minutes:
-        one: vähem kui minut
-        other: vähem kui %{count} minutit
-      less_than_x_seconds:
-        one: vähem kui sekund
-        other: vähem kui %{count} sekundit
-      over_x_years:
-        one: üle 1 aasta
-        other: üle %{count} aasta
-      x_days:
-        one: 1 päev
-        other: "%{count} päeva"
-      x_minutes:
-        one: 1 minut
-        other: "%{count} minutit"
-      x_months:
-        one: 1 kuu
-        other: "%{count} kuud"
-      x_years:
-        one: 1 aasta
-        other: "%{count} aastat"  
-      x_seconds:
-        one: 1 sekund
-        other: "%{count} sekundit"

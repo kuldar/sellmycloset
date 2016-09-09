@@ -3,22 +3,21 @@ header.header
 	/ Logo
 	= link_to root_path, class: 'logo' do
 		= image_tag 'hanger-icon.svg'
-		strong Sell My Closet
+		strong = t('site.name')
 
 	/ Header Nav
 	nav.header-nav
-		= link_to 'Uued tooted', products_path, class: 'header-nav-link'
 		- if user_signed_in?
 			/ = link_to 'Minu ostud', user_purchases_path(current_user), class: 'header-nav-link'
 			- if current_user.buyer?
-				= link_to 'Hakka müüjaks', become_seller_path, class: 'header-nav-link'
-			- elsif current_user.seller?
-				= link_to 'Lisa kuulutus', new_product_path, class: 'header-nav-link'
-				= link_to 'Minu kuulutused', user_path(current_user), class: 'header-nav-link'
+				= link_to t('.become_seller'), become_seller_path, class: 'header-nav-link'
+			- elsif current_user.seller? || current_user.admin?
+				= link_to t('.add_product'), new_product_path, class: 'header-nav-btn'
+				= link_to t('.my_products'), user_path(current_user), class: 'header-nav-link'
 			- elsif current_user.admin?
-				= link_to 'Admin', admin_root_path, class: 'header-nav-link'
-			= link_to 'Seaded', edit_registration_path(current_user), class: 'header-nav-link'
-			= link_to 'Välju', destroy_user_session_path, method: :delete, class: 'header-nav-link'
+				= link_to t('.admin'), admin_root_path, class: 'header-nav-link'
+			= link_to t('.settings'), edit_registration_path(current_user), class: 'header-nav-link'
+			= link_to t('.log_out'), destroy_user_session_path, method: :delete, class: 'header-nav-link'
 		- else
-			= link_to 'Sisene', new_user_session_path, class: 'header-nav-link'
-			= link_to 'Liitu', new_user_registration_path, class: 'header-nav-link'
+			= link_to t('.log_in'), new_user_session_path, class: 'header-nav-link'
+			= link_to t('.join'), new_user_registration_path, class: 'header-nav-link'

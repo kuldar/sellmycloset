@@ -2,7 +2,7 @@
   = render 'shared/error_messages', object: f.object
 
   = f.fields_for :product_images do |i|
-    = i.label :image, 'Upload image'
+    = i.label :image, t('.upload_images')
     = i.file_field :image, multiple: true, id: 'upload-image', name: 'product_images[image][]'
 
   / input id="product_images_ids" name="product_images" type="hidden" value=""
@@ -14,9 +14,20 @@
 	/ 	= p.hidden_field :_destroy, data: { behavior: 'delete-product-image-toggle' }
 	/ 	= p.link_to 'Delete', '#', data: { behavior: 'delete-product-image' }
 
-  = f.text_field :title, placeholder: "Toote nimi"
-  = f.text_field :description, placeholder: "Toote kirjeldus"
-  = f.number_field :price, placeholder: "Hind"
-  = f.text_field :tag_list, placeholder: "Hashtags"
+  div
+    = f.label :title, t('.product_title')
+    = f.text_field :title, placeholder: t('.product_title')
 
-  = f.submit 'Lisa', id: 'submit-data'
+  div
+    = f.label :description, t('.product_description')
+    = f.text_field :description, placeholder: t('.product_description_placeholder')
+
+  div
+    = f.label :price, t('.product_price')
+    = f.number_field :price, placeholder: t('.product_price_placeholder')
+
+  div
+    = f.label :tag_list, t('.product_hashtags')
+    = f.text_field :tag_list, placeholder: t('.product_hashtags_placeholder')
+
+  = f.submit t('.add_product'), id: 'submit-data'
