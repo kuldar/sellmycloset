@@ -11,8 +11,8 @@
 	/ User Actions
 	.user-card-actions
 		- if current_user == user
-			= link_to 'Uus pakkumine', new_product_path, class: 'user-card-btn is-add-product'
-			= link_to 'Seaded', edit_registration_path(current_user), class: 'user-card-btn is-outline'
+			= link_to 'Add a product', new_product_path, class: 'user-card-btn is-add-product'
+			= link_to 'Settings', edit_registration_path(current_user), class: 'user-card-btn is-outline'
 		- else
 			.user-card-btn-container data-follow-form="#{user.id}"
 				- if signed_in? && current_user.following?(user)
@@ -20,7 +20,7 @@
 				- elsif signed_in?
 					= render 'follow'
 				- else
-					= link_to 'Jälgi', '#', class: 'user-card-btn is-primary'
+					= link_to 'Follow', '#', class: 'user-card-btn is-primary'
 			- if user.instagram_handle?
 				= link_to user.instagram_url, target: '_blank', class: 'user-card-btn is-outline' do
 					= image_tag 'instagram-icon-white.svg'
@@ -32,13 +32,13 @@
 	.user-card-stats
 
 		.user-card-stat
-			.user-card-stat-key Pakkumisi
+			.user-card-stat-key Products
 			.user-card-stat-value class="#{ "is-muted" if user.products.active.count == 0 }" = user.products.active.count
 
 		.user-card-stat
-			.user-card-stat-key Tehinguid
+			.user-card-stat-key Sales
 			.user-card-stat-value class="#{ "is-muted" if user.products.sold.count == 0 }" = user.products.sold.count
 
 		.user-card-stat
-			.user-card-stat-key Jälgijaid
+			.user-card-stat-key Followers
 			.user-card-stat-value data-follow-count="#{user.id}" class="#{ "is-muted" if user.followers.count == 0 }" = user.followers.count
