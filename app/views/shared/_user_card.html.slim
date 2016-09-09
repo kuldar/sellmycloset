@@ -20,7 +20,7 @@
 				- elsif signed_in?
 					= render 'follow'
 				- else
-					= link_to 'Follow', '#', class: 'user-card-btn is-primary'
+					= link_to 'Follow', new_user_registration_path, class: 'user-card-btn is-primary'
 			- if user.instagram_handle?
 				= link_to user.instagram_url, target: '_blank', class: 'user-card-btn is-outline' do
 					= image_tag 'instagram-icon-white.svg'

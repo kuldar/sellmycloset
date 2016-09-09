@@ -4,7 +4,7 @@
 			= image_tag product.user.avatar_url, class: 'product-seller-photo'
 			.product-seller-name = product.user.name
 		
-		= link_to product, remote: true, class: 'product-image', data: { modal: 'product' } do
+		= link_to product, remote: true, class: 'product-image', data: { lightbox: "#{product.id}" } do
 			= image_tag product.product_images.first.image_url
 
 	.product-info

@@ -1,5 +1,5 @@
-$("[data-behavior='modal']").html("<%= j render 'product', product: @product %>");
-$("[data-behavior='modal-next']").html("<%= j render 'product_next_btn', product: @product.next %>");
-$("[data-behavior='modal-prev']").html("<%= j render 'product_prev_btn', product: @product.prev %>");
-$("[data-behavior='modal-overlay']").removeClass('is-hidden');
-$("body").addClass('has-modal');
+$.swipebox([
+	<% @product.product_images.each do |image| %>
+		{ href:"<%= image.image.url %>" }, 
+	<% end %>
+]);
