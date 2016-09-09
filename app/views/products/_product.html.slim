@@ -17,13 +17,13 @@
 
 		.product-info-footer
 			- if @product.sold?
-				span.product-outline-btn Müüdud #{ time_ago_in_words @product.sale.created_at } tagasi
+				span.product-outline-btn Sold #{ time_ago_in_words @product.sale.created_at } ago
 			- else
 				- if current_user == @product.user
-					= link_to 'Muuda', edit_product_path(@product), class: 'product-outline-btn'
+					= link_to 'Change', edit_product_path(@product), class: 'product-outline-btn'
 				- else
 					= link_to new_product_transaction_path(@product), class: 'product-buy-btn' do
-						| <strong>Osta</strong> <span class='price'>#{number_to_currency(@product.price)}</span>
+						| <strong>Buy</strong> <span class='price'>#{number_to_currency(@product.price)}</span>
 			
 			.product-meta
 				.product-meta-btn-container data-comments-counter="#{@product.id}" 
@@ -40,7 +40,7 @@
 			= render 'comments/comment_form', product: @product
 		- else
 			.product-comments-cta
-				=> link_to 'Liitu', new_user_registration_path
-				| või
-				=< link_to 'logi sisse', new_user_session_path
-				| , et kommenteerida..
+				=> link_to 'Join', new_user_registration_path
+				| or
+				=< link_to 'sign in', new_user_session_path
+				|  to comment..
