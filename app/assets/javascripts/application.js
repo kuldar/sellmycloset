@@ -16,6 +16,7 @@
 //= require lib/wookmark
 //= require lib/imagesloaded.pkgd
 //= require lib/select2.full
+//= require lib/i18n/et
 //= require modal
 //= require select
 //= require turbolinks
