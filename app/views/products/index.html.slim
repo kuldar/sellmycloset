@@ -1,7 +1,8 @@
 .header-row
 	.search
-		= form_for products_path, html: { class: 'search-form' } do |f|
-			= f.select :tag_list, options_for_select(options_for_tags), {}, { class: 'search-input', multiple: true, data: { behavior: 'search' }}
+		= form_tag products_path, method: 'get', data: { behavior: 'search-form' }, class: 'search-form' do
+			= select_tag :q, options_for_select(ActsAsTaggableOn::Tag.all, params[:q]), { class: 'search-input', multiple: true, data: { behavior: 'search' }}
+			= submit_tag 'Search', name: nil, hidden: true
 
 .grid#grid.is-loading
 	- unless signed_in?
@@ -35,4 +36,8 @@ javascript:
 		$("[data-behavior='search']").select2({
 			placeholder: 'Discover by hashtag..' 
 		});
+	});
+
+	$("[data-behavior='search']").on('select2:select', function(e) {
+		$("[data-behavior='search-form']").submit();
 	});

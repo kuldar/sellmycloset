@@ -4,7 +4,11 @@ class ProductsController < ApplicationController
 	before_action :authenticate_product_seller, only: [:edit, :update, :destroy]
 
 	def index
-		@products = Product.all.active
+		if params.has_key?(:q)
+    	@products = Product.tagged_with(params[:q], any: true)
+    else
+    	@products = Product.all.active
+    end
 	end
 
 	def show
