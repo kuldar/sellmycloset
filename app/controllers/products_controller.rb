@@ -19,8 +19,7 @@ class ProductsController < ApplicationController
 	def create
     @product = current_user.products.build(product_params)
 
-    if @product.save
-    	save_images
+    if @product.save && save_images
   		flash[:success] = t('.flash_success')
     	redirect_to @product
   	else

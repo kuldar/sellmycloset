@@ -15,7 +15,7 @@
 
         .transaction-product-cost
           .transaction-product-price = number_to_currency @product.price
-          .transaction-shipping-price + #{number_to_currency(3)} postikulu
+          .transaction-shipping-price + #{number_to_currency(3)} shipping
 
 
 
@@ -40,7 +40,7 @@
             #error-message
             
             .transaction-form-section
-              label.transaction-form-label for='card-number' Kaardi number
+              label.transaction-form-label for='card-number' Card number
               #card-number.transaction-form-input
 
             .transaction-form-section
@@ -48,18 +48,19 @@
               #cvv.transaction-form-input
 
             .transaction-form-section
-              label.transaction-form-label for='expiration-date' Kehtivuse kuupäev
+              label.transaction-form-label for='expiration-date' Expiration date
               #expiration-date.transaction-form-input
             
           = f.hidden_field :buyer_id, value: current_user.id
           = f.hidden_field :seller_id, value: @product.user.id
           input type='hidden' name='payment_method_nonce'
-          input.transaction-form-submit-btn type='submit' value="Maksa #{ number_to_currency(@product.price + 3) }" disabled=true data-behavior='payment-submit'
+          button.transaction-form-submit-btn type='submit' disabled=true data-behavior='payment-submit'
+            | <strong>Pay</strong> <span class="price">#{ number_to_currency(@product.price + 3) }<span class="price">
 
 javascript:
   $(document).ready(function () {
     $('[data-select="#{@product.id}"]').select2({
-      placeholder: 'Vali sobivaim postiautomaat'
+      placeholder: 'Choose shipping'
     });
   });
   
