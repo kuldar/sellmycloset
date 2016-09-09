@@ -29,6 +29,9 @@ Rails.application.routes.draw do
     resource :transaction
   end
 
+  # Product Images
+  resources :product_images, only: [:create]
+
   # Relationships
   resources :relationships, only: [:create, :destroy]
 

@@ -2,32 +2,22 @@
   = render 'shared/error_messages', object: f.object
 
   = f.fields_for :product_images do |i|
-    = i.label :image, t('.upload_images')
-    = i.file_field :image, multiple: true, id: 'upload-image', name: 'product_images[image][]'
-
-  / input id="product_images_ids" name="product_images" type="hidden" value=""
-  / input data-url="/product_images" id="product_upload" multiple="multiple" name="images[]" type="file"
-
-	/ = f.fields_for :product_images do |p|
-	/ 	= p.label :image
-	/ 	= p.file_field :product_image, multiple: true, name: 'product_images[image][]'
-	/ 	= p.hidden_field :_destroy, data: { behavior: 'delete-product-image-toggle' }
-	/ 	= p.link_to 'Delete', '#', data: { behavior: 'delete-product-image' }
+    = i.file_field :image, multiple: true, name: 'product_images[image][]'
 
   div
     = f.label :title, t('.product_title')
-    = f.text_field :title, placeholder: t('.product_title')
+    = f.text_field :title, placeholder: t('.product_title'), value: 'Test title'
 
   div
     = f.label :description, t('.product_description')
-    = f.text_field :description, placeholder: t('.product_description_placeholder')
+    = f.text_field :description, placeholder: t('.product_description_placeholder'), value: 'Test description'
 
   div
     = f.label :price, t('.product_price')
-    = f.number_field :price, placeholder: t('.product_price_placeholder')
+    = f.number_field :price, placeholder: t('.product_price_placeholder'), value: '10'
 
   div
     = f.label :tag_list, t('.product_hashtags')
-    = f.text_field :tag_list, placeholder: t('.product_hashtags_placeholder')
+    = f.text_field :tag_list, placeholder: t('.product_hashtags_placeholder'), value: 'hash, tags'
 
-  = f.submit t('.add_product'), id: 'submit-data'
+  = f.button t('.add_product')
