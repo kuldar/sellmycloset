@@ -29,9 +29,6 @@ Rails.application.routes.draw do
     resource :transaction
   end
 
-  # Payments
-  # resources :payments, only: [:create]
-
   # Relationships
   resources :relationships, only: [:create, :destroy]
 
