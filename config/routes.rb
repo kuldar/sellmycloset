@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   end
 
   # Product Images
-  resources :product_images, only: [:create]
+  resources :product_images, only: [:create, :destroy]
 
   # Relationships
   resources :relationships, only: [:create, :destroy]

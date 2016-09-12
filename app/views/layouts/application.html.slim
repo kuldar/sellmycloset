@@ -2,25 +2,48 @@ doctype html
 html
   head
   
-    meta name="utf-8"
-    meta http-equiv="X-UA-Compatible" content="IE=edge"
-    title SellMyCloset
-    meta name="description" content="sellmycloset.ee"
-    meta name="viewport" content="width=device-width, initial-scale=1"
+  meta name="utf-8"
+  meta http-equiv="X-UA-Compatible" content="IE=edge"
+  title SellMyCloset
+  meta name="description" content="sellmycloset.ee"
+  meta name="viewport" content="width=device-width, initial-scale=1"
 
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag '//js.braintreegateway.com/web/3.0.2/js/client.min.js'
-    = javascript_include_tag '//js.braintreegateway.com/web/3.0.2/js/hosted-fields.min.js'
-    = csrf_meta_tags
+  = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+  = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  = javascript_include_tag '//js.braintreegateway.com/web/3.0.2/js/client.min.js'
+  = javascript_include_tag '//js.braintreegateway.com/web/3.0.2/js/hosted-fields.min.js'
+  = csrf_meta_tags
 
   body
-    = render 'shared/header'
-    = render 'shared/flash'
-    
-    = yield
+  = render 'shared/header'
+  = render 'shared/flash'
+  
+  = yield
 
-    = render 'shared/modal'
+  = render 'shared/modal'
 
-    / Debug
-    - debug(params) if Rails.env.development?
+  / Debug
+  - debug(params) if Rails.env.development?
+  
+  javascript:
+    $(document).ready(function () {
+      $("[data-behavior='header-search']").select2({
+        placeholder: 'Discover by hashtag..',
+        tags: true,
+        theme: 'header',
+        templateResult: function(data) {
+          if (data.id !== '') { // adjust for custom placeholder values
+            return '#' + data.text;
+          }
+        },
+        templateSelection: function(data) {
+          if (data.id !== '') { // adjust for custom placeholder values
+            return '#' + data.text;
+          }
+        }
+      });
+    });
+
+    $("[data-behavior='header-search']").on('select2:select', function(e) {
+      $("[data-behavior='header-search-form']").submit();
+    });

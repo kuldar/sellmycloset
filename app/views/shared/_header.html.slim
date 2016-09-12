@@ -2,13 +2,16 @@ header.header
 
 	/ Logo
 	= link_to root_path, class: 'logo' do
-		= image_tag 'hanger-icon.svg'
 		strong = t('site.name')
+
+	.header-search
+		= form_tag products_path, method: 'get', data: { behavior: 'header-search-form' }, class: 'header-search-form' do
+			= select_tag :q, options_for_select(ActsAsTaggableOn::Tag.all, params[:q]), { class: 'header-search-input', multiple: true, data: { behavior: 'header-search' }}
+			= submit_tag 'Search', name: nil, hidden: true
 
 	/ Header Nav
 	nav.header-nav
 		- if user_signed_in?
-			/ = link_to 'Minu ostud', user_purchases_path(current_user), class: 'header-nav-link'
 			- if current_user.buyer?
 				= link_to t('.become_seller'), become_seller_path, class: 'header-nav-link'
 			- elsif current_user.seller? || current_user.admin?

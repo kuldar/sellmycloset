@@ -1,23 +1,30 @@
 = form_for(@product, html: { multipart: true }) do |f|
   = render 'shared/error_messages', object: f.object
 
-  = f.fields_for :product_images do |i|
-    = i.file_field :image, multiple: true, name: 'product_images[image][]'
+  - if @product.product_images.count > 0
+    - @product.product_images.each do |i|
+      div
+        = image_tag i.image, style: 'display:block;width:10rem;margin-bottom:1rem;'
+        = link_to 'Delete', product_image_path(i), remote: true, method: :delete
+  - else
+    div
+      = f.fields_for :product_images do |i|
+        = i.file_field :image, multiple: true, name: 'product_images[image][]'
 
   div
     = f.label :title, t('.product_title')
-    = f.text_field :title, placeholder: t('.product_title'), value: 'Test title'
+    = f.text_field :title, placeholder: t('.product_title')
 
   div
     = f.label :description, t('.product_description')
-    = f.text_field :description, placeholder: t('.product_description_placeholder'), value: 'Test description'
+    = f.text_field :description, placeholder: t('.product_description_placeholder')
 
   div
     = f.label :price, t('.product_price')
-    = f.number_field :price, placeholder: t('.product_price_placeholder'), value: '10'
+    = f.number_field :price, placeholder: t('.product_price_placeholder')
 
   div
     = f.label :tag_list, t('.product_hashtags')
-    = f.text_field :tag_list, placeholder: t('.product_hashtags_placeholder'), value: 'hash, tags'
+    = f.text_field :tag_list, placeholder: t('.product_hashtags_placeholder')
 
   = f.button t('.add_product')

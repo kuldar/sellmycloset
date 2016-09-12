@@ -81,19 +81,3 @@ $bezier: cubic-bezier(.175, .885, .32, 1.275);
   max-width: 30rem;
   margin: 2rem auto;
 }
-
-// Header Bar
-
-.header-row {
-  background-color: $white;
-  box-shadow: 0 1px 3px rgba($dark-gray, 0.1);
-  padding: 1rem;
-}
-
-//  Search
-
-.search {}
-.search-form {}
-.search-input {
-  width: 100%;
-}

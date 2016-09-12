@@ -278,3 +278,74 @@
   position: absolute !important;
   width: 1px !important;
 }
+
+////////////////////
+//  Header Theme  //
+////////////////////
+
+.select2-container--header {
+
+  .select2-selection--multiple {
+    outline: none;
+    background-color: $white;
+    border: none;
+    border-radius: 0.25rem;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    user-select: none;
+    -webkit-user-select: none;
+
+    .select2-selection__rendered {
+      display: block;
+      overflow: hidden;
+      padding: 0.25rem 0.75rem 0 0.75rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .select2-selection__choice {
+      float: left;
+      margin: 0.25rem 0.5rem 0 0;
+      border-radius: 0;
+      line-height: 1.5rem;
+      color: $black;
+      font-weight: bold;
+      background-color: $light-gray;
+      padding: 0 0.5rem;
+      display: inline-block;
+      white-space: nowrap;
+
+      &:hover {
+        text-decoration: none;
+        background-color: darken($light-gray, 3);
+      }
+
+      .select2-selection__choice__remove {
+        font-weight: bold;
+        margin: 0 0 0 0.5rem;
+      }
+    }
+  }
+
+  .select2-search--inline {
+    margin-top: 0;
+    line-height: 2rem;
+    float: left;
+
+    .select2-search__field {
+      color: $black;
+      box-sizing: border-box;
+      border: none;
+      outline: none;
+      font-size: 100%;
+      margin-top: 0;
+      padding: 0;
+
+      &::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+      }
+    }
+  }
+
+}
