@@ -16,7 +16,7 @@ class StaticPagesController < ApplicationController
 	end
 
 	def sll2
-		render text: 'Oqd5heZ0-vfuTDAAj5Inl5vpTycGlcFX_Le36yxziuU._bi8bW4zVMp0OQTWNMyTaIZS5hPvE4U1K13UOEkEO9Y'
+		render text: 'Yyf5p3x02QIlg45ecbEDmWd6W_MFEZ9XXJ237cGGakw._bi8bW4zVMp0OQTWNMyTaIZS5hPvE4U1K13UOEkEO9Y'
 	end
 
 end
