@@ -89,7 +89,9 @@ html.swipebox-html.swipebox-touch {
   left: 0;
 }
 #swipebox-slider .slide-loading {
-  background: url(../img/loader.gif) no-repeat center center;
+  background-image: image-url('swipebox/loader.gif');
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 #swipebox-bottom-bar,
@@ -128,7 +130,7 @@ html.swipebox-html.swipebox-touch {
 #swipebox-prev-arrow,
 #swipebox-next-arrow,
 #swipebox-close {
-  background-image: url('swipebox/icons.png');
+  background-image: image-url('swipebox/icons.svg');
   background-repeat: no-repeat;
   border: none !important;
   text-decoration: none !important;
