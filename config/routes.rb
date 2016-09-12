@@ -38,10 +38,4 @@ Rails.application.routes.draw do
   # Static pages
   get :become_seller, to: 'static_pages#become_seller'
 
-<<<<<<< Updated upstream
-  get '/.well-known/acme-challenge/sD-oifpWzh77olnVSCvltu4EBzCpjuQyJQqexCebsD0', to: 'static_pages#ssl'
-  get '/.well-known/acme-challenge/SSBzXxhR4XWjkuwwyBt_CeFG86Dgv_U50TLB_AqzY7o', to: 'static_pages#ssl2'
-
-=======
->>>>>>> Stashed changes
 end
