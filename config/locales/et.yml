@@ -20,7 +20,43 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 et:
-  hello: "Hello world"
+  site:
+    name: "SellMyCloset"
+    title: "Müü ja avasta parimaid stiilileide - SellMyCloset.ee"
+    description: ""
+    facebook_url: "https://facebook.com/sellmycloset"
+    twitter_url: "https://twitter.com/sellmycloset"
+    twitter_handle: "@sellmycloset"
+    email: "hi@sellmycloset.co"
+
+  shared:
+    header:
+      log_in: "Sisene"
+      log_out: "Välju"
+      join: "Liitu"
+      add_product: "Lisa uus toode"
+      my_products: "Minu tooted"
+      become_seller: "Hakka müüjaks"
+      admin: "Admin"
+      settings: "Seaded"
+
+  products:
+    product_form:
+      upload_images: "Lae toote pildid"
+      product_title: "Nimi"
+      product_title_placeholder: "Valge Adidase särk"
+      product_description: "Kirjeldus"
+      product_description_placeholder: "Heas korras vähekantud valge Adidase särk. Suurus S"
+      product_price: "Hind"
+      product_price_placeholder: "€ 10"
+      product_hashtags: "Häshtägid"
+      product_hashtags_placeholder: "#brand, #keywords, #condition"
+      add_product: "Lisa toode müüki"
+
+    create:
+      flash_success: "Uus toode edukalt lisatud! :sparkles: Jaga seda sõpradega: <input value='%{short_url}' class='alert-url' readonly='true' onclick='this.select()'>"
+  
+
 
   number:
    currency:
@@ -29,4 +65,4 @@ et:
         delimiter: ','
         separator: '.'
         precision: 0
-        format: '%u%n'
+        format: '%u %n'

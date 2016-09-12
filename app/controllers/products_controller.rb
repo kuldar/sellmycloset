@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
     @product = current_user.products.build(product_params)
 
     if @product.save && save_images
-  		flash[:success] = t('.flash_success')
+  		flash[:success] = t('.flash_success', short_url: 'sellmy.cl/2b5LZOF')
     	redirect_to @product
   	else
       flash[:error] = t('.flash_error')
