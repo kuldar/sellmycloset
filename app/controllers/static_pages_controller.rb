@@ -11,4 +11,8 @@ class StaticPagesController < ApplicationController
 	def become_seller
 	end
 
+	def ssl
+		render text: 'sD-oifpWzh77olnVSCvltu4EBzCpjuQyJQqexCebsD0._bi8bW4zVMp0OQTWNMyTaIZS5hPvE4U1K13UOEkEO9Y'
+	end
+
 end

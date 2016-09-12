@@ -38,4 +38,6 @@ Rails.application.routes.draw do
   # Static pages
   get :become_seller, to: 'static_pages#become_seller'
 
+  get '/.well-known/acme-challenge/sD-oifpWzh77olnVSCvltu4EBzCpjuQyJQqexCebsD0', to: 'static_pages#ssl'
+
 end
