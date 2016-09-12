@@ -56,8 +56,6 @@ et:
     create:
       flash_success: "Uus toode edukalt lisatud! :sparkles: Jaga seda sõpradega: <input value='%{short_url}' class='alert-url' readonly='true' onclick='this.select()'>"
   
-
-
   number:
    currency:
       format:
@@ -66,3 +64,7 @@ et:
         separator: '.'
         precision: 0
         format: '%u %n'
+
+  administrate:
+    actions:
+      confirm: 'Oled kindel?'

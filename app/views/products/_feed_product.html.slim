@@ -24,6 +24,7 @@
 				- else
 					= link_to new_product_transaction_path(product), class: 'product-buy-btn' do
 						| <strong>Buy</strong> <span class='price'>#{number_to_currency(product.price)}</span>
+
 			.product-meta
 				.product-meta-btn-container data-comments-counter="#{product.id}"
 					= render partial: 'products/comments_counter', locals: { product: product }
