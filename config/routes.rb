@@ -39,6 +39,6 @@ Rails.application.routes.draw do
   get :become_seller, to: 'static_pages#become_seller'
 
   get '/.well-known/acme-challenge/sD-oifpWzh77olnVSCvltu4EBzCpjuQyJQqexCebsD0', to: 'static_pages#ssl'
-  get '/.well-known/acme-challenge/ldHA9lmQYkFX4mcv-sJtoJFhyLGZ9ULZZUZ-6Ifw7c8', to: 'static_pages#ssl2'
+  get '/.well-known/acme-challenge/Oqd5heZ0-vfuTDAAj5Inl5vpTycGlcFX_Le36yxziuU', to: 'static_pages#ssl2'
 
 end
