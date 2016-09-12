@@ -16,7 +16,7 @@ class StaticPagesController < ApplicationController
 	end
 
 	def sll2
-		render text: '/.well-known/acme-challenge/WQ7QiV8Wo4W5RxXufpZA0fc2dk_tErc2HCI3M0PNN5g'
+		render text: 'ldHA9lmQYkFX4mcv-sJtoJFhyLGZ9ULZZUZ-6Ifw7c8._bi8bW4zVMp0OQTWNMyTaIZS5hPvE4U1K13UOEkEO9Y'
 	end
 
 end
