@@ -20,13 +20,13 @@ class TransactionsController < ApplicationController
 			payment_method = customer.payment_methods.find{ |payment_method| payment_method.default? }
 
 			result = Braintree::Transaction.sale(
-									amount: '10.00',
+									amount: @product.total_price,
 									payment_method_token: payment_method.token)
 
 		# Else create a new customer in Vault
 		else
 			result = Braintree::Transaction.sale(
-									amount: '10.00',
+									amount: @product.total_price,
 									payment_method_nonce: params[:payment_method_nonce],
 									customer: {
 										first_name: current_user.first_name,

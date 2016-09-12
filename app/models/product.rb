@@ -30,4 +30,12 @@ class Product < ApplicationRecord
     Product.where('id > ?', id).last
   end
 
+  def shipping
+    Rails.env.production? ? 0 : 0
+  end
+
+  def total_price
+    price + shipping
+  end
+
 end

@@ -33,7 +33,7 @@
           = f.hidden_field :buyer_id, value: current_user.id
           = f.hidden_field :seller_id, value: @product.user.id
           button.transaction-form-submit-btn type='submit'
-            | <strong>Maksa</strong> <span class='price'>#{ number_to_currency(@product.price + 3) }</span>
+            | <strong>Maksa</strong> <span class='price'>#{ number_to_currency(@product.total_price) }</span>
 
         - else
           .transaction-form-card
@@ -55,7 +55,7 @@
           = f.hidden_field :seller_id, value: @product.user.id
           input type='hidden' name='payment_method_nonce'
           button.transaction-form-submit-btn type='submit' disabled=true data-behavior='payment-submit'
-            | <strong>Pay</strong> <span class="price">#{ number_to_currency(@product.price + 3) }<span class="price">
+            | <strong>Pay</strong> <span class="price">#{ number_to_currency(@product.total_price) }<span class="price">
 
 javascript:
   $(document).ready(function () {
