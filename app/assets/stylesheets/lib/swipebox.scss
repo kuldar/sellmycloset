@@ -99,24 +99,24 @@ html.swipebox-html.swipebox-touch {
   position: absolute;
   left: 0;
   z-index: 999;
-  height: 50px;
+  height: 4rem;
   width: 100%;
 }
 
 #swipebox-bottom-bar {
-  bottom: -50px;
+  bottom: -4rem;
 }
 #swipebox-bottom-bar.visible-bars {
-  -webkit-transform: translate3d(0, -50px, 0);
-          transform: translate3d(0, -50px, 0);
+  -webkit-transform: translate3d(0, -4rem, 0);
+          transform: translate3d(0, -4rem, 0);
 }
 
 #swipebox-top-bar {
-  top: -50px;
+  top: -4rem;
 }
 #swipebox-top-bar.visible-bars {
-  -webkit-transform: translate3d(0, 50px, 0);
-          transform: translate3d(0, 50px, 0);
+  -webkit-transform: translate3d(0, 4rem, 0);
+          transform: translate3d(0, 4rem, 0);
 }
 
 #swipebox-title {
@@ -125,42 +125,71 @@ html.swipebox-html.swipebox-touch {
   text-align: center;
 }
 
-#swipebox-prev,
-#swipebox-next,
+#swipebox-prev-arrow,
+#swipebox-next-arrow,
 #swipebox-close {
-  background-image: url(../img/icons.png);
+  background-image: url('swipebox/icons.png');
   background-repeat: no-repeat;
   border: none !important;
   text-decoration: none !important;
   cursor: pointer;
-  width: 50px;
-  height: 50px;
+  width: 3rem;
+  height: 3rem;
   top: 0;
 }
 
-#swipebox-arrows {
-  display: block;
+#swipebox-prev-arrow,
+#swipebox-next-arrow {
   margin: 0 auto;
-  width: 100%;
-  height: 50px;
 }
 
-#swipebox-prev {
-  background-position: -32px 13px;
-  float: left;
+#swipebox-prev,
+#swipebox-next {
+  @include clearfix;
+  display: inline-block;
+  border-radius: 5rem;
+  text-align: center;
+  padding: 0 3rem;
+  background-color: $white;
+  box-shadow: 0 1px 2px rgba($black, 0.1);
 }
 
 #swipebox-next {
+  margin-left: 0.5rem;
+}
+
+#swipebox-prev {
+  margin-right: 0.5rem;
+}
+
+#swipebox-arrows {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 4rem;
+  padding-bottom: 1rem;
+}
+
+#swipebox-prev-arrow {
+  background-position: -32px 13px;
+}
+
+#swipebox-next-arrow {
   background-position: -78px 13px;
-  float: right;
 }
 
 #swipebox-close {
-  top: 0;
-  right: 0;
+  background-color: $white;
+  top: 1.5rem;
+  right: 1.5rem;
   position: absolute;
   z-index: 9999;
+  border-radius: 5rem;
   background-position: 15px 12px;
+  opacity: 0.5;
+
+  &:hover { opacity: 1; }
 }
 
 .swipebox-no-close-button #swipebox-close {
@@ -265,7 +294,7 @@ html.swipebox-html.swipebox-touch {
   }
 }
 @media screen and (min-width: 800px) {
-  #swipebox-close {
+  #swipebox-close-wrapper {
     right: 10px;
   }
 
@@ -277,13 +306,13 @@ html.swipebox-html.swipebox-touch {
 /* Skin 
 --------------------------*/
 #swipebox-overlay {
-  background: #0d0d0d;
+  background-color: rgba($black, 0.9);
 }
 
 #swipebox-bottom-bar,
 #swipebox-top-bar {
   text-shadow: 1px 1px 1px black;
-  background: #000;
+  background: transparent;
   opacity: 0.95;
 }
 

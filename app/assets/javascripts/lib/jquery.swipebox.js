@@ -46,8 +46,12 @@
 						</div>\
 						<div id="swipebox-bottom-bar">\
 							<div id="swipebox-arrows">\
-								<a id="swipebox-prev"></a>\
-								<a id="swipebox-next"></a>\
+								<a id="swipebox-prev">\
+									<div id="swipebox-prev-arrow"></div>\
+								</a>\
+								<a id="swipebox-next">\
+									<div id="swipebox-next-arrow"></div>\
+								</a>\
 							</div>\
 						</div>\
 						<a id="swipebox-close"></a>\
@@ -172,7 +176,7 @@
 				if ( supportSVG && plugin.settings.useSVG === true ) {
 					bg = $( '#swipebox-close' ).css( 'background-image' );
 					bg = bg.replace( 'png', 'svg' );
-					$( '#swipebox-prev, #swipebox-next, #swipebox-close' ).css( {
+					$( '#swipebox-prev-arrow, #swipebox-next-arrow, #swipebox-close' ).css( {
 						'background-image' : bg
 					} );
 				}

@@ -2,4 +2,6 @@ $.swipebox([
 	<% @product.product_images.each do |image| %>
 		{ href:"<%= image.image.url %>" }, 
 	<% end %>
-]);
+], {
+	loopAtEnd: true
+});
