@@ -50,6 +50,18 @@ et:
     create:
       flash_success: "Uus toode edukalt lisatud! :sparkles: Jaga seda sõpradega: <input value='%{short_url}' class='alert-url' readonly='true' onclick='this.select()'>"
 
+    categories:
+      shirts: 'Pluusid'
+      sweaters: 'Kampsunid'
+      jackets: 'Jakid'
+      coats: 'Mantlid'
+      pants: 'Püksid'
+      jeans: 'Teksad'
+      skirts: 'Kleidid'
+      dresses: 'Seelikud'
+      shoes: 'Jalanõud'
+      accessories: 'Aksessuaarid'
+
   promos:
     signup_cta:
       hey_stranger: 'Hei külaline!'
@@ -154,17 +166,6 @@ et:
         price: 'Hind'
         tag_list: 'Häshtägid'
         category: 'Kategooria'
-      product/category:
-        shirts: 'Pluusid'
-        sweaters: 'Kampsunid'
-        jackets: 'Jakid'
-        coats: 'Mantlid'
-        pants: 'Püksid'
-        jeans: 'Teksad'
-        skirts: 'Kleidid'
-        dresses: 'Seelikud'
-        shoes: 'Jalanõud'
-        accessories: 'Aksessuaarid'
 
     errors:
       messages:

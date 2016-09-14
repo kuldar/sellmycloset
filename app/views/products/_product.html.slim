@@ -13,6 +13,7 @@
 
 		.product-description
 			=> emojify @product.description
+			= link_to "##{ t("products.categories." + @product.category.to_s) }".downcase, products_path(c:@product.category), class: 'product-hashtag'
 			= render @product.tags
 
 		.product-info-footer

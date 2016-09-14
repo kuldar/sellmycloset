@@ -18,7 +18,6 @@ class ProductsController < ApplicationController
 	def new
 		@product = current_user.products.build
 		@product_image = @product.product_images.build
-		@tags = ActsAsTaggableOn::Tag.all.map { |t| {id: t.id, text: t.name} }
 	end
 
 	def create
@@ -35,7 +34,6 @@ class ProductsController < ApplicationController
 	end
 
 	def edit
-		@tags = ActsAsTaggableOn::Tag.all.map { |t| {id: t.id, text: t.name} }
   end
 
   # Todo, update update method with product_images support
@@ -76,7 +74,7 @@ class ProductsController < ApplicationController
 				:price,
 				:status,
 				:category,
-				:tag_list,
+				tag_list: [],
 				product_images_attributes: [:id, :product_id, :image])
 		end
 
