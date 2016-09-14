@@ -2,7 +2,7 @@ doctype html
 html
   head
   
-  meta name="utf-8"
+  meta charset="utf-8"
   meta http-equiv="X-UA-Compatible" content="IE=edge"
   title SellMyCloset
   meta name="description" content="sellmycloset.ee"
@@ -10,6 +10,7 @@ html
 
   = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
   = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  = javascript_include_tag '//twemoji.maxcdn.com/2/twemoji.min.js?2.1.2'
   = javascript_include_tag '//js.braintreegateway.com/web/3.0.2/js/client.min.js'
   = javascript_include_tag '//js.braintreegateway.com/web/3.0.2/js/hosted-fields.min.js'
   = csrf_meta_tags
@@ -26,7 +27,9 @@ html
   - debug(params) if Rails.env.development?
   
   javascript:
-    $(document).ready(function () {
+    $(document).on('turbolinks:load', function () {
+      twemoji.parse(document.body);
+
       $("[data-behavior='header-search']").select2({
         placeholder: 'Discover by hashtag..',
         tags: true,
