@@ -32,6 +32,7 @@ en:
       become_seller: "Become a seller"
       admin: "Admin"
       settings: "Settings"
+      discover_by_hashtag: "Discover by hashtag.."
 
   products:
     product:
@@ -104,7 +105,8 @@ en:
       updated: "Your account has been updated successfully."
       new:
         sign_up: 'Sign up'
-        sign_up_with_facebook: 'Sign in with Facebook'
+        sign_up_title: 'Sign up using your email, or :point_down:'
+        sign_up_with_facebook: 'Sign up with Facebook'
 
       edit:
         save_changes: 'Save changes'
@@ -115,6 +117,8 @@ en:
       already_signed_out: "Already signed out"
       new:
         sign_in: 'Sign in'
+        sign_in_title: 'Sign in using your email, or :point_down:'
+        sign_in_with_facebook: 'Sign in with Facebook'
 
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."

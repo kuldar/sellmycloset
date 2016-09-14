@@ -1,7 +1,7 @@
 .product.single-product
 	.product-image-container
 		= link_to @product.user, class: 'product-seller' do
-			= image_tag @product.user.avatar_url, class: 'product-seller-photo'
+			= image_tag @product.user.avatar, class: 'product-seller-photo'
 			.product-seller-name = @product.user.name
 
 		= link_to @product, remote: true, class: 'product-image', data: { lightbox: "#{@product.id}" } do

@@ -12,7 +12,7 @@ module SellMyCloset
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    if Rails.env.staging? || Rails.env.development?
+    if Rails.env.staging?
     	config.i18n.default_locale = :en
 	  else
 	    config.i18n.default_locale = :et

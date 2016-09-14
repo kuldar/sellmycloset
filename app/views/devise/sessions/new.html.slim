@@ -1,7 +1,8 @@
 = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form' }) do |f|
   .card.is-small
-    .card-section.card-illustration
-      = image_tag 'login-illustration.png'
+    .card-section.card-illustration style="background-image:url('#{asset_path 'signin-illustration.jpg' }');"
+      h1.card-section-title = emojify t('.sign_in_title')
+      = link_to t('.sign_in_with_facebook'), '#', class: 'card-section-btn is-fb'
 
     .card-section.is-gray.is-padded
       = devise_error_messages!

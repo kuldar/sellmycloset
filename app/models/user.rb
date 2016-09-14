@@ -37,9 +37,11 @@ class User < ApplicationRecord
 
 	validates :name, presence: true
 	validates :username, format: { with: VALID_SLUG_REGEX },
-                       uniqueness: { case_sensitive: false }
+                       uniqueness: { case_sensitive: false },
+                       presence: true
 
-  before_create :set_username
+  before_validation :set_username
+  before_create :set_avatar
 
   def feed
     following_ids = "SELECT followed_id FROM relationships
@@ -62,14 +64,6 @@ class User < ApplicationRecord
     end
   end
 
-  def avatar_url
-    if avatar?
-      avatar
-    else
-      placeholder_avatar(email)
-    end
-  end
-
   def instagram_url
     "https://www.instagram.com/" + instagram_handle if instagram_handle
   end
@@ -78,9 +72,9 @@ class User < ApplicationRecord
     "https://www.facebook.com/" + facebook_handle if facebook_handle
   end
 
-  def placeholder_avatar(email)
-    # "https://api.adorable.io/avatars/100/#{email.to_param}"
-    "http://placehold.it/100x100"
+  def placeholder_avatar_url(email)
+    "https://api.adorable.io/avatars/100/#{email.to_param}"
+    # "http://placehold.it/100x100"
   end
 
   def likes?(product)
@@ -151,7 +145,12 @@ class User < ApplicationRecord
 
         self.username = username
       end
+    end
 
+    def set_avatar
+      unless self.avatar?
+        self.remote_avatar_url = placeholder_avatar_url(email)
+      end
     end
 
 end

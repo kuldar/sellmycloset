@@ -31,7 +31,8 @@ html
       twemoji.parse(document.body);
 
       $("[data-behavior='header-search']").select2({
-        placeholder: 'Discover by hashtag..',
+        language: 'et',
+        placeholder: "#{t('shared.header.discover_by_hashtag')}",
         tags: true,
         theme: 'header',
         templateResult: function(data) {
