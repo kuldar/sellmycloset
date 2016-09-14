@@ -58,7 +58,8 @@ class UserDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how products are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(product)
-  #   "Product ##{product.id}"
-  # end
+  def display_resource(user)
+    "#{user.name}"
+  end
+  
 end

@@ -375,3 +375,7 @@ et:
       long: "%a, %d. %b %Y, %H:%M:%S %z"
       short: "%d.%m.%y, %H:%M"
     pm: pärast lõunat
+
+  administrate:
+    actions:
+      confirm: 'You sure?'

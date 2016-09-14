@@ -4,7 +4,7 @@
     .card-section.card-cover style="background-image: url('#{ current_user.cover.url unless current_user.cover.blank? }');"
 
       / Avatar
-      = image_tag(current_user.avatar, class: 'card-cover-avatar') unless current_user.avatar.blank?
+      = image_tag(current_user.avatar, class: 'card-cover-avatar')
 
       / Buttons
       .card-cover-btns

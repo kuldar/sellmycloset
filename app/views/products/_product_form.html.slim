@@ -31,7 +31,7 @@
 
       .form-group
         = f.label :tag_list, class: 'form-label'
-        = f.select :tag_list, ActsAsTaggableOn::Tag.all.to_a.map { |w| [w[0].humanize, w[0]] }, {}, { class: 'form-select', data: { behavior: 'tags-select' }, multiple: true }
+        = f.text_field :tag_list, class: 'form-select', multiple: true, data: { behavior: 'tags-select' }
       
       .form-footer
         = f.button t('.add_product'), class: 'form-btn is-main pull-left'
@@ -46,6 +46,7 @@ javascript:
     $("[data-behavior='tags-select']").select2({
       placeholder: "#{t('.product_hashtags_placeholder')}",
       tags: true,
+      data: #{raw @tags.to_json},
       templateResult: function(data) {
         if (data.id !== '') { // adjust for custom placeholder values
           return '#' + data.text;

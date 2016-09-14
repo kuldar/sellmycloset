@@ -72,9 +72,8 @@ class User < ApplicationRecord
     "https://www.facebook.com/" + facebook_handle if facebook_handle
   end
 
-  def placeholder_avatar_url(email)
-    "https://api.adorable.io/avatars/100/#{email.to_param}"
-    # "http://placehold.it/100x100"
+  def placeholder_avatar_url(identifier, size = 100)
+    "https://api.adorable.io/avatars/#{size}/#{identifier.to_param}.png"
   end
 
   def likes?(product)
@@ -148,9 +147,7 @@ class User < ApplicationRecord
     end
 
     def set_avatar
-      unless self.avatar?
-        self.remote_avatar_url = placeholder_avatar_url(email)
-      end
+      self.remote_avatar_url ||= placeholder_avatar_url(email)
     end
 
 end

@@ -24,16 +24,16 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :product_images, allow_destroy: true
   # validates :product_images, presence: true
 
-  default_scope -> { order(created_at: :desc) }
+  default_scope { order(created_at: :desc) }
 
   validates :title, :description, :price, :user_id, :category, presence: true
 
-  def next
-    Product.where('id < ?', id).first
-  end
+  # def next
+  #   Product.where('id < ?', id).first
+  # end
 
-  def prev
-    Product.where('id > ?', id).last
-  end
+  # def prev
+  #   Product.where('id > ?', id).last
+  # end
 
 end

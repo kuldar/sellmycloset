@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
 		if params.has_key?(:q)
     	@products = Product.tagged_with(params[:q], any: true)
     else
-    	@products = Product.all.active
+    	@products = Product.active
     end
 	end
 
@@ -18,6 +18,7 @@ class ProductsController < ApplicationController
 	def new
 		@product = current_user.products.build
 		@product_image = @product.product_images.build
+		@tags = ActsAsTaggableOn::Tag.all.map { |t| {id: t.id, text: t.name} }
 	end
 
 	def create
@@ -34,6 +35,7 @@ class ProductsController < ApplicationController
 	end
 
 	def edit
+		@tags = ActsAsTaggableOn::Tag.all.map { |t| {id: t.id, text: t.name} }
   end
 
   # Todo, update update method with product_images support

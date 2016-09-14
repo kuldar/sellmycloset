@@ -84,7 +84,7 @@
 	  .select2-selection__rendered {
 	    display: block;
 	    overflow: hidden;
-	    padding: 0.25rem 0.875rem 0.5rem 0.875rem;
+	    padding: 0.25rem 0.75rem 0 0.75rem;
 	    text-overflow: ellipsis;
 	    white-space: nowrap;
 	  }
@@ -92,15 +92,23 @@
     .select2-selection__choice {
       float: left;
       margin: 0.25rem 0.5rem 0 0;
-      background-color: $blue;
-      border-radius: 5rem;
-      padding: 0.25rem 0.75rem;
+      border-radius: 0;
       line-height: 1.5rem;
-      color: $white;
+      color: $black;
+      font-weight: bold;
+      background-color: $light-gray;
+      padding: 0 0.5rem;
+      display: inline-block;
+      white-space: nowrap;
+
+      &:hover {
+        text-decoration: none;
+        background-color: darken($light-gray, 3);
+      }
 
       .select2-selection__choice__remove {
         font-weight: bold;
-        margin-right: 0.5rem;
+        margin: 0 0 0 0.5rem;
       }
     }
 	}
