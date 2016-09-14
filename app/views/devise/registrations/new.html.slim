@@ -2,7 +2,7 @@
   .card.is-small
     .card-section.card-illustration style="background-image:url('#{asset_path 'signup-illustration.jpg' }');"
       h1.card-section-title = emojify t('.sign_up_title')
-      = link_to t('.sign_up_with_facebook'), '#', class: 'card-section-btn is-fb'
+      = link_to t('.sign_up_with_facebook'), user_facebook_omniauth_authorize_path, class: 'card-section-btn is-fb'
 
     .card-section.is-gray.is-padded
       = devise_error_messages!

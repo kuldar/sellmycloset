@@ -16,9 +16,9 @@
 		- else
 			.user-card-btn-container data-follow-form="#{user.id}"
 				- if signed_in? && current_user.following?(user)
-					= render 'unfollow'
+					= render 'unfollow', user: user
 				- elsif signed_in?
-					= render 'follow'
+					= render 'follow', user: user
 				- else
 					= link_to 'Follow', new_user_registration_path, class: 'user-card-btn is-primary'
 			- if user.instagram_handle?
