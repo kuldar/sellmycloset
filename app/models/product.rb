@@ -9,10 +9,16 @@ class Product < ApplicationRecord
   }
 
   enum category: {
-    pants: 0,
-    shirts: 1,
-    shoes: 2,
-    dresses: 3
+    shirts:       1,
+    sweaters:     2,
+    jackets:      3,
+    coats:        4,
+    pants:        5,
+    jeans:        6,
+    skirts:       7,
+    dresses:      8,
+    shoes:        9,
+    accessories: 10
   }
 
   belongs_to :user

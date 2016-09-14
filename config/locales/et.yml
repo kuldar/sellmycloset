@@ -154,6 +154,17 @@ et:
         price: 'Hind'
         tag_list: 'Häshtägid'
         category: 'Kategooria'
+      product/category:
+        shirts: 'Pluusid'
+        sweaters: 'Kampsunid'
+        jackets: 'Jakid'
+        coats: 'Mantlid'
+        pants: 'Püksid'
+        jeans: 'Teksad'
+        skirts: 'Kleidid'
+        dresses: 'Seelikud'
+        shoes: 'Jalanõud'
+        accessories: 'Aksessuaarid'
 
     errors:
       messages:

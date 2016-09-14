@@ -147,7 +147,7 @@ class User < ApplicationRecord
     end
 
     def set_avatar
-      self.remote_avatar_url ||= placeholder_avatar_url(email)
+      self.remote_avatar_url ||= placeholder_avatar_url(email, 500)
     end
 
 end
