@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20160907180705) do
     t.string   "title"
     t.string   "description"
     t.float    "price"
+    t.integer  "category"
     t.integer  "status",      default: 1
     t.integer  "user_id"
     t.datetime "created_at",              null: false

@@ -8,6 +8,13 @@ class Product < ApplicationRecord
     cancelled:  3
   }
 
+  enum category: {
+    pants: 0,
+    shirts: 1,
+    shoes: 2,
+    dresses: 3
+  }
+
   belongs_to :user
   has_many :likes
   has_many :comments, dependent: :destroy
@@ -19,8 +26,7 @@ class Product < ApplicationRecord
 
   default_scope -> { order(created_at: :desc) }
 
-  validates :user_id, presence: true
-  validates :title, :description, :price, presence: true
+  validates :title, :description, :price, :user_id, :category, presence: true
 
   def next
     Product.where('id < ?', id).first

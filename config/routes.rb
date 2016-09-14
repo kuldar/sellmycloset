@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   get '/test', to: 'static_pages#test'
 
 	# Users
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'registrations' }
+  devise_for :users, 
+    controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'registrations' },
+    path_names: { sign_in: 'signin', sign_up: 'join', }
 
   resources	 :users do
     member do

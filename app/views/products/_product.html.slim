@@ -20,7 +20,7 @@
 				span.product-outline-btn Sold #{ time_ago_in_words @product.sale.created_at } ago
 			- else
 				- if current_user == @product.user
-					= link_to 'Change', edit_product_path(@product), class: 'product-outline-btn'
+					= link_to t('.change'), edit_product_path(@product), class: 'product-outline-btn'
 				- else
 					= link_to new_product_transaction_path(@product), class: 'product-buy-btn' do
 						| <strong>Buy</strong> <span class='price'>#{number_to_currency(@product.price)}</span>

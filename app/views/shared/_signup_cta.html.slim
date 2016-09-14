@@ -1,6 +1,6 @@
 .signup-cta
-	.signup-cta-pre-title Hey stranger,
-	h2.signup-cta-title Join us and <strong>discover the best preloved fashion!</strong> #{emojify ':sparkles:' }
+	.signup-cta-pre-title = t('promos.signup_cta.hey_stranger')
+	h2.signup-cta-title = emojify t('promos.signup_cta.join_us').html_safe
 	.signup-cta-btns
-		= link_to 'Sign in with Facebook', user_facebook_omniauth_authorize_path, class: 'signup-cta-fb-btn'
-		= link_to 'Sign up', new_user_registration_path, class: 'signup-cta-btn'
+		= link_to t('promos.signup_cta.sign_up_with_facebook'), user_facebook_omniauth_authorize_path, class: 'signup-cta-fb-btn'
+		= link_to t('promos.signup_cta.sign_up'), new_user_registration_path, class: 'signup-cta-btn'

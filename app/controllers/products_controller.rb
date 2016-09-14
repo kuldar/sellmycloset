@@ -73,6 +73,7 @@ class ProductsController < ApplicationController
 				:description,
 				:price,
 				:status,
+				:category,
 				:tag_list,
 				product_images_attributes: [:id, :product_id, :image])
 		end

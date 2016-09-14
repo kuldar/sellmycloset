@@ -1,0 +1,22 @@
+= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form' }) do |f|
+  .card.is-small
+    .card-section.card-illustration
+      = image_tag 'login-illustration.png'
+
+    .card-section.is-gray.is-padded
+      = devise_error_messages!
+
+      .form-group
+        = f.label :email, class: 'form-label'
+        = f.email_field :email, autofocus: true, class: 'form-input', placeholder: t('example.email')
+
+      .form-group
+        = f.label :password, class: 'form-label'
+        = f.password_field :password, autocomplete: "off", class: 'form-input', placeholder: t('example.password')
+
+      .form-footer
+        = f.submit t('.sign_in'), class: 'form-btn is-main'
+        - if devise_mapping.rememberable?
+          .form-checkbox-group.pull-right
+            = f.check_box :remember_me, class: 'form-checkbox', checked: true
+            = f.label :remember_me, class: 'form-checkbox-label'

@@ -1,0 +1,23 @@
+= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form' }) do |f|
+  .card.is-small
+    .card-section.card-illustration
+      = image_tag 'signup-illustration.png'
+
+    .card-section.is-gray.is-padded
+      = devise_error_messages!
+
+      .form-group
+        = f.label :name, class: 'form-label'
+        = f.text_field :name, autofocus: true, class: 'form-input', placeholder: "#{ t('example.name') }"
+
+      .form-group
+        = f.label :email, class: 'form-label'
+        = f.email_field :email, class: 'form-input', placeholder: "#{ t('example.email') }"
+
+      .form-group
+        = f.label :password, class: 'form-label'
+        = f.password_field :password, autocomplete: "off", class: 'form-input', placeholder: "#{ t('example.password') }"
+
+      .form-footer
+        = f.submit t('.sign_up'), class: 'form-btn is-main'
+        = link_to t('.sign_up_with_facebook'), user_facebook_omniauth_authorize_path, class: 'form-link pull-right'

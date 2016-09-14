@@ -201,12 +201,12 @@
 	margin-left: 0.75rem;
 	border-radius: 10rem;
 	padding: 0.5rem 0.75rem;
+}
 
-	&:hover { background-color: darken($light-gray, 3); }
-	&:active {
-		position: relative;
-		top: 1px;
-	}
+a.product-meta-btn:hover { background-color: darken($light-gray, 3); }
+a.product-meta-btn:active {
+	position: relative;
+	top: 1px;
 }
 
 .product-meta-btn-count {
@@ -279,7 +279,10 @@
 
 .product-comments-cta {
 	padding: 0.5rem 0;
-	a { font-weight: bold; }
+	color: $gray;
+	a {
+		color: $dark-gray;
+	}
 }
 
 // Product Comment Form
