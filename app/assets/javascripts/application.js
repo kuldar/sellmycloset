@@ -19,6 +19,4 @@
 //= require lib/i18n/et
 //= require lib/jquery.swipebox
 //= require lib/autosize
-//= require modal
-//= require select
 //= require turbolinks

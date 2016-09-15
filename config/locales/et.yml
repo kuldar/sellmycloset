@@ -42,21 +42,12 @@ et:
       estonia: 'Eesti'
       united_kingdom: 'Inglismaa'
 
-  products:
-    product:
-      change: 'Muuda'
-      
-    product_form:
-      upload_images: "Lae toote pildid"
-      product_title_placeholder: "Valge Adidase särk"
-      product_description_placeholder: "Heas korras vähekantud valge Adidase särk. Suurus S"
-      product_price_placeholder: "€ 10"
-      product_category_placeholder: "Püksid"
-      product_hashtags_placeholder: "#brand, #keywords, #condition"
-      add_product: "Lisa toode müüki"
+  comments:
+    add_a_comment: 'Lisa kommentaar'
 
-    create:
-      flash_success: "Uus toode edukalt lisatud! :sparkles: Jaga seda sõpradega: <input value='%{short_url}' class='alert-url' readonly='true' onclick='this.select()'>"
+  product:
+    buy: 'Osta'
+    change: 'Muuda'
 
     categories:
       shirts: 'Pluusid'
@@ -69,6 +60,19 @@ et:
       dresses: 'Seelikud'
       shoes: 'Jalanõud'
       accessories: 'Aksessuaarid'
+
+  products:
+    product_form:
+      upload_images: "Lae toote pildid"
+      product_title_placeholder: "Valge Adidase särk"
+      product_description_placeholder: "Heas korras vähekantud valge Adidase särk. Suurus S"
+      product_price_placeholder: "€ 10"
+      product_category_placeholder: "Püksid"
+      product_hashtags_placeholder: "#brand, #keywords, #condition"
+      add_product: "Lisa toode müüki"
+
+    create:
+      flash_success: "Uus toode edukalt lisatud! :sparkles: Jaga seda sõpradega: <input value='%{short_url}' class='alert-url' readonly='true' onclick='this.select()'>"
 
   transactions:
     new:

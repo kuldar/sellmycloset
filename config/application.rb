@@ -13,7 +13,7 @@ module SellMyCloset
     # -- all .rb files in that directory are automatically loaded.
 
     if Rails.env.staging?
-    	config.i18n.default_locale = :en
+    	config.i18n.default_locale = :et
 	  else
 	    config.i18n.default_locale = :et
 	  end

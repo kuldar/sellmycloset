@@ -24,7 +24,7 @@
       .form-groups
         .form-half-group
           = f.label :category, class: 'form-label'
-          = f.select :category, Product.categories.to_a.map { |w| [t('products.categories.' + w[0].to_s), w[0]] }, {}, { class: 'form-select', data: { behavior: 'category-select' } }
+          = f.select :category, Product.categories.to_a.map { |w| [t('product.categories.' + w[0].to_s), w[0]] }, {}, { class: 'form-select', data: { behavior: 'category-select' } }
         .form-half-group
           = f.label :price, class: 'form-label'
           = f.number_field :price, placeholder: t('.product_price_placeholder'), class: 'form-input'
