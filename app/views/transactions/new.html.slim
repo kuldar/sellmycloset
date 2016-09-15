@@ -1,29 +1,29 @@
-.transaction-wrapper
-  .transaction
-    .transaction-product
-      .transaction-product-image-container
-        = link_to @product.user, class: 'transaction-product-seller' do
-          = image_tag @product.user.avatar, class: 'transaction-product-seller-photo'
-          .transaction-product-seller-name = @product.user.name
+.card.is-small
+  .card-section
+    .transaction-product-image-container
+      = link_to @product.user, class: 'transaction-product-seller' do
+        = image_tag @product.user.avatar, class: 'transaction-product-seller-photo'
+        .transaction-product-seller-name = @product.user.name
 
-        .transaction-product-image style="background-image:url('#{ @product.product_images.first.image_url if @product.product_images.any? }')"
-        
-      .transaction-product-body
-        .transaction-product-info
-          .transaction-product-title = @product.title
-          .transaction-product-description = emojify @product.description
+      .transaction-product-image style="background-image:url('#{ @product.product_images.first.image_url if @product.product_images.any? }')"
+    
+  .card-section.is-padded    
+    .transaction-product-body
+      .transaction-product-info
+        .transaction-product-title = @product.title
+        .transaction-product-description = emojify(@product.description)
 
-        .transaction-product-cost
-          .transaction-product-price = number_to_currency @product.price
-          .transaction-shipping-price + #{number_to_currency(3)} shipping
+      .transaction-product-cost
+        .transaction-product-price = number_to_currency(@product.price)
+        .transaction-shipping-price + #{number_to_currency( @product.shipping_cost )} #{ t('.shipping') }
 
 
 
-    .transaction-form
-      = form_for product_transaction_path, url: { action: 'show' }, method: 'post', data: { behavior: 'payment-form' } do |f|
+  .card-section.is-gray.is-padded
+    = form_for product_transaction_path, url: { action: 'show' }, method: 'post', data: { behavior: 'form' } do |f|
 
-        .transaction-shipping
-          select.transaction-shipping-select data-select="#{@product.id}"
+        .form-group
+          select.form-select data-select="#{@product.id}"
             option
             option Mustamäe pakiautomaat
             option Laagri pakiautomaat
@@ -33,34 +33,34 @@
           = f.hidden_field :buyer_id, value: current_user.id
           = f.hidden_field :seller_id, value: @product.user.id
           button.transaction-form-submit-btn type='submit'
-            | <strong>Maksa</strong> <span class='price'>#{ number_to_currency(@product.price + 3) }</span>
+            | <strong>#{ t('.pay') }</strong> <span class='price'>#{ number_to_currency @product.total_cost }</span>
 
         - else
           .transaction-form-card
             #error-message
             
             .transaction-form-section
-              label.transaction-form-label for='card-number' Card number
+              label.transaction-form-label for='card-number' = t('.card_number')
               #card-number.transaction-form-input
 
             .transaction-form-section
-              label.transaction-form-label for='cvv' CVV
+              label.transaction-form-label for='cvv' = t('.cvv')
               #cvv.transaction-form-input
 
             .transaction-form-section
-              label.transaction-form-label for='expiration-date' Expiration date
+              label.transaction-form-label for='expiration-date' = t('.exp_date')
               #expiration-date.transaction-form-input
             
           = f.hidden_field :buyer_id, value: current_user.id
           = f.hidden_field :seller_id, value: @product.user.id
           input type='hidden' name='payment_method_nonce'
           button.transaction-form-submit-btn type='submit' disabled=true data-behavior='payment-submit'
-            | <strong>Pay</strong> <span class="price">#{ number_to_currency(@product.price + 3) }<span class="price">
+            | <strong>#{ t('.pay') }</strong> <span class="price">#{ number_to_currency(@product.total_cost) }<span class="price">
 
 javascript:
   $(document).ready(function () {
     $('[data-select="#{@product.id}"]').select2({
-      placeholder: 'Choose shipping'
+      placeholder: "#{ t('.choose_shipping') }"
     });
   });
   

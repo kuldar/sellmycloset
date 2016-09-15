@@ -28,7 +28,10 @@ html
   
   javascript:
     $(document).on('turbolinks:load', function () {
+
       twemoji.parse(document.body);
+      
+      autosize($('textarea'));
 
       $("[data-behavior='header-search']").select2({
         language: 'et',

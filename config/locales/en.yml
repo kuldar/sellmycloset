@@ -19,6 +19,7 @@ en:
     email: 'mary89@gmail.com'
     password: 'At least 6 characters'
     about: "What's your style? What offers are you interested in? Favorite movie?"
+    country: 'Tatooine'
     facebook_handle: "/marystrawberry"
     instagram_handle: "@marystrawberry"
 

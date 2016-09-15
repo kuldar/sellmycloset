@@ -45,9 +45,31 @@
           = f.label :instagram_handle, class: 'form-label'
           = f.text_field :instagram_handle, class: 'form-input', placeholder: "#{ t('example.instagram_handle') }"
 
+      hr
+
+      .form-group
+        = f.label :country, class: 'form-label'
+        = f.select :country, User::COUNTRIES.map { |w| [t('users.countries.' + w.to_s.parameterize("_")), w] }, {}, { class: 'form-select', data: { behavior: 'country-select' } }
+
+      - if current_user.seller?
+        .form-group
+          = f.label :payment_name, class: 'form-label'
+          = f.text_field :payment_name, class: 'form-input', placeholder: "#{ t('example.payment_name') }"
+        .form-group
+          = f.label :payment_iban, class: 'form-label'
+          = f.text_field :payment_iban, class: 'form-input', placeholder: "#{ t('example.iban') }"
+
       - if devise_mapping.confirmable? && resource.pending_reconfirmation?
         div Currently waiting confirmation for: #{resource.unconfirmed_email}
 
       .form-footer
         = f.submit t('.save_changes'), class: 'form-btn is-main'
         = mail_to t('site.email'), t('site.need_help'), class: 'form-link pull-right'
+
+javascript:
+  $(document).ready(function () {
+    $("[data-behavior='country-select']").select2({
+      placeholder: "#{t('example.country')}",
+      minimumResultsForSearch: -1
+    });
+  });

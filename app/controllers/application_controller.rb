@@ -16,6 +16,11 @@ class ApplicationController < ActionController::Base
       :remote_avatar_url,
       :facebook_handle,
       :instagram_handle,
+      :country,
+      :payment_name,
+      :payment_iban,
+      :payment_balance,
+      :lifetime_balance,
       :cover,
       :about,
     ])
@@ -31,6 +36,11 @@ class ApplicationController < ActionController::Base
       :remote_avatar_url,
       :facebook_handle,
       :instagram_handle,
+      :country,
+      :payment_name,
+      :payment_iban,
+      :payment_balance,
+      :lifetime_balance,
       :cover,
       :about,
     ])

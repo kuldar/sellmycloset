@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160914105841) do
+ActiveRecord::Schema.define(version: 20160914194902) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20160914105841) do
   create_table "products", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
-    t.float    "price"
+    t.integer  "price"
     t.integer  "status",      default: 1
     t.integer  "user_id"
     t.datetime "created_at",              null: false
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 20160914105841) do
     t.integer  "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["seller_id", "buyer_id", "product_id"], name: "index_transactions_on_seller_id_and_buyer_id_and_product_id", unique: true
+    t.index ["product_id"], name: "index_transactions_on_product_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -116,6 +116,11 @@ ActiveRecord::Schema.define(version: 20160914105841) do
     t.string   "braintree_customer_id"
     t.string   "provider"
     t.string   "uid"
+    t.string   "payment_name"
+    t.string   "payment_iban"
+    t.integer  "payment_balance",        default: 0
+    t.integer  "lifetime_balance",       default: 0
+    t.string   "country"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

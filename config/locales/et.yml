@@ -19,8 +19,11 @@ et:
     email: 'mari89@gmail.com'
     password: 'Vähemalt 6 tähemärki'
     about: "Mis stiili kannad? Mis pakkumistest huvitatud oled? Lemmik film?"
+    country: 'Tatooine'
     facebook_handle: "/marimaasikas"
     instagram_handle: "@marimaasikas"
+    payment_name: 'Mari Maasikas'
+    iban: 'EE382200221020145685'
 
   shared:
     header:
@@ -33,6 +36,11 @@ et:
       admin: "Admin"
       settings: "Seaded"
       discover_by_hashtag: "Otsi hashtage kasutades.."
+
+  users:
+    countries:
+      estonia: 'Eesti'
+      united_kingdom: 'Inglismaa'
 
   products:
     product:
@@ -61,6 +69,15 @@ et:
       dresses: 'Seelikud'
       shoes: 'Jalanõud'
       accessories: 'Aksessuaarid'
+
+  transactions:
+    new:
+      shipping: 'postikulu'
+      choose_shipping: 'Vali pakiautomaat'
+      card_number: 'Kaardi number'
+      cvv: 'CVV'
+      exp_date: 'Kehtivus'
+      pay: 'Maksa'
 
   promos:
     signup_cta:
@@ -159,6 +176,9 @@ et:
         cover: 'Kaanepilt'
         facebook_handle: 'Facebooki kasutaja'
         instagram_handle: "Instagrami kasutaja"
+        country: 'Riik'
+        payment_name: 'Pangakonto omanik'
+        payment_iban: 'Pangakonto IBAN'
       product:
         product_images: 'Tootepildid'
         name: 'Nimi'

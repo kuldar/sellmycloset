@@ -1,3 +1,9 @@
+.bar.is-red
+	div Products #{ @user.products.count }
+	div Sales #{ @user.products.sold.count }
+	div Current balance #{ number_to_currency @user.payment_balance }
+	div Total earnings #{ number_to_currency @user.lifetime_balance }
+
 .grid#grid.is-loading
 	.grid-item = render 'shared/user_card', user: @user
 	- unless signed_in?

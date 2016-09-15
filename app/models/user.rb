@@ -1,6 +1,9 @@
 class User < ApplicationRecord
 
 	VALID_SLUG_REGEX = /\A[a-zA-Z0-9]*\z/
+  COUNTRIES = [
+    "Estonia"
+  ]
 
   enum role: {
     buyer:  0,
@@ -42,6 +45,7 @@ class User < ApplicationRecord
 
   before_validation :set_username
   before_create :set_avatar
+  before_create :set_country
 
   def feed
     following_ids = "SELECT followed_id FROM relationships
@@ -96,19 +100,16 @@ class User < ApplicationRecord
     braintree_customer_id
   end
 
-  def purchase(product)
-    Transaction.create(
-        product_id: product.id,
-        buyer_id: id,
-        seller_id: product.user.id
-      )
-  end
-
   def purchases
     # transactions_ids = "SELECT followed_id FROM relationships
     #                  WHERE  follower_id = :user_id"
     # Product.where("user_id IN (#{following_ids})
     #                  OR user_id = :user_id", user_id: id)
+  end
+
+  def update_balance(earnings)
+    payment_balance = payment_balance + earnings
+    lifetime_balance = lifetime_balance + earnings
   end
 
   def self.from_omniauth(auth)
@@ -148,6 +149,10 @@ class User < ApplicationRecord
 
     def set_avatar
       self.remote_avatar_url ||= placeholder_avatar_url(email, 500)
+    end
+
+    def set_country
+      self.country = COUNTRIES.find('Estonia')
     end
 
 end

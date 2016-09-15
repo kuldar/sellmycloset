@@ -20,13 +20,13 @@ class TransactionsController < ApplicationController
 			payment_method = customer.payment_methods.find{ |payment_method| payment_method.default? }
 
 			result = Braintree::Transaction.sale(
-									amount: '10.00',
+									amount: @product.total_cost,
 									payment_method_token: payment_method.token)
 
 		# Else create a new customer in Vault
 		else
 			result = Braintree::Transaction.sale(
-									amount: '10.00',
+									amount: @product.total_cost,
 									payment_method_nonce: params[:payment_method_nonce],
 									customer: {
 										first_name: current_user.first_name,
@@ -45,7 +45,13 @@ class TransactionsController < ApplicationController
 				current_user.update(braintree_customer_id: result.transaction.customer_details.id)
 			end
 
-			@transaction = current_user.purchase(@product)
+			@transaction = Transaction.create(
+        product_id: @product.id,
+        buyer_id: current_user.id,
+        seller_id: @product.user.id
+      )
+
+    	@product.user.update_balance(@product.earnings)
 			@product.sold!
 
 	    if @transaction.save

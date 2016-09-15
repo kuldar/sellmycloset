@@ -1,6 +1,8 @@
 class Product < ApplicationRecord
   acts_as_taggable
 
+  MARGIN = 0.7
+
 	enum status: {
     draft:      0,
     active:     1,
@@ -41,5 +43,17 @@ class Product < ApplicationRecord
   # def prev
   #   Product.where('id > ?', id).last
   # end
+
+  def earnings
+    price * MARGIN
+  end
+
+  def shipping_cost
+    3
+  end
+
+  def total_cost
+    price + shipping_cost
+  end
 
 end

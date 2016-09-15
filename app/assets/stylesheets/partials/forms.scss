@@ -2,7 +2,15 @@
 //  Forms  //
 /////////////
 
-.form {}
+.form {
+	hr {
+		border: none;
+		height: 1px;
+		width: 100%;
+		background-color: $light-gray-2;
+		margin: 1rem 0;
+	}
+}
 
 // Form Group
 .form-group {
@@ -98,7 +106,7 @@
 }
 
 .form-textarea {
-	min-height: 4rem;
+	min-height: 3rem;
 	resize: none;
 }
 

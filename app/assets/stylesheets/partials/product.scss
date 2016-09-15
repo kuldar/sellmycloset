@@ -240,6 +240,7 @@ a.product-meta-btn:active {
 // Product Comment
 
 .product-comment {
+	color: $dark-gray;
 	margin: 0.75rem 0;
 
 	&:last-child {
@@ -307,7 +308,7 @@ a.product-meta-btn:active {
 .product-comment-form-input {
 	@include flex(1);
 	display: block;
-	height: auto;
+	line-height: 1.25rem;
 	padding: 0.5rem 0;
 	background-color: transparent;
 	resize: none;
