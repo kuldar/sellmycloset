@@ -72,7 +72,7 @@ en:
       add_product: "Add product"
 
     create:
-      flash_success: "Uus toode edukalt lisatud! :sparkles: Jaga seda sõpradega: <input value='%{short_url}' class='alert-url' readonly='true' onclick='this.select()'>"
+      flash_success: "New product successfully added! :sparkles:"
 
   transactions:
     new:
