@@ -22,6 +22,8 @@ en:
     country: 'Tatooine'
     facebook_handle: "/marystrawberry"
     instagram_handle: "@marystrawberry"
+    payment_name: 'Mary Strawberry'
+    iban: 'EE382200221020145685'
 
   shared:
     header:
@@ -35,10 +37,31 @@ en:
       settings: "Settings"
       discover_by_hashtag: "Discover by hashtag.."
 
+  users:
+    countries:
+      estonia: 'Estonia'
+      united_kingdom: 'United Kingdom'
+
+  comments:
+    add_a_comment: 'Add a comment'
+
+  product:
+    buy: 'Buy'
+    change: 'Change'
+
+    categories:
+      shirts: 'Shirts'
+      sweaters: 'Sweaters'
+      jackets: 'Jackets'
+      coats: 'Coats'
+      pants: 'Pants'
+      jeans: 'Jeans'
+      skirts: 'Skirts'
+      dresses: 'Dresses'
+      shoes: 'Shoes'
+      accessories: 'Accessories'
+
   products:
-    product:
-      change: 'Change'
-      
     product_form:
       upload_images: "Select images"
       product_title_placeholder: "White Reebok shoes"
@@ -50,6 +73,15 @@ en:
 
     create:
       flash_success: "Uus toode edukalt lisatud! :sparkles: Jaga seda sõpradega: <input value='%{short_url}' class='alert-url' readonly='true' onclick='this.select()'>"
+
+  transactions:
+    new:
+      shipping: 'shipping'
+      choose_shipping: 'Choose shipping'
+      card_number: 'Card number'
+      cvv: 'CVV'
+      exp_date: 'Expiration date'
+      pay: 'Pay'
 
   promos:
     signup_cta:
@@ -130,6 +162,8 @@ en:
     attributes:
       user:
         cover: 'Cover image'
+        payment_name: 'Bank account name'
+        payment_iban: 'Bank account IBAN'
       product:
         tag_list: 'Hashtags'
   
