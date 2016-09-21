@@ -39,5 +39,6 @@ Rails.application.routes.draw do
 
   # Static pages
   get :become_seller, to: 'static_pages#become_seller'
+  put :become_seller, to: 'users#become_seller'
 
 end
