@@ -1,7 +1,7 @@
 .product-comment data-comment="#{comment.id}"
 	= image_tag comment.user.avatar_url, class: 'product-comment-user-photo'
 	- if user_signed_in? && current_user == comment.user
-		= link_to [product, comment], method: :delete, remote: true, class: 'product-comment-delete-btn' do
+		= link_to [product, comment], method: :delete, remote: true, data: {confirm: t('comments.confirm_deletion')}, class: 'product-comment-delete-btn' do
 			= image_tag 'small-close-icon.svg'
 	.product-comment-body
 		= link_to comment.user.name, comment.user, class: 'product-comment-user-name'

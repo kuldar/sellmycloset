@@ -40,6 +40,9 @@ et:
       admin: "Admin"
       settings: "Seaded"
 
+  comments:
+    confirm_deletion: "Soovid kommentaari kustutada?"
+
   products:
     product_form:
       upload_images: "Lae toote pildid"
