@@ -1,26 +1,26 @@
 .grid#grid.is-loading
-	.grid-item = render 'shared/user_card', user: @user
-	- unless signed_in?
-		.grid-item = render 'shared/signup_cta'
-	- @user.products.each do |product|
-		.grid-item = render 'products/feed_product', product: product
+  - unless signed_in?
+    .grid-item = render 'shared/signup_cta'
+  .grid-item = render 'shared/user_card', user: @user
+  - @user.products.each do |product|
+    .grid-item = render 'products/feed_product', product: product
 
 javascript:
-	$('#grid').imagesLoaded( function() {
+  $('#grid').imagesLoaded( function() {
 
-		function getWindowWidth() {
+    function getWindowWidth() {
       return Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
     }
-		
-		$('#grid').wookmark({
-		  itemWidth: function () {
+    
+    $('#grid').wookmark({
+      itemWidth: function () {
         return getWindowWidth() < 480 ? 300 : 360;
       },
-		  offset: 0,
-		  flexibleWidth: function () {
+      offset: 0,
+      flexibleWidth: function () {
         return getWindowWidth() < 480 ? '100%' : 480;
       }
-		});
+    });
 
-		$('#grid').removeClass('is-loading');
-	});
+    $('#grid').removeClass('is-loading');
+  });
