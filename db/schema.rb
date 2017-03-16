@@ -38,7 +38,9 @@ ActiveRecord::Schema.define(version: 20160907180705) do
   create_table "products", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
-    t.float    "price"
+    t.string   "size"
+    t.integer  "price"
+    t.integer  "category"
     t.integer  "status",      default: 1
     t.integer  "user_id"
     t.datetime "created_at",              null: false
@@ -57,38 +59,15 @@ ActiveRecord::Schema.define(version: 20160907180705) do
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
-  create_table "taggings", force: :cascade do |t|
-    t.integer  "tag_id"
-    t.string   "taggable_type"
-    t.integer  "taggable_id"
-    t.string   "tagger_type"
-    t.integer  "tagger_id"
-    t.string   "context",       limit: 128
-    t.datetime "created_at"
-    t.index ["context"], name: "index_taggings_on_context"
-    t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
-    t.index ["tag_id"], name: "index_taggings_on_tag_id"
-    t.index ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
-    t.index ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy"
-    t.index ["taggable_id"], name: "index_taggings_on_taggable_id"
-    t.index ["taggable_type"], name: "index_taggings_on_taggable_type"
-    t.index ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type"
-    t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
-  end
-
-  create_table "tags", force: :cascade do |t|
-    t.string  "name"
-    t.integer "taggings_count", default: 0
-    t.index ["name"], name: "index_tags_on_name", unique: true
-  end
-
   create_table "transactions", force: :cascade do |t|
+    t.integer  "status",          default: 1
     t.integer  "seller_id"
     t.integer  "buyer_id"
     t.integer  "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["seller_id", "buyer_id", "product_id"], name: "index_transactions_on_seller_id_and_buyer_id_and_product_id", unique: true
+    t.string   "shipping_target"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["product_id"], name: "index_transactions_on_product_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -106,15 +85,20 @@ ActiveRecord::Schema.define(version: 20160907180705) do
     t.datetime "updated_at",                          null: false
     t.string   "name"
     t.string   "username"
-    t.text     "about"
+    t.integer  "role",                   default: 0
     t.string   "avatar"
     t.string   "cover"
+    t.text     "about"
+    t.string   "phone_number"
     t.string   "instagram_handle"
     t.string   "facebook_handle"
-    t.integer  "role",                   default: 0
-    t.string   "braintree_customer_id"
-    t.string   "provider"
+    t.string   "payout_name"
+    t.string   "payout_iban"
     t.string   "uid"
+    t.string   "provider"
+    t.string   "braintree_customer_id"
+    t.integer  "balance",                default: 0
+    t.integer  "total_earnings",         default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

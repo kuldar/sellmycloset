@@ -17,9 +17,12 @@ $dark-gray: #61656d;
 
 $green: #00b068;
 $red: #eb410d;
+$purple: #6c38a0;
 
 $blue: #0099e5;
 $facebook-blue: #3b5998;
+
+$orange-pink-gradient: linear-gradient(to right, #f27c36, #ed485f);
 
 // Bezier
 $bezier: cubic-bezier(.175, .885, .32, 1.275);
@@ -38,6 +41,11 @@ $bezier: cubic-bezier(.175, .885, .32, 1.275);
   50% { transform: scale(1.5); }
 }
 
+@keyframes fadeIn {
+  from  { opacity: 0; }
+  to    { opacity: 1; }
+}
+
 ///////////////
 //  Imports  //
 ///////////////
@@ -50,17 +58,20 @@ $bezier: cubic-bezier(.175, .885, .32, 1.275);
 @import 'partials/normalize';
 @import 'partials/base';
 @import 'partials/layout';
+@import 'partials/forms';
 @import 'partials/header';
 @import 'partials/alerts';
 @import 'partials/product';
 @import 'partials/grid';
 @import 'partials/modal';
+@import 'partials/cards';
 @import 'partials/user_card';
 @import 'partials/signup_cta';
 @import 'partials/transactions';
 @import 'partials/select';
 
-@import 'lib/swipebox.css';
+@import 'lib/swipebox';
+@import 'lib/chartist';
 
 .emoji {
 	height: 1em;
@@ -73,6 +84,10 @@ $bezier: cubic-bezier(.175, .885, .32, 1.275);
 	@include animation(heartPulse .25s $bezier both);
 }
 
+.fade-in {
+  @include animation(fadeIn 2s);
+}
+
 .box {
   border-radius: 0.5rem;
   overflow: hidden;
@@ -83,18 +98,5 @@ $bezier: cubic-bezier(.175, .885, .32, 1.275);
   margin: 2rem auto;
 }
 
-// Header Bar
-
-.header-row {
-  background-color: $white;
-  box-shadow: 0 1px 3px rgba($dark-gray, 0.1);
-  padding: 1rem;
-}
-
-//  Search
-
-.search {}
-.search-form {}
-.search-input {
-  width: 100%;
-}
+.pull-left { float: left; }
+.pull-right { float: right; }

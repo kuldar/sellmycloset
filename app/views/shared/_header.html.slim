@@ -2,22 +2,25 @@ header.header
 
 	/ Logo
 	= link_to root_path, class: 'logo' do
-		= image_tag 'hanger-icon.svg'
-		strong = t('site.name')
+		.logo-circle
+		strong Sell My Closet
+
+	.header-alerts
+		= render 'shared/flash'
 
 	/ Header Nav
 	nav.header-nav
 		- if user_signed_in?
-			/ = link_to 'Minu ostud', user_purchases_path(current_user), class: 'header-nav-link'
+			= link_to user_path(current_user), class: 'header-nav-link' do
+				= image_tag current_user.avatar, class: 'header-nav-link-avatar'
+				= current_user.name
+
 			- if current_user.buyer?
 				= link_to t('.become_seller'), become_seller_path, class: 'header-nav-link'
 			- elsif current_user.seller? || current_user.admin?
 				= link_to t('.add_product'), new_product_path, class: 'header-nav-btn'
-				= link_to t('.my_products'), user_path(current_user), class: 'header-nav-link'
 			- elsif current_user.admin?
 				= link_to t('.admin'), admin_root_path, class: 'header-nav-link'
-			= link_to t('.settings'), edit_registration_path(current_user), class: 'header-nav-link'
-			= link_to t('.log_out'), destroy_user_session_path, method: :delete, class: 'header-nav-link'
 		- else
 			= link_to t('.log_in'), new_user_session_path, class: 'header-nav-link'
 			= link_to t('.join'), new_user_registration_path, class: 'header-nav-link'

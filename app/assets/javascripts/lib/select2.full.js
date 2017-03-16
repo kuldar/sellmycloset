@@ -1660,7 +1660,7 @@ S2.define('select2/selection/multiple',[
       var $selection = this.selectionContainer();
       var formatted = this.display(selection, $selection);
 
-      $selection.append(formatted);
+      $selection.prepend(formatted);
       $selection.prop('title', selection.title || selection.text);
 
       $selection.data('data', selection);

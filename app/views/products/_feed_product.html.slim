@@ -1,11 +1,11 @@
 .product.feed-product
 	.product-image-container
 		= link_to product.user, class: 'product-seller' do
-			= image_tag product.user.avatar_url, class: 'product-seller-photo'
+			= image_tag product.user.avatar, class: 'product-seller-photo'
 			.product-seller-name = product.user.name
 		
-		= link_to product, remote: true, class: 'product-image', data: { lightbox: "#{product.id}" } do
-			= image_tag product.product_images.first.image_url
+		= link_to product, class: 'product-image' do
+			= image_tag product.product_images.first.image_url if product.product_images.any?
 
 	.product-info
 		.product-info-header
@@ -13,34 +13,20 @@
 
 		.product-description
 			= emojify product.description
-			= render product.tags
 
 		.product-info-footer
 			- if product.sold?
 				span.product-outline-btn Sold #{ time_ago_in_words product.sale.created_at } ago
 			- else
 				- if current_user == product.user
-					= link_to 'Change', edit_product_path(product), class: 'product-outline-btn'
+						span.product-main-btn
+							span.price = number_to_currency(product.price)
 				- else
 					= link_to new_product_transaction_path(product), class: 'product-buy-btn' do
-						| <strong>Buy</strong> <span class='price'>#{number_to_currency(product.price)}</span>
+						| <strong>#{ t('product.buy') }</strong> <span class='price'>#{number_to_currency(product.price)}</span>
 
 			.product-meta
 				.product-meta-btn-container data-comments-counter="#{product.id}"
 					= render partial: 'products/comments_counter', locals: { product: product }
 				.product-meta-btn-container data-likes-counter="#{product.id}"
 					= render partial: 'products/likes_counter', locals: { product: product }
-
-	.product-comments-container data-comments="#{product.id}"
-
-		.product-comments data-comments-feed="#{product.id}"
-			- product.comments.each do |comment|
-				= render 'comments/comment', product: product, comment: comment
-		- if user_signed_in?
-			= render 'comments/comment_form', product: product
-		- else
-			.product-comments-cta
-				=> link_to 'Join', new_user_registration_path
-				| or
-				=< link_to 'sign in', new_user_session_path
-				|  to comment..

@@ -18,6 +18,6 @@
 //= require lib/select2.full
 //= require lib/i18n/et
 //= require lib/jquery.swipebox
-//= require modal
-//= require select
+//= require lib/autosize
+//= require lib/chartist
 //= require turbolinks

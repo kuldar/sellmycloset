@@ -1,46 +1,128 @@
-.product.single-product
-	.product-image-container
-		= link_to @product.user, class: 'product-seller' do
-			= image_tag @product.user.avatar_url, class: 'product-seller-photo'
-			.product-seller-name = @product.user.name
+.single-product
 
-		= link_to @product, remote: true, class: 'product-image', data: { lightbox: "#{@product.id}" } do
-			= image_tag @product.product_images.first.image_url
+	= content_tag :div, class: 'product-images', data: { 'images-count': @product.product_images.count } do
+		- @product.product_images.each_with_index do |image, index|
+			= content_tag :div, class: 'product-image-container', data: { 'image': index+1 } do
+				= link_to '', image.image_url, class: 'product-image', style: "background-image: url('#{image.image_url}');"
 
-	.product-info
-		.product-info-header
-			.product-title = @product.title
+	- if current_user == @product.user
+		.product-owner
+			.product-views
+				.product-views-chart.ct-chart.fade-in
+				.product-views-count
+					.product-views-count-label = t('product.views')
+					.product-views-count-number 121
 
-		.product-description
-			=> emojify @product.description
-			= render @product.tags
+			.product-actions
+				= link_to t('product.change'), edit_product_path(@product), class: 'product-outline-btn'		
+				= link_to t('product.facebook_share'), "https://www.facebook.com/sharer/sharer.php?u=#{u product_url(@product)}", class: 'product-facebook-btn', target: '_blank'
 
-		.product-info-footer
-			- if @product.sold?
-				span.product-outline-btn Sold #{ time_ago_in_words @product.sale.created_at } ago
-			- else
-				- if current_user == @product.user
-					= link_to 'Change', edit_product_path(@product), class: 'product-outline-btn'
+	- else
+		.product-seller
+			.product-seller-overview
+				= image_tag @product.user.avatar, class: 'product-seller-photo'
+				.product-seller-info
+					= link_to @product.user.name, @product.user, class: "product-seller-name"
+					- if signed_in? && current_user.following?(@product.user)
+						= render 'users/unfollow', user: @product.user, btn_class: 'product-seller-unfollow-btn'
+					- elsif signed_in?
+						= render 'users/follow', user: @product.user, btn_class: 'product-seller-follow-btn'
+					- else
+						= link_to t('user.follow'), new_user_registration_path, class: 'user-card-btn is-primary'
+
+			.product-seller-stats
+				.product-seller-stat
+					.product-seller-stat-name = t('user.products')
+					.product-seller-stat-number = @product.user.products.count
+
+				.product-seller-stat
+					.product-seller-stat-name = t('user.sales')
+					.product-seller-stat-number = @product.user.sales_count
+
+				.product-seller-stat
+					.product-seller-stat-name = t('user.followers')
+					.product-seller-stat-number = @product.user.followers.count
+
+	.product
+
+		.product-info
+			.product-info-header
+				.product-title = @product.title
+
+			.product-description
+				=> emojify @product.description
+				= link_to t("product.categories." + @product.category.to_s), products_path(c:@product.category)
+
+			.product-info-footer
+				- if @product.sold?
+					span.product-outline-btn Sold #{ time_ago_in_words @product.sale.created_at } ago
 				- else
-					= link_to new_product_transaction_path(@product), class: 'product-buy-btn' do
-						| <strong>Buy</strong> <span class='price'>#{number_to_currency(@product.price)}</span>
-			
-			.product-meta
-				.product-meta-btn-container data-comments-counter="#{@product.id}" 
-					= render partial: 'products/comments_counter', locals: { product: @product }
-				.product-meta-btn-container data-likes-counter="#{@product.id}"
-					= render partial: 'products/likes_counter', locals: { product: @product }
+					- if current_user == @product.user
+						span.product-main-btn
+							span.price = number_to_currency(@product.price)
+					- else
+						= link_to new_product_transaction_path(@product), class: 'product-main-btn' do
+							| <strong>#{ t('product.buy') }</strong> <span class='price'>#{number_to_currency(@product.price)}</span>
+				
+				.product-meta
+					.product-meta-btn-container data-comments-counter="#{@product.id}" 
+						= render partial: 'products/comments_counter', locals: { product: @product }
+					.product-meta-btn-container data-likes-counter="#{@product.id}"
+						= render partial: 'products/likes_counter', locals: { product: @product }
 
-	.product-comments-container
+		.product-comments-container
 
-		.product-comments data-comments-feed="#{@product.id}"
-			- @product.comments.each do |comment|
-				= render 'comments/comment', product: @product, comment: comment
-		- if user_signed_in?
-			= render 'comments/comment_form', product: @product
-		- else
-			.product-comments-cta
-				=> link_to 'Join', new_user_registration_path
-				| or
-				=< link_to 'sign in', new_user_session_path
-				|  to comment..
+			.product-comments data-comments-feed="#{@product.id}"
+				- @product.comments.each do |comment|
+					= render 'comments/comment', product: @product, comment: comment
+			- if user_signed_in?
+				= render 'comments/comment_form', product: @product
+			- else
+				.product-comments-cta
+					=> link_to t('comments.join'), new_user_registration_path
+					= t('comments.or')
+					=<> link_to t('comments.sign_in'), new_user_session_path
+					= t('comments.to_comment')
+
+javascript:
+	var visitsChart = new Chartist.Line('.ct-chart', {
+	  series: [
+	  	[0, 0, 0, 0, 0, 10, 3]
+	  ]
+	}, {
+		axisX: {
+			offset: 0,
+			showLabel: false,
+			showGrid: false
+		},
+		axisY: {
+			offset: 0,
+			showLabel: false,
+			showGrid: true
+		},
+		chartPadding: {
+			top: 2,
+			right: 2,
+			bottom: 2,
+			left: 2
+		},
+		scaleMinSpace: 0,
+	  height: 64,
+	  width: 100,
+	  showLine: true,
+		showPoint: false
+	});
+
+	visitsChart.on('draw', function(data) {
+	  if(data.type === 'line' || data.type === 'area') {
+	    data.element.animate({
+	      d: {
+	        begin: 2000 * data.index,
+	        dur: 2000,
+	        from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(),
+	        to: data.path.clone().stringify(),
+	        easing: Chartist.Svg.Easing.easeOutQuint
+	      }
+	    });
+	  }
+	});

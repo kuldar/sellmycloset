@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  acts_as_taggable
+  MARGIN = 0.8
 
 	enum status: {
     draft:      0,
@@ -8,34 +8,40 @@ class Product < ApplicationRecord
     cancelled:  3
   }
 
+  enum category: {
+    shirt:      1,
+    sweater:    2,
+    jacket:     3,
+    coat:       4,
+    pants:      5,
+    skirt:      6,
+    dress:      7,
+    shoes:      8,
+    accessory:  9
+  }
+
   belongs_to :user
-  has_many :likes
-  has_many :comments, dependent: :destroy
-  has_one :sale, foreign_key: 'product_id', class_name: 'Transaction'
+  has_many  :likes
+  has_many  :comments, dependent: :destroy
+  has_one   :sale, foreign_key: 'product_id', class_name: 'Transaction'
   
   has_many                      :product_images, dependent: :destroy
   accepts_nested_attributes_for :product_images, allow_destroy: true
   # validates :product_images, presence: true
 
-  default_scope -> { order(created_at: :desc) }
+  default_scope { order(created_at: :desc) }
+  validates :title, :description, :price, :user_id, :category, presence: true
 
-  validates :user_id, presence: true
-  validates :title, :description, :price, presence: true
-
-  def next
-    Product.where('id < ?', id).first
+  def earnings
+    price * MARGIN
   end
 
-  def prev
-    Product.where('id > ?', id).last
+  def shipping_cost
+    300
   end
 
-  def shipping
-    Rails.env.production? ? 0 : 0
-  end
-
-  def total_price
-    price + shipping
+  def total_cost
+    price + shipping_cost
   end
 
 end

@@ -1,13 +1,22 @@
 class AddColumnsToUsers < ActiveRecord::Migration[5.0]
   def change
-  	add_column :users, :name, 						:string
-  	add_column :users, :username, 				:string, unique: true
-  	add_column :users, :about,					 	:text
-  	add_column :users, :avatar, 					:string
-  	add_column :users, :cover, 						:string
-  	add_column :users, :instagram_handle, :string
-  	add_column :users, :facebook_handle, 	:string
-  	add_column :users, :role,		 					:integer, default: 0
-    add_column :users, :braintree_customer_id, :string
+    change_table :users do |t|
+      t.string  :name
+      t.string  :username, unique: true
+      t.integer :role, default: 0
+      t.string  :avatar
+      t.string  :cover
+      t.text    :about
+      t.string  :phone_number
+      t.string  :instagram_handle
+      t.string  :facebook_handle
+      t.string  :payout_name
+      t.string  :payout_iban
+      t.string  :uid
+      t.string  :provider
+      t.string  :braintree_customer_id
+      t.integer :balance, default: 0
+      t.integer :total_earnings, default: 0
+    end
   end
 end

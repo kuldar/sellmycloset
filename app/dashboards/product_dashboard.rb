@@ -13,6 +13,7 @@ class ProductDashboard < Administrate::BaseDashboard
     title: Field::String,
     description: Field::String,
     price: Field::Number,
+    category: Field::String,
     status: Field::String.with_options(searchable: true),
   }.freeze
 
@@ -25,6 +26,7 @@ class ProductDashboard < Administrate::BaseDashboard
     :id,
     :user,
     :title,
+    :category,
     :description,
     :price,
   ].freeze
@@ -35,6 +37,7 @@ class ProductDashboard < Administrate::BaseDashboard
     :id,
     :user,
     :title,
+    :category,
     :description,
     :price,
     :status,
@@ -46,6 +49,7 @@ class ProductDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :user,
     :title,
+    :category,
     :description,
     :price,
     :status,

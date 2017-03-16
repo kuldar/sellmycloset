@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
 		if params.has_key?(:q)
     	@products = Product.tagged_with(params[:q], any: true)
     else
-    	@products = Product.all.active
+    	@products = Product.active
     end
 	end
 
@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
     @product = current_user.products.build(product_params)
 
     if @product.save && save_images
-  		flash[:success] = t('.flash_success', short_url: 'sellmy.cl/2b5LZOF')
+  		flash[:success] = t('.flash_success', url: product_url(@product))
     	redirect_to @product
   	else
       flash[:error] = t('.flash_error')
@@ -40,7 +40,8 @@ class ProductsController < ApplicationController
 	def update
 		if @product.update_attributes(product_params)
 			save_images
-      flash[:success] = t('.flash_success')
+      # flash[:success] = t('.flash_success')
+      flash[:success] = t('.flash_success', url: product_url(@product))
       redirect_to @product
     else
       render 'edit'
@@ -73,13 +74,16 @@ class ProductsController < ApplicationController
 				:description,
 				:price,
 				:status,
-				:tag_list,
+        :size,
+				:category,
 				product_images_attributes: [:id, :product_id, :image])
 		end
 
 		def save_images
-			params[:product_images]['image'].each do |image|
-    		@product_image = @product.product_images.create!(image: image)
+			unless params[:product_images].blank?
+				params[:product_images]['image'].each do |image|
+    			@product_image = @product.product_images.create!(image: image)
+    		end
     	end
 		end
 

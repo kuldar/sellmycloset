@@ -1,9 +1,3 @@
-.header-row
-	.search
-		= form_tag products_path, method: 'get', data: { behavior: 'search-form' }, class: 'search-form' do
-			= select_tag :q, options_for_select(ActsAsTaggableOn::Tag.all, params[:q]), { class: 'search-input', multiple: true, data: { behavior: 'search' }}
-			= submit_tag 'Search', name: nil, hidden: true
-
 .grid#grid.is-loading
 	- unless signed_in?
 		.grid-item
@@ -30,15 +24,4 @@ javascript:
 		});
 
 		$('#grid').removeClass('is-loading');
-	});
-
-	$(document).ready(function () {
-		$("[data-behavior='search']").select2({
-			placeholder: 'Discover by hashtag..',
-			tags: true
-		});
-	});
-
-	$("[data-behavior='search']").on('select2:select', function(e) {
-		$("[data-behavior='search-form']").submit();
 	});

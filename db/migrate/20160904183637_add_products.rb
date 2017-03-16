@@ -3,7 +3,9 @@ class AddProducts < ActiveRecord::Migration[5.0]
   	create_table :products do |t|
   		t.string    	:title
   		t.string 	    :description
-  		t.float       :price
+      t.string      :size
+  		t.integer     :price
+      t.integer     :category
   		t.integer     :status, default: 1
       t.belongs_to  :user, foreign_key: true
 

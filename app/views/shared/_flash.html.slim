@@ -1,2 +1,4 @@
-- flash.each do |message_type, message|
-  .alert.alert-#{message_type} = emojify message.html_safe
+.alert-container
+  - flash.each do |message_type, message|
+    = content_tag :div, class: "alert alert-#{message_type}" do
+      = emojify message.html_safe

@@ -55,12 +55,13 @@
 }
 
 .transaction-product-image {
+	background-color: $black;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 
 	display: block;
-	border-radius: 0.5rem 0.5rem 0 0;
+	border-radius: 0;
 	overflow: hidden;
 	height: 10rem;
 
@@ -77,6 +78,10 @@
 			rgba($black, 0.75))
 		);
 	}
+
+	@include min-width(30rem) {
+		border-radius: 0.5rem 0.5rem 0 0;
+  }
 }
 
 // Product Seller
@@ -112,7 +117,7 @@
 .transaction-product-body {
 	@include display(flex);
 	@include flex-direction(column);
-	padding: 2rem;
+	// padding: 2rem;
 
 	@include min-width(30rem) {
 		@include flex-direction(row);

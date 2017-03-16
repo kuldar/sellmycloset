@@ -8,7 +8,6 @@
 		var ui,
 			defaults = {
 				useCSS : true,
-				useSVG : true,
 				initialIndexOnArray : 0,
 				removeBarsOnMobile : true,
 				hideCloseButtonOnMobile : false,
@@ -33,7 +32,6 @@
 			selector = elem.selector,
 			isMobile = navigator.userAgent.match( /(iPad)|(iPhone)|(iPod)|(Android)|(PlayBook)|(BB10)|(BlackBerry)|(Opera Mini)|(IEMobile)|(webOS)|(MeeGo)/i ),
 			isTouch = isMobile !== null || document.createTouch !== undefined || ( 'ontouchstart' in window ) || ( 'onmsgesturechange' in window ) || navigator.msMaxTouchPoints,
-			supportSVG = !! document.createElementNS && !! document.createElementNS( 'http://www.w3.org/2000/svg', 'svg').createSVGRect,
 			winWidth = window.innerWidth ? window.innerWidth : $( window ).width(),
 			winHeight = window.innerHeight ? window.innerHeight : $( window ).height(),
 			currentX = 0,
@@ -46,8 +44,12 @@
 						</div>\
 						<div id="swipebox-bottom-bar">\
 							<div id="swipebox-arrows">\
-								<a id="swipebox-prev"></a>\
-								<a id="swipebox-next"></a>\
+								<a id="swipebox-prev">\
+									<div id="swipebox-prev-arrow"></div>\
+								</a>\
+								<a id="swipebox-next">\
+									<div id="swipebox-next-arrow"></div>\
+								</a>\
 							</div>\
 						</div>\
 						<a id="swipebox-close"></a>\
@@ -168,14 +170,6 @@
 				var $this = this, bg;
 
 				$( 'body' ).append( html );
-
-				if ( supportSVG && plugin.settings.useSVG === true ) {
-					bg = $( '#swipebox-close' ).css( 'background-image' );
-					bg = bg.replace( 'png', 'svg' );
-					$( '#swipebox-prev, #swipebox-next, #swipebox-close' ).css( {
-						'background-image' : bg
-					} );
-				}
 
 				if ( isMobile && plugin.settings.removeBarsOnMobile ) {
 					$( '#swipebox-bottom-bar, #swipebox-top-bar' ).remove();

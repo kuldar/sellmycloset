@@ -1,73 +1,439 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
+################
+#  Eesti keel  #
+################
 
 et:
   site:
     name: "SellMyCloset"
     title: "Müü ja avasta parimaid stiilileide - SellMyCloset.ee"
-    description: ""
+    description: "See on SellMyCloseti kirjeldus"
     facebook_url: "https://facebook.com/sellmycloset"
-    twitter_url: "https://twitter.com/sellmycloset"
-    twitter_handle: "@sellmycloset"
+    twitter_url: "https://twitter.com/sellmyclosetco"
+    twitter_handle: "@sellmyclosetco"
     email: "hi@sellmycloset.co"
+    need_help: 'Vajad abi?'
+
+  example:
+    name: 'Mari Maasikas'
+    username: 'mari'
+    email: 'mari89@gmail.com'
+    phone_number: "55 1234 1234"
+    password: 'Vähemalt 6 tähemärki'
+    about: "Mis stiili kannad? Mis pakkumistest huvitatud oled? Lemmik film?"
+    country: 'Tatooine'
+    facebook_handle: "/marimaasikas"
+    instagram_handle: "@marimaasikas"
+    payout_name: 'Mari Maasikas'
+    iban: 'EE382200221020145685'
 
   shared:
     header:
       log_in: "Sisene"
       log_out: "Välju"
       join: "Liitu"
-      add_product: "Lisa uus toode"
+      add_product: "Lisa toode"
       my_products: "Minu tooted"
       become_seller: "Hakka müüjaks"
       admin: "Admin"
-      settings: "Seaded"
+
+  user:
+    settings: "Seaded"
+    add_product: "Lisa toode"
+    products: "Tooteid"
+    sales: "Müüke"
+    followers: "Fänne"
+    follow: "Jälgi"
+    unfollow: "Loobu jälgimisest"
+
+  product:
+    buy: 'Osta'
+    change: 'Muuda toodet'
+    facebook_share: 'Jaga Facebookis'
+    twitter_share: 'Jaga Twitteris'
+    views: 'Vaatamisi'
+
+    categories:
+      shirt: 'Pluus'
+      sweater: 'Kampsun'
+      jacket: 'Jakk'
+      coat: 'Mantel'
+      pants: 'Püksid'
+      skirt: 'Seelik'
+      dress: 'Kleit'
+      shoes: 'Jalanõud'
+      accessory: 'Aksessuaar'
 
   comments:
     confirm_deletion: "Soovid kommentaari kustutada?"
+    add_a_comment: "Lisa kommentaar"
+    join: "Liitu"
+    or: "või"
+    sign_in: "logi sisse"
+    to_comment: "et kommenteerida..."
 
   products:
     product_form:
       upload_images: "Lae toote pildid"
-      product_title: "Nimi"
       product_title_placeholder: "Valge Adidase särk"
-      product_description: "Kirjeldus"
       product_description_placeholder: "Heas korras vähekantud valge Adidase särk. Suurus S"
-      product_price: "Hind"
-      product_price_placeholder: "€ 10"
-      product_hashtags: "Häshtägid"
-      product_hashtags_placeholder: "#brand, #keywords, #condition"
+      product_price_placeholder: "10 €"
+      product_category_placeholder: "Püksid"
+      product_size_placeholder: "S või 12"
       add_product: "Lisa toode müüki"
+      update_product: "Uuenda toodet"
+      delete_product: "Kustuta toode"
+      delete_product_confirmation: "Oled kindel, et soovid toote kustutada?"
 
     create:
-      flash_success: "Uus toode edukalt lisatud! :sparkles: Jaga seda sõpradega: <input value='%{short_url}' class='alert-url' readonly='true' onclick='this.select()'>"
+      flash_success: "Uus toode edukalt lisatud! :sparkles: Jaga seda sõpradega: <input value='%{url}' class='alert-url' readonly='true' onclick='this.select()'>"
+
+    update:
+      flash_success: "<strong>Toode edukalt uuendatud!</strong> Jaga seda sõpradega: <input value='%{url}' class='alert-url' readonly='true' onclick='this.select()'>"
+
+    destroy:
+      flash_success: "Toode edukalt kustutatud!"
+
+  transactions:
+    new:
+      shipping: 'postikulu'
+      choose_shipping: 'Vali pakiautomaat'
+      card_number: 'Kaardi number'
+      cvv: 'CVV'
+      exp_date: 'Kehtivus'
+      pay: 'Maksa'
+
+  promos:
+    signup_cta:
+      hey_stranger: 'Hei külaline!'
+      join_us: "Liitu ühe klikiga, ning <strong>avasta põnevamaid vähekasutatud moepakkumisi</strong> :sparkles:"
+      sign_up_with_facebook: 'Liitu Facebooki abil'
+      sign_up: 'Liitu e-mailiga'
+
+  devise:
+    confirmations:
+      confirmed: "Your email address has been successfully confirmed."
+      send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
+      send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
+
+    failure:
+      already_authenticated: "Oled juba sisse logitud :smile:"
+      inactive: "Your account is not activated yet."
+      invalid: "<strong>Ei õnnestunud siseneda.</strong> Palun kontrolli e-maili aadress või parool üle :worried:"
+      locked: "Your account is locked."
+      last_attempt: "You have one more attempt before your account is locked."
+      not_found_in_database: "<strong>Ei õnnestunud siseneda.</strong> Palun kontrolli e-maili aadress või parool üle :worried:"
+      timeout: "Your session expired. Please sign in again to continue."
+      unauthenticated: "<strong>Palun loo endale konto</strong> enne jätkamist :smile:"
+      unconfirmed: "<strong>Palun kinnita enda emaili aadress</strong> enne jätkamist"
+
+    mailer:
+      confirmation_instructions:
+        subject: "Confirmation instructions"
+      reset_password_instructions:
+        subject: "Reset password instructions"
+      unlock_instructions:
+        subject: "Unlock instructions"
+      password_change:
+        subject: "Password Changed"
+
+    omniauth_callbacks:
+      failure: "%{kind}i kaudu logimine ei õnnestunud - \"%{reason}\"."
+      success: "Edukalt <strong>%{kind}i kaudu sisse logitud!</strong> :smile:"
+
+    passwords:
+      no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
+      send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
+      send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
+      updated: "Your password has been changed successfully. You are now signed in."
+      updated_not_active: "Your password has been changed successfully."
+
+    registrations:
+      destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
+      signed_up: "<strong>Oled edukalt liitunud,</strong> tere tulemast! :smile:"
+      signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
+      signed_up_but_locked: "You have signed up successfully. However, we could not sign you in because your account is locked."
+      signed_up_but_unconfirmed: "A message with a confirmation link has been sent to your email address. Please follow the link to activate your account."
+      update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address."
+      updated: "<strong>Seaded edukalt uuendatud!</strong> :+1:"
+      new:
+        sign_up: 'Loo uus konto'
+        sign_up_title: 'Liitu kasutades e-maili aadressi, või :point_down:'
+        sign_up_with_facebook: 'Liitu Facebooki abil'
+        or_log_in: 'Või logi sisse'
+
+      edit:
+        save_changes: 'Salvesta muudatused'
+        log_out: "Logi välja"
+
+    sessions:
+      signed_in: "Signed in successfully. :smile:"
+      signed_out: "<strong>Oled välja logitud,</strong> järgmise korrani! :wave:"
+      already_signed_out: "Signed out successfully."
+      new:
+        sign_in: 'Sisene'
+        sign_in_title: 'Sisene oma e-maili aadressiga, või :point_down:'
+        sign_in_with_facebook: 'Sisene Facebooki abil'
+
+    unlocks:
+      send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
+      send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
+      unlocked: "Your account has been unlocked successfully. Please sign in to continue."
+
+  activerecord:
+    models:
+      user:
+        one: 'Kasutaja'
+        other: 'Kasutajat'
+      product:
+        one: 'Toode'
+        other: 'Toodet'
+
+    attributes:
+      user:
+        email: 'E-maili aadress'
+        username: 'Kasutajanimi'
+        name: 'Täisnimi'
+        password: 'Parool'
+        password_confirmation: 'Parooli kinnitus'
+        remember_me: 'Hoia mind meeles'
+        about: 'Tutvustus'
+        phone_number: "Telefoninumber"
+        avatar: 'Avatar'
+        cover: 'Kaanepilt'
+        facebook_handle: 'Facebooki kasutaja'
+        instagram_handle: "Instagrami kasutaja"
+        country: 'Riik'
+        payout_name: 'Väljamakse nimi'
+        payout_iban: 'Väljamakse IBAN'
+      product:
+        product_images: 'Tootepildid'
+        title: 'Nimi'
+        size: 'Suurus'
+        description: 'Kirjeldus'
+        price: 'Hind'
+        category: 'Kategooria'
+
+    errors:
+      messages:
+        record_invalid: 'Valideerimine ebaõnnestus: %{errors}'
+        restrict_dependent_destroy:
+          has_one: "Ei saa kirjet kustutada kuna sõltuv %{record} on olemas"
+          has_many: "Ei saa kirjet kustutada kuna sõltuvad %{record} on olemas"
   
-  number:
-   currency:
-      format:
-        unit: '€'
-        delimiter: ','
-        separator: '.'
-        precision: 0
-        format: '%u %n'
+  date:
+    abbr_day_names:
+    - P
+    - E
+    - T
+    - K
+    - N
+    - R
+    - L
+    abbr_month_names:
+    -
+    - jaan.
+    - veebr.
+    - märts
+    - apr.
+    - mai
+    - juuni
+    - juuli
+    - aug.
+    - sept.
+    - okt.
+    - nov.
+    - dets.
+    day_names:
+    - pühapäev
+    - esmaspäev
+    - teisipäev
+    - kolmapäev
+    - neljapäev
+    - reede
+    - laupäev
+    formats:
+      default: "%d.%m.%Y"
+      long: "%d. %B %Y"
+      short: "%d.%m.%y"
+    month_names:
+    -
+    - jaanuar
+    - veebruar
+    - märts
+    - aprill
+    - mai
+    - juuni
+    - juuli
+    - august
+    - september
+    - oktoober
+    - november
+    - detsember
+    order:
+    - :day
+    - :month
+    - :year
+  
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: umbes %{count} tund
+        other: umbes %{count} tundi
+      about_x_months:
+        one: umbes %{count} kuu
+        other: umbes %{count} kuud
+      about_x_years:
+        one: umbes %{count} aasta
+        other: umbes %{count} aastat
+      almost_x_years:
+        one: peaaegu üks aasta
+        other: peaaegu %{count} aastat
+      half_a_minute: pool minutit
+      less_than_x_minutes:
+        one: vähem kui %{count} minut
+        other: vähem kui %{count} minutit
+      less_than_x_seconds:
+        one: vähem kui %{count} sekund
+        other: vähem kui %{count} sekundit
+      over_x_years:
+        one: üle %{count} aasta
+        other: üle %{count} aasta
+      x_days:
+        one: "%{count} päev"
+        other: "%{count} päeva"
+      x_minutes:
+        one: "%{count} minut"
+        other: "%{count} minutit"
+      x_months:
+        one: "%{count} kuu"
+        other: "%{count} kuud"
+      x_years:
+        one: "%{count} aasta"
+        other: "%{count} aastat"
+      x_seconds:
+        one: "%{count} sekund"
+        other: "%{count} sekundit"
+    prompts:
+      day: Päev
+      hour: Tunde
+      minute: Minutit
+      month: Kuu
+      second: Sekundit
+      year: Aasta
+  
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      already_confirmed: "on juba kinnitatud. Proovige sisse logida."
+      confirmation_period_expired: "vajab kinnitust %{period} jooksul. Palun tellige uus kinnitus."
+      expired: "on kehtivuse kaotanud. Palun tellige uus kinnitus."
+      not_found: "mitte leitud"
+      not_locked: "ei lukustatud"
+      not_saved:
+        one: "Üks viga takistas %{resource} salvestamist"
+        other: "%{count} viga takistasid %{resource} salvestamist"
+      accepted: peab olema heaks kiidetud
+      blank: on täitmata
+      present: peab olema täitmata
+      confirmation: ei vasta kinnitusele
+      empty: on tühi
+      equal_to: peab olema võrdne arvuga %{count}
+      even: peab olema paarisarv
+      exclusion: on reserveeritud
+      greater_than: peab olema suurem kui %{count}
+      greater_than_or_equal_to: peab olema suurem või võrdne arvuga %{count}
+      inclusion: ei leidu nimekirjas
+      invalid: ei ole korrektne
+      less_than: peab olema vähem kui %{count}
+      less_than_or_equal_to: peab olema vähem või võrdne arvuga %{count}
+      model_invalid: "Valideerimine ebaõnnestus: %{errors}"
+      not_a_number: ei ole number
+      not_an_integer: peab olema täisarv
+      odd: peab olema paaritu arv
+      required: peab olemas olema
+      taken: on juba võetud
+      too_long: on liiga pikk (maksimum on %{count} tähemärki)
+      too_short: on liiga lühike (miinimum on %{count} tähemärki)
+      wrong_length: on vale pikkusega (peab olema %{count} tähemärki)
+      other_than: peab olema midagi muud kui %{count}
+    template:
+      body: 'Probleeme ilmnes järgmiste väljadega:'
+      header:
+        one: Üks viga takistas %{model} salvestamist
+        other: "%{count} viga takistasid %{model} salvestamist"
+
+  helpers:
+    select:
+      prompt: Palun vali
+    submit:
+      create: Loo uus %{model}
+      submit: Salvesta %{model}
+      update: Uuenda %{model}
 
   administrate:
     actions:
       confirm: 'Oled kindel?'
+
+  number:
+    currency:
+      format:
+        delimiter: " "
+        precision: 0
+        format: '%n %u'
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "€"
+
+    format:
+      delimiter: " "
+      precision: 2
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: miljard
+          million: miljon
+          quadrillion: kvadriljon
+          thousand: tuhat
+          trillion: triljon
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 1
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: bait
+            other: baiti
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  
+  support:
+    array:
+      last_word_connector: " ja "
+      two_words_connector: " ja "
+      words_connector: ", "
+
+  time:
+    am: enne lõunat
+    formats:
+      default: "%d. %B %Y, %H:%M"
+      long: "%a, %d. %b %Y, %H:%M:%S %z"
+      short: "%d.%m.%y, %H:%M"
+    pm: pärast lõunat

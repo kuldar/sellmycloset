@@ -5,12 +5,12 @@ module Admin
     #
     # def index
     #   super
-    #   @resources = Product.all.paginate(10, params[:page])
+    #   @resources = Product.unscoped.all
     # end
 
     # Define a custom finder by overriding the `find_resource` method:
     # def find_resource(param)
-    #   Product.find_by!(slug: param)
+    #   Product.unscoped.find_by!(id: param)
     # end
 
     # See https://administrate-docs.herokuapp.com/customizing_controller_actions

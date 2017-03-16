@@ -1,26 +1,37 @@
 doctype html
 html
   head
-  
-    meta name="utf-8"
+    
+    meta charset="utf-8"
     meta http-equiv="X-UA-Compatible" content="IE=edge"
-    title SellMyCloset
-    meta name="description" content="sellmycloset.ee"
+    title= t('site.title')
+    meta name="description" content="#{t('site.title')}"
     meta name="viewport" content="width=device-width, initial-scale=1"
 
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag '//twemoji.maxcdn.com/2/twemoji.min.js?2.1.2'
     = javascript_include_tag '//js.braintreegateway.com/web/3.0.2/js/client.min.js'
     = javascript_include_tag '//js.braintreegateway.com/web/3.0.2/js/hosted-fields.min.js'
     = csrf_meta_tags
+    = render 'shared/drift'
+
+
 
   body
     = render 'shared/header'
-    = render 'shared/flash'
-    
     = yield
-
-    = render 'shared/modal'
+    = render 'shared/drift_container'
 
     / Debug
     - debug(params) if Rails.env.development?
+    
+    javascript:
+      $(document).on('turbolinks:load', function () {
+        twemoji.parse(document.body);
+        autosize($('textarea'));
+      });
+
+      $(document).on('page:change', function(){
+        $(".alert").delay(2000).fadeOut(500);
+      });

@@ -1,0 +1,158 @@
+/////////////
+//  Cards  //
+/////////////
+
+.card {
+	border-radius: 0;
+	overflow: hidden;
+	background-color: $white;
+	box-shadow: 0 1px 3px rgba($dark-gray, 0.1);
+	margin: 0 auto;
+
+	&.is-padded { 
+		padding: 1rem;
+		@include min-width(40rem) { padding: 2rem; }
+	}
+
+	&.is-small { max-width: 40rem; }
+
+	@include min-width(30rem) {
+		margin: 2rem auto;
+		border-radius: 0.5rem;
+	}
+}
+
+// Card Section
+.card-section {
+	background-color: $white;
+
+	&.is-padded { 
+		padding: 1rem;
+		@include min-width(40rem) { padding: 2rem; }
+	}
+
+	&.is-gray {
+		box-shadow: inset 0 1px 0 rgba($black, 0.05);
+		background-color: rgba($light-gray, 0.5);
+	}
+}
+
+// Card Cover
+.card-cover {
+	@include display(flex);
+	@include align-items(center);
+	@include justify-content(center);
+	@include flex-direction(row);
+	padding: 2rem;
+	position: relative;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-color: $black;
+
+	&:after {
+		content: '';
+		position: absolute;
+		z-index: 10;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		@include background(linear-gradient(
+			rgba($black, 0),
+			rgba($black, 0.875))
+		);
+	}
+
+	@include min-width(40rem) {
+		@include justify-content(flex-start);
+		padding: 2rem;
+	}
+}
+
+.card-cover-avatar {
+	position: relative;
+	z-index: 20;
+	display: block;
+	height: 6.25rem;
+	width: 6.25rem;
+	margin: 0 1rem 0 0;
+	border-radius: 10rem;
+}
+
+.card-cover-btns {
+	@include display(flex);
+	@include flex-direction(column);
+	@include align-items(flex-start);
+}
+
+.card-cover-btn {
+	display: inline-block;
+	cursor: pointer;
+	line-height: 1rem;
+	position: relative;
+	border-radius: 5rem;
+	box-shadow: inset 0 0 0 1px rgba($white, 0.5);
+	padding: 0.5rem 0.875rem;
+	position: relative;
+	z-index: 20;
+	margin: 0.5rem 0;
+	color: $white;
+
+	&:hover {
+		box-shadow: inset 0 0 0 1px rgba($white, 1);
+	}
+}
+
+.card-cover-input {
+	opacity: 0;
+	z-index: 30;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+}
+
+// Card Illustration
+.card-illustration {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: bottom center;
+	padding: 3rem;
+	text-align: center;
+}
+
+.card-section-title {
+	font-size: 1.5rem;
+  line-height: 1.125em;
+	max-width: 15rem;
+	margin: 0 auto 1em auto;
+}
+
+.card-section-btn {
+	outline: none;
+	display: inline-block;
+	border: none;
+	color: $black;
+	background-color: $white;
+	box-shadow: inset 0 -1px 1px rgba($black, 0.15);
+	border-radius: 10rem;
+	padding: 0.5rem 1.25rem;
+	line-height: 1em;
+
+	&.is-fb {
+		padding: 0.5rem 2rem;
+		font-weight: bold;
+		color: $white;
+		background-color: $facebook-blue;
+		&:hover { background-color: darken($facebook-blue, 5); }
+	}
+
+	&:hover { text-decoration: none; }
+	&:active {
+		position: relative;
+		top: 1px;
+	}
+}

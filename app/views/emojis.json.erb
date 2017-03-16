@@ -1,0 +1,8 @@
+<%=
+  Twemoji.codes.map do |code, _|
+    Hash(
+      value: code,
+      html: content_tag(:span, Twemoji.parse(code).html_safe + " #{code}" )
+    )
+  end.to_json.html_safe
+%>

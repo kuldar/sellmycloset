@@ -22,4 +22,10 @@ class UsersController < ApplicationController
 		render 'show_follow'
 	end
 
+	def become_seller
+		current_user.seller!
+		flash[:success] = "Congrats, you're now a seller. :sparkles: <strong><a href='/products/new'>Add your first product!</a><strong>"
+  	redirect_to root_path
+	end
+
 end

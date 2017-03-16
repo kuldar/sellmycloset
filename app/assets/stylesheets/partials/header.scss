@@ -3,18 +3,17 @@
 //////////////
 
 .header {
-	@include clearfix;
-	background-color: $red;
+	@include display(flex);
+	@include justify-content(space-between);
+	background-color: $purple;
 	color: $white;
 	box-shadow: 0 1px 2px rgba($black, 0.1);
 	padding: 1rem 2rem;
-
-	.wrapper { padding: 0 1.5rem; }
 }
 
 .logo {
-	float: left;
-	font-size: 1.25rem;
+	text-transform: uppercase;
+	letter-spacing: 1px;
 	line-height: 2rem;
 
 	img {
@@ -35,16 +34,32 @@
 	}
 }
 
+.logo-circle {
+	float: left;
+	background-color: $white;
+	width: 2rem;
+	height: 2rem;
+	border-radius: 10rem;
+	margin-right: 0.75rem;
+}
+
+// Header Alerts
+.header-alerts {
+	@include flex(1);
+}
+
+// Header Nav
+
 .header-nav {
-	@include clearfix;
-	float: right;
+	@include align-items(center);
+	@include display(flex);
 	font-size: 1rem;
 	line-height: 1.25rem;
 }
 
 .header-nav-link,
 .header-nav-btn {
-	float: left;
+	display: flex;
 	padding: 0rem 1rem;
 	border-radius: 5rem;
 	line-height: 2rem;
@@ -55,11 +70,33 @@
 	}
 }
 
+.header-nav-link-avatar {
+	height: 2rem;
+	width: 2rem;
+	border-radius: 2rem;
+	display: block;
+	margin-right: 0.5rem;
+}
+
 .header-nav-btn {
 	font-weight: bold;
-	background-color: $white;
-	color: $black;
+	color: $white;
+	background-image: $orange-pink-gradient;
 	box-shadow: 0 1px 2px rgba($black, 0.1);
 
 	&:hover { text-decoration: none; }
+}
+
+/////////////////////
+//  Header Search  //
+/////////////////////
+
+.header-search {
+	@include flex(1);
+	padding: 0 1.5rem;
+}
+
+.header-search-form {}
+.header-search-input {
+  width: 100%;
 }

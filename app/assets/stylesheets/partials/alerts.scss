@@ -2,18 +2,32 @@
 //  Alerts  //
 //////////////
 
+.alert-container {
+  background-color: $purple;
+  text-align: center;
+}
+
 .alert {
+  display: inline-block;
+  margin: 0 1rem;
+  border-radius: 10rem;
 	text-align: center;
-	padding: 1rem 0;
-	background-color: $white;
-	color: $black;
-	box-shadow: 0 1px 3px rgba($dark-gray, 0.1);
+	padding: 0.5rem 1rem;
+  line-height: 1em;
+  // background-image: $orange-pink-gradient;
+  background-color: $green;
+	color: $white;
+	box-shadow: 0 1px 3px rgba($dark-gray, 0.1), inset 0 1px 2px rgba($black, 0.05);
 
 	&.alert-success {
-		background-color: $green;
+		background-color: darken($green, 7);
 	}
 }
 
 .alert-url {
-	color: red;
+  background-color: rgba($black, 0.25);
+  border-radius: 3px;
+  padding: 0.25rem 0.5rem;
+  margin: 0 0.5rem;
+  border: none;
 }
