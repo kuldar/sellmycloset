@@ -37,7 +37,7 @@
 .signup-cta-fb-btn {
 	@include flex(1);
 	text-align: center;
-	background-color: $facebook-blue;
+	background-color: $purple;
 	color: $white;
 	font-weight: bold;
 	border-radius: 5rem;
@@ -46,7 +46,7 @@
 	padding: 0.5rem 1rem;
 
 	&:hover {
-		background-color: darken($facebook-blue, 5);
+		background-color: darken($purple, 5);
 		text-decoration: none;
 	}
 

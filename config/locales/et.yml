@@ -9,6 +9,7 @@ et:
     description: "See on SellMyCloseti kirjeldus"
     facebook_url: "https://facebook.com/sellmycloset"
     twitter_url: "https://twitter.com/sellmyclosetco"
+    instagram_url: "https://instagram.com/sellmyclosetco"
     twitter_handle: "@sellmyclosetco"
     email: "hi@sellmycloset.co"
     need_help: 'Vajad abi?'
@@ -43,6 +44,7 @@ et:
     sales: "Müüke"
     followers: "Fänne"
     follow: "Jälgi"
+    following: "Jälgid"
     unfollow: "Loobu jälgimisest"
 
   product:
@@ -51,6 +53,8 @@ et:
     facebook_share: 'Jaga Facebookis'
     twitter_share: 'Jaga Twitteris'
     views: 'Vaatamisi'
+    size: 'suurus'
+    earnings: 'Teenid'
 
     categories:
       shirt: 'Pluus'
@@ -88,7 +92,7 @@ et:
       flash_success: "Uus toode edukalt lisatud! :sparkles: Jaga seda sõpradega: <input value='%{url}' class='alert-url' readonly='true' onclick='this.select()'>"
 
     update:
-      flash_success: "<strong>Toode edukalt uuendatud!</strong> Jaga seda sõpradega: <input value='%{url}' class='alert-url' readonly='true' onclick='this.select()'>"
+      flash_success: "Toode edukalt uuendatud! Jaga seda sõpradega: <input value='%{url}' class='alert-url' readonly='true' onclick='this.select()'>"
 
     destroy:
       flash_success: "Toode edukalt kustutatud!"
@@ -105,7 +109,7 @@ et:
   promos:
     signup_cta:
       hey_stranger: 'Hei külaline!'
-      join_us: "Liitu ühe klikiga, ning <strong>avasta põnevamaid vähekasutatud moepakkumisi</strong> :sparkles:"
+      join_us: "Liitu ühe klikiga, ning avasta põnevamaid vähekasutatud moepakkumisi :sparkles:"
       sign_up_with_facebook: 'Liitu Facebooki abil'
       sign_up: 'Liitu e-mailiga'
 
@@ -118,13 +122,13 @@ et:
     failure:
       already_authenticated: "Oled juba sisse logitud :smile:"
       inactive: "Your account is not activated yet."
-      invalid: "<strong>Ei õnnestunud siseneda.</strong> Palun kontrolli e-maili aadress või parool üle :worried:"
+      invalid: "Ei õnnestunud siseneda. Palun kontrolli e-maili aadress või parool üle :worried:"
       locked: "Your account is locked."
       last_attempt: "You have one more attempt before your account is locked."
-      not_found_in_database: "<strong>Ei õnnestunud siseneda.</strong> Palun kontrolli e-maili aadress või parool üle :worried:"
+      not_found_in_database: "Ei õnnestunud siseneda. Palun kontrolli e-maili aadress või parool üle :worried:"
       timeout: "Your session expired. Please sign in again to continue."
-      unauthenticated: "<strong>Palun loo endale konto</strong> enne jätkamist :smile:"
-      unconfirmed: "<strong>Palun kinnita enda emaili aadress</strong> enne jätkamist"
+      unauthenticated: "Palun loo endale konto enne jätkamist :smile:"
+      unconfirmed: "Palun kinnita enda emaili aadress enne jätkamist"
 
     mailer:
       confirmation_instructions:
@@ -138,7 +142,7 @@ et:
 
     omniauth_callbacks:
       failure: "%{kind}i kaudu logimine ei õnnestunud - \"%{reason}\"."
-      success: "Edukalt <strong>%{kind}i kaudu sisse logitud!</strong> :smile:"
+      success: "Edukalt %{kind}i kaudu sisse logitud! :smile:"
 
     passwords:
       no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
@@ -149,12 +153,12 @@ et:
 
     registrations:
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
-      signed_up: "<strong>Oled edukalt liitunud,</strong> tere tulemast! :smile:"
+      signed_up: "Oled edukalt liitunud, tere tulemast! :smile:"
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
       signed_up_but_locked: "You have signed up successfully. However, we could not sign you in because your account is locked."
       signed_up_but_unconfirmed: "A message with a confirmation link has been sent to your email address. Please follow the link to activate your account."
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address."
-      updated: "<strong>Seaded edukalt uuendatud!</strong> :+1:"
+      updated: "Seaded edukalt uuendatud! :+1:"
       new:
         sign_up: 'Loo uus konto'
         sign_up_title: 'Liitu kasutades e-maili aadressi, või :point_down:'
@@ -167,7 +171,7 @@ et:
 
     sessions:
       signed_in: "Signed in successfully. :smile:"
-      signed_out: "<strong>Oled välja logitud,</strong> järgmise korrani! :wave:"
+      signed_out: "Oled välja logitud, järgmise korrani! :wave:"
       already_signed_out: "Signed out successfully."
       new:
         sign_in: 'Sisene'
@@ -210,7 +214,7 @@ et:
         title: 'Nimi'
         size: 'Suurus'
         description: 'Kirjeldus'
-        price: 'Hind'
+        price: 'Müügihind'
         category: 'Kategooria'
 
     errors:
@@ -229,6 +233,7 @@ et:
     - N
     - R
     - L
+
     abbr_month_names:
     -
     - jaan.
@@ -243,6 +248,7 @@ et:
     - okt.
     - nov.
     - dets.
+
     day_names:
     - pühapäev
     - esmaspäev
@@ -251,10 +257,12 @@ et:
     - neljapäev
     - reede
     - laupäev
+
     formats:
       default: "%d.%m.%Y"
       long: "%d. %B %Y"
       short: "%d.%m.%y"
+
     month_names:
     -
     - jaanuar
@@ -269,6 +277,7 @@ et:
     - oktoober
     - november
     - detsember
+    
     order:
     - :day
     - :month
@@ -313,6 +322,7 @@ et:
       x_seconds:
         one: "%{count} sekund"
         other: "%{count} sekundit"
+
     prompts:
       day: Päev
       hour: Tunde
@@ -332,6 +342,7 @@ et:
       not_saved:
         one: "Üks viga takistas %{resource} salvestamist"
         other: "%{count} viga takistasid %{resource} salvestamist"
+
       accepted: peab olema heaks kiidetud
       blank: on täitmata
       present: peab olema täitmata
@@ -356,6 +367,7 @@ et:
       too_short: on liiga lühike (miinimum on %{count} tähemärki)
       wrong_length: on vale pikkusega (peab olema %{count} tähemärki)
       other_than: peab olema midagi muud kui %{count}
+
     template:
       body: 'Probleeme ilmnes järgmiste väljadega:'
       header:
@@ -365,6 +377,7 @@ et:
   helpers:
     select:
       prompt: Palun vali
+
     submit:
       create: Loo uus %{model}
       submit: Salvesta %{model}
@@ -391,6 +404,7 @@ et:
       separator: ","
       significant: false
       strip_insignificant_zeros: false
+
     human:
       decimal_units:
         format: "%n %u"
@@ -401,25 +415,18 @@ et:
           thousand: tuhat
           trillion: triljon
           unit: ''
+
       format:
         delimiter: ''
         precision: 1
         significant: true
         strip_insignificant_zeros: true
-      storage_units:
-        format: "%n %u"
-        units:
-          byte:
-            one: bait
-            other: baiti
-          gb: GB
-          kb: KB
-          mb: MB
-          tb: TB
+
     percentage:
       format:
         delimiter: ''
         format: "%n%"
+
     precision:
       format:
         delimiter: ''

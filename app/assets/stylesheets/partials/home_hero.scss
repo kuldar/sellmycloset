@@ -1,0 +1,70 @@
+////////////////e
+//  Home Hero  //
+////////////////
+
+.home-hero {
+  background-image: $purple-gradient;
+  color: $white;
+  padding: 3rem 2rem;
+}
+
+.home-hero-wrapper {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 2rem 0 5rem 0;
+}
+
+.home-hero-title {
+  max-width: 50rem;
+  font-size: 3rem;
+  letter-spacing: -1px;
+}
+
+.home-hero-subtitle {
+  margin-top: 2rem;
+  max-width: 40rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 300;
+  opacity: 0.75;
+}
+
+.home-hero-buttons {
+  margin-top: 2rem;
+}
+
+.home-hero-main-btn {
+  display: inline-block;
+  background-image: $orange-pink-gradient;
+  color: $white;
+  border-radius: 10rem;
+  padding: 0.5em 1em;
+  font-size: 1.25rem;
+
+  &:hover {
+    background-image: $orange-pink-gradient-hover;
+    text-decoration: none;
+  }
+}
+
+.home-hero-outline-btn {
+  display: inline-block;
+  background-color: transparent;
+  color: $white;
+  border: 1px solid rgba($white, 0.5);
+  border-radius: 10rem;
+  padding: 0.5em 1em;
+  font-size: 1.25rem;
+  margin-left: 1rem;
+
+  &:hover {
+    text-decoration: none;
+    border-color: $white;
+  }
+}
+
+
+
+.home-hero + .main .grid {
+  margin-top: -5rem;
+}

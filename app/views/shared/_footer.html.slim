@@ -1,0 +1,21 @@
+footer.footer
+  .footer-wrapper
+
+    / Logo
+    = link_to root_path, class: 'footer-logo' do
+      .footer-logo-circle
+      strong Sell My Closet
+
+    .footer-social-links
+      = link_to t('site.facebook_url'), target: '_blank', class: 'footer-social-link is-facebook' do
+        = image_tag 'facebook-icon-white.svg'
+
+      = link_to t('site.twitter_url'), target: '_blank', class: 'footer-social-link is-twitter' do
+        = image_tag 'twitter-icon-white.svg'
+
+      = link_to t('site.instagram_url'), target: '_blank', class: 'footer-social-link is-instagram' do
+        = image_tag 'instagram-icon-white.svg'
+
+    .footer-contact
+      .footer-contact-link +372 55 888 36
+      .footer-contact-link hi@sellmycloset.co

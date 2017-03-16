@@ -4,7 +4,6 @@
 
 .grid {
 	@include transition(opacity, 0.2s);
-	margin-top: 0.5rem;
 	position: relative;
 	opacity: 1;
 

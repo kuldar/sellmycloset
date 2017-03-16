@@ -10,6 +10,7 @@
 	.product-info
 		.product-info-header
 			= link_to product.title, product, class: 'product-title'
+			span.product-size = "(#{product.size} #{t('product.size')})"
 
 		.product-description
 			= emojify product.description
@@ -23,7 +24,7 @@
 							span.price = number_to_currency(product.price)
 				- else
 					= link_to new_product_transaction_path(product), class: 'product-main-btn' do
-						| <strong>#{ t('product.buy') }</strong> <span class='price'>#{number_to_currency(product.price)}</span>
+						| <strong>#{ t('product.buy') }</strong><div class='btn-line'></div><span class='price'>#{number_to_currency(product.price)}</span>
 
 			.product-meta
 				.product-meta-btn-container data-comments-counter="#{product.id}"

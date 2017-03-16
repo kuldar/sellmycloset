@@ -1,63 +1,64 @@
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true, class: 'form' }) do |f|
+.main
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true, class: 'form' }) do |f|
 
-  .card.is-small
-    .card-section.card-cover style="background-image: url('#{ current_user.cover.url unless current_user.cover.blank? }');"
+    .card.is-small
+      .card-section.card-cover style="background-image: url('#{ current_user.cover.url unless current_user.cover.blank? }');"
 
-      / Avatar
-      = image_tag(current_user.avatar, class: 'card-cover-avatar')
+        / Avatar
+        = image_tag(current_user.avatar, class: 'card-cover-avatar')
 
-      / Buttons
-      .card-cover-btns
-        .card-cover-btn
-          = f.file_field :avatar, class: 'card-cover-input'
-          .card-cover-btn-text Uus avatar
+        / Buttons
+        .card-cover-btns
+          .card-cover-btn
+            = f.file_field :avatar, class: 'card-cover-input'
+            .card-cover-btn-text Uus avatar
 
-        .card-cover-btn
-          = f.file_field :cover, class: 'card-cover-input'
-          .card-cover-btn-text Uus kaanepilt
+          .card-cover-btn
+            = f.file_field :cover, class: 'card-cover-input'
+            .card-cover-btn-text Uus kaanepilt
 
-    .card-section.is-gray.is-padded
-      = devise_error_messages!
+      .card-section.is-gray.is-padded
+        = devise_error_messages!
 
-      .form-group
-        = f.label :name, class: 'form-label'
-        = f.text_field :name, autofocus: true, class: 'form-input', placeholder: "#{ t('example.name') }"
-
-      .form-group
-        = f.label :username, class: 'form-label'
-        = f.text_field :username, class: 'form-input', placeholder: "#{ t('example.username') }"
-
-      .form-group
-        = f.label :email, class: 'form-label'
-        = f.email_field :email, class: 'form-input', placeholder: "#{ t('example.email') }"
-
-      .form-group
-        = f.label :phone_number, class: 'form-label'
-        = f.telephone_field :phone_number, class: 'form-input', placeholder: "#{ t('example.phone_number') }"
-
-      .form-group
-        = f.label :about, class: 'form-label'
-        = f.text_area :about, class: 'form-textarea', placeholder: "#{ t('example.about') }"
-
-      .form-groups
-
-        .form-half-group
-          = f.label :facebook_handle, class: 'form-label'
-          = f.text_field :facebook_handle, class: 'form-input', placeholder: "#{ t('example.facebook_handle') }"
-
-        .form-half-group
-          = f.label :instagram_handle, class: 'form-label'
-          = f.text_field :instagram_handle, class: 'form-input', placeholder: "#{ t('example.instagram_handle') }"
-
-      - if current_user.seller?
-        hr
         .form-group
-          = f.label :payout_name, class: 'form-label'
-          = f.text_field :payout_name, class: 'form-input', placeholder: "#{ t('example.payout_name') }"
-        .form-group
-          = f.label :payout_iban, class: 'form-label'
-          = f.text_field :payout_iban, class: 'form-input', placeholder: "#{ t('example.iban') }"
+          = f.label :name, class: 'form-label'
+          = f.text_field :name, autofocus: true, class: 'form-input', placeholder: "#{ t('example.name') }"
 
-      .form-footer
-        = f.submit t('.save_changes'), class: 'form-btn is-main'
-        = link_to t('.log_out'), destroy_user_session_path, method: :delete, class: 'form-link pull-right'
+        .form-group
+          = f.label :username, class: 'form-label'
+          = f.text_field :username, class: 'form-input', placeholder: "#{ t('example.username') }"
+
+        .form-group
+          = f.label :email, class: 'form-label'
+          = f.email_field :email, class: 'form-input', placeholder: "#{ t('example.email') }"
+
+        .form-group
+          = f.label :phone_number, class: 'form-label'
+          = f.telephone_field :phone_number, class: 'form-input', placeholder: "#{ t('example.phone_number') }"
+
+        .form-group
+          = f.label :about, class: 'form-label'
+          = f.text_area :about, class: 'form-textarea', placeholder: "#{ t('example.about') }"
+
+        .form-groups
+
+          .form-half-group
+            = f.label :facebook_handle, class: 'form-label'
+            = f.text_field :facebook_handle, class: 'form-input', placeholder: "#{ t('example.facebook_handle') }"
+
+          .form-half-group
+            = f.label :instagram_handle, class: 'form-label'
+            = f.text_field :instagram_handle, class: 'form-input', placeholder: "#{ t('example.instagram_handle') }"
+
+        - if current_user.seller?
+          hr
+          .form-group
+            = f.label :payout_name, class: 'form-label'
+            = f.text_field :payout_name, class: 'form-input', placeholder: "#{ t('example.payout_name') }"
+          .form-group
+            = f.label :payout_iban, class: 'form-label'
+            = f.text_field :payout_iban, class: 'form-input', placeholder: "#{ t('example.iban') }"
+
+        .form-footer
+          = f.submit t('.save_changes'), class: 'form-btn is-main'
+          = link_to t('.log_out'), destroy_user_session_path, method: :delete, class: 'form-link pull-right'

@@ -5,7 +5,12 @@
 .container { padding: 1rem; }
 
 .main {
-	@include flex(1);
+  @include clearfix;
+  padding: 1rem 0;
+	background-color: $light-gray-3;
+  background-image: image-url('bg-pattern.jpg');
+  background-size: 442px 465px;
+  // background-attachment: fixed; 
 }
 
 .sidebar {

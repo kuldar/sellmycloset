@@ -1,0 +1,83 @@
+//////////////
+//  Footer  //
+//////////////
+
+.footer {
+  padding: 2rem;
+  background-color: $white;
+  color: $gray;
+}
+
+.footer-wrapper {
+  @include clearfix;
+  max-width: 80rem;
+  margin: 0 auto 4rem auto;
+}
+
+.footer-logo {
+  float: left;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 2rem;
+
+  img {
+    position: relative;
+    float: left;
+    height: 1.75rem;
+    display: block;
+    margin-right: 0.75rem;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+}
+
+.footer-logo-circle {
+  float: left;
+  background-color: $gray;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 10rem;
+  margin-right: 0.75rem;
+}
+
+.footer-contact {
+  @include clearfix;
+  line-height: 2rem;
+  font-size: 1.125rem;
+  float: right;
+}
+
+.footer-contact-link {
+  float: left;
+  margin-right: 2rem;
+}
+
+.footer-social-links {
+  @include clearfix;
+  line-height: 2rem;
+  float: right;
+}
+
+.footer-social-link {
+  @include display(flex);
+  float: left;
+  margin-left: 1rem;
+  height: 2rem;
+  width: 2rem;
+  background-color: $purple;
+  border-radius: 10rem;
+
+  img {
+    display: block;
+    margin: auto;
+    max-width: 1rem;
+    max-height: 1rem;
+  }
+}

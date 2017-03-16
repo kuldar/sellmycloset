@@ -31,6 +31,7 @@ class Product < ApplicationRecord
 
   default_scope { order(created_at: :desc) }
   validates :title, :description, :price, :user_id, :category, presence: true
+  before_create :price_to_cents
 
   def earnings
     price * MARGIN
@@ -42,6 +43,10 @@ class Product < ApplicationRecord
 
   def total_cost
     price + shipping_cost
+  end
+
+  def price_to_cents
+    price = price*100
   end
 
 end

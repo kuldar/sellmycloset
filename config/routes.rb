@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   end
 
   # Root
-	root 'products#index'
+	root 'static_pages#home'
 
 	# Products
 	resources :products do

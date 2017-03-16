@@ -1,26 +1,27 @@
 header.header
+	.header-wrapper
 
-	/ Logo
-	= link_to root_path, class: 'logo' do
-		.logo-circle
-		strong Sell My Closet
+		/ Logo
+		= link_to root_path, class: 'header-logo' do
+			.header-logo-circle
+			strong Sell My Closet
 
-	.header-alerts
-		= render 'shared/flash'
+		.header-alerts
+			= render 'shared/flash'
 
-	/ Header Nav
-	nav.header-nav
-		- if user_signed_in?
-			= link_to user_path(current_user), class: 'header-nav-link' do
-				= image_tag current_user.avatar, class: 'header-nav-link-avatar'
-				= current_user.name
+		/ Header Nav
+		nav.header-nav
+			- if user_signed_in?
+				= link_to user_path(current_user), class: 'header-nav-link' do
+					= image_tag current_user.avatar, class: 'header-nav-link-avatar'
+					= current_user.name
 
-			- if current_user.buyer?
-				= link_to t('.become_seller'), become_seller_path, class: 'header-nav-link'
-			- elsif current_user.seller? || current_user.admin?
-				= link_to t('.add_product'), new_product_path, class: 'header-nav-btn'
-			- elsif current_user.admin?
-				= link_to t('.admin'), admin_root_path, class: 'header-nav-link'
-		- else
-			= link_to t('.log_in'), new_user_session_path, class: 'header-nav-link'
-			= link_to t('.join'), new_user_registration_path, class: 'header-nav-link'
+				- if current_user.buyer?
+					= link_to t('.become_seller'), become_seller_path, class: 'header-nav-link'
+				- elsif current_user.seller? || current_user.admin?
+					= link_to t('.add_product'), new_product_path, class: 'header-nav-btn'
+				- elsif current_user.admin?
+					= link_to t('.admin'), admin_root_path, class: 'header-nav-link'
+			- else
+				= link_to t('.log_in'), new_user_session_path, class: 'header-nav-link'
+				= link_to t('.join'), new_user_registration_path, class: 'header-nav-link'

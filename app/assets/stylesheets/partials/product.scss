@@ -107,9 +107,7 @@
   }
 
   .product-actions {
-    a {
-      margin-right: 1rem;
-    }
+    a { margin-right: 1rem; }
   }
 
   .product-views {
@@ -117,12 +115,7 @@
     @include align-items(center);
   }
 
-  .product-views-chart {
-    margin: 0 1.5rem 0 0.5rem;
-  }
-
   .product-views-count {}
-
   .product-views-count-number {
     font-size: 1.5rem;
   }
@@ -168,7 +161,7 @@
     font-size: 1.25rem;
     display: block;
     font-weight: bold;
-    margin: 0.25rem 0 0.325rem 0;
+    margin: 0.25rem 0 0.5rem 0;
     &:hover { text-decoration: none; }
   }
 
@@ -183,7 +176,7 @@
     border-radius: 10rem;
     text-align: center;
     line-height: 1em;
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 1.25rem;
     font-size: 0.875rem;
   }
 
@@ -191,12 +184,17 @@
     background-color: transparent;
     outline: none;
     border-radius: 10rem;
-    border: 1px solid $gray;
+    border: 1px solid rgba($gray, 0.5);
     text-align: center;
     line-height: 1em;
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 1.25rem;
     font-size: 0.875rem;
     color: $dark-gray;
+
+    &:hover {
+      text-decoration: none;
+      border: 1px solid $gray;
+    }
   }
 
   .product-seller-stats {
@@ -326,12 +324,19 @@
   &:hover { text-decoration: none; }
 }
 
+.product-size {
+  font-weight: normal;
+  margin-left: 0.75rem;
+  font-size: 1.125rem;
+  opacity: 0.5;
+}
+
 .product-outline-btn {
   float: left;
   border: 1px solid rgba($gray, 0.5);
   color: $dark-gray;
   border-radius: 10rem;
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 1rem;
   line-height: 1em;
 
   &:hover {
@@ -341,7 +346,8 @@
 }
 
 .product-main-btn {
-  margin-right: 0.75rem;
+  @include transition(all, 0.2s);
+  margin-right: 1rem;
   float: left;
   color: $white;
   background-image: $orange-pink-gradient;
@@ -352,24 +358,43 @@
   line-height: 1em;
 
   .price {
-    // opacity: 0.75;
+    opacity: 0.75;
     padding-left: 0.25rem;
+    float: left;
   }
 
-  strong { font-weight: bold; }
+  &:hover {
+    background-image: $orange-pink-gradient-hover;
+  }
+
+  strong {
+    font-weight: bold;
+    float: left;
+  }
+
+}
+
+.btn-line {
+  display: inline-block;
+  height: 2px;
+  width: 8px;
+  background-color: #ffffff;
+  opacity: 0.5;
+  margin: 0.45rem 0.2rem 0 0.4rem;
+  float: left;
 }
 
 .product-facebook-btn {
   float: left;
-  background-color: $facebook-blue;
+  background-color: $purple;
   color: $white;
   border-radius: 10rem;
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 1rem;
   line-height: 1em;
 
   &:hover {
     text-decoration: none;
-    background-color: darken($facebook-blue, 5);
+    background-color: darken($purple, 5);
   }
 
   &:active {
