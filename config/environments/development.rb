@@ -2,7 +2,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   config.after_initialize do
-    Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+    Rails.application.routes.default_url_options[:host] = 'sellmycloset.dev'
   end
 
   # In the development environment your application's code is reloaded on
@@ -30,7 +30,7 @@ Rails.application.configure do
 
   # Configurate Mailer
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: 'localhost:3000', protocol: 'http' }
+  config.action_mailer.default_url_options = { host: 'sellmycloset.dev', protocol: 'http' }
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
