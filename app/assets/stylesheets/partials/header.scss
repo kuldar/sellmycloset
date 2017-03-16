@@ -12,8 +12,13 @@
 .header-wrapper {
 	@include display(flex);
 	@include justify-content(space-between);
+	@include flex-direction(column);
 	max-width: 80rem;
 	margin: 0 auto;
+
+	@include min-width(30rem) {
+		@include flex-direction(row);
+	}
 }
 
 .header-logo {

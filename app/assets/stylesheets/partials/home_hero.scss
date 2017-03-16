@@ -5,28 +5,41 @@
 .home-hero {
   background-image: $purple-gradient;
   color: $white;
-  padding: 3rem 2rem;
+  padding: 0 2rem;
+
+  @include min-width(40rem) {
+    padding: 3rem 2rem;
+  }
 }
 
 .home-hero-wrapper {
   max-width: 80rem;
   margin: 0 auto;
-  padding: 2rem 0 5rem 0;
+  padding: 2rem 0 3rem 0;
 }
 
 .home-hero-title {
   max-width: 50rem;
-  font-size: 3rem;
+  font-size: 2rem;
   letter-spacing: -1px;
+
+  @include min-width(40rem) {
+    font-size: 3rem;
+  }
 }
 
 .home-hero-subtitle {
-  margin-top: 2rem;
+  margin-top: 1rem;
   max-width: 40rem;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   line-height: 2rem;
   font-weight: 300;
   opacity: 0.75;
+
+  @include min-width(40rem) {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+  }
 }
 
 .home-hero-buttons {
@@ -61,10 +74,4 @@
     text-decoration: none;
     border-color: $white;
   }
-}
-
-
-
-.home-hero + .main .grid {
-  margin-top: -5rem;
 }

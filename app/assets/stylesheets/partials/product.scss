@@ -18,7 +18,11 @@
   .product-images {
     @include clearfix;
     max-width: 60rem;
-    margin: 0 auto 1rem auto;
+    margin: 0 auto 0.5rem auto;
+
+    @include min-width(40rem) {
+      margin: 0 auto 1rem auto;      
+    }
   }
 
   .product-image-container {
@@ -132,11 +136,21 @@
 
   .product-seller {
     @include display(flex);
+    @include flex-direction(column);
     background-color: $white;
     border-radius: 0.5rem;
-    margin: 1rem auto;
+    margin: 0.5rem auto;
     max-width: 40rem;
-    padding: 2rem;
+    padding: 1.25rem;
+
+    @include min-width(30rem) {
+      padding: 2rem;
+    }
+
+    @include min-width(40rem) {
+      @include flex-direction(row);
+      margin: 1rem auto;
+    }
   }
 
   .product-seller-overview {
@@ -200,11 +214,26 @@
   .product-seller-stats {
     @include display(flex);
     @include align-items(center);
+    @include justify-content(space-between);
+    border-top: 1px solid $light-gray-2;
+    padding-top: 1rem;
+    margin-top: 1rem;
+
+    @include min-width(40rem) {
+      @include justify-content(flex-start);
+      border-top: none;
+      padding-top: 0;
+      margin-top: 0;
+    }
   }
 
   .product-seller-stat {
-    text-align: right;
+    text-align: left;
     margin: 0 1rem;
+
+    @include min-width(40rem) {
+      text-align: right;
+    }
   }
 
   .product-seller-stat-number {
@@ -268,8 +297,13 @@
     position: absolute;
     z-index: 20;
     float: left;
-    bottom: 1.5rem;
-    left: 2rem;
+    bottom: 1rem;
+    left: 1.25rem;
+
+    @include min-width(30rem) {
+      bottom: 1.5rem;
+      left: 2rem;
+    }
   }
 
   .product-seller-photo {
@@ -305,7 +339,11 @@
 // Product Info
 
 .product-info {
-  padding: 2rem;
+  padding: 1.25rem;
+
+  @include min-width(30rem) {
+    padding: 2rem;
+  }
 }
 
 // Product Header
@@ -498,7 +536,11 @@ a.product-meta-btn:active {
 .product-comments-container {
   box-shadow: inset 0 1px 0 rgba($black, 0.05);
   background-color: rgba($light-gray, 0.5);
-  padding: 1rem 2rem 1.25rem 2rem;
+  padding: 1rem 1.25rem 1.25rem 1.25rem;
+
+  @include min-width(30rem) {
+    padding: 1rem 2rem 1.25rem 2rem;
+  }
 }
 
 .product-comments {}

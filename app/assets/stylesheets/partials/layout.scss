@@ -6,11 +6,19 @@
 
 .main {
   @include clearfix;
-  padding: 1rem 0;
+  padding: 0.5rem;
 	background-color: $light-gray-3;
   background-image: image-url('bg-pattern.jpg');
   background-size: 442px 465px;
-  // background-attachment: fixed; 
+
+  @include min-width(40rem) {
+    padding: 1rem;
+  }
+
+  &.has-grid {
+    padding: 0;
+    @include min-width(40rem) { padding: 0.5rem; }
+  }
 }
 
 .sidebar {

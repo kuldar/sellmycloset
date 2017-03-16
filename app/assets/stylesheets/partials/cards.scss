@@ -11,7 +11,7 @@
 }
 
 .card {
-	border-radius: 0;
+	border-radius: 0.5rem;
 	overflow: hidden;
 	background-color: $white;
 	box-shadow: 0 1px 3px rgba($dark-gray, 0.1);
@@ -24,9 +24,8 @@
 
 	&.is-small { max-width: 40rem; }
 
-	@include min-width(30rem) {
+	@include min-width(40rem) {
 		margin: 2rem auto;
-		border-radius: 0.5rem;
 	}
 }
 

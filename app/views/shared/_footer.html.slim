@@ -2,9 +2,7 @@ footer.footer
   .footer-wrapper
 
     / Logo
-    = link_to root_path, class: 'footer-logo' do
-      .footer-logo-circle
-      strong Sell My Closet
+    = link_to t('site.name'), root_path, class: 'footer-logo'
 
     .footer-social-links
       = link_to t('site.facebook_url'), target: '_blank', class: 'footer-social-link is-facebook' do

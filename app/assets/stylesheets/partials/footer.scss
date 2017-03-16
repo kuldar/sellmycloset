@@ -12,21 +12,19 @@
   @include clearfix;
   max-width: 80rem;
   margin: 0 auto 4rem auto;
+  text-align: center;
+
+  // @include min-width(40rem) {}
 }
 
 .footer-logo {
-  float: left;
+  float: none;
+  font-weight: bold;
+  display: block;
+  margin: 0 auto;
   text-transform: uppercase;
   letter-spacing: 1px;
   line-height: 2rem;
-
-  img {
-    position: relative;
-    float: left;
-    height: 1.75rem;
-    display: block;
-    margin-right: 0.75rem;
-  }
 
   &:hover {
     text-decoration: none;
@@ -36,39 +34,53 @@
     position: relative;
     top: 1px;
   }
-}
 
-.footer-logo-circle {
-  float: left;
-  background-color: $gray;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 10rem;
-  margin-right: 0.75rem;
+  @include min-width(40rem) {
+    float: left;
+    margin: 0;
+  }
 }
 
 .footer-contact {
   @include clearfix;
+  float: none;
   line-height: 2rem;
   font-size: 1.125rem;
-  float: right;
+
+  @include min-width(40rem) {
+    float: right;
+    margin: 0;
+  }
 }
 
 .footer-contact-link {
-  float: left;
-  margin-right: 2rem;
+  float: none;
+  display: inline-block;
+  margin: 0 1rem;
+
+  @include min-width(40rem) {
+    float: left;
+    margin: 0 2rem;
+  }
 }
 
 .footer-social-links {
   @include clearfix;
+  float: none;
   line-height: 2rem;
-  float: right;
+  margin: 1rem auto;
+  display: inline-block;
+
+  @include min-width(40rem) {
+    float: right;
+    margin: 0;
+  }
 }
 
 .footer-social-link {
   @include display(flex);
   float: left;
-  margin-left: 1rem;
+  margin: 0 0.5rem;
   height: 2rem;
   width: 2rem;
   background-color: $purple;
@@ -79,5 +91,9 @@
     margin: auto;
     max-width: 1rem;
     max-height: 1rem;
+  }
+
+  @include min-width(40rem) {
+    margin: 0 1rem;
   }
 }

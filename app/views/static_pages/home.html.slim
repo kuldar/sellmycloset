@@ -1,6 +1,6 @@
 = render 'shared/home_hero' unless user_signed_in?
 
-.main 
+.main.has-grid
   .grid#grid.is-loading
     - @products.each do |product|
       .grid-item
