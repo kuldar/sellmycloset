@@ -1,3 +1,12 @@
+- content_for :og_tags do
+  = tag :meta, property: 'fb:app_id', content: ENV['FACEBOOK_APP_ID']
+  = tag :meta, property: 'og:url', content: root_url
+  = tag :meta, property: 'og:title', content: t('og.title')
+  = tag :meta, property: 'og:description', content: t('og.description')
+  = tag :meta, property: 'og:image', content: image_url('og-image.jpg')
+  = tag :meta, property: 'og:site_name', content: t('og.site_name')
+  = tag :meta, property: 'product:is_product_shareable', content: :yes
+
 - unless user_signed_in?
   = render 'shared/home_hero', product: @products.last
 

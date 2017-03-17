@@ -1,1 +1,16 @@
+- content_for :og_tags do
+  = tag :meta, property: 'fb:app_id', content: ENV['FACEBOOK_APP_ID']
+  = tag :meta, property: 'og:type', content: :product
+  = tag :meta, property: 'og:url', content: product_url
+  = tag :meta, property: 'og:title', content: @product.title
+  = tag :meta, property: 'og:description', content: @product.description
+  - if @product.product_images.any?
+    - asset = @product.product_images.first
+    = tag :meta, property: 'og:image', content: image_url(asset.image_url)
+  - else
+    = tag :meta, property: 'og:image', content: image_url('og-image.jpg')
+  = tag :meta, property: 'og:site_name', content: t('og.site_name')
+  = tag :meta, property: 'product:is_product_shareable', content: :yes
+  = tag :meta, property: 'product:category', content: @product.category
+
 = render 'product'
