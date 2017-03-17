@@ -11,7 +11,7 @@ header.header
 
     / Header Nav
     nav.header-nav
-      = link_to 'Populaarsed tooted', '#', class: 'header-nav-link'
+      = link_to 'Populaarsed tooted', '/products', class: 'header-nav-link'
       = link_to 'Kategooriad', '#', class: 'header-nav-link'
       - if user_signed_in?
         - if current_user.buyer?
