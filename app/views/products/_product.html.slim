@@ -37,7 +37,7 @@
 
           .product-seller-stat
             .product-seller-stat-name = t('user.sales')
-            .product-seller-stat-number = @product.user.sales_count
+            .product-seller-stat-number = @product.user.products.sold.count
 
           .product-seller-stat
             .product-seller-stat-name = t('user.followers')
@@ -47,9 +47,8 @@
 
       .product-info
         .product-info-header
-          .product-title 
-            = @product.title
-            span.product-size = "(#{@product.size} #{t('product.size')})"
+          .product-title = @product.title
+          span.product-size = "#{@product.size} #{t('product.size')}"
 
         .product-description
           => emojify @product.description

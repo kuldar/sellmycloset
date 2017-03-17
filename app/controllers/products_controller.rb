@@ -36,8 +36,7 @@ class ProductsController < ApplicationController
 	def update
 		if @product.update_attributes(product_params)
 			save_images
-      # flash[:success] = t('.flash_success')
-      flash[:success] = t('.flash_success', url: product_url(@product))
+      flash[:success] = t('.flash_success')
       redirect_to @product
     else
       render 'edit'

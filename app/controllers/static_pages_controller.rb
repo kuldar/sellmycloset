@@ -5,6 +5,9 @@ class StaticPagesController < ApplicationController
 		@products = Product.active
 	end
 
+  def join
+  end
+
 	def become_seller
 	end
 	

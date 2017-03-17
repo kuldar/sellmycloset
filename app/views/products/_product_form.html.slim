@@ -55,6 +55,7 @@ javascript:
     $("#product_price").keyup(function(){
       var price = $("#product_price").val();
       var earningsNumber = $(".form-earnings-number");
+      
       if (price == 0 || price.length === 0 ) {
         earningsNumber.html('&nbsp;');
       } else {

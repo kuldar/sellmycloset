@@ -180,3 +180,35 @@
 .form-checkbox-label {
 	color: $gray;
 }
+
+.form-title {
+	text-align: center;
+	color: $white;
+	margin: 4rem auto 2rem auto;
+	max-width: 30rem;
+	display: block;
+	font-size: 2rem;
+	font-weight: 700;
+	line-height: 1em;
+	letter-spacing: -1px;
+
+	@include min-width(40rem) {
+	  font-size: 3rem;
+	}
+}
+
+.form-bottom {
+	text-align: center;
+	padding-bottom: 3rem;
+}
+
+.form-bottom-link {
+	color: $white;
+	display: inline-block;
+}
+
+.form-bottom-text {
+	color: $white;
+	display: inline-block;
+	opacity: 0.5;
+}

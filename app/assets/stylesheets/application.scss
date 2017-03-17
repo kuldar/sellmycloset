@@ -17,16 +17,17 @@ $dark-gray: #61656d;
 
 $green: #00b068;
 $red: #eb410d;
-$purple: #6c38a0;
+// $purple: #6c38a0;
+$purple: #522992;
 $dark-purple: darken($purple, 10);
 
 $blue: #0099e5;
-$facebook-blue: #3b5998;
+// $facebook-blue: #3b5998;
 
 $purple-gradient: linear-gradient(to bottom, $purple, $dark-purple);
 
-$orange-pink-gradient: linear-gradient(to right, #f27c36, #ed485f);
-$orange-pink-gradient-hover: linear-gradient(to right, darken(#f27c36, 7), darken(#ed485f, 7));
+$orange-pink-gradient: linear-gradient(to right, #f64f48, #fca335);
+$orange-pink-gradient-hover: linear-gradient(to right, darken(#f64f48, 7), darken(#fca335, 7));
 
 // Bezier
 $bezier: cubic-bezier(.175, .885, .32, 1.275);

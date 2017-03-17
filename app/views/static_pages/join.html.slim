@@ -1,0 +1,8 @@
+.home-hero
+  .home-hero-wrapper
+    .home-hero-content
+      h1.home-hero-title Tere tulemast!
+      .home-hero-subtitle Sell My Closet is the <strong>easiest way to shop and sell high-quality secondhand clothes.</strong> Sign up with a single click and try it out for free!
+      .home-hero-buttons
+        = link_to t('home.sign_in_with_facebook'), user_facebook_omniauth_authorize_path, class: 'home-hero-main-btn'
+        = link_to t('promos.signup_cta.sign_up'), new_user_registration_path, class: 'home-hero-outline-btn'

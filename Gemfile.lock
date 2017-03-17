@@ -229,6 +229,9 @@ GEM
       fog-core
       nokogiri (~> 1.5, >= 1.5.11)
     formatador (0.2.5)
+    gibbon (2.2.4)
+      faraday (>= 0.9.1)
+      multi_json (>= 1.11.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     hashie (3.4.4)
@@ -399,6 +402,7 @@ DEPENDENCIES
   devise (= 4.2.0)
   figaro (= 1.1.1)
   fog (= 1.38.0)
+  gibbon (= 2.2.4)
   jbuilder (= 2.4.1)
   jquery-rails (= 4.1.1)
   jquery-turbolinks (= 2.1.0)

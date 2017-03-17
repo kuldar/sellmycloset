@@ -42,6 +42,11 @@ class User < ApplicationRecord
 
   before_validation :set_username
   before_create     :set_avatar
+  after_create      :subscribe_to_mailing_list
+
+  def to_param
+    username
+  end
 
   def feed
     following_ids = "SELECT followed_id FROM relationships
@@ -103,10 +108,6 @@ class User < ApplicationRecord
     #                  OR user_id = :user_id", user_id: id)
   end
 
-  def sales_count
-    10
-  end
-
   def update_balance(earnings)
     balance = balance + earnings
     lifetime_earnings = lifetime_earnings + earnings
@@ -149,6 +150,10 @@ class User < ApplicationRecord
 
     def set_avatar
       self.remote_avatar_url ||= placeholder_avatar_url(email, 500)
+    end
+
+    def subscribe_to_mailing_list
+      SubscribeUserToMailingListJob.perform_later(self)
     end
 
 end

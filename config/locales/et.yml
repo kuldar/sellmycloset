@@ -29,6 +29,7 @@ et:
 
   shared:
     header:
+      sign_in_with_facebook: "Logi sisse Facebookiga"
       log_in: "Sisene"
       log_out: "Välju"
       join: "Liitu"
@@ -39,6 +40,7 @@ et:
 
   home:
     sign_in_with_facebook: "Logi sisse Facebookiga"
+    sign_in_with_email: "Logi sisse e-mailiga"
 
   user:
     settings: "Seaded"
@@ -92,10 +94,10 @@ et:
       delete_product_confirmation: "Oled kindel, et soovid toote kustutada?"
 
     create:
-      flash_success: "Uus toode edukalt lisatud! :sparkles: Jaga seda sõpradega: <input value='%{url}' class='alert-url' readonly='true' onclick='this.select()'>"
+      flash_success: "Uus toode edukalt lisatud! :sparkles:"
 
     update:
-      flash_success: "Toode edukalt uuendatud! Jaga seda sõpradega: <input value='%{url}' class='alert-url' readonly='true' onclick='this.select()'>"
+      flash_success: "Toode edukalt uuendatud!"
 
     destroy:
       flash_success: "Toode edukalt kustutatud!"
@@ -173,13 +175,12 @@ et:
         log_out: "Logi välja"
 
     sessions:
-      signed_in: "Signed in successfully. :smile:"
+      signed_in: "Teretulemast tagasi!"
       signed_out: "Oled välja logitud, järgmise korrani! :wave:"
       already_signed_out: "Signed out successfully."
       new:
-        sign_in: 'Sisene'
-        sign_in_title: 'Sisene oma e-maili aadressiga, või :point_down:'
-        sign_in_with_facebook: 'Sisene Facebooki abil'
+        sign_in: 'Logi sisse'
+        sign_in_title: 'Logi sisse oma e-maili kasutades'
 
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."

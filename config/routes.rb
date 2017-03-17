@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'registrations' },
     path_names: { sign_in: 'signin', sign_up: 'join', }
 
+  resources  :users, path: 'u', only: :show
   resources	 :users do
     member do
       get :following, :followers
@@ -21,8 +22,10 @@ Rails.application.routes.draw do
 
   # Root
 	root 'static_pages#home'
+  get :join, to: 'static_pages#join'
 
 	# Products
+  resources :products, path: 'p', only: [:show, :edit, :update]
 	resources :products do
     resource :like, module: :products
     resources :comments

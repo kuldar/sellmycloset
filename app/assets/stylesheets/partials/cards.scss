@@ -136,7 +136,7 @@
 	font-size: 1.5rem;
   line-height: 1.125em;
 	max-width: 15rem;
-	margin: 0 auto 1em auto;
+	margin: 0 auto;
 }
 
 .card-section-btn {
@@ -154,8 +154,8 @@
 		padding: 0.5rem 2rem;
 		font-weight: bold;
 		color: $white;
-		background-color: $facebook-blue;
-		&:hover { background-color: darken($facebook-blue, 5); }
+		background-color: $purple;
+		&:hover { background-color: darken($purple, 5); }
 	}
 
 	&:hover { text-decoration: none; }

@@ -1,10 +1,8 @@
-.main 
+.main.is-purple style="background-image: url('#{ image_path('home-hero-bg.jpg') }');"
+  .form-title Registreeru e-maili aadressi kasutades
+
   = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form' }) do |f|
     .card.is-small
-      .card-section.card-illustration style="background-image:url('#{asset_path 'signin-illustration.jpg' }');"
-        h1.card-section-title = emojify t('.sign_in_title')
-        = link_to t('.sign_in_with_facebook'), user_facebook_omniauth_authorize_path, class: 'card-section-btn is-fb'
-
       .card-section.is-gray.is-padded
         = devise_error_messages!
 
@@ -18,7 +16,14 @@
 
         .form-footer
           = f.submit t('.sign_in'), class: 'form-btn is-main'
+
           - if devise_mapping.rememberable?
             .form-checkbox-group.pull-right
               = f.check_box :remember_me, class: 'form-checkbox', checked: true
               = f.label :remember_me, class: 'form-checkbox-label'
+
+  .form-bottom
+    span.form-bottom-text Pole veel liitunud? Registeeru 
+    =<> link_to 'e-mailiga', new_user_registration_path, class: 'form-bottom-link'
+    span.form-bottom-text või
+    =< link_to 'Facebookiga', user_facebook_omniauth_authorize_path, class: 'form-bottom-link'

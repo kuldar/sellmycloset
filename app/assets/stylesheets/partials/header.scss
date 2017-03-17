@@ -7,6 +7,7 @@
   color: $white;
   box-shadow: 0 1px 2px rgba($black, 0.1);
   padding: 1rem 2rem;
+  position: relative;
   
 }
 
@@ -17,7 +18,7 @@
   max-width: 80rem;
   margin: 0 auto;
 
-  @include min-width(30rem) {
+  @include min-width(40rem) {
     @include flex-direction(row);
   }
 }
@@ -29,11 +30,13 @@
   line-height: 2rem;
 
   img {
+    transform: rotate(35deg);
     position: relative;
     float: left;
-    height: 1.75rem;
+    height: 1.375rem;
     display: block;
-    margin-right: 0.75rem;
+    margin: 0.15rem 0.5rem 0 0;
+    opacity: 0.5;
   }
 
   &:hover {
@@ -45,6 +48,7 @@
     top: 1px;
   }
 }
+
 
 // Header Alerts
 .header-alerts {
@@ -73,19 +77,26 @@
   }
 }
 
-.header-nav-link-avatar {
+.header-nav-avatar {
   height: 2rem;
   width: 2rem;
   border-radius: 2rem;
   display: block;
-  margin-right: 0.5rem;
 }
 
 .header-nav-btn {
+  margin-left: 0;
   font-weight: bold;
   color: $white;
   background-image: $orange-pink-gradient;
   box-shadow: 0 1px 2px rgba($black, 0.1);
 
-  &:hover { text-decoration: none; }
+  &:hover {
+    background-image: $orange-pink-gradient-hover;
+    text-decoration: none;
+  }
+
+  @include min-width(40rem) {
+    margin-left: 0.5rem;
+  }
 }

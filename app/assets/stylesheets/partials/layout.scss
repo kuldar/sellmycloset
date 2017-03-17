@@ -19,6 +19,14 @@
     padding: 0;
     @include min-width(40rem) { padding: 0.5rem; }
   }
+
+  &.is-purple {
+    background-image: none;
+    background-color: $purple;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
 }
 
 .sidebar {
