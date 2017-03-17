@@ -116,9 +116,9 @@ class User < ApplicationRecord
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
       user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
       user.name = auth.info.name
       user.remote_avatar_url = "#{auth.info.image.gsub('http:','https:')}?width=500&height=500"
-      user.password = Devise.friendly_token[0,20]
     end
   end
 
@@ -126,7 +126,8 @@ class User < ApplicationRecord
     super.tap do |user|
       if data = session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info']
         user.email = data['email'] if user.email.blank?
-        user.username = data['name'].gsub(' ', '').downcase
+        # user.username = data['name'].gsub(/\A[a-zA-Z0-9]*\z/, '').downcase
+        user.username = data['name'].tr('^A-Za-z0-9', '').downcase
         user.name = data['name'] if user.name.blank?
       end
     end
@@ -135,7 +136,8 @@ class User < ApplicationRecord
   private
     def set_username
       if self.username.blank?
-        username = self.name.gsub(/\A[a-zA-Z0-9]*\z/,'').downcase
+        # username = self.name.gsub(/\A[a-zA-Z0-9]*\z/,'').downcase
+        username = self.name.tr('^A-Za-z0-9', '').downcase
         temp_username = username
         num = 1
 

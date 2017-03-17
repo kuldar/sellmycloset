@@ -7,6 +7,7 @@
         = link_to t('home.sign_in_with_facebook'), user_facebook_omniauth_authorize_path, class: 'home-hero-main-btn'
         = link_to t('home.sign_in_with_email'), new_user_session_path, class: 'home-hero-outline-btn'
 
-    .home-hero-product
-      = render 'products/feed_product', product: product
-      .home-hero-product-footnote = "Lisatud #{time_ago_in_words(product.created_at)} tagasi"
+    - if product
+      .home-hero-product
+        = render 'products/feed_product', product: product
+        .home-hero-product-footnote = "Lisatud #{time_ago_in_words(product.created_at)} tagasi"
