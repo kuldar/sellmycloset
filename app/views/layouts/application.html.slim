@@ -7,16 +7,16 @@ html
     title= t('site.title')
     meta name="description" content="#{t('site.title')}"
     meta name="viewport" content="width=device-width, initial-scale=1"
+    = content_for?(:og_tags) ? yield(:og_tags) : ''
 
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_include_tag '//twemoji.maxcdn.com/2/twemoji.min.js?2.1.2'
     = javascript_include_tag '//js.braintreegateway.com/web/3.0.2/js/client.min.js'
     = javascript_include_tag '//js.braintreegateway.com/web/3.0.2/js/hosted-fields.min.js'
+
     = csrf_meta_tags
     = render 'shared/drift'
-
-
 
   body
     = render 'shared/header'

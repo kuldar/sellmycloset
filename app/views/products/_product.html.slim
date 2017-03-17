@@ -20,15 +20,18 @@
     - else
       .product-seller
         .product-seller-overview
-          = image_tag @product.user.avatar, class: 'product-seller-photo'
+          = link_to @product.user, class: 'product-seller-photo' do
+            = image_tag @product.user.avatar
+
           .product-seller-info
             = link_to @product.user.name, @product.user, class: "product-seller-name"
-            - if signed_in? && current_user.following?(@product.user)
-              = render 'users/unfollow', user: @product.user, btn_class: 'product-seller-unfollow-btn'
-            - elsif signed_in?
-              = render 'users/follow', user: @product.user, btn_class: 'product-seller-follow-btn'
-            - else
-              = link_to t('user.follow'), new_user_registration_path, class: 'user-card-btn is-primary'
+            .product-seller-relationship-btn data-follow-form="#{@product.user.id}"
+              - if signed_in? && current_user.following?(@product.user)
+                = render 'users/unfollow', user: @product.user, btn_class: 'product-seller-unfollow-btn'
+              - elsif signed_in?
+                = render 'users/follow', user: @product.user, btn_class: 'product-seller-follow-btn'
+              - else
+                = link_to t('user.follow'), new_user_registration_path, class: 'user-card-btn is-primary'
 
         .product-seller-stats
           .product-seller-stat
@@ -41,14 +44,15 @@
 
           .product-seller-stat
             .product-seller-stat-name = t('user.followers')
-            .product-seller-stat-number = @product.user.followers.count
+            .product-seller-stat-number data-follow-count="#{ @product.user.id}" = @product.user.followers.count
 
     .product
 
       .product-info
         .product-info-header
           .product-title = @product.title
-          span.product-size = "#{@product.size} #{t('product.size')}"
+          - unless @product.size.empty?
+            span.product-size = "#{@product.size} #{t('product.size')}"
 
         .product-description
           => emojify @product.description

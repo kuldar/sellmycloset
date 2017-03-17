@@ -11,8 +11,7 @@
 	/ User Actions
 	.user-card-actions
 		- if current_user == user
-			= link_to t('user.add_product'), new_product_path, class: 'user-card-btn is-add-product'
-			= link_to t('user.settings'), edit_registration_path(current_user), class: 'user-card-btn is-outline'
+			= link_to t('user.settings'), edit_registration_path(current_user), class: 'user-card-btn is-settings'
 		- else
 			.user-card-btn-container data-follow-form="#{user.id}"
 				- if signed_in? && current_user.following?(user)
@@ -21,12 +20,12 @@
 					= render 'follow', user: user, btn_class: 'user-card-btn is-follow'
 				- else
 					= link_to t('user.follow'), new_user_registration_path, class: 'user-card-btn is-primary'
-			- if user.instagram_handle?
-				= link_to user.instagram_url, target: '_blank', class: 'user-card-btn is-outline' do
-					= image_tag 'instagram-icon-white.svg'
-			- if user.facebook_handle?
-				= link_to user.facebook_url, target: '_blank', class: 'user-card-btn is-outline' do
-					= image_tag 'facebook-icon-white.svg'
+		- if user.instagram_handle?
+			= link_to user.instagram_url, target: '_blank', class: 'user-card-btn is-outline' do
+				= image_tag 'instagram-icon-white.svg'
+		- if user.facebook_handle?
+			= link_to user.facebook_url, target: '_blank', class: 'user-card-btn is-outline' do
+				= image_tag 'facebook-icon-white.svg'
 
 	/ User Stats
 	.user-card-stats

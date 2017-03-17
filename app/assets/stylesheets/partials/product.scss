@@ -161,10 +161,13 @@
   .product-seller-photo {
     float: left;
     margin-right: 1rem;
-    display: block;
-    width: 4rem;
-    height: 4rem;
-    border-radius: 10rem;
+
+    img {
+      display: block;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 10rem;
+    }
   }
 
   .product-seller-info {
@@ -179,35 +182,41 @@
     &:hover { text-decoration: none; }
   }
 
-  .product-seller-follow-btn {
-    border: none;
-    display: block;
-    text-transform: uppercase;
-    font-weight: bold;
-    background-color: $green;
-    color: $white;
-    outline: none;
-    border-radius: 10rem;
-    text-align: center;
-    line-height: 1em;
-    padding: 0.5rem 1.25rem;
-    font-size: 0.875rem;
-  }
+  .product-seller-relationship-btn {
+    .btn-main {
+      border: none;
+      display: block;
+      font-weight: bold;
+      background-color: $green;
+      color: $white;
+      outline: none;
+      border-radius: 10rem;
+      text-align: center;
+      line-height: 1em;
+      padding: 0.5rem 1.25rem;
+      font-size: 0.875rem;
 
-  .product-seller-unfollow-btn {
-    background-color: transparent;
-    outline: none;
-    border-radius: 10rem;
-    border: 1px solid rgba($gray, 0.5);
-    text-align: center;
-    line-height: 1em;
-    padding: 0.5rem 1.25rem;
-    font-size: 0.875rem;
-    color: $dark-gray;
+      &:hover {
+        text-decoration: none;
+        background-color: darken($green, 5);
+      }
+    }
 
-    &:hover {
-      text-decoration: none;
-      border: 1px solid $gray;
+    .btn-outline {
+      background-color: transparent;
+      outline: none;
+      border-radius: 10rem;
+      border: 1px solid rgba($gray, 0.5);
+      text-align: center;
+      line-height: 1em;
+      padding: 0.5rem 1.25rem;
+      font-size: 0.875rem;
+      color: $dark-gray;
+
+      &:hover {
+        text-decoration: none;
+        border: 1px solid $gray;
+      }
     }
   }
 

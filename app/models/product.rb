@@ -48,7 +48,7 @@ class Product < ApplicationRecord
   private
 
     def price_to_cents
-      price = price*100
+      self.price = price*100
     end
 
 end

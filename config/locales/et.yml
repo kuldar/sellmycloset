@@ -3,6 +3,11 @@
 ################
 
 et:
+  og:
+    site_name: "Sell My Closet"
+    title: "Müü ja avasta parimaid stiilileide"
+    description: "Müü ja avasta parimaid stiilileide"
+
   site:
     name: "Sell My Closet"
     title: "Müü ja avasta parimaid stiilileide - SellMyCloset.ee"
