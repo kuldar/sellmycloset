@@ -356,6 +356,7 @@
 
 .product-title {
   @include flex(1);
+  color: $black;
   font-size: 1.325rem;
   font-weight: bold;
   line-height: 1em;
@@ -501,6 +502,7 @@ a.product-main-btn {
 .product-meta-btn {
   @include clearfix;
   float: left;
+  color: $black;
   background-color: $light-gray;
   margin-left: 0.75rem;
   border-radius: 10rem;

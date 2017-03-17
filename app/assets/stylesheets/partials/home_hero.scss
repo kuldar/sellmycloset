@@ -3,24 +3,69 @@
 ////////////////
 
 .home-hero {
-  background-image: $purple-gradient;
+  // background-image: $purple-gradient;
+  background-color: $purple;
+  background-image: url('http://cl.ly/jaud/test_bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   color: $white;
   padding: 0 2rem;
 
   @include min-width(40rem) {
     padding: 3rem 2rem;
   }
+
+  .product-image {
+    max-height: 20rem;
+  }
+
+  .product-image-container {
+    display: none;
+    @include min-width(40rem) {
+      display: block;
+    }    
+  }
 }
 
 .home-hero-wrapper {
+  @include display(flex);
+  @include align-items(center);
+  @include flex-direction(column);
   max-width: 80rem;
   margin: 0 auto;
   padding: 2rem 0 3rem 0;
+
+  @include min-width(40rem) {
+    @include flex-direction(row);
+  }
+}
+
+.home-hero-content {
+  width: 100%;
+  padding: 1rem 0 3rem 0;
+
+  @include min-width(40rem) {
+    width: 50%;
+    padding: 0 4rem 0 0;
+  }
+}
+
+.home-hero-product {
+  max-width: 25rem;
+}
+
+.home-hero-product-footnote {
+  text-align: center;
+  margin-top: 1rem;
+  opacity: 0.9;
 }
 
 .home-hero-title {
   max-width: 50rem;
   font-size: 2rem;
+  font-weight: 700;
+  line-height: 1em;
   letter-spacing: -1px;
 
   @include min-width(40rem) {
@@ -32,9 +77,9 @@
   margin-top: 1rem;
   max-width: 40rem;
   font-size: 1.25rem;
-  line-height: 2rem;
+  line-height: 1.25em;
   font-weight: 300;
-  opacity: 0.75;
+  opacity: 0.9;
 
   @include min-width(40rem) {
     font-size: 1.5rem;
@@ -51,7 +96,9 @@
   background-image: $orange-pink-gradient;
   color: $white;
   border-radius: 10rem;
+  font-weight: 700;
   padding: 0.5em 1em;
+  margin: 0 1rem 1rem 0;
   font-size: 1.25rem;
 
   &:hover {
@@ -68,7 +115,6 @@
   border-radius: 10rem;
   padding: 0.5em 1em;
   font-size: 1.25rem;
-  margin-left: 1rem;
 
   &:hover {
     text-decoration: none;

@@ -37,6 +37,9 @@ et:
       become_seller: "Hakka müüjaks"
       admin: "Admin"
 
+  home:
+    sign_in_with_facebook: "Logi sisse Facebookiga"
+
   user:
     settings: "Seaded"
     add_product: "Lisa toode"

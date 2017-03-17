@@ -2,9 +2,7 @@ header.header
 	.header-wrapper
 
 		/ Logo
-		= link_to root_path, class: 'header-logo' do
-			.header-logo-circle
-			strong Sell My Closet
+		= link_to t('site.name'), root_path, class: 'header-logo'
 
 		.header-alerts
 			= render 'shared/flash'
