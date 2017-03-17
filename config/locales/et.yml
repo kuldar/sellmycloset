@@ -109,7 +109,8 @@ et:
       card_number: 'Kaardi number'
       cvv: 'CVV'
       exp_date: 'Kehtivus'
-      pay: 'Maksa'
+      pay: 'Maksa kaardiga'
+      change_card: 'Muuda krediitkaarti'
 
   promos:
     signup_cta:

@@ -109,8 +109,8 @@ class User < ApplicationRecord
   end
 
   def update_balance(earnings)
-    balance = balance + earnings
-    lifetime_earnings = lifetime_earnings + earnings
+    self.balance = balance + earnings
+    self.total_earnings = total_earnings + earnings
   end
 
   def self.from_omniauth(auth)
@@ -135,7 +135,7 @@ class User < ApplicationRecord
   private
     def set_username
       if self.username.blank?
-        username = self.name.gsub(' ','').downcase
+        username = self.name.gsub(/\A[a-zA-Z0-9]*\z/,'').downcase
         temp_username = username
         num = 1
 

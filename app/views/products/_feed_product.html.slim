@@ -17,7 +17,8 @@
 
 		.product-info-footer
 			- if product.sold?
-				span.product-outline-btn Sold #{ time_ago_in_words product.sale.created_at } ago
+				span.product-outline-btn Sold
+				/ span.product-outline-btn Sold #{ time_ago_in_words product.sale.created_at } ago
 			- else
 				- if current_user == product.user
 						span.product-main-btn

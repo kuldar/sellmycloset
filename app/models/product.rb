@@ -45,8 +45,10 @@ class Product < ApplicationRecord
     price + shipping_cost
   end
 
-  def price_to_cents
-    price = price*100
-  end
+  private
+
+    def price_to_cents
+      price = price*100
+    end
 
 end

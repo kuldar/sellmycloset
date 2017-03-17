@@ -51,14 +51,15 @@ class TransactionsController < ApplicationController
         seller_id: @product.user.id
       )
 
-    	@product.user.update_balance(@product.earnings)
-			@product.sold!
-
 	    if @transaction.save
+	    	@product.user.update_balance(@product.earnings)
+				@product.sold!
+
 	  		flash[:success] = t('.flash_success')
 	    	redirect_to product_transaction_path
 	  	else
-	      flash[:error] = t('.flash_error')
+	      # flash[:error] = t('.flash_error')
+	      flash[:error] = 
 	      render :new
 		  end
 

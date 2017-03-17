@@ -44,3 +44,7 @@
 .is-hidden {
 	display: none;
 }
+
+.clearfix {
+  @include clearfix;
+}
