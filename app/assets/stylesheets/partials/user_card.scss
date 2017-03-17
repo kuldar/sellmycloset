@@ -100,6 +100,11 @@
   padding: 1rem 0 0 0;
 }
 
+a.user-card-stat:hover {
+  text-decoration: none;
+  .user-card-stat-key { color: $white; }
+}
+
 .user-card-stat-key {
   color: rgba($white, 0.6);
   font-weight: bold;

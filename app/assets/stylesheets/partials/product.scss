@@ -245,6 +245,11 @@
     }
   }
 
+  a.product-seller-stat:hover {
+    text-decoration: none;
+    .product-seller-stat-name { color: $black; }
+  }
+
   .product-seller-stat-number {
     font-size: 1.5rem;
   }

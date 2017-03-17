@@ -34,7 +34,7 @@
                 = link_to t('user.follow'), new_user_registration_path, class: 'user-card-btn is-primary'
 
         .product-seller-stats
-          .product-seller-stat
+          = link_to user_path(@product.user), class: 'product-seller-stat'
             .product-seller-stat-name = t('user.products')
             .product-seller-stat-number = @product.user.products.count
 
@@ -42,7 +42,7 @@
             .product-seller-stat-name = t('user.sales')
             .product-seller-stat-number = @product.user.products.sold.count
 
-          .product-seller-stat
+          = link_to followers_user_path(@product.user), class: 'product-seller-stat'
             .product-seller-stat-name = t('user.followers')
             .product-seller-stat-number data-follow-count="#{ @product.user.id}" = @product.user.followers.count
 
@@ -51,7 +51,7 @@
       .product-info
         .product-info-header
           .product-title = @product.title
-          - unless @product.size.empty?
+          - unless @product.size.to_s.empty?
             span.product-size = "#{@product.size} #{t('product.size')}"
 
         .product-description

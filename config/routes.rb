@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     path_names: { sign_in: 'signin', sign_up: 'join', }
 
   resources  :users, path: 'u', only: :show
-  resources	 :users do
+  resources	 :users, path: 'u' do
     member do
       get :following, :followers
     end

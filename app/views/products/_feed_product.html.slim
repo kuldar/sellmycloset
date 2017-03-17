@@ -10,7 +10,8 @@
 	.product-info
 		.product-info-header
 			= link_to product.title, product, class: 'product-title'
-			span.product-size = "#{product.size} #{t('product.size')}"
+			- unless product.size.to_s.empty?
+				span.product-size = "#{product.size} #{t('product.size')}"
 
 		.product-description
 			= emojify product.description
