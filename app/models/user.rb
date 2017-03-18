@@ -49,6 +49,8 @@ class User < ApplicationRecord
   before_create     :set_avatar, :set_payout_margin
   after_create      :subscribe_to_mailing_list
 
+  monetize :pending_balance_cents, :available_balance_cents, :total_earnings_cents
+
   def to_param
     username
   end
@@ -107,9 +109,10 @@ class User < ApplicationRecord
   end
 
   def update_earnings(earnings_cents)
-    # self.pending_balance_cents += earnings_cents
-    # self.total_earnings_cents += earnings_cents
-    self.pending_balance_cents = 1000
+    update(
+      pending_balance_cents: self.pending_balance_cents + earnings_cents,
+      total_earnings_cents: self.total_earnings_cents + earnings_cents
+    )
   end
 
   # def update_pending_balance(earnings)

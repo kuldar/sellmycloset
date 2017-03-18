@@ -21,13 +21,13 @@ class TransactionsController < ApplicationController
 			payment_method = customer.payment_methods.find{ |payment_method| payment_method.default? }
 
 			result = Braintree::Transaction.sale(
-									amount: @product.total_cost,
+									amount: @product.total_price,
 									payment_method_token: payment_method.token)
 
 		# Else create a new customer in Vault
 		else
 			result = Braintree::Transaction.sale(
-									amount: @product.total_cost,
+									amount: @product.total_price,
 									payment_method_nonce: params[:payment_method_nonce],
 									customer: {
 										first_name: current_user.first_name,
@@ -48,8 +48,11 @@ class TransactionsController < ApplicationController
 
 			@transaction = Transaction.create(
         product_id: @product.id,
+        product_price_cents: @product.price_cents,
         buyer_id: current_user.id,
         seller_id: @product.user.id,
+        payout_margin: @product.user.payout_margin,
+        shipping_price_cents: @product.shipping_price_cents,
         shipping_target: params[:shipping_target]
       )
 
@@ -61,13 +64,13 @@ class TransactionsController < ApplicationController
 	  		flash[:success] = t('.flash_success')
 	    	redirect_to product_transaction_path
 	  	else
-	      flash[:error] = t('.flash_error')
+	      flash[:error] = @transaction.errors.full_messages.to_sentence
 	      render :new
 		  end
 
 		# Else show errors and generate a new Braintree token
 		else
-			flash[:error] = 'Errrror!'
+			flash[:error] = result.errors.full_messages.to_sentence
 			render :new
 		end
 

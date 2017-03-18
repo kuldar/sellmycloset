@@ -25,9 +25,9 @@ html
     = render 'shared/drift_container'
 
     - if user_signed_in?
-      div Pending balance - #{humanized_money_with_symbol(current_user.pending_balance_cents)}
-      div Available balance - #{humanized_money_with_symbol(current_user.available_balance_cents)}
-      div Total earnings - #{humanized_money_with_symbol(current_user.total_earnings_cents)}
+      div Pending balance - #{humanized_money_with_symbol(current_user.pending_balance)}
+      div Available balance - #{humanized_money_with_symbol(current_user.available_balance)}
+      div Total earnings - #{humanized_money_with_symbol(current_user.total_earnings)}
 
     / Debug
     - debug(params) if Rails.env.development?

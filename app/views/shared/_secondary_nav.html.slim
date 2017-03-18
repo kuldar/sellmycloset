@@ -1,0 +1,32 @@
+.secondary-nav
+  .secondary-nav-wrapper
+    .product-nav-dropdown
+      select.product-nav-dropdown-select
+        option value="1" Kõik
+        option value="1" Jalatsid
+        option value="1" Kleidid
+        option value="1" Seelikud
+
+    .product-nav-dropdown
+      select.product-nav-dropdown-select
+        option value="1" Populaarsed
+        option value="1" Uued
+        option value="1" Kallimad
+        option value="1" Odavamad
+
+    .pull-right
+      = link_to user_path(current_user), class: 'secondary-nav-link' do
+        strong => current_user.products.active.count
+        = t('shared.user_nav.products_active', count: current_user.products.active.count)
+
+      = link_to sales_user_path(current_user), class: 'secondary-nav-link' do
+        strong => current_user.sales.count
+        = t('shared.user_nav.sales', count: current_user.sales.count)
+
+      = link_to purchases_user_path(current_user), class: 'secondary-nav-link' do
+        strong => current_user.purchases.count
+        = t('shared.user_nav.purchases', count: current_user.purchases.count)
+
+      = link_to likes_user_path(current_user), class: 'secondary-nav-link' do
+        strong => current_user.likes.count
+        = t('shared.user_nav.likes', count: current_user.likes.count)

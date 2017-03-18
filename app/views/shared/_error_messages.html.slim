@@ -1,4 +1,4 @@
 - if object.errors.any?
-  #error_explanation
+  .form-errors
     - object.errors.full_messages.each do |msg|
-      div= msg
+      span = msg

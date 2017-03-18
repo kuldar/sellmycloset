@@ -6,6 +6,7 @@ class AddTransactions < ActiveRecord::Migration[5.0]
 		  t.integer :buyer_id
 		  t.integer :product_id
 		  t.string 	:shipping_target
+      t.float   :payout_margin
 
 		  t.timestamps
 		end
@@ -14,5 +15,8 @@ class AddTransactions < ActiveRecord::Migration[5.0]
     add_index :transactions, :seller_id
     add_index :transactions, :buyer_id
     add_index :transactions, [:product_id, :buyer_id, :seller_id], unique: true
+
+    add_money :transactions, :product_price
+    add_money :transactions, :shipping_price
   end
 end

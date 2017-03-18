@@ -61,13 +61,18 @@ ActiveRecord::Schema.define(version: 20160907180705) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.integer  "status",          default: 1
+    t.integer  "status",                  default: 1
     t.integer  "seller_id"
     t.integer  "buyer_id"
     t.integer  "product_id"
     t.string   "shipping_target"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.float    "payout_margin"
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.integer  "product_price_cents",     default: 0,     null: false
+    t.string   "product_price_currency",  default: "EUR", null: false
+    t.integer  "shipping_price_cents",    default: 0,     null: false
+    t.string   "shipping_price_currency", default: "EUR", null: false
     t.index ["buyer_id"], name: "index_transactions_on_buyer_id"
     t.index ["product_id", "buyer_id", "seller_id"], name: "index_transactions_on_product_id_and_buyer_id_and_seller_id", unique: true
     t.index ["product_id"], name: "index_transactions_on_product_id"

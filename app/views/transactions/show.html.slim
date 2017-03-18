@@ -2,7 +2,36 @@
   .form-title Tehing
   .card.is-small
     .card-section.is-gray.is-padded
+      div
+        strong Product
+        div = link_to @transaction.product.title, product_path(@transaction.product)
+        br
 
-      .form-group Product: #{@transaction.product.title}
-      .form-group Seller: #{@transaction.seller.name}
-      .form-group Buyer: #{@transaction.buyer.name}
+      div
+        strong Product Price
+        div = humanized_money_with_symbol(@transaction.product_price)
+        br
+
+      div
+        strong Payout Margin
+        div = @transaction.payout_margin
+        br
+
+      div
+        strong Seller
+        div = link_to @transaction.seller.name, user_path(@transaction.seller)
+        br
+
+      div
+        strong Buyer
+        div = link_to @transaction.buyer.name, user_path(@transaction.buyer)
+        br
+
+      div
+        strong Shipping Price
+        div = humanized_money_with_symbol(@transaction.shipping_price)
+        br
+
+      div
+        strong Shipping Target
+        div = @transaction.shipping_target

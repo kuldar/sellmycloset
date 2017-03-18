@@ -19,7 +19,7 @@
           = f.password_field :password, autocomplete: "off", class: 'form-input', placeholder: "#{ t('example.password') }"
 
         .form-footer
-          = f.submit t('.sign_up'), class: 'form-btn is-main'
+          = f.submit t('.sign_up'), class: 'form-btn is-main', data: { disable_with: "Loon kontot.."}
   
   .form-bottom
     span.form-bottom-text Juba liitunud?

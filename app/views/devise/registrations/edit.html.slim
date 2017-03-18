@@ -60,5 +60,5 @@
             = f.text_field :payout_iban, class: 'form-input', placeholder: "#{ t('example.iban') }"
 
         .form-footer
-          = f.submit t('.save_changes'), class: 'form-btn is-main'
+          = f.submit t('.save_changes'), class: 'form-btn is-main', data: { disable_with: "Salvestan muudatused.."}
           = link_to t('.log_out'), destroy_user_session_path, method: :delete, class: 'form-link pull-right'

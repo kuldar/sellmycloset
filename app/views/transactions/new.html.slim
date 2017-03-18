@@ -16,7 +16,7 @@
 
         .transaction-product-cost
           .transaction-product-price = humanized_money_with_symbol(@product.price)
-          .transaction-shipping-price + €#{@product.shipping_cost} #{ t('.shipping') }
+          .transaction-shipping-price + €#{@product.shipping_price} #{ t('.shipping') }
 
 
 
@@ -35,7 +35,7 @@
             = f.hidden_field :seller_id, value: @product.user.id
             .clearfix
               button.transaction-form-submit-btn.pull-left type='submit'
-                | <strong>#{ t('.pay') }</strong> <span class='price'>#{ number_to_currency @product.total_cost }</span>
+                | <strong>#{ t('.pay') }</strong> <span class='price'>#{ number_to_currency @product.total_price }</span>
               = link_to t('.change_card'), '#', class: 'form-link pull-right'
 
           - else
@@ -58,7 +58,7 @@
             = f.hidden_field :seller_id, value: @product.user.id
             input type='hidden' name='payment_method_nonce'
             button.transaction-form-submit-btn type='submit' disabled=true data-behavior='payment-submit'
-              | <strong>#{ t('.pay') }</strong> <span class="price">#{ number_to_currency(@product.total_cost) }<span class="price">
+              | <strong>#{ t('.pay') }</strong> <span class="price">#{ number_to_currency(@product.total_price) }<span class="price">
 
 javascript:
   $(document).ready(function () {

@@ -1,0 +1,28 @@
+/////////////////////
+//  Secondary Nav  //
+/////////////////////
+
+.secondary-nav {
+  padding: 0;
+  box-shadow: 0 1px 2px rgba($black, 0.1);
+  position: relative;
+}
+
+.secondary-nav-wrapper {
+  @include clearfix;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.secondary-nav-link,
+.secondary-nav-dropdown {
+  float: left;
+  display: inline-block;
+  padding: 1.25rem 1.75rem;
+  border-right: 1px solid $light-gray-3;
+
+  &:first-child { border-left: 1px solid $light-gray-3; }
+  &:hover { background-color: $light-gray; }
+}
+
+.secondary-nav-dropdown-select {}

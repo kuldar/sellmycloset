@@ -1,7 +1,5 @@
 class Product < ApplicationRecord
 
-  SHIPPING_COST_CENTS = 300
-
 	enum status: {
     draft:      0,
     active:     1,
@@ -40,16 +38,20 @@ class Product < ApplicationRecord
   #   price * MARGIN
   # end
 
-  def shipping_cost
-    SHIPPING_COST_CENTS/100
+  def total_price_cents
+    price_cents + shipping_price_cents
   end
 
-  def total_cost
-    total_cost_cents/100    
+  def total_price
+    total_price_cents/100
   end
 
-  def total_cost_cents
-    price_cents + SHIPPING_COST_CENTS
+  def shipping_price_cents
+    300
+  end
+
+  def shipping_price
+    shipping_price_cents/100
   end
 
 end

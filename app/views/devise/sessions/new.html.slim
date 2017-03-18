@@ -15,7 +15,7 @@
           = f.password_field :password, autocomplete: "off", class: 'form-input', placeholder: t('example.password')
 
         .form-footer
-          = f.submit t('.sign_in'), class: 'form-btn is-main'
+          = f.submit t('.sign_in'), class: 'form-btn is-main', data: { disable_with: "Login sisse.."}
 
           - if devise_mapping.rememberable?
             .form-checkbox-group.pull-right
