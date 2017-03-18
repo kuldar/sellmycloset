@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources	 :users, path: 'u' do
     member do
-      get :following, :followers, :sales, :purchases
+      get :following, :followers, :sales, :purchases, :likes
     end
   end
 

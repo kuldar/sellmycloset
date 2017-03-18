@@ -43,6 +43,23 @@ et:
       become_seller: "Hakka müüjaks"
       admin: "Admin"
 
+    user_nav:
+      products_active:
+        one: 'kuulutus'
+        other: 'kuulutust'
+
+      sales:
+        one: 'müük'
+        other: 'müüki'
+
+      purchases:
+        one: 'ost'
+        other: 'ostu'
+
+      likes:
+        one: 'meeldimine'
+        other: 'meeldimist'
+
   home:
     sign_in_with_facebook: "Logi sisse Facebookiga"
     sign_in_with_email: "Logi sisse e-mailiga"
@@ -103,9 +120,11 @@ et:
 
     create:
       flash_success: "Uus toode edukalt lisatud! :sparkles:"
+      flash_error: "Toote lisamisel tekkis probleeme. :worried:"
 
     update:
       flash_success: "Toode edukalt uuendatud!"
+      flash_error: "Toote uuendamisel tekkis probleeme. :worried:"
 
     destroy:
       flash_success: "Toode edukalt kustutatud!"

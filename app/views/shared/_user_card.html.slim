@@ -30,11 +30,11 @@
 	/ User Stats
 	.user-card-stats
 
-		.user-card-stat
+		= link_to user_path(user), class: 'user-card-stat'
 			.user-card-stat-key = t('user.products')
 			.user-card-stat-value class="#{ "is-muted" if user.products.active.count == 0 }" = user.products.active.count
 
-		.user-card-stat
+		= link_to sales_user_path(user), class: 'user-card-stat'
 			.user-card-stat-key = t('user.sales')
 			.user-card-stat-value class="#{ "is-muted" if user.products.sold.count == 0 }" = user.products.sold.count
 

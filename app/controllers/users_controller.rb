@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :following, :followers, :sales, :purchases]
+  before_action :set_user, only: [:show, :following, :followers, :sales, :purchases, :likes]
   before_action :authenticate_purchases_user, only: :purchases
 
   def index
@@ -7,6 +7,12 @@ class UsersController < ApplicationController
   end
 
   def show
+  end
+
+  def likes
+    @view_title = 'Minu meeldimised'
+    @products = @user.liked_products
+    render 'liked_products'
   end
 
   def following

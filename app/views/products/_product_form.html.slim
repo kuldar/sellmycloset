@@ -34,17 +34,17 @@
         .form-groups
           .form-half-group
             = f.label :price, t('product.price'), class: 'form-label'
-            = f.number_field :price, value: @product.price_cents/100, placeholder: t('.product_price_placeholder'), class: 'form-input'
+            = f.number_field :price, value: "#{@product.price == 0 ? '' : @product.price_cents/100}", placeholder: t('.product_price_placeholder'), class: 'form-input'
           .form-half-group
             .form-earnings-label = t('product.earnings')
             .form-earnings-number &nbsp;
         
         .form-footer
           - if @product.new_record?
-            = f.button t('.add_product'), class: 'form-btn is-main pull-left'
+            = f.button t('.add_product'), class: 'form-btn is-main pull-left', data: { disable_with: "Lisan toodet.."}
             = link_to t('site.need_help'), '#', class: 'form-link pull-right drift-open-chat'
           - else
-            = f.button t('.update_product'), class: 'form-btn is-main pull-left'
+            = f.button t('.update_product'), class: 'form-btn is-main pull-left', data: { disable_with: "Uuendan toodet.."}
             = link_to t('.delete_product'), @product, method: :delete, data: {confirm: t('.delete_product_confirmation')}, class: 'form-link pull-right'
 
 javascript:
@@ -53,7 +53,7 @@ javascript:
       placeholder: "#{t('.product_category_placeholder')}"
     });
 
-    $("#product_price").keyup(function(){
+    $("#product_price").on("change paste keyup", function() {
       var price = $("#product_price").val();
       var earningsNumber = $(".form-earnings-number");
       

@@ -200,6 +200,11 @@
         text-decoration: none;
         background-color: darken($green, 5);
       }
+
+      &:active {
+        position: relative;
+        top: 1px;
+      }
     }
 
     .btn-outline {
@@ -216,6 +221,11 @@
       &:hover {
         text-decoration: none;
         border: 1px solid $gray;
+      }
+
+      &:active {
+        position: relative;
+        top: 1px;
       }
     }
   }
@@ -396,6 +406,11 @@
     text-decoration: none;
     border-color: $dark-gray;
   }
+
+  &:active {
+    position: relative;
+    top: 1px;
+  }
 }
 
 .product-main-btn {
@@ -415,6 +430,11 @@
     float: left;
   }
 
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+
 }
 
 a.product-main-btn {
@@ -427,6 +447,11 @@ a.product-main-btn {
   &:hover {
     background-image: $orange-pink-gradient-hover;
     .price { opacity: 1; }
+  }
+
+  &:active {
+    position: relative;
+    top: 1px;
   }
 }
 

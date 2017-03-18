@@ -28,6 +28,7 @@ class User < ApplicationRecord
                                     foreign_key: 'seller_id'
 
   has_many :likes
+  has_many :liked_products, through: :likes, source: :product
   has_many :comments, dependent: :destroy
   has_many :active_relationships,   class_name: 'Relationship',
                                     foreign_key: 'follower_id',
@@ -106,8 +107,9 @@ class User < ApplicationRecord
   end
 
   def update_earnings(earnings_cents)
-    self.pending_balance_cents += earnings_cents
-    self.total_earnings_cents += earnings_cents
+    # self.pending_balance_cents += earnings_cents
+    # self.total_earnings_cents += earnings_cents
+    self.pending_balance_cents = 1000
   end
 
   # def update_pending_balance(earnings)

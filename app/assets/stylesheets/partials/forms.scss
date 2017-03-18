@@ -150,6 +150,8 @@
 		position: relative;
 		top: 1px;
 	}
+
+	&:disabled { opacity: 0.5; }
 }
 
 .form-link {
