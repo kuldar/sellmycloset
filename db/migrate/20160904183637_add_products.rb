@@ -12,6 +12,6 @@ class AddProducts < ActiveRecord::Migration[5.0]
   	end
 
     add_index :products, [:user_id, :created_at]
-    add_money :products, :price
+    add_monetize :products, :price
   end
 end

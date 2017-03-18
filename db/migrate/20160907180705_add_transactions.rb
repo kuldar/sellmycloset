@@ -16,7 +16,7 @@ class AddTransactions < ActiveRecord::Migration[5.0]
     add_index :transactions, :buyer_id
     add_index :transactions, [:product_id, :buyer_id, :seller_id], unique: true
 
-    add_money :transactions, :product_price
-    add_money :transactions, :shipping_price
+    add_monetize :transactions, :product_price
+    add_monetize :transactions, :shipping_price
   end
 end

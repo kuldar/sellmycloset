@@ -18,8 +18,8 @@ class AddColumnsToUsers < ActiveRecord::Migration[5.0]
       t.string  :braintree_customer_id
     end
 
-    add_money :users, :available_balance
-    add_money :users, :pending_balance
-    add_money :users, :total_earnings
+    add_monetize :users, :available_balance
+    add_monetize :users, :pending_balance
+    add_monetize :users, :total_earnings
   end
 end
