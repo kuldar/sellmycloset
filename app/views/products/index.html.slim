@@ -1,5 +1,5 @@
-- if user_signed_in?
-  = render 'shared/product_nav'
+- if user_signed_in? && current_user.admin?
+  = render 'shared/secondary_nav'
 - else
   = render 'shared/home_hero', product: @products.last
 

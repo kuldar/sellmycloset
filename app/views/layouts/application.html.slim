@@ -24,7 +24,7 @@ html
     = render 'shared/footer'
     = render 'shared/drift_container'
 
-    - if user_signed_in?
+    - if user_signed_in? && current_user.admin?
       div Pending balance - #{humanized_money_with_symbol(current_user.pending_balance)}
       div Available balance - #{humanized_money_with_symbol(current_user.available_balance)}
       div Total earnings - #{humanized_money_with_symbol(current_user.total_earnings)}
