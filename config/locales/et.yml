@@ -56,6 +56,8 @@ et:
     follow: "Jälgi"
     following: "Jälgid"
     unfollow: "Loobu jälgimisest"
+    become_seller:
+      flash_success: "Oled nüüd müüja, congrats! :sparkles: <a href='/p/new'>Lisa oma esimene toode!</a>"
 
   product:
     buy: 'Osta'

@@ -19,8 +19,9 @@ class ApplicationController < ActionController::Base
       :instagram_handle,
       :payout_name,
       :payout_iban,
-      :balance,
-      :lifetime_earnings,
+      :available_balance,
+      :pending_balance,
+      :total_earnings,
       :cover,
       :about,
     ])
@@ -39,8 +40,9 @@ class ApplicationController < ActionController::Base
       :instagram_handle,
       :payout_name,
       :payout_iban,
-      :balance,
-      :lifetime_earnings,
+      :available_balance,
+      :pending_balance,
+      :total_earnings,
       :cover,
       :about,
     ])

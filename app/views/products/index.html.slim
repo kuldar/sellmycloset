@@ -1,8 +1,10 @@
+- if user_signed_in?
+  = render 'shared/product_nav'
+- else
+  = render 'shared/home_hero', product: @products.last
+
 .main
   .grid#grid.is-loading
-  	- unless signed_in?
-  		.grid-item
-  			= render 'shared/signup_cta'
   	- @products.each do |product|
   		.grid-item
   			= render 'products/feed_product', product: product

@@ -1,10 +1,11 @@
 class TransactionsController < ApplicationController
 	before_action :authenticate_user!
 	before_action :set_product
+	before_action :set_transaction, only: :show
 	before_action :check_product_availability, only: [:new, :create]
+	before_action :authenticate_transaction_user, only: :show
 
 	def show
-		@transaction = @product.sale
 	end
 
 	def new
@@ -53,8 +54,8 @@ class TransactionsController < ApplicationController
       )
 
 	    if @transaction.save!
-	    	earnings = @product.price_cents*@product.user.payout_margin
-	    	@product.user.update_balance(earnings)
+	    	earnings_cents = (@product.price_cents * @product.user.payout_margin).to_i
+	    	@product.user.update_earnings(earnings_cents)
 				@product.sold!
 
 	  		flash[:success] = t('.flash_success')
@@ -100,8 +101,16 @@ class TransactionsController < ApplicationController
 			@product = Product.find(params[:product_id])
 		end
 
+		def set_transaction
+			@transaction = @product.sale
+		end
+
 		def check_product_availability
 			redirect_to @product unless @product.active?
+		end
+
+		def authenticate_transaction_user
+			redirect_to root_url unless current_user == @transaction.buyer || current_user == @transaction.seller
 		end
 
 end

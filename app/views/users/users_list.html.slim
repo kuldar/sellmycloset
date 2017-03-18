@@ -1,0 +1,7 @@
+.main.is-purple style="background-image: url('#{ image_path('home-hero-bg.jpg') }');"
+  .form-title = @view_title
+  .card.is-small
+    .card-section.is-gray.is-padded
+      - if @users.any?
+        - @users.each do |user|
+          div = user.name

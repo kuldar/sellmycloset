@@ -1,3 +1,5 @@
+= render 'shared/user_nav' if user_signed_in?
+
 .main.has-grid
   .grid#grid.is-loading
     - unless signed_in?

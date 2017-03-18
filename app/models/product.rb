@@ -6,7 +6,7 @@ class Product < ApplicationRecord
     draft:      0,
     active:     1,
     sold: 			2,
-    cancelled:  3
+    deleted:    3
   }
 
   enum category: {
@@ -30,9 +30,10 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :product_images, allow_destroy: true
   # validates :product_images, presence: true
 
+  # default_scope { where(status: :active).order(created_at: :desc) }
   default_scope { order(created_at: :desc) }
   validates :title, :description, :price_cents, :user_id, :category, presence: true
-  monetize :price_cents
+  monetize :price_cents, numericality: { greater_than_or_equal_to: 5 }
 
   # def earnings
   #   price * MARGIN

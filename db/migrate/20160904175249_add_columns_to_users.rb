@@ -3,7 +3,7 @@ class AddColumnsToUsers < ActiveRecord::Migration[5.0]
     change_table :users do |t|
       t.string  :name
       t.string  :username, unique: true
-      t.integer :role, default: 0
+      t.integer :role, default: 1
       t.string  :avatar
       t.string  :cover
       t.text    :about
@@ -18,7 +18,8 @@ class AddColumnsToUsers < ActiveRecord::Migration[5.0]
       t.string  :braintree_customer_id
     end
 
-    add_money :users, :payout_balance
+    add_money :users, :available_balance
+    add_money :users, :pending_balance
     add_money :users, :total_earnings
   end
 end

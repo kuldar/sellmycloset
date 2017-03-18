@@ -11,7 +11,6 @@ header.header
 
     / Header Nav
     nav.header-nav
-      = link_to 'Populaarsed tooted', '/products', class: 'header-nav-link'
       - if user_signed_in?
         - if current_user.buyer?
           = link_to t('.become_seller'), become_seller_path, class: 'header-nav-link'

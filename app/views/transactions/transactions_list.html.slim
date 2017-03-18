@@ -1,0 +1,11 @@
+.main.is-purple style="background-image: url('#{ image_path('home-hero-bg.jpg') }');"
+  .form-title = @view_title
+  .card.is-small
+    .card-section.is-gray.is-padded
+      - if @transactions.any?
+        - @transactions.each do |transaction|
+          p
+            strong = link_to transaction.product.title, product_transaction_path(transaction.product_id)
+            div Müüja: #{transaction.seller.name}
+            div Ostja: #{transaction.buyer.name}
+            i #{time_ago_in_words(transaction.created_at)} tagasi

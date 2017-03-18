@@ -22,11 +22,12 @@ html
     = render 'shared/header'
     = yield
     = render 'shared/footer'
-    - if user_signed_in?
-      div Transactions #{current_user.purchases.count}
-      div Payout balance #{humanized_money_with_symbol(current_user.payout_balance_cents)}
-      div Total earnings #{humanized_money_with_symbol(current_user.total_earnings_cents)}
     = render 'shared/drift_container'
+
+    - if user_signed_in?
+      div Pending balance - #{humanized_money_with_symbol(current_user.pending_balance_cents)}
+      div Available balance - #{humanized_money_with_symbol(current_user.available_balance_cents)}
+      div Total earnings - #{humanized_money_with_symbol(current_user.total_earnings_cents)}
 
     / Debug
     - debug(params) if Rails.env.development?

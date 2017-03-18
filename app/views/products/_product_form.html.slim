@@ -45,7 +45,7 @@
             = link_to t('site.need_help'), '#', class: 'form-link pull-right drift-open-chat'
           - else
             = f.button t('.update_product'), class: 'form-btn is-main pull-left'
-            = link_to t('.delete_product'), @product, method: :delete, remote: true, data: {confirm: t('.delete_product_confirmation')}, class: 'form-link pull-right'
+            = link_to t('.delete_product'), @product, method: :delete, data: {confirm: t('.delete_product_confirmation')}, class: 'form-link pull-right'
 
 javascript:
   $(document).ready(function () {

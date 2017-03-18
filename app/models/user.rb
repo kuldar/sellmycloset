@@ -4,11 +4,9 @@ class User < ApplicationRecord
 	VALID_SLUG_REGEX = /\A[a-zA-Z0-9]*\z/
 
   enum role: {
-    buyer:  0,
-    seller: 1,
-    brand:  2,
-    editor: 3,
-    admin:  4
+    admin:  0,
+    buyer:  1,
+    seller: 2
   }
 
   devise  :database_authenticatable, 
@@ -107,17 +105,15 @@ class User < ApplicationRecord
     braintree_customer_id
   end
 
-  # def purchases
-    # transactions_ids = "SELECT followed_id FROM relationships
-    #                  WHERE  follower_id = :user_id"
-    # Product.where("user_id IN (#{following_ids})
-    #                  OR user_id = :user_id", user_id: id)
-  # end
-
-  def update_balance(earnings)
-    self.payout_balance_cents += earnings
-    self.total_earnings_cents += earnings
+  def update_earnings(earnings_cents)
+    self.pending_balance_cents += earnings_cents
+    self.total_earnings_cents += earnings_cents
   end
+
+  # def update_pending_balance(earnings)
+  #   self.pending_balance_cents += earnings
+  #   self.total_earnings_cents += earnings
+  # end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|

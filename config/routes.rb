@@ -5,12 +5,13 @@ Rails.application.routes.draw do
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'registrations' },
     path_names: { sign_in: 'signin', sign_up: 'join', }
 
-  resources  :users, path: 'u', only: :show
   resources	 :users, path: 'u' do
     member do
-      get :following, :followers
+      get :following, :followers, :sales, :purchases
     end
   end
+
+  resources  :users, path: 'users', only: :index
 
   # Admin
   namespace :admin do
@@ -25,8 +26,9 @@ Rails.application.routes.draw do
   get :join, to: 'static_pages#join'
 
 	# Products
-  resources :products, path: 'p', only: [:show, :edit, :update]
-	resources :products do
+  resources :products, path: 'p'
+  resources :products, path: 'products', only: :index
+	resources :products, path: 'p' do
     resource :like, module: :products
     resources :comments
     resource :transaction

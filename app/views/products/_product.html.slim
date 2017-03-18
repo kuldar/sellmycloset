@@ -60,14 +60,14 @@
 
         .product-info-footer
           - if @product.sold?
-            span.product-outline-btn Sold #{ time_ago_in_words @product.sale.created_at } ago
+            span.product-outline-btn Müüdud #{ time_ago_in_words(@product.sale.created_at) } tagasi
           - else
             - if current_user == @product.user
               span.product-main-btn
-                span.price = humanized_money_with_symbol @product.price
+                span.price = humanized_money_with_symbol(@product.price)
             - else
               = link_to new_product_transaction_path(@product), class: 'product-main-btn' do
-                | <strong>#{ t('product.buy') }</strong> <span class='price'>#{number_to_currency(@product.price)}</span>
+                | <strong>#{ t('product.buy') }</strong> <span class='price'>#{humanized_money_with_symbol(@product.price)}</span>
           
           .product-meta
             .product-meta-btn-container data-comments-counter="#{@product.id}" 

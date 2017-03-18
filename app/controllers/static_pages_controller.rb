@@ -2,7 +2,7 @@ class StaticPagesController < ApplicationController
 	before_action :authenticate_user!, only: :become_seller
 
 	def home
-		@products = Product.all
+		@products = Product.active
 	end
 
   def join
