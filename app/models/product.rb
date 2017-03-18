@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  # MARGIN = 0.8
+
   SHIPPING_COST_CENTS = 300
 
 	enum status: {
