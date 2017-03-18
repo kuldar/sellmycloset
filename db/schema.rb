@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20160907180705) do
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.integer  "price_cents",    default: 0,     null: false
-    t.string   "price_currency", default: "EUR", null: false
+    t.string   "price_currency", default: "USD", null: false
     t.index ["user_id", "created_at"], name: "index_products_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
@@ -100,9 +100,9 @@ ActiveRecord::Schema.define(version: 20160907180705) do
     t.string   "provider"
     t.string   "braintree_customer_id"
     t.integer  "payout_balance_cents",    default: 0,     null: false
-    t.string   "payout_balance_currency", default: "EUR", null: false
+    t.string   "payout_balance_currency", default: "USD", null: false
     t.integer  "total_earnings_cents",    default: 0,     null: false
-    t.string   "total_earnings_currency", default: "EUR", null: false
+    t.string   "total_earnings_currency", default: "USD", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

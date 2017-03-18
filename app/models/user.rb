@@ -24,6 +24,11 @@ class User < ApplicationRecord
   mount_uploader :cover, CoverUploader
          
 	has_many :products, dependent: :destroy
+  has_many :purchases, class_name: 'Transaction',
+                                    foreign_key: 'buyer_id'
+  has_many :sales, class_name: 'Transaction',
+                                    foreign_key: 'seller_id'
+
   has_many :likes
   has_many :comments, dependent: :destroy
   has_many :active_relationships,   class_name: 'Relationship',
@@ -102,16 +107,16 @@ class User < ApplicationRecord
     braintree_customer_id
   end
 
-  def purchases
+  # def purchases
     # transactions_ids = "SELECT followed_id FROM relationships
     #                  WHERE  follower_id = :user_id"
     # Product.where("user_id IN (#{following_ids})
     #                  OR user_id = :user_id", user_id: id)
-  end
+  # end
 
   def update_balance(earnings)
-    self.payout_balance += earnings
-    self.total_earnings += earnings
+    self.payout_balance_cents += earnings
+    self.total_earnings_cents += earnings
   end
 
   def self.from_omniauth(auth)

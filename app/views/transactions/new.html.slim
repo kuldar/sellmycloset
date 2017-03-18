@@ -24,11 +24,11 @@
       = form_for product_transaction_path, url: { action: 'show' }, method: 'post', data: { behavior: 'payment-form' } do |f|
 
           .form-group
-            select.form-select data-select="#{@product.id}"
+            select.form-select data-select="#{@product.id}" id="shipping_target" name="shipping_target"
               option
-              option Mustamäe pakiautomaat
-              option Laagri pakiautomaat
-              option Viru Keskuse pakiautomaat
+              option value="1" Mustamäe pakiautomaat
+              option value="2" Laagri pakiautomaat
+              option value="3" Viru Keskuse pakiautomaat
 
           - if current_user.has_payment_info?
             = f.hidden_field :buyer_id, value: current_user.id

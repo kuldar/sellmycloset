@@ -22,6 +22,10 @@ html
     = render 'shared/header'
     = yield
     = render 'shared/footer'
+    - if user_signed_in?
+      div Transactions #{current_user.purchases.count}
+      div Payout balance #{humanized_money_with_symbol(current_user.payout_balance_cents)}
+      div Total earnings #{humanized_money_with_symbol(current_user.total_earnings_cents)}
     = render 'shared/drift_container'
 
     / Debug

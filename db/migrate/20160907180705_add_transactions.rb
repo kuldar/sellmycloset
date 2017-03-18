@@ -10,6 +10,9 @@ class AddTransactions < ActiveRecord::Migration[5.0]
 		  t.timestamps
 		end
 
-		add_index :transactions, [:product_id], unique: true
+		add_index :transactions, :product_id
+    add_index :transactions, :seller_id
+    add_index :transactions, :buyer_id
+    add_index :transactions, [:product_id, :buyer_id, :seller_id], unique: true
   end
 end

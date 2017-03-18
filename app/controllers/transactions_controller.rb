@@ -48,19 +48,19 @@ class TransactionsController < ApplicationController
 			@transaction = Transaction.create(
         product_id: @product.id,
         buyer_id: current_user.id,
-        seller_id: @product.user.id
+        seller_id: @product.user.id,
+        shipping_target: params[:shipping_target]
       )
 
-	    if @transaction.save
-	    	earnings = @product.price*@product.user.payout_margin
+	    if @transaction.save!
+	    	earnings = @product.price_cents*@product.user.payout_margin
 	    	@product.user.update_balance(earnings)
 				@product.sold!
 
 	  		flash[:success] = t('.flash_success')
 	    	redirect_to product_transaction_path
 	  	else
-	      # flash[:error] = t('.flash_error')
-	      flash[:error] = 
+	      flash[:error] = t('.flash_error')
 	      render :new
 		  end
 
@@ -91,7 +91,9 @@ class TransactionsController < ApplicationController
 			params.require(:transaction).permit(
 				:product_id,
 				:seller_id,
-				:buyer_id)
+				:buyer_id,
+				:shipping_target
+				)
 		end
 
 		def set_product
