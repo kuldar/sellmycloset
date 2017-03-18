@@ -1,24 +1,21 @@
-# README
+## Environment variables	
+	AIRBRAKE_API_KEY
+	AIRBRAKE_PROJECT_ID
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+	BRAINTREE_MERCHANT_ID
+	BRAINTREE_PRIVATE_KEY
+	BRAINTREE_PUBLIC_KEY
+	
+	FACEBOOK_APP_ID
+	FACEBOOK_APP_SECRET
+	FACEBOOK_CALLBACK_URL
+	
+	MAILCHIMP_API_KEY
+	MAILCHIMP_LIST_ID
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+	S3_ACCESS_KEY
+	S3_BUCKET
+	S3_REGION
+	
+	SENDGRID_PASSWORD
+	SENDGRID_USERNAME
