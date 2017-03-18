@@ -65,6 +65,7 @@ et:
     views: 'Vaatamisi'
     size: 'suurus'
     earnings: 'Teenid'
+    price: 'Müügihind'
 
     categories:
       shirt: 'Pluus'

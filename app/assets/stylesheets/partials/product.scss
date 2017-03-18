@@ -410,6 +410,14 @@
   text-transform: uppercase;
   line-height: 1em;
 
+  strong {
+    font-weight: bold;
+    float: left;
+  }
+
+}
+
+a.product-main-btn {
   .price {
     opacity: 0.75;
     padding-left: 0.25rem;
@@ -418,13 +426,8 @@
 
   &:hover {
     background-image: $orange-pink-gradient-hover;
+    .price { opacity: 1; }
   }
-
-  strong {
-    font-weight: bold;
-    float: left;
-  }
-
 }
 
 .btn-line {

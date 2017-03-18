@@ -15,8 +15,8 @@
           .transaction-product-description = emojify(@product.description)
 
         .transaction-product-cost
-          .transaction-product-price = number_to_currency(@product.price)
-          .transaction-shipping-price + #{number_to_currency( @product.shipping_cost )} #{ t('.shipping') }
+          .transaction-product-price = humanized_money_with_symbol(@product.price)
+          .transaction-shipping-price + €#{@product.shipping_cost} #{ t('.shipping') }
 
 
 

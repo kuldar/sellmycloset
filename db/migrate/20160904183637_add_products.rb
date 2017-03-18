@@ -4,7 +4,6 @@ class AddProducts < ActiveRecord::Migration[5.0]
   		t.string    	:title
   		t.string 	    :description
       t.string      :size
-  		t.integer     :price
       t.integer     :category
   		t.integer     :status, default: 1
       t.belongs_to  :user, foreign_key: true
@@ -13,5 +12,6 @@ class AddProducts < ActiveRecord::Migration[5.0]
   	end
 
     add_index :products, [:user_id, :created_at]
+    add_money :products, :price
   end
 end

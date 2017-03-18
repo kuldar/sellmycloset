@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
-  MARGIN = 0.8
+  # MARGIN = 0.8
+  SHIPPING_COST_CENTS = 300
 
 	enum status: {
     draft:      0,
@@ -30,25 +31,23 @@ class Product < ApplicationRecord
   # validates :product_images, presence: true
 
   default_scope { order(created_at: :desc) }
-  validates :title, :description, :price, :user_id, :category, presence: true
-  before_create :price_to_cents
+  validates :title, :description, :price_cents, :user_id, :category, presence: true
+  monetize :price_cents
 
-  def earnings
-    price * MARGIN
-  end
+  # def earnings
+  #   price * MARGIN
+  # end
 
   def shipping_cost
-    300
+    SHIPPING_COST_CENTS/100
   end
 
   def total_cost
-    price + shipping_cost
+    total_cost_cents/100    
   end
 
-  private
-
-    def price_to_cents
-      self.price = price*100
-    end
+  def total_cost_cents
+    price_cents + SHIPPING_COST_CENTS
+  end
 
 end

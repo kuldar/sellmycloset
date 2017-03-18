@@ -23,6 +23,7 @@ gem 'omniauth-facebook',			 '4.0.0'
 gem 'acts-as-taggable-on',		 '4.0.0'
 gem 'administrate', github: 'greetpoint/administrate', branch: 'rails5'
 gem 'twemoji',								 '3.0.1'
+gem 'money-rails',             '1.7.0'
 
 group :development do
 	gem 'sqlite3', '1.3.11'

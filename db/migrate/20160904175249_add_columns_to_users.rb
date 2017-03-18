@@ -10,13 +10,15 @@ class AddColumnsToUsers < ActiveRecord::Migration[5.0]
       t.string  :phone_number
       t.string  :instagram_handle
       t.string  :facebook_handle
+      t.float   :payout_margin
       t.string  :payout_name
       t.string  :payout_iban
       t.string  :uid
       t.string  :provider
       t.string  :braintree_customer_id
-      t.integer :balance, default: 0
-      t.integer :total_earnings, default: 0
     end
+
+    add_money :users, :payout_balance
+    add_money :users, :total_earnings
   end
 end

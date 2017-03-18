@@ -52,7 +52,8 @@ class TransactionsController < ApplicationController
       )
 
 	    if @transaction.save
-	    	@product.user.update_balance(@product.earnings)
+	    	earnings = @product.price*@product.user.payout_margin
+	    	@product.user.update_balance(earnings)
 				@product.sold!
 
 	  		flash[:success] = t('.flash_success')

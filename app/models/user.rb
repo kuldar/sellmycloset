@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 
+  DEFAULT_PAYOUT_MARGIN = 0.8
 	VALID_SLUG_REGEX = /\A[a-zA-Z0-9]*\z/
 
   enum role: {
@@ -41,7 +42,7 @@ class User < ApplicationRecord
                        presence: true
 
   before_validation :set_username
-  before_create     :set_avatar
+  before_create     :set_avatar, :set_payout_margin
   after_create      :subscribe_to_mailing_list
 
   def to_param
@@ -109,8 +110,8 @@ class User < ApplicationRecord
   end
 
   def update_balance(earnings)
-    self.balance = balance + earnings
-    self.total_earnings = total_earnings + earnings
+    self.payout_balance += earnings
+    self.total_earnings += earnings
   end
 
   def self.from_omniauth(auth)
@@ -126,7 +127,6 @@ class User < ApplicationRecord
     super.tap do |user|
       if data = session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info']
         user.email = data['email'] if user.email.blank?
-        # user.username = data['name'].gsub(/\A[a-zA-Z0-9]*\z/, '').downcase
         user.username = data['name'].tr('^A-Za-z0-9', '').downcase
         user.name = data['name'] if user.name.blank?
       end
@@ -136,7 +136,6 @@ class User < ApplicationRecord
   private
     def set_username
       if self.username.blank?
-        # username = self.name.gsub(/\A[a-zA-Z0-9]*\z/,'').downcase
         username = self.name.tr('^A-Za-z0-9', '').downcase
         temp_username = username
         num = 1
@@ -152,6 +151,10 @@ class User < ApplicationRecord
 
     def set_avatar
       self.remote_avatar_url ||= placeholder_avatar_url(email, 500)
+    end
+
+    def set_payout_margin
+      self.payout_margin ||= DEFAULT_PAYOUT_MARGIN
     end
 
     def subscribe_to_mailing_list

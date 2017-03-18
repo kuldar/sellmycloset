@@ -32,8 +32,8 @@
 
         .form-groups
           .form-half-group
-            = f.label :price, class: 'form-label'
-            = f.number_field :price, placeholder: t('.product_price_placeholder'), class: 'form-input'
+            = f.label :price, t('product.price'), class: 'form-label'
+            = f.number_field :price, value: @product.price_cents/100, placeholder: t('.product_price_placeholder'), class: 'form-input'
           .form-half-group
             .form-earnings-label = t('product.earnings')
             .form-earnings-number &nbsp;
@@ -59,7 +59,7 @@ javascript:
       if (price == 0 || price.length === 0 ) {
         earningsNumber.html('&nbsp;');
       } else {
-        var earnings = price*0.8;
+        var earnings = price*#{current_user.payout_margin};
         earningsNumber.text(parseFloat(earnings, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString() + ' €');
       }
     });
