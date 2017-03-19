@@ -3,7 +3,7 @@
     .card-section
       .transaction-product-image-container
         = link_to @product.user, class: 'transaction-product-seller' do
-          = image_tag @product.user.avatar, class: 'transaction-product-seller-photo'
+          = image_tag @product.user.avatar.url(:thumb), class: 'transaction-product-seller-photo'
           .transaction-product-seller-name = @product.user.name
 
         .transaction-product-image style="background-image:url('#{ @product.product_images.first.image_url if @product.product_images.any? }')"
