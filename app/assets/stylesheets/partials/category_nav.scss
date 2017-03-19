@@ -1,0 +1,42 @@
+////////////////////
+//  Category Nav  //
+////////////////////
+
+.category-nav {
+  padding: 0;
+  box-shadow: 0 1px 2px rgba($black, 0.1);
+  position: relative;
+}
+
+.category-nav-wrapper {
+  @include display(flex);
+  @include flex-wrap(wrap);
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.category-nav-link {
+  @include flex(1);
+  font-weight: 600;
+  color: $dark-gray;
+  text-align: center;
+  display: inline-block;
+  padding: 1.25rem 1.75rem;
+  border-right: 1px solid $light-gray-3;
+  border-top: 1px solid $light-gray-3;
+
+  &:first-child { border-left: 1px solid $light-gray-3; }
+  &:hover {
+    text-decoration: none;
+    background-color: $light-gray;
+  }
+
+  &.is-active {
+    color: $white;
+    padding: 1.25rem 3rem;
+    background-color: darken($purple, 10);
+    border: none;
+  }
+}
+
+.category-nav-dropdown-select {}

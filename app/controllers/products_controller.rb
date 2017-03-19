@@ -4,7 +4,8 @@ class ProductsController < ApplicationController
   before_action :authenticate_product_seller, only: [:edit, :update, :destroy]
 
   def index
-    @products = Product.active
+    # @products = Product.active
+    @products = Product.in_category(params[:category])
   end
 
   def show

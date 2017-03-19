@@ -56,18 +56,17 @@
 
         .product-description
           => emojify @product.description
-          = link_to t("product.categories." + @product.category.to_s), products_path(c:@product.category)
+          = link_to t("product.categories.#{@product.category.to_s}", count: 1), products_path(category: @product.category)
 
         .product-info-footer
           - if @product.sold?
             span.product-outline-btn Müüdud #{ time_ago_in_words(@product.sale.created_at) } tagasi
           - else
             - if current_user == @product.user
-              span.product-main-btn
-                span.price = humanized_money_with_symbol(@product.price)
+              span.product-main-btn = humanized_money_with_symbol(@product.price)
             - else
               = link_to new_product_transaction_path(@product), class: 'product-main-btn' do
-                | <strong>#{ t('product.buy') }</strong> <span class='price'>#{humanized_money_with_symbol(@product.price)}</span>
+                | <span class='prefix'>#{ t('product.buy') }</span>#{humanized_money_with_symbol(@product.price)}
           
           .product-meta
             .product-meta-btn-container data-comments-counter="#{@product.id}" 

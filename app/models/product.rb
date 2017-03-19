@@ -8,6 +8,7 @@ class Product < ApplicationRecord
   }
 
   enum category: {
+    other:      0,
     shirt:      1,
     sweater:    2,
     jacket:     3,
@@ -31,6 +32,8 @@ class Product < ApplicationRecord
 
   # default_scope { where(status: :active).order(created_at: :desc) }
   default_scope { order(created_at: :desc) }
+  scope :in_category, lambda { |category| where(category: category) }
+
   validates :title, :description, :price_cents, :user_id, :category, presence: true
   monetize :price_cents, numericality: { greater_than_or_equal_to: 5 }
 

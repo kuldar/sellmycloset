@@ -1,0 +1,5 @@
+.category-nav
+  .category-nav-wrapper
+    - Product.categories.each do |category|
+      - is_active = params[:category] == category[0] || @product.try(:category) == category[0]
+      = link_to t("product.categories.#{category[0]}", count: 2), products_path(category: category[0]), class: "category-nav-link #{ 'is-active' if is_active }"

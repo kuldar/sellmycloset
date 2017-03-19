@@ -3,7 +3,7 @@ header.header
 
     / Logo
     = link_to root_path, class: 'header-logo' do
-      span = t('site.name')
+      span.site-name = t('site.name')
       = image_tag 'logo-mark.svg'
 
     .header-alerts
@@ -18,7 +18,7 @@ header.header
           = link_to t('.add_product'), new_product_path, class: 'header-nav-btn'
         - elsif current_user.admin?
           = link_to t('.admin'), admin_root_path, class: 'header-nav-link'
-        = link_to user_path(current_user), class: 'header-nav-link' do
-          = image_tag current_user.avatar, class: 'header-nav-avatar'
+        = link_to user_path(current_user), class: 'header-nav-avatar' do
+          = image_tag current_user.avatar
       - else
         = link_to t('shared.header.sign_in_with_facebook'), user_facebook_omniauth_authorize_path, class: 'header-nav-btn'

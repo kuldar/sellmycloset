@@ -12,7 +12,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'hi@sellmycloset.co'
+  config.mailer_sender = 'Sell My Closet <hi@sellmycloset.co>'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -108,7 +108,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '3126fc7b0093f4d9fc5295acba328cec26b244db5bf4fd4638967e17bdb9b21de5d91fa4c95a7962179184589f2f6a3fc20a1b486af9236eec188df96e3338f7'
+  config.pepper = '3126fc7b0093f4d9fc5295acba328cec26b244db5bf4fd4638967e17bdb9b21de5d91fa4c95a7962179184589f2f6a3fc20a1b486af9236eec188df96e3338f7'
 
   # Send a notification email when the user's password is changed
   # config.send_password_change_notification = false
@@ -133,7 +133,7 @@ Devise.setup do |config|
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
   # db field (see migrations). Until confirmed, new email is stored in
   # unconfirmed_email column, and copied to email column on successful confirmation.
-  config.reconfirmable = true
+  # config.reconfirmable = true
 
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [:email]

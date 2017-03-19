@@ -87,15 +87,37 @@ et:
     price: 'Müügihind'
 
     categories:
-      shirt: 'Pluus'
-      sweater: 'Kampsun'
-      jacket: 'Jakk'
-      coat: 'Mantel'
+      other: 'Varia'
+      shirt:
+        one: 'Pluus'
+        other: 'Pluusid'
+
+      sweater:
+        one: 'Kampsun'
+        other: 'Kampsunid'
+
+      jacket:
+        one: 'Jakk'
+        other: 'Jakid'
+
+      coat:
+        one: 'Mantel'
+        other: 'Mantlid'
+
       pants: 'Püksid'
-      skirt: 'Seelik'
-      dress: 'Kleit'
+      skirt:
+        one: 'Seelik'
+        other: 'Seelikud'
+
+      dress:
+        one: 'Kleit'
+        other: 'Kleidid'
+
       shoes: 'Jalanõud'
-      accessory: 'Aksessuaar'
+
+      accessory:
+        one: 'Aksessuaar'
+        other: 'Aksessuaarid'
 
   comments:
     confirm_deletion: "Soovid kommentaari kustutada?"

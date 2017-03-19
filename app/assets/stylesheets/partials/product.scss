@@ -438,15 +438,15 @@
 }
 
 a.product-main-btn {
-  .price {
+  .prefix {
+    margin-right: 0.325rem;
     opacity: 0.75;
-    padding-left: 0.25rem;
-    float: left;
   }
 
   &:hover {
     background-image: $orange-pink-gradient-hover;
-    .price { opacity: 1; }
+    text-decoration: none;
+    .prefix { opacity: 1; }
   }
 
   &:active {
@@ -476,18 +476,6 @@ a.product-main-btn {
   &:hover {
     text-decoration: none;
     background-color: darken($purple, 5);
-  }
-
-  &:active {
-    position: relative;
-    top: 1px;
-  }
-}
-
-a.product-main-btn {
-  &:hover {
-    text-decoration: none;
-    background-color: darken($red, 3);
   }
 
   &:active {

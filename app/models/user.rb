@@ -47,7 +47,7 @@ class User < ApplicationRecord
 
   before_validation :set_username
   before_create     :set_avatar, :set_payout_margin
-  after_create      :subscribe_to_mailing_list
+  after_commit      :subscribe_to_mailing_list, on: :create
 
   monetize :pending_balance_cents, :available_balance_cents, :total_earnings_cents
 
@@ -55,12 +55,12 @@ class User < ApplicationRecord
     username
   end
 
-  def feed
-    following_ids = "SELECT followed_id FROM relationships
-                     WHERE  follower_id = :user_id"
-    Product.where("user_id IN (#{following_ids})
-                     OR user_id = :user_id", user_id: id)
-  end
+  # def feed
+  #   following_ids = "SELECT followed_id FROM relationships
+  #                    WHERE  follower_id = :user_id"
+  #   Product.where("user_id IN (#{following_ids})
+  #                    OR user_id = :user_id", user_id: id)
+  # end
 
   def first_name
     if name.split.count > 1

@@ -26,7 +26,7 @@
 							span.price = humanized_money_with_symbol(product.price)
 				- else
 					= link_to new_product_transaction_path(product), class: 'product-main-btn' do
-						| <strong>#{ t('product.buy') }</strong><div class='btn-line'></div><span class='price'>#{humanized_money_with_symbol(product.price)}</span>
+						| <span class='prefix'>#{ t('product.buy') }</span>#{humanized_money_with_symbol(product.price)}
 
 			.product-meta
 				.product-meta-btn-container data-comments-counter="#{product.id}"

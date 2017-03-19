@@ -28,16 +28,19 @@ Rails.application.configure do
 
   # Configurate Mailer
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: 'sellmycloset.dev', protocol: 'http' }
+  config.action_mailer.default_url_options = { 
+    host: 'sellmycloset.dev', 
+    protocol: 'http' 
+  }
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :user_name => '5652106d5e919d062',
-    :password => '4b7c7dbde21083',
-    :address => 'mailtrap.io',
-    :domain => 'mailtrap.io',
-    :port => '2525',
-    :authentication => :cram_md5
+    user_name: ENV['MAILTRAP_USERNAME'],
+    password:  ENV['MAILTRAP_PASSWORD'],
+    address:  'mailtrap.io',
+    domain:   'mailtrap.io',
+    port:     '2525',
+    authentication: :cram_md5
   }
 
   # Print deprecation notices to the Rails logger.
@@ -45,6 +48,9 @@ Rails.application.configure do
 
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
+
+  # Active Job que adapter
+  # config.active_job.queue_adapter = :async
 
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large

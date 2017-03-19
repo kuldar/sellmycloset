@@ -8,21 +8,23 @@
   background-size: cover;
   background-position: center;
   color: $white;
-  padding: 0 2rem;
+  padding: 0 1rem;
 
-  @include min-width(40rem) {
-    padding: 3rem 2rem;
-  }
-
-  .product-image {
-    max-height: 20rem;
-  }
+  .product-image { max-height: 20rem; }
 
   .product-image-container {
-    display: none;
-    @include min-width(40rem) {
-      display: block;
-    }    
+    // display: none;
+    // @include min-width(40rem) {
+    //   display: block;
+    // }    
+  }
+
+  @include min-width(40rem) {
+    padding: 2rem;
+  }
+
+  @include min-width(60rem) {
+    padding: 3rem 2rem;
   }
 }
 
@@ -31,13 +33,21 @@
   @include align-items(center);
   @include justify-content(center);
   @include flex-direction(column);
-  max-width: 80rem;
   margin: 0 auto;
-  padding: 2rem 0 3rem 0;
+  max-width: 25rem;
+  padding: 2rem 0;
 
-  @include min-width(40rem) {
-    @include flex-direction(row);
+  @include min-width(30rem) {
+    padding: 2rem 0 4rem 0;    
   }
+
+  @include min-width(50rem) {
+    @include flex-direction(row);
+    padding: 2rem 0 3rem 0;
+    max-width: 80rem;
+    // padding: 1rem 0;
+  }
+
 }
 
 .home-hero-content {
@@ -45,9 +55,9 @@
   @include flex-shrink(2);
   padding: 1rem 0 3rem 0;
 
-  @include min-width(40rem) {
+  @include min-width(50rem) {
     max-width: 35rem;
-    padding: 0 4rem 0 0;
+    padding: 0 2rem 0 0;
   }
 }
 
@@ -69,8 +79,12 @@
   line-height: 1em;
   letter-spacing: -1px;
 
-  @include min-width(40rem) {
+  @include min-width(30rem) {
     font-size: 3rem;
+  }
+
+  @include min-width(40rem) {
+    // font-size: 3rem;
   }
 }
 
@@ -82,7 +96,7 @@
   font-weight: 300;
   opacity: 0.9;
 
-  @include min-width(40rem) {
+  @include min-width(30rem) {
     font-size: 1.5rem;
     margin-top: 2rem;
   }
