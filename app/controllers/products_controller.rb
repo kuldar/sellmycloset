@@ -14,15 +14,14 @@ class ProductsController < ApplicationController
 
   def new
     @product = current_user.products.build
-    @product_image = @product.product_images.build
-    # @product_image = ProductImage.new
+    @product_image = ProductImage.new
   end
 
   def create
     @product = current_user.products.build(product_params)
 
-    # if @product.save && save_images
-    if @product.save
+    if @product.save && set_images
+    # if @product.save
       flash[:success] = t('.flash_success', url: product_url(@product))
       redirect_to @product
     else
@@ -84,5 +83,11 @@ class ProductsController < ApplicationController
     #     end
     #   end
     # end
+
+    def set_images
+      unless params[:product_images].blank?
+        ProductImage.where(id: params[:product_images]).update_all(product_id: @product.id)
+      end
+    end
 
 end

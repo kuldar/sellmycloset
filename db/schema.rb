@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 20160907180705) do
   create_table "product_images", force: :cascade do |t|
     t.text    "image_data"
     t.integer "product_id"
-    t.index ["product_id"], name: "index_product_images_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|

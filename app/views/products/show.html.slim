@@ -5,8 +5,8 @@
   = tag :meta, property: 'og:title', content: @product.title
   = tag :meta, property: 'og:description', content: @product.description
   - if @product.product_images.any?
-    - asset = @product.product_images.first
-    = tag :meta, property: 'og:image', content: image_url(asset.image_url)
+    - product_image = @product.product_images.first
+    = tag :meta, property: 'og:image', content: image_url(product_image.image_url(:medium))
   - else
     = tag :meta, property: 'og:image', content: image_url('og-image.jpg')
   = tag :meta, property: 'og:site_name', content: t('og.site_name')

@@ -90,40 +90,37 @@ $(document).on('turbolinks:load', function() {
         id: data.formData.key.match(/cache\/(.+)/)[1], // have to remove the prefix
         storage: 'cache',
         metadata: {
-          size: data.files[0].size,
-          filename: data.files[0].name.match(/[^\/\\]+$/)[0], // IE, return full path
-          mime_type: data.files[0].type
+          size:       data.files[0].size,
+          filename:   data.files[0].name.match(/[^\/\\]+$/)[0], // IE, return full path
+          mime_type:  data.files[0].type
         }
       };
 
-      // var form = $(this).closest('form');
-      // var form_data = new FormData(form[0]);
-      // form_data.append($(this).attr('name'), JSON.stringify(image));
-
       var params = {
-        product_image: {image: JSON.stringify(image)}
+        product_image: { image: JSON.stringify(image) }
       }
 
-      $.ajax('/product_images', {method: 'POST', data: params})
+      $.ajax('/product_images', { method: 'POST', data: params })
+        // When successfully done, insert the photo
         .done(function(result) {
-          var $img = $("<img/>", {src: result.image_url, width: 400});
-          var $div = $("<div/>").append($img);
-          $(".form-title").append($div);
+          console.log('result', result);
+          var $product_image_delete = $('<a/>', { href: '/product_images/' + result.id, 'data-method': 'delete', 'data-remote': true, 'data-confirm': 'Soovid pildi kustutada?', class: 'form-product-image-delete' });
+          var $product_image = $('<div/>', { class: 'form-product-image', style: "background-image: url('" + result.image_url + "');" }).append($product_image_delete);
+          var $product_image_container = $('<div/>', { class: 'form-product-image-container', 'data-id': result.id }).append($product_image);
+          var $product_images = $('.form-product-images').append($product_image_container);
+          var $product_images_count = $product_images.attr('data-images-count') || 0;
+          
+          $product_images.attr('data-images-count', parseInt($product_images_count) + 1);
+
+          $product_image_hidden_field = $('<input/>', { 
+            type: 'hidden', 
+            'data-id': result.id, 
+            name: 'product_images[]', 
+            value: result.id
+          });
+
+          $('.form-hidden-fields').append($product_image_hidden_field);
         });
-
-
-      // $.ajax(form.attr('action'), {
-      //   contentType: false,
-      //   processData: false,
-      //   data: form_data,
-      //   method: form.attr('method'),
-      //   dataType: 'json',
-      //   success: function(response) {
-      //     var $img = $("<img/>", {src: response.image_url, width: 400});
-      //     var $div = $("<div/>").append($img);
-      //     $(".form-title").append($div);
-      //   }
-      // });
 
     }
   });

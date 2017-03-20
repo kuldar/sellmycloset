@@ -1,1 +1,3 @@
-$("#edit_product_<%= @product.id %>").html("<%= j render partial: 'products/product_form', locals: { product: @product } %>");
+$('[data-id="<%= @product_image.id %>"]').remove();
+var $product_images_count = $('.form-product-images').attr('data-images-count') || 0
+$('.form-product-images').attr('data-images-count', parseInt($product_images_count) - 1);

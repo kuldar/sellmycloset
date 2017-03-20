@@ -5,7 +5,7 @@
       .card-section.card-cover style="background-image: url('#{ current_user.cover_url if current_user.cover }');"
 
         / Avatar
-        = image_tag(current_user.avatar_url, class: 'card-cover-avatar') if current_user.avatar
+        = image_tag(current_user.avatar_url(:thumb), class: 'card-cover-avatar') if current_user.avatar
 
         / Buttons
         .card-cover-btns
