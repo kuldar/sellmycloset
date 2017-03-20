@@ -2,10 +2,10 @@
   = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true, class: 'form' }) do |f|
 
     .card.is-small
-      .card-section.card-cover style="background-image: url('#{ current_user.cover.url unless current_user.cover.blank? }');"
+      .card-section.card-cover style="background-image: url('#{ current_user.cover_url if current_user.cover }');"
 
         / Avatar
-        = image_tag(current_user.avatar, class: 'card-cover-avatar')
+        = image_tag(current_user.avatar_url, class: 'card-cover-avatar') if current_user.avatar
 
         / Buttons
         .card-cover-btns

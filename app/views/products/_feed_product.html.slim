@@ -1,7 +1,7 @@
 .product.feed-product
 	.product-image-container
 		= link_to product.user, class: 'product-seller' do
-			= image_tag product.user.avatar.url(:thumb), class: 'product-seller-photo'
+			= image_tag product.user.avatar_url, class: 'product-seller-photo'
 			.product-seller-name = product.user.name
 		
 		= link_to product, class: 'product-image' do

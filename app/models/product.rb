@@ -26,8 +26,8 @@ class Product < ApplicationRecord
   has_many  :comments, dependent: :destroy
   has_one   :sale, foreign_key: 'product_id', class_name: 'Transaction'
   
-  has_many                      :product_images, dependent: :destroy
-  accepts_nested_attributes_for :product_images, allow_destroy: true
+  has_many  :product_images, dependent: :destroy, inverse_of: :product
+  # accepts_nested_attributes_for :product_images, allow_destroy: true
   # validates :product_images, presence: true
 
   # default_scope { where(status: :active).order(created_at: :desc) }

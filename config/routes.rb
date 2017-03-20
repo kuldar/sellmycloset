@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  
+  mount AvatarUploader::UploadEndpoint => '/avatar/upload'
+  mount CoverUploader::UploadEndpoint => '/covers/upload'
+  mount ProductImageUploader::UploadEndpoint => '/productimages/upload'
 
 	# Users
   devise_for :users, 

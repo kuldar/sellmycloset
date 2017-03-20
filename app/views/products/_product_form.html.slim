@@ -1,19 +1,20 @@
 .main.is-purple style="background-image: url('#{ image_path('home-hero-bg.jpg') }');"
   .form-title Lisa müüki uus toode
-  = form_for(@product, html: { multipart: true, class: 'form' }) do |f|
+  .card.is-small
+    - if @product.product_images.count > 0
+      - @product.product_images.each do |i|
+        div
+          = image_tag i.image, style: 'display:block;width:10rem;margin-bottom:1rem;'
+          = link_to 'Delete', product_image_path(i), remote: true, method: :delete
+    - else
+      = form_for @product_image do |f|
+        .form-file-group
+          = f.file_field :image, multiple: true, name: 'product[product_image]', class: 'form-file-input'
+
+  = form_for @product do |f|
     .card.is-small
       .card-section.is-gray.is-padded
         = render 'shared/error_messages', object: f.object
-
-        - if @product.product_images.count > 0
-          - @product.product_images.each do |i|
-            div
-              = image_tag i.image, style: 'display:block;width:10rem;margin-bottom:1rem;'
-              = link_to 'Delete', product_image_path(i), remote: true, method: :delete
-        - else
-          .form-file-group
-            = f.fields_for :product_images do |i|
-              = i.file_field :image, multiple: true, name: 'product_images[image][]', class: 'form-file-input'
 
         .form-group
           = f.label :title, class: 'form-label'

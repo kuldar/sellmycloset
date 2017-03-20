@@ -4,8 +4,8 @@ class AddColumnsToUsers < ActiveRecord::Migration[5.0]
       t.string  :name
       t.string  :username, unique: true
       t.integer :role, default: 1
-      t.string  :avatar
-      t.string  :cover
+      t.text    :cover_data
+      t.text    :avatar_data
       t.text    :about
       t.string  :phone_number
       t.string  :instagram_handle

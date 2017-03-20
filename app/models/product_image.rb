@@ -1,8 +1,7 @@
 class ProductImage < ApplicationRecord
 
-	mount_uploader :image, ProductImageUploader
-	validates_presence_of :image
-
-	belongs_to :product
+  include ProductImageUploader[:image]
+	belongs_to :product, inverse_of: :product_images
+  validates_presence_of :image_data
 	
 end

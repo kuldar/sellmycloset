@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20160907180705) do
   end
 
   create_table "product_images", force: :cascade do |t|
-    t.string  "image"
+    t.text    "image_data"
     t.integer "product_id"
     t.index ["product_id"], name: "index_product_images_on_product_id"
   end
@@ -95,8 +95,8 @@ ActiveRecord::Schema.define(version: 20160907180705) do
     t.string   "name"
     t.string   "username"
     t.integer  "role",                       default: 1
-    t.string   "avatar"
-    t.string   "cover"
+    t.text     "cover_data"
+    t.text     "avatar_data"
     t.text     "about"
     t.string   "phone_number"
     t.string   "instagram_handle"

@@ -1,5 +1,8 @@
 class User < ApplicationRecord
 
+  include CoverUploader[:cover]
+  include AvatarUploader[:avatar]
+
   DEFAULT_PAYOUT_MARGIN = 0.8
 	VALID_SLUG_REGEX = /\A[a-zA-Z0-9]*\z/
 
@@ -17,9 +20,6 @@ class User < ApplicationRecord
           :validatable,
           :omniauthable,
           omniauth_providers: [:facebook]
-
-  mount_uploader :avatar, AvatarUploader
-  mount_uploader :cover, CoverUploader
          
 	has_many :products, dependent: :destroy
   has_many :purchases, class_name: 'Transaction',
@@ -125,7 +125,7 @@ class User < ApplicationRecord
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
       user.name = auth.info.name
-      user.remote_avatar_url = "#{auth.info.image.gsub('http:','https:')}?width=500&height=500"
+      # user.remote_avatar_url = "#{auth.info.image.gsub('http:','https:')}?width=500&height=500"
     end
   end
 
@@ -156,7 +156,8 @@ class User < ApplicationRecord
     end
 
     def set_avatar
-      self.remote_avatar_url ||= placeholder_avatar_url(email, 500)
+      # self.remote_avatar_url ||= placeholder_avatar_url(email, 500)
+      # self.avatar = placeholder_avatar_url(email, 500)
     end
 
     def set_payout_margin

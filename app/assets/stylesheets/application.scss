@@ -108,3 +108,13 @@ $bezier: cubic-bezier(.175, .885, .32, 1.275);
 
 .pull-left { float: left; }
 .pull-right { float: right; }
+
+.progress {
+  background-color: $white;
+  width: 100%;
+}
+
+.progress-bar {
+  height: 10px;
+  background-image: $orange-pink-gradient;
+}

@@ -32,6 +32,7 @@
   }
 
   &.is-active {
+    font-weight: bold;
     color: $white;
     padding: 1.25rem 3rem;
     background-color: darken($purple, 10);

@@ -15,12 +15,14 @@ class ProductsController < ApplicationController
   def new
     @product = current_user.products.build
     @product_image = @product.product_images.build
+    # @product_image = ProductImage.new
   end
 
   def create
     @product = current_user.products.build(product_params)
 
-    if @product.save && save_images
+    # if @product.save && save_images
+    if @product.save
       flash[:success] = t('.flash_success', url: product_url(@product))
       redirect_to @product
     else
@@ -36,7 +38,7 @@ class ProductsController < ApplicationController
   # Todo, update update method with product_images support
   def update
     if @product.update_attributes(product_params)
-      save_images
+      # save_images
       flash[:success] = t('.flash_success')
       redirect_to @product
     else
@@ -72,15 +74,15 @@ class ProductsController < ApplicationController
         :status,
         :size,
         :category,
-        product_images_attributes: [:id, :product_id, :image])
+        product_images_attributes: [:id, :product_id, :image_data])
     end
 
-    def save_images
-      unless params[:product_images].blank?
-        params[:product_images]['image'].each do |image|
-          @product_image = @product.product_images.create!(image: image)
-        end
-      end
-    end
+    # def save_images
+    #   unless params[:product_images].blank?
+    #     params[:product_images]['image'].each do |image|
+    #       @product_image = @product.product_images.create!(image: image)
+    #     end
+    #   end
+    # end
 
 end
