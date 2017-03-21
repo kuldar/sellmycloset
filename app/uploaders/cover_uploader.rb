@@ -1,22 +1,21 @@
+require 'image_processing/mini_magick'
+
 class CoverUploader < Shrine
-  # include CarrierWave::MiniMagick
-  
-  # process resize_to_limit: [800, nil]
+  include ImageProcessing::MiniMagick
 
-  # if Rails.env.production? || Rails.env.staging?
-  #   storage :fog
-  # else
-  #   storage :file
-  # end
+  plugin :validation_helpers
+  plugin :processing
+  plugin :versions
 
-  # # Override the directory where uploaded files will be stored.
-  # # This is a sensible default for uploaders that are meant to be mounted:
-  # def store_dir
-  #   "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-  # end
+  Attacher.validate do
+    validate_mime_type_inclusion %w[image/jpeg image/png image/gif]
+  end
 
-  # # Add a white list of extensions which are allowed to be uploaded.
-  # def extension_white_list
-  #   %w(jpg jpeg gif png)
-  # end
+  process(:store) do |io|
+    original = io
+    size_800 =  resize_to_fit!(original.download, 800, 800)
+
+    {original: original, medium: size_800}
+  end
+
 end

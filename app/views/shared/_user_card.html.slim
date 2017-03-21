@@ -1,9 +1,9 @@
 / User Card
-.user-card style="#{ 'background-image:url(' + user.cover_url + ');' if user.cover }"
+.user-card style="#{ 'background-image:url(' + user.cover_url(:medium) + ');' if user.cover }"
 
 	/ User Header
 	.user-card-header
-		.user-card-avatar = image_tag user.avatar_url if user.avatar
+		.user-card-avatar = image_tag user.avatar_url(:medium) if user.avatar
 		.user-card-info
 			.user-card-name = user.name
 			.user-card-about = emojify raw sanitize user.about, attributes: %w(href) unless user.about.blank?

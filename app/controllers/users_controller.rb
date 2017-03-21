@@ -45,6 +45,16 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def avatar
+    current_user.update_attribute :avatar, params[:user][:avatar]
+    render json: { avatar_url: current_user.avatar_url(:medium) }
+  end
+
+  def cover
+    current_user.update_attribute :cover, params[:user][:cover]
+    render json: { cover_url: current_user.cover_url(:medium) }
+  end
+
   private
 
     def set_user

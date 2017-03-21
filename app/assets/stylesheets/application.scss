@@ -39,6 +39,12 @@ $bezier: cubic-bezier(.175, .885, .32, 1.275);
   }
 }
 
+@mixin max-width($breaking-point) {
+  @media only screen and (max-width: $breaking-point) {
+    @content;
+  }
+}
+
 // Animations
 @keyframes heartPulse {
   0% { transform: scale(1); }

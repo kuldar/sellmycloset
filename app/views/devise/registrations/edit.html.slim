@@ -2,20 +2,21 @@
   = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true, class: 'form' }) do |f|
 
     .card.is-small
-      .card-section.card-cover style="background-image: url('#{ current_user.cover_url if current_user.cover }');"
+      .card-section.card-cover style="background-image: url('#{ current_user.cover_url(:medium) if current_user.cover }');"
 
         / Avatar
-        = image_tag(current_user.avatar_url(:thumb), class: 'card-cover-avatar') if current_user.avatar
+        .card-cover-avatar-container
+          = image_tag(current_user.avatar_url(:thumb), class: 'card-cover-avatar') if current_user.avatar
 
         / Buttons
         .card-cover-btns
           .card-cover-btn
             = f.file_field :avatar, class: 'card-cover-input'
-            .card-cover-btn-text Uus avatar
+            .card-cover-btn-text data-name='avatar' = t('user.change_avatar')
 
           .card-cover-btn
             = f.file_field :cover, class: 'card-cover-input'
-            .card-cover-btn-text Uus kaanepilt
+            .card-cover-btn-text data-name='cover' = t('user.change_cover')
 
       .card-section.is-gray.is-padded
         = devise_error_messages!

@@ -34,10 +34,9 @@ class ProductsController < ApplicationController
   def edit
   end
 
-  # Todo, update update method with product_images support
   def update
     if @product.update_attributes(product_params)
-      # save_images
+      set_images
       flash[:success] = t('.flash_success')
       redirect_to @product
     else

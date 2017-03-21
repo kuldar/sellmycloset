@@ -26,7 +26,8 @@ et:
     phone_number: "55 1234 1234"
     password: 'Vähemalt 6 tähemärki'
     about: "Mis stiili kannad? Mis pakkumistest huvitatud oled? Lemmik film?"
-    country: 'Tatooine'
+    country: 'Eesti'
+    city: 'Tallinn'
     facebook_handle: "/marimaasikas"
     instagram_handle: "@marimaasikas"
     payout_name: 'Mari Maasikas'
@@ -65,6 +66,8 @@ et:
     sign_in_with_email: "Logi sisse e-mailiga"
 
   user:
+    change_avatar: "Muuda avatari"
+    change_cover: "Muuda kaanepilti"
     settings: "Seaded"
     add_product: "Lisa toode"
     products: "Tooteid"
@@ -75,6 +78,9 @@ et:
     unfollow: "Loobu jälgimisest"
     become_seller:
       flash_success: "Oled nüüd müüja, congrats! :sparkles: <a href='/p/new'>Lisa oma esimene toode!</a>"
+  
+  product_images:
+    delete: "Kustuta"
 
   product:
     buy: 'Osta'
@@ -85,6 +91,8 @@ et:
     size: 'suurus'
     earnings: 'Teenid'
     price: 'Müügihind'
+    new_product_title: "Lisa müüki uus toode"
+    edit_product_title: "Muuda oma toodet"
 
     categories:
       other: 'Varia'
@@ -129,7 +137,8 @@ et:
 
   products:
     product_form:
-      upload_images: "Lae toote pildid"
+      upload_images: "Lisa toote pildid"
+      uploading_images: "Lisan pilte..."
       product_title_placeholder: "Valge Adidase särk"
       product_description_placeholder: "Heas korras vähekantud valge Adidase särk. Suurus S"
       product_price_placeholder: "10 €"

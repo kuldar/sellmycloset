@@ -102,21 +102,21 @@
   }
 }
 
-.header-nav-avatar {
-  border-radius: 5rem;
+.header-nav-user {
   line-height: 2rem;
-
-  img {
-    height: 2rem;
-    width: 2rem;
-    border-radius: 2rem;
-    display: block;    
-  }
 
   &:active {
     position: relative;
     top: 1px;
   }
+}
+
+.header-nav-avatar {
+  border-radius: 5rem;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 2rem;
+  display: block;   
 }
 
 .header-nav-btn {

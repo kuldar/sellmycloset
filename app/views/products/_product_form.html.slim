@@ -1,17 +1,19 @@
 .main.is-purple style="background-image: url('#{ image_path('home-hero-bg.jpg') }');"
-  .form-title Lisa müüki uus toode
+  .form-title = @product.new_record? ? t('product.new_product_title') : t('product.edit_product_title')
 
-  .form-product-images
+  = content_tag :div, class: 'form-product-images', data: { 'images-count': @product.product_images.count } do
+
     - if @product.product_images.count > 0
       - @product.product_images.each do |i|
-        .form-product-image
-          = image_tag i.image, style: 'display:block;width:10rem;margin-bottom:1rem;'
-          = link_to 'Delete', product_image_path(i), remote: true, method: :delete
+        = content_tag :div, class: 'form-product-image-container', data: {id: i.id } do
+          = content_tag :div, class: 'form-product-image', style: "background-image:url('#{i.image_url(:medium)}');"
+            = link_to 'Delete', product_image_path(i), remote: true, method: :delete, class: 'form-product-image-delete'
 
-  .card.is-small
-    = form_for @product_image do |f|
-      .form-file-group
-        = f.file_field :image, multiple: true, name: 'product[product_image]', class: 'form-file-input'
+
+  .form-product-images-btn
+    = file_field_tag :file, multiple: true, id: 'product_images', class: 'form-product-images-btn-input'
+    = content_tag :div, class: 'form-product-images-btn-text', data: { 'label-disabled': t('.uploading_images'), 'label': t('.upload_images') } do
+      = t('.upload_images')
 
   = form_for @product do |f|
     .card.is-small
@@ -21,40 +23,55 @@
 
         .form-group
           = f.label :title, class: 'form-label'
-          = f.text_field :title, placeholder: t('.product_title_placeholder'), class: 'form-input'
+          = f.text_field :title, placeholder: t('.product_title_placeholder'), class: 'form-input', required: true
 
         .form-groups
           .form-half-group
             = f.label :category, class: 'form-label'
-            = f.select :category, Product.categories.to_a.map { |w| [t('product.categories.' + w[0].to_s, count: 2), w[0]] }, {}, { class: 'form-select', data: { behavior: 'category-select' } }
+            = f.select :category, Product.categories.to_a.map { |w| [t('product.categories.' + w[0].to_s, count: 2), w[0]] }, {}, { class: 'form-select', data: { behavior: 'category-select' }, required: true }
           .form-half-group
             = f.label :size, class: 'form-label'
             = f.text_field :size, placeholder: t('.product_size_placeholder'), class: 'form-input'
 
         .form-group
           = f.label :description, class: 'form-label'
-          = f.text_area :description, placeholder: t('.product_description_placeholder'), class: 'form-textarea'
+          = f.text_area :description, placeholder: t('.product_description_placeholder'), class: 'form-textarea', required: true
 
         .form-groups
           .form-half-group
             = f.label :price, t('product.price'), class: 'form-label'
-            = f.number_field :price, value: "#{@product.price == 0 ? '' : @product.price_cents/100}", placeholder: t('.product_price_placeholder'), class: 'form-input'
+            = f.number_field :price, value: "#{@product.price_cents/100 unless @product.new_record?}", placeholder: t('.product_price_placeholder'), class: 'form-input', required: true
           .form-half-group
             .form-earnings-label = t('product.earnings')
-            .form-earnings-number &nbsp;
+            .form-earnings-number = @product.new_record? ? '' : humanized_money_with_symbol( (@product.price_cents*current_user.payout_margin)/100 )
         
         .form-footer
           - if @product.new_record?
-            = f.button t('.add_product'), class: 'form-btn is-main pull-left', data: { disable_with: "Lisan toodet.."}
+            = f.button t('.add_product'), class: 'form-btn is-main pull-left', data: { disable_with: "Lisan toodet.."}, disabled: true
             = link_to t('site.need_help'), '#', class: 'form-link pull-right drift-open-chat'
           - else
-            = f.button t('.update_product'), class: 'form-btn is-main pull-left', data: { disable_with: "Uuendan toodet.."}
+            = f.button t('.update_product'), class: 'form-btn is-main pull-left', data: { disable_with: 'Uuendan toodet..'}
             = link_to t('.delete_product'), @product, method: :delete, data: {confirm: t('.delete_product_confirmation')}, class: 'form-link pull-right'
 
 javascript:
   $(document).ready(function () {
+
     $("[data-behavior='category-select']").select2({
       placeholder: "#{t('.product_category_placeholder')}"
+    });
+
+    $('#new_product [required=required]').on("change paste keyup", function() {
+      var empty = false;
+
+      $('#new_product [required=required]').each(function() {
+        if ($(this).val() == '') { empty = true }
+      });
+
+      if (empty) {
+        $('[type=submit]').attr('disabled', 'disabled');
+      } else {
+        $('[type=submit]').removeAttr('disabled');
+      }
     });
 
     $("#product_price").on("change paste keyup", function() {
@@ -65,7 +82,7 @@ javascript:
         earningsNumber.html('&nbsp;');
       } else {
         var earnings = price*#{current_user.payout_margin};
-        earningsNumber.text(parseFloat(earnings, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString() + ' €');
+        earningsNumber.text('€'+parseFloat(earnings, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString().replace(/\./g, ','));
       }
     });
   });

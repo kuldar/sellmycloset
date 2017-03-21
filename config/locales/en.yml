@@ -3,13 +3,19 @@
 #############
 
 en:
+  og:
+    site_name: "Sell My Closet"
+    title: "Sell My Closet"
+    description: "Sell My Closet"
+
   site:
-    name: "SellMyCloset"
-    title: "Sell and discover best preloved fashion - SellMyCloset.ee"
-    description: ""
-    facebook_url: "https://facebook.com/sellmycloset"
-    twitter_url: "https://twitter.com/sellmyclosetco"
-    twitter_handle: "@sellmyclosetco"
+    name: "Sell My Closet"
+    title: "Sell and discover best preloved fashion - SellMyCloset.co"
+    description: "Description"
+    facebook_url: "https://facebook.com/gosellmycloset"
+    twitter_url: "https://twitter.com/gosellmycloset"
+    instagram_url: "https://instagram.com/gosellmycloset"
+    twitter_handle: "@gosellmycloset"
     email: "hi@sellmycloset.co"
     need_help: 'Need help?'
 
@@ -17,9 +23,11 @@ en:
     name: 'Mary Strawberry'
     username: 'mary'
     email: 'mary89@gmail.com'
+    phone_number: "2345 456 5325"
     password: 'At least 6 characters'
     about: "What's your style? What offers are you interested in? Favorite movie?"
-    country: 'Tatooine'
+    country: 'England'
+    city: 'London'
     facebook_handle: "/marystrawberry"
     instagram_handle: "@marystrawberry"
     payout_name: 'Mary Strawberry'
@@ -27,68 +35,154 @@ en:
 
   shared:
     header:
-      log_in: "Sign in"
-      log_out: "Sign out"
+      sign_in_with_facebook: "Log in with Facebook"
+      log_in: "Log in"
+      log_out: "Log out"
       join: "Join"
       add_product: "Add a product"
-      my_products: "My products"
+      my_products: "My product"
       become_seller: "Become a seller"
       admin: "Admin"
-      settings: "Settings"
-      discover_by_hashtag: "Discover by hashtag.."
 
-  users:
-    countries:
-      estonia: 'Estonia'
-      united_kingdom: 'United Kingdom'
+    user_nav:
+      products_active:
+        one: 'product'
+        other: 'products'
+
+      sales:
+        one: 'sale'
+        other: 'sales'
+
+      purchases:
+        one: 'purchase'
+        other: 'purchases'
+
+      likes:
+        one: 'like'
+        other: 'likes'
+
+  home:
+    sign_in_with_facebook: "Sign in with Facebook"
+    sign_in_with_email: "Sign in with email"
+
+  user:
+    change_avatar: "Change avatar"
+    change_cover: "Change cover"
+    settings: "Settings"
+    add_product: "Add product"
+    products: "Products"
+    sales: "Sales"
+    followers: "Followers"
+    follow: "Follow"
+    following: "Following"
+    unfollow: "Unfollow"
+    become_seller:
+      flash_success: "You're now a seller, congrats. :sparkles: <a href='/p/new'>Add your first product!</a>"
 
   comments:
-    add_a_comment: 'Add a comment'
+    add_a_comment: "Add a comment"
+    confirm_deletion: "Wish to delete the comment?"
+    join: "Join"
+    or: "or"
+    sign_in: "sign in"
+    to_comment: "to comment.."
+
+  product_images:
+    delete: "Delete"
 
   product:
-    buy: 'Buy'
-    change: 'Change'
+    buy: "Buy"
+    change: "Change"
+    facebook_share: "Share on Facebook"
+    twitter_share: "Share on Twitter"
+    views: "Views"
+    size: "Size"
+    price: "Sale price"
+    earnings: "You earn"
+    new_product_title: "Add a new product"
+    edit_product_title: "Change the listing"
 
     categories:
-      shirts: 'Shirts'
-      sweaters: 'Sweaters'
-      jackets: 'Jackets'
-      coats: 'Coats'
-      pants: 'Pants'
-      jeans: 'Jeans'
-      skirts: 'Skirts'
-      dresses: 'Dresses'
-      shoes: 'Shoes'
-      accessories: 'Accessories'
+      other:
+        one: "Other"
+        other: "Others"
+
+      shirt:
+        one: "Shirt"
+        other: "Shirts"
+
+      sweater:
+        one: "Sweater"
+        other: "Sweaters"
+
+      jacket:
+        one: "Jacket"
+        other: "Jackets"
+
+      coat:
+        one: "Coat"
+        other: "Coats"
+
+      pants: "Pants"
+
+      skirt:
+        one: "Skirt"
+        other: "Skirts"
+
+      dress:
+        one: "Dress"
+        other: "Dresses"
+
+      shoes:
+        one: "Shoe"
+        other: "Shoes"
+
+      accessory:
+        one: "Accessory"
+        other: "Accessories"
 
   products:
     product_form:
       upload_images: "Select images"
+      uploading_images: "Uploading images.."
       product_title_placeholder: "White Reebok shoes"
       product_description_placeholder: "White Reebok running shoes, size 10. Used maybe twice - in a really good condition."
       product_price_placeholder: "€ 10"
       product_category_placeholder: "Shoes"
-      product_hashtags_placeholder: "#reebok, #shoes, #10"
+      product_size_placeholder: "S or 12"
       add_product: "Add product"
+      update_product: "Update product"
+      delete_product: "Delete product"
+      delete_product_confirmation: "Sure you want to delete the product?"
 
     create:
       flash_success: "New product successfully added! :sparkles:"
+      flash_error: "There were some errors while creating a product. :worried:"
+
+    update:
+      flash_success: "Product successfully updated! :sparkles:"
+      flash_error: "There were some errors while updating the product. :worried:"
+
+    destroy:
+      flash_success: "Product successfully deleted!"
+      flash_error: "There were some errors while deleting the product. :worried:"
 
   transactions:
     new:
-      shipping: 'shipping'
-      choose_shipping: 'Choose shipping'
-      card_number: 'Card number'
-      cvv: 'CVV'
-      exp_date: 'Expiration date'
-      pay: 'Pay'
+      shipping: "shipping"
+      choose_shipping: "Choose shipping"
+      card_number: "Card number"
+      cvv: "CVV"
+      exp_date: "Expiration date"
+      pay: "Pay"
+      change_card: "Change the card"
 
   promos:
     signup_cta:
-      hey_stranger: 'Hey stranger,'
+      hey_stranger: "Hey stranger,"
       join_us: "Join us and <strong>discover the best preloved fashion!</strong> :sparkles:"
-      sign_up_with_facebook: 'Sign in with Facebook'
-      sign_up: 'Sign up'
+      sign_up_with_facebook: "Sign in with Facebook"
+      sign_up: "Sign up"
 
   devise:
     confirmations:
@@ -164,8 +258,6 @@ en:
         cover: 'Cover image'
         payout_name: 'Bank account name'
         payment_iban: 'Bank account IBAN'
-      product:
-        tag_list: 'Hashtags'
   
   number:
     currency:

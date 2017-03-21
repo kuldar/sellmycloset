@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  mount AvatarUploader::UploadEndpoint => '/avatar/upload'
+  mount AvatarUploader::UploadEndpoint => '/avatars/upload'
   mount CoverUploader::UploadEndpoint => '/covers/upload'
   mount ProductImageUploader::UploadEndpoint => '/productimages/upload'
 
@@ -15,7 +15,12 @@ Rails.application.routes.draw do
     end
   end
 
+  # Users list path
   resources  :users, path: 'users', only: :index
+
+  # Ajax updating paths
+  put '/users/avatar', to: 'users#avatar'
+  put '/users/cover', to: 'users#cover'
 
   # Admin
   namespace :admin do
