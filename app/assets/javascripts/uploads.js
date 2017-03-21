@@ -128,7 +128,7 @@ $(document).on('turbolinks:load', function() {
       $.ajax('/product_images', { method: 'POST', data: params })
         .done(function(result) {
           
-          var $product_image_delete = $('<a/>', { href: '/product_images/' + result.id, 'data-method': 'delete', 'data-remote': true, 'data-confirm': 'Soovid pildi kustutada?', class: 'form-product-image-delete' }).text('Delete');
+          var $product_image_delete = $('<a/>', { href: '/product_images/' + result.id, 'data-method': 'delete', 'data-remote': true, 'data-confirm': $('#product_images').attr('data-label-delete-confirm'), class: 'form-product-image-delete' }).text($('#product_images').attr('data-label-delete'));
           var $product_image = $('<div/>', { class: 'form-product-image', style: "background-image: url('" + result.image_url + "');" }).append($product_image_delete);
           var $product_image_container = $('<div/>', { class: 'form-product-image-container', 'data-id': result.id }).append($product_image);
           var $product_images = $('.form-product-images').append($product_image_container);

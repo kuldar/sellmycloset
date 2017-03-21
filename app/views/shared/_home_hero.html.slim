@@ -10,4 +10,7 @@
     - if product
       .home-hero-product
         = render 'products/feed_product', product: product
-        .home-hero-product-footnote = "Lisatud #{time_ago_in_words(product.created_at)} tagasi"
+        .home-hero-product-footnote
+          => t('home.added')
+          => time_ago_in_words(product.created_at)
+          = t('home.ago')

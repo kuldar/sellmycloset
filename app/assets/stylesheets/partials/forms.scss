@@ -206,6 +206,7 @@
 }
 
 .form-bottom {
+  margin-top: 2rem;
 	text-align: center;
 	padding-bottom: 3rem;
 }
@@ -239,7 +240,7 @@
   padding: 0.75rem 0.875rem;
   position: relative;
   z-index: 20;
-  margin: 0 auto;
+  margin: 2rem auto;
   color: $white;
 
   &:hover {
@@ -255,6 +256,10 @@
   &.is-disabled {
     opacity: 0.5;
     pointer-events: none;
+  }
+
+  @include min-width(40rem) {
+    margin: 0 auto;
   }
 }
 

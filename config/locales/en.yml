@@ -64,6 +64,8 @@ en:
   home:
     sign_in_with_facebook: "Sign in with Facebook"
     sign_in_with_email: "Sign in with email"
+    added: "Added"
+    ago: "ago"
 
   user:
     change_avatar: "Change avatar"
@@ -89,6 +91,7 @@ en:
 
   product_images:
     delete: "Delete"
+    delete_confirm: "Wish to delete the photo?"
 
   product:
     buy: "Buy"

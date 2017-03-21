@@ -64,6 +64,8 @@ et:
   home:
     sign_in_with_facebook: "Logi sisse Facebookiga"
     sign_in_with_email: "Logi sisse e-mailiga"
+    added: "Lisatud"
+    ago: "tagasi"
 
   user:
     change_avatar: "Muuda avatari"
@@ -81,6 +83,7 @@ et:
   
   product_images:
     delete: "Kustuta"
+    delete_confirm: "Soovid pildi kustutada?"
 
   product:
     buy: 'Osta'
