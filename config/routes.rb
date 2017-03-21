@@ -53,4 +53,10 @@ Rails.application.routes.draw do
   get :become_seller, to: 'static_pages#become_seller'
   put :become_seller, to: 'users#become_seller'
 
+  resources :notifications do
+    collection do
+      post :mark_as_read
+    end
+  end
+
 end

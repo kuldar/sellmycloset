@@ -1,0 +1,4 @@
+= link_to product_path(notification.notifiable), class: "header-nav-notifications-list-item #{'is-unread' if !notification.read_at?}" do
+  = notification.actor.name
+  = notification.action
+  = notification.notifiable_type.underscore.humanize.downcase
