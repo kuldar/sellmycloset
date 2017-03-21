@@ -35,6 +35,7 @@ en:
 
   shared:
     header:
+      products: "Products"
       sign_in_with_facebook: "Log in with Facebook"
       log_in: "Log in"
       log_out: "Log out"

@@ -140,3 +140,23 @@
     top: 1px;
   }
 }
+
+.header-nav-btn-outline {
+  padding: 0rem 1rem;
+  border-radius: 5rem;
+  line-height: 2rem;
+  margin: 0 0.5rem;
+  // font-weight: 600;
+  color: $white;
+  border: 1px solid rgba($white, 0.5);
+
+  &:hover {
+    border-color: $white;
+    text-decoration: none;
+  }
+
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+}

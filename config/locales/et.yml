@@ -35,6 +35,7 @@ et:
 
   shared:
     header:
+      products: "Kuulutused"
       sign_in_with_facebook: "Logi sisse Facebookiga"
       log_in: "Sisene"
       log_out: "Välju"
