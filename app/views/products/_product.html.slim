@@ -21,7 +21,7 @@
       .product-seller
         .product-seller-overview
           = link_to @product.user, class: 'product-seller-photo' do
-            = image_tag @product.user.avatar.url(:thumb)
+            = image_tag @product.user.avatar_url(:thumb)
 
           .product-seller-info
             = link_to @product.user.name, @product.user, class: "product-seller-name"

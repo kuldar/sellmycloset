@@ -52,8 +52,11 @@ $(document).on('turbolinks:load', function() {
 
       $.ajax('/users/avatar', { method: 'PUT', data: params })
         .done(function(result) {
-          $('.card-cover-avatar').attr('src', result.avatar_url);
-          $('.header-nav-avatar').attr('src', result.avatar_url);
+          var $card_cover_avatar = $('<img/>', { class: 'card-cover-avatar', src: result.avatar_url });
+          $('.card-cover-avatar-container').html($card_cover_avatar);
+
+          var $header_nav_avatar = $('<img/>', { class: 'header-nav-avatar', src: result.avatar_url });
+          $('.header-nav-user').html($header_nav_avatar);
         });
     }
   });

@@ -36,8 +36,5 @@ html
       $(document).on('turbolinks:load', function () {
         twemoji.parse(document.body);
         autosize($('textarea'));
-      });
-
-      $(document).on('page:change', function(){
-        $(".alert").delay(2000).fadeOut(500);
+        $(".alert").delay(5000).fadeOut(500);
       });

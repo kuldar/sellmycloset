@@ -3,10 +3,10 @@
     .card-section
       .transaction-product-image-container
         = link_to @product.user, class: 'transaction-product-seller' do
-          = image_tag @product.user.avatar_url, class: 'transaction-product-seller-photo'
+          = image_tag @product.user.avatar_url(:thumb), class: 'transaction-product-seller-photo'
           .transaction-product-seller-name = @product.user.name
 
-        .transaction-product-image style="background-image:url('#{ @product.product_images.first.image_url if @product.product_images.any? }')"
+        .transaction-product-image style="background-image:url('#{ @product.product_images.first.image_url(:medium) if @product.product_images.any? }')"
       
     .card-section.is-padded    
       .transaction-product-body
