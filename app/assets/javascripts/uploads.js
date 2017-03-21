@@ -96,6 +96,17 @@ $(document).on('turbolinks:load', function() {
 
   $('#product_images').fileupload({
 
+    change: function (e, data) {
+      var $product_images_limit = 5;
+      var $product_images_count = $('.form-product-images').attr('data-images-count');
+      var $product_images_slots = $product_images_limit - $product_images_count;
+
+      if (data.files.length > $product_images_slots){
+        alert($('#product_images').attr('data-label-limit'));
+        return false;
+      }
+    },
+
     add: function(e, data) {
       data.progressBar = $('<div class="progress"><div class="progress-bar"></div></div>').insertAfter('.header');
       presign(data, '/productimages/upload/cache/presign');
@@ -123,7 +134,8 @@ $(document).on('turbolinks:load', function() {
           var $product_images = $('.form-product-images').append($product_image_container);
           var $product_images_count = $product_images.attr('data-images-count') || 0;
           
-          $product_images.attr('data-images-count', parseInt($product_images_count) + 1);
+          $new_product_images_count = parseInt($product_images_count) + 1;
+          $product_images.attr('data-images-count', $new_product_images_count);
 
           $product_image_hidden_field = $('<input/>', { 
             type: 'hidden', 
@@ -133,8 +145,14 @@ $(document).on('turbolinks:load', function() {
           });
 
           $('.form-hidden-fields').append($product_image_hidden_field);
-          $('.form-product-images-btn').removeClass('is-disabled');
-          $('.form-product-images-btn-text').text($('.form-product-images-btn-text').attr('data-label'));
+
+          if ($new_product_images_count < 5) {
+            $('.form-product-images-btn').removeClass('is-disabled');
+            $('.form-product-images-btn-text').text($('.form-product-images-btn-text').attr('data-label'));
+          } else {
+            $('.form-product-images-btn').addClass('is-disabled');
+            $('.form-product-images-btn-text').text($('#product_images').attr('data-label-limit'));
+          }
         });
     }
   });

@@ -1,3 +1,12 @@
 $('[data-id="<%= @product_image.id %>"]').remove();
 var $product_images_count = $('.form-product-images').attr('data-images-count') || 0
-$('.form-product-images').attr('data-images-count', parseInt($product_images_count) - 1);
+var $new_product_images_count = parseInt($product_images_count) - 1;
+$('.form-product-images').attr('data-images-count', $new_product_images_count);
+
+if ($new_product_images_count < 5) {
+  $('.form-product-images-btn').removeClass('is-disabled');
+  $('.form-product-images-btn-text').text($('.form-product-images-btn-text').attr('data-label'));
+} else {
+  $('.form-product-images-btn').addClass('is-disabled');
+  $('.form-product-images-btn-text').text($('#product_images').attr('data-label-limit'));
+}

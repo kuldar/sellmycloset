@@ -137,6 +137,7 @@ et:
 
   products:
     product_form:
+      max_file_count_limit: "Lubatud lisada kuni 5 pilti"
       upload_images: "Lisa toote pildid"
       uploading_images: "Lisan pilte..."
       product_title_placeholder: "Valge Adidase särk"

@@ -143,6 +143,7 @@ en:
 
   products:
     product_form:
+      max_file_count_limit: "You can upload up to 5 images.."
       upload_images: "Select images"
       uploading_images: "Uploading images.."
       product_title_placeholder: "White Reebok shoes"
