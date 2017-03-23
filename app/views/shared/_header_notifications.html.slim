@@ -1,0 +1,10 @@
+.header-notifications data-behavior='notifications' class="#{ "has-unread" if @unread_notifications.count > 0 }" data-notifications-count="#{@unread_notifications.count}"
+  .header-notifications-link data-behavior='notifications-link'
+    span.header-notifications-icon 🔔
+    span.header-notifications-counter data-behavior='notifications-counter' = @unread_notifications.count
+    
+  .header-notifications-dropdown data-behavior='notifications-dropdown'
+    .header-notifications-list data-behavior='notifications-list'
+      - @notifications.each do |notification|
+        = render partial: "notifications/#{notification.action}", locals: {notification: notification}, formats: [:html]
+    = link_to t('notification.all_notifications'), notifications_path, class: 'header-notifications-dropdown-more-link'

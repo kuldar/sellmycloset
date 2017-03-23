@@ -24,3 +24,4 @@
 //= require jquery-fileupload/jquery.iframe-transport
 //= require jquery-fileupload/jquery.fileupload
 //= require uploads
+//= require notifications

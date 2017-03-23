@@ -189,6 +189,14 @@ en:
       sign_up_with_facebook: "Sign in with Facebook"
       sign_up: "Sign up"
 
+  notification:
+    ago: "ago"
+    deleted: "(deleted)"
+    all_notifications: "Show all notifications"
+    new_follower: "<strong>%{user_name}</strong> followed you"
+    new_product_like: "<strong>%{user_name}</strong> :heart: %{product_name}"
+    new_product_comment: "<strong>%{user_name}</strong> :speech_balloon: %{product_name}"
+
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."

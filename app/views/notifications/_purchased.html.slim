@@ -1,0 +1,5 @@
+= link_to product_transaction_path(notification.notifiable.product), class: "header-notifications-list-item #{'is-unread' if !notification.read_at?}" do
+  = image_tag notification.actor.avatar_url(:thumb), class: 'header-notifications-list-item-avatar' if notification.actor.avatar
+  .header-notifications-list-item-content
+    .header-notifications-list-item-text = emojify t('notification.product_purchased', user_name: notification.actor.first_name, product_name: notification.notifiable.product.title, product_price: humanized_money_with_symbol(notification.notifiable.product_price)).html_safe
+    .header-notifications-list-item-timestamp #{time_ago_in_words(notification.created_at)} #{t('notification.ago')}

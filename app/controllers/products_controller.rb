@@ -4,11 +4,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_product_seller, only: [:edit, :update, :destroy]
 
   def index
-    if params[:category]
-      @products = Product.in_category(params[:category]).active
-    else
-      @products = Product.active
-    end
+    @products = params[:category] ? Product.in_category(params[:category]) : Product.active
   end
 
   def show
@@ -24,7 +20,6 @@ class ProductsController < ApplicationController
     @product = current_user.products.build(product_params)
 
     if @product.save && set_images
-    # if @product.save
       flash[:success] = t('.flash_success', url: product_url(@product))
       redirect_to @product
     else
@@ -77,14 +72,6 @@ class ProductsController < ApplicationController
         :category,
         product_images_attributes: [:id, :product_id, :image_data])
     end
-
-    # def save_images
-    #   unless params[:product_images].blank?
-    #     params[:product_images]['image'].each do |image|
-    #       @product_image = @product.product_images.create!(image: image)
-    #     end
-    #   end
-    # end
 
     def set_images
       unless params[:product_images].blank?
