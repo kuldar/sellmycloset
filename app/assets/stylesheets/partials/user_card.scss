@@ -41,17 +41,28 @@
 
 .user-card-header {
   @include display(flex);
+  @include flex-direction(column);
+  text-align: center;
   position: relative;
   z-index: 30;
   margin-bottom: 1rem;
+
+  &:hover {
+    text-decoration: none;
+
+    .user-card-avatar {
+      @include transform(scale(1.2));
+    }
+  }
 }
 
 .user-card-avatar {
+  transition: all 0.2s ease-in-out;
   width: 5rem;
   height: 5rem;
   overflow: hidden;
   border-radius: 99rem;
-  margin-right: 1rem;
+  margin: 1rem auto;
 
   img {
     display: block;
@@ -90,14 +101,19 @@
 
 .user-card-stats {
   @include display(flex);
+  @include justify-content(space-around);
   position: relative;
   z-index: 30;
   border-top: 1px solid rgba($white, 0.2);
 }
 
 .user-card-stat {
-  @include flex(1);
   padding: 1rem 0 0 0;
+
+  &:active {
+    position: relative;
+    top: 1px;
+  }
 }
 
 a.user-card-stat:hover {
@@ -198,10 +214,16 @@ a.user-card-stat:hover {
     border: none;
     background-color: $green;
     color: $white;
+
+    &:hover {
+      text-decoration: none;
+      background-color: darken($green, 5);
+    }
   }
 
   &.is-settings {
-    width: 100%;
+    @include flex(1);
+    margin-right: 0.75rem;
     background-color: transparent;
   }
 

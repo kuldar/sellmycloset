@@ -2,7 +2,7 @@
 .user-card style="#{ 'background-image:url(' + user.cover_url(:medium, public: true) + ');' if user.cover }"
 
 	/ User Header
-	.user-card-header
+	= link_to user_path(user), class: 'user-card-header' do
 		.user-card-avatar = image_tag user.avatar_url(:medium, public: true) if user.avatar
 		.user-card-info
 			.user-card-name = user.name
@@ -12,6 +12,7 @@
 	.user-card-actions
 		- if current_user == user
 			= link_to t('user.settings'), edit_registration_path(current_user), class: 'user-card-btn is-settings'
+			= link_to t('user.log_out'), destroy_user_session_path, method: :delete, class: 'user-card-btn is-logout'
 		- else
 			.user-card-btn-container data-follow-form="#{user.id}"
 				- if signed_in? && current_user.following?(user)
@@ -20,12 +21,12 @@
 					= render 'follow', user: user, btn_class: 'user-card-btn is-follow'
 				- else
 					= link_to t('user.follow'), new_user_registration_path, class: 'user-card-btn is-primary'
-		- if user.instagram_handle?
-			= link_to user.instagram_url, target: '_blank', class: 'user-card-btn is-outline' do
-				= image_tag 'instagram-icon-white.svg'
-		- if user.facebook_handle?
-			= link_to user.facebook_url, target: '_blank', class: 'user-card-btn is-outline' do
-				= image_tag 'facebook-icon-white.svg'
+			- if user.instagram_handle?
+				= link_to user.instagram_url, target: '_blank', class: 'user-card-btn is-outline' do
+					= image_tag 'instagram-icon-white.svg'
+			- if user.facebook_handle?
+				= link_to user.facebook_url, target: '_blank', class: 'user-card-btn is-outline' do
+					= image_tag 'facebook-icon-white.svg'
 
 	/ User Stats
 	.user-card-stats

@@ -63,7 +63,6 @@
           - else
             - if current_user == @product.user
               span.product-main-btn = humanized_money_with_symbol(@product.price)
-              = link_to t('product.change'), edit_product_path(@product), class: 'product-outline-btn'
             - else
               = link_to new_product_transaction_path(@product), class: 'product-main-btn' do
                 | <span class='prefix'>#{ t('product.buy') }</span>#{humanized_money_with_symbol(@product.price)}
@@ -73,6 +72,8 @@
               = render partial: 'products/comments_counter', locals: { product: @product }
             .product-meta-btn-container data-likes-counter="#{@product.id}"
               = render partial: 'products/likes_counter', locals: { product: @product }
+
+          = link_to t('product.change'), edit_product_path(@product), class: 'product-outline-btn'
 
       .product-comments-container
 
