@@ -107,6 +107,7 @@ en:
     edit_product_title: "Change the listing"
 
     categories:
+      choose_category: 'Choose a category'
       other:
         one: "Other"
         other: "Others"
@@ -190,6 +191,7 @@ en:
       sign_up: "Sign up"
 
   notification:
+    notifications: "Notifications"
     ago: "ago"
     deleted: "(deleted)"
     all_notifications: "Show all notifications"

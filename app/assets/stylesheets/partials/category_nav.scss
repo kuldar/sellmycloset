@@ -6,13 +6,23 @@
   padding: 0;
   box-shadow: 0 1px 2px rgba($black, 0.1);
   position: relative;
+
+  &.is-open {
+    .category-nav-link { display: inline-block; }
+  }
 }
 
 .category-nav-wrapper {
   @include display(flex);
-  @include flex-wrap(wrap);
+  @include flex-wrap(nowrap);
+  @include flex-direction(column);
   max-width: 80rem;
   margin: 0 auto;
+
+  @include min-width(30rem) {
+    @include flex-direction(row);
+    @include flex-wrap(wrap);
+  }
 }
 
 .category-nav-link {
@@ -21,7 +31,7 @@
   font-weight: 600;
   color: $dark-gray;
   text-align: center;
-  display: inline-block;
+  display: none;
   padding: 1.25rem 1.75rem;
   border-right: 1px solid $light-gray-3;
   border-top: 1px solid $light-gray-3;
@@ -30,14 +40,40 @@
   &:hover {
     text-decoration: none;
     background-color: $light-gray;
+    cursor: pointer;
   }
 
   &.is-active {
+    @include order(-1);
+    display: block;
     font-weight: bold;
     color: $white;
     padding: 1.25rem 3rem;
     background-color: darken($purple, 10);
     border: none;
+
+    @include min-width(30rem) {
+      @include order(0);
+    }
+  }
+
+  &.is-title {
+    @include order(-1);
+    display: block;
+    font-weight: bold;
+    color: $white;
+    padding: 1.25rem 3rem;
+    background-color: darken($purple, 10);
+    border: none;
+
+    @include min-width(30rem) {
+      display: none;
+      @include order(0);
+    }
+  }
+
+  @include min-width(30rem) {
+    display: inline-block;
   }
 }
 

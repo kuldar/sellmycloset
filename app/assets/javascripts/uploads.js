@@ -98,7 +98,7 @@ $(document).on('turbolinks:load', function() {
 
     change: function (e, data) {
       var $product_images_limit = 5;
-      var $product_images_count = $('.form-product-images').attr('data-images-count');
+      var $product_images_count = $("[data-behavior='form-product-images']").attr('data-images-count');
       var $product_images_slots = $product_images_limit - $product_images_count;
 
       if (data.files.length > $product_images_slots){
@@ -128,10 +128,10 @@ $(document).on('turbolinks:load', function() {
       $.ajax('/product_images', { method: 'POST', data: params })
         .done(function(result) {
           
-          var $product_image_delete = $('<a/>', { href: '/product_images/' + result.id, 'data-method': 'delete', 'data-remote': true, 'data-confirm': $('#product_images').attr('data-label-delete-confirm'), class: 'form-product-image-delete' }).text($('#product_images').attr('data-label-delete'));
-          var $product_image = $('<div/>', { class: 'form-product-image', style: "background-image: url('" + result.image_url + "');" }).append($product_image_delete);
-          var $product_image_container = $('<div/>', { class: 'form-product-image-container', 'data-id': result.id }).append($product_image);
-          var $product_images = $('.form-product-images').append($product_image_container);
+          var $product_image_delete = $('<a/>', { href: '/product_images/' + result.id, 'data-method': 'delete', 'data-remote': true, 'data-confirm': $('#product_images').attr('data-label-delete-confirm'), class: 'grid-image-delete' }).text($('#product_images').attr('data-label-delete'));
+          var $product_image = $('<div/>', { class: 'grid-image', style: "background-image: url('" + result.image_url + "');" }).append($product_image_delete);
+          var $product_image_container = $('<div/>', { class: 'grid-image-container', 'data-id': result.id }).append($product_image);
+          var $product_images = $('.grid-images').append($product_image_container);
           var $product_images_count = $product_images.attr('data-images-count') || 0;
           
           $new_product_images_count = parseInt($product_images_count) + 1;

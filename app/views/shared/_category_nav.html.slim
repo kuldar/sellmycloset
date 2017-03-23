@@ -1,5 +1,14 @@
-.category-nav
+.category-nav data-behavior='category-nav'
   .category-nav-wrapper
-    - Product.categories.each do |category|
-      - is_active = params[:category] == category[0] || @product.try(:category) == category[0]
-      = link_to t("product.categories.#{category[0]}", count: 2), products_path(category: category[0]), class: "category-nav-link #{ 'is-active' if is_active }"
+    - if params[:category]
+      - Product.categories.each do |category|
+        - is_active = params[:category] == category[0] || @product.try(:category) == category[0]
+        - if is_active
+          = content_tag :span, class: "category-nav-link is-active", data: { behavior: 'category-nav-link' } do
+            = t("product.categories.#{category[0]}", count: 2)
+        - else
+          = link_to t("product.categories.#{category[0]}", count: 2), products_path(category: category[0]), class: "category-nav-link"
+    - else
+      .category-nav-link.is-title data-behavior='category-nav-link' = t('product.categories.choose_category')
+      - Product.categories.each do |category|
+        = link_to t("product.categories.#{category[0]}", count: 2), products_path(category: category[0]), class: "category-nav-link"

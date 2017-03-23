@@ -1,7 +1,7 @@
 $('[data-id="<%= @product_image.id %>"]').remove();
-var $product_images_count = $('.form-product-images').attr('data-images-count') || 0
+var $product_images_count = $("[data-behavior='form-product-images']").attr('data-images-count') || 0
 var $new_product_images_count = parseInt($product_images_count) - 1;
-$('.form-product-images').attr('data-images-count', $new_product_images_count);
+$("[data-behavior='form-product-images']").attr('data-images-count', $new_product_images_count);
 
 if ($new_product_images_count < 5) {
   $('.form-product-images-btn').removeClass('is-disabled');

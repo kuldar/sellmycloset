@@ -1,13 +1,13 @@
 .main.is-purple style="background-image: url('#{ image_path('home-hero-bg.jpg') }');"
   .form-title = @product.new_record? ? t('product.new_product_title') : t('product.edit_product_title')
 
-  = content_tag :div, class: 'form-product-images', data: { 'images-count': @product.product_images.count } do
+  = content_tag :div, class: 'grid-images', data: { 'images-count': @product.product_images.count, behavior: 'form-product-images' } do
 
     - if @product.product_images.count > 0
       - @product.product_images.each do |i|
-        = content_tag :div, class: 'form-product-image-container', data: {id: i.id } do
-          = content_tag :div, class: 'form-product-image', style: "background-image:url('#{i.image_url(:medium, public: true)}');"
-            = link_to 'Delete', product_image_path(i), remote: true, method: :delete, class: 'form-product-image-delete'
+        = content_tag :div, class: 'grid-image-container', data: {id: i.id } do
+          = content_tag :div, class: 'grid-image', style: "background-image:url('#{i.image_url(:medium, public: true)}');"
+            = link_to 'Delete', product_image_path(i), remote: true, method: :delete, class: 'grid-image-delete'
 
 
   .form-product-images-btn

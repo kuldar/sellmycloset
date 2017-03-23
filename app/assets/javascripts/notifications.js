@@ -27,19 +27,23 @@ $(document).on('turbolinks:load', function() {
   }
 
   function handleClick(e) {
-    if ($notificationsDropdown.is(':hidden')) {
+    if ($(window).width() > 480) {
+      e.preventDefault();
 
-      e.stopPropagation();
-      $notificationsDropdown.show();
-      markAsRead();
+      if ($notificationsDropdown.is(':hidden')) {
 
-    } else {
+        e.stopPropagation();
+        $notificationsDropdown.show();
+        markAsRead();
 
-      e.stopPropagation();
-      $notificationsDropdown.hide();
+      } else {
 
-      if ($notificationsCount > 0) {
-        resetNotification();
+        e.stopPropagation();
+        $notificationsDropdown.hide();
+
+        if ($notificationsCount > 0) {
+          resetNotification();
+        }
       }
     }
   }

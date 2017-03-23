@@ -99,6 +99,7 @@ et:
     edit_product_title: "Muuda oma toodet"
 
     categories:
+      choose_category: 'Vali kategooria'
       other: 'Varia'
       shirt:
         one: 'Pluus'
@@ -183,6 +184,7 @@ et:
       sign_up: 'Liitu e-mailiga'
 
   notification:
+    notifications: "Teavitused"
     all_notifications: "Näita kõiki"
     ago: "tagasi"
     deleted: "(kustutatud)"

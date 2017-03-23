@@ -25,3 +25,4 @@
 //= require jquery-fileupload/jquery.fileupload
 //= require uploads
 //= require notifications
+//= require header

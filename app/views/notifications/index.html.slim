@@ -1,7 +1,7 @@
 .main.is-purple style="background-image: url('#{ image_path('home-hero-bg.jpg') }');"
-  .form-title Notifications
+  .form-title = t('notification.notifications')
   .card.is-small
-    .card-section.is-gray.is-padded
+    .card-section.is-padded
       - if @notifications.any?
         - @notifications.each do |notification|
           = render partial: "notifications/#{notification.action}", locals: {notification: notification}, formats: [:html]

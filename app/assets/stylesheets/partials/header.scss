@@ -18,32 +18,40 @@
 .header-wrapper {
   @include display(flex);
   @include justify-content(space-between);
-  // @include flex-direction(column);
-  @include flex-direction(row);
+  @include flex-direction(column);
+  @include align-items(center);
   @include flex-wrap(wrap);
   max-width: 80rem;
   margin: 0 auto;
 
-  // @include min-width(40rem) {
-  //   @include flex-direction(row);
-  // }
+  @include min-width(30rem) {
+    @include flex-direction(row);
+  }
 }
 
 .header-logo {
+  @include transform(scale(0.9));
   @include order(1);
+  display: inline-block;
+  margin: 0 auto 1rem auto;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
-  line-height: 2rem;
+  line-height: 1rem;
 
   img {
-    transform: rotate(35deg);
+    transform: rotate(35deg) scale(0.9);
     position: relative;
     float: left;
     height: 1.375rem;
     display: block;
-    margin: 0.15rem 0.5rem 0 0;
+    margin: -0.325rem 0.5rem 0 0;
     opacity: 0.5;
+
+    @include min-width(30rem) {
+      @include transform(rotate(35deg) scale(1));
+      margin: 0.15rem 0.5rem 0 0;
+    }
   }
 
   &:hover {
@@ -55,11 +63,16 @@
     top: 1px;
   }
 
+  @include min-width(30rem) {
+    @include transform(scale(1));
+    line-height: 2rem;
+    margin: 0;
+  }
+
   .site-name {
-    display: none;
-    @include min-width(60rem) {
-      display: inline;
-    }
+    display: inline;
+    @include min-width(30rem) { display: none; }
+    @include min-width(60rem) { display: inline; }
   }
 }
 
@@ -87,14 +100,15 @@
   @include order(3);
   @include align-items(center);
   @include display(flex);
+  @include flex-direction(row);
   font-size: 1rem;
   line-height: 1.25rem;
 }
 
 .header-nav-link {
-  padding: 0rem 1rem;
+  padding: 0.5rem 1rem;
+  line-height: 1rem;
   border-radius: 5rem;
-  line-height: 2rem;
 
   &:active {
     position: relative;
@@ -120,11 +134,12 @@
 }
 
 .header-nav-btn {
-  padding: 0rem 1rem;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  line-height: 1rem;
   border-radius: 5rem;
-  line-height: 2rem;
 
-  margin: 0 0.5rem;
+  margin: 0 0.25rem;
   font-weight: bold;
   color: $white;
   background-image: $orange-pink-gradient;
@@ -139,13 +154,18 @@
     position: relative;
     top: 1px;
   }
+
+  @include min-width(20rem) {
+    margin: 0 0.5rem;
+  }
 }
 
 .header-nav-btn-outline {
-  padding: 0rem 1rem;
+  text-align: center;
   border-radius: 5rem;
-  line-height: 2rem;
-  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  line-height: 1rem;
+  margin: 0 0.25rem;
   color: $white;
   border: 1px solid rgba($white, 0.5);
 
@@ -158,6 +178,11 @@
     position: relative;
     top: 1px;
   }
+
+  @include min-width(20rem) {
+    margin: 0 0.5rem;
+  }
+
 }
 
 /////////////////////
@@ -194,6 +219,7 @@
   border: 1px solid rgba($white, 0.5);
 
   &:hover {
+    text-decoration: none;
     cursor: pointer;
     border-color: rgba($white, 0.75);
   }

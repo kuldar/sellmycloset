@@ -1,5 +1,5 @@
 .header-notifications data-behavior='notifications' class="#{ "has-unread" if @unread_notifications.count > 0 }" data-notifications-count="#{@unread_notifications.count}"
-  .header-notifications-link data-behavior='notifications-link'
+  = link_to notifications_path, class: 'header-notifications-link', data: { behavior: 'notifications-link' } do
     span.header-notifications-icon 🔔
     span.header-notifications-counter data-behavior='notifications-counter' = @unread_notifications.count
     
