@@ -48,7 +48,7 @@ class User < ApplicationRecord
                        presence: true
 
   before_validation :set_username
-  after_create      :set_avatar, :set_payout_margin
+  before_create     :set_avatar, :set_payout_margin
   after_commit      :subscribe_to_mailing_list, on: :create
 
   monetize :pending_balance_cents, :available_balance_cents, :total_earnings_cents
