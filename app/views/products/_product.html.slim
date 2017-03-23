@@ -73,7 +73,8 @@
             .product-meta-btn-container data-likes-counter="#{@product.id}"
               = render partial: 'products/likes_counter', locals: { product: @product }
 
-          = link_to t('product.change'), edit_product_path(@product), class: 'product-outline-btn'
+          - if current_user == @product.user
+            = link_to t('product.change'), edit_product_path(@product), class: 'product-outline-btn'
 
       .product-comments-container
 
