@@ -39,13 +39,15 @@ class TransactionsController < ApplicationController
 									})
 		end
 
-		# If payment succeeded finalize purchase
-		# Set braintree_customer_id if it didn't exist before
+		# If payment succeeded
 		if result.success?
+
+			# Set braintree_customer_id if it didn't exist before
 			unless current_user.has_payment_info?
 				current_user.update(braintree_customer_id: result.transaction.customer_details.id)
 			end
 
+			# Create transaction
 			@transaction = Transaction.create(
         product_id: @product.id,
         product_price_cents: @product.price_cents,
@@ -57,9 +59,14 @@ class TransactionsController < ApplicationController
       )
 
 	    if @transaction.save!
-	    	earnings_cents = (@product.price_cents * @product.user.payout_margin).to_i
-	    	@product.user.update_earnings(earnings_cents)
+	    	@product.user.update_earnings(@product.earnings_cents)
 				@product.sold!
+
+				Notification.create(
+				      recipient: @product.user,
+				      actor: current_user,
+				      action: 'purchased',
+				      notifiable: @transaction)
 
 	  		flash[:success] = t('.flash_success')
 	    	redirect_to product_transaction_path
@@ -77,8 +84,14 @@ class TransactionsController < ApplicationController
 	end
 
 	def destroy
-		@transaction = Transaction.find(params[:transaction_id])
-		@transaction.destroy!
+		@product.sale.destroy!
+		@product.user.update_earnings(-@product.earnings_cents)
+		@product.active!
+
+		respond_to do |format|
+      format.html { redirect_to @product }
+      format.js
+    end
 	end
 
 	def generate_client_token

@@ -47,8 +47,8 @@ class Product < ApplicationRecord
 
   before_destroy :clear_notifications
 
-  def earnings(user=nil)
-    earnings = total_price_cents * user.payout_margin
+  def earnings_cents
+    earnings = total_price_cents * self.user.payout_margin
   end
 
   def total_price_cents

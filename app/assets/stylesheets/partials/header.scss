@@ -243,6 +243,7 @@
 
 .header-notifications-list-item-content {
   @include flex(1);
+  .is-green { color: $green; }
   strong { font-weight: 600; }
 }
 

@@ -12,7 +12,7 @@ class Comment < ApplicationRecord
   private
 
     def clear_notifications
-      Notification.where("notifiable_id = ?", self.id).destroy_all
+      Notification.where(notifiable: self).destroy_all
     end
 
 end

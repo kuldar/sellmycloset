@@ -188,6 +188,7 @@ et:
     new_follower: "<strong>%{user_name}</strong> hakkas sinu fänniks"
     new_product_like: "<strong>%{user_name}</strong> :heart: %{product_name}"
     new_product_comment: "<strong>%{user_name}</strong> :speech_balloon: %{product_name}"
+    product_purchased: "<strong>%{user_name}</strong> ostis :moneybag: <strong class='is-green'>%{product_price}</strong> eest %{product_name}"
 
   devise:
     confirmations:
