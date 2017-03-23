@@ -63,6 +63,8 @@ en:
         other: 'likes'
 
   home:
+    hero_title: "Discover something new for yourself!"
+    hero_subtitle: "<strong>..or make money</strong> by clearing space in your closet and selling off your fashion items. ✨"
     sign_in_with_facebook: "Sign in with Facebook"
     sign_in_with_email: "Sign in with email"
     added: "Added"

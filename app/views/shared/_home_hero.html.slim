@@ -1,8 +1,8 @@
 .home-hero style="background-image: url('#{ image_path('home-hero-bg.jpg') }');"
   .home-hero-wrapper
     .home-hero-content
-      h1.home-hero-title Avasta enda jaoks midagi põnevat!
-      .home-hero-subtitle <strong>..või puhu oma seisma jäänud riietele teine elu sisse</strong> ning teeni vaba garderoobi ruumi eest lisaraha. 
+      h1.home-hero-title = t('home.hero_title')
+      .home-hero-subtitle = emojify t('home.hero_subtitle').html_safe
       .home-hero-buttons
         = link_to t('home.sign_in_with_facebook'), user_facebook_omniauth_authorize_path, class: 'home-hero-main-btn'
         = link_to t('home.sign_in_with_email'), new_user_session_path, class: 'home-hero-outline-btn'

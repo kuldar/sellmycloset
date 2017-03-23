@@ -63,6 +63,8 @@ et:
         other: 'meeldimist'
 
   home:
+    hero_title: "Avasta enda jaoks midagi põnevat!"
+    hero_subtitle: "<strong>..või puhu oma seisma jäänud riietele teine elu sisse</strong> ning teeni vaba garderoobi ruumi eest lisaraha. ✨"
     sign_in_with_facebook: "Logi sisse Facebookiga"
     sign_in_with_email: "Logi sisse e-mailiga"
     added: "Lisatud"
