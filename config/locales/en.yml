@@ -42,7 +42,7 @@ en:
       join: "Join"
       add_product: "Add a product"
       my_products: "My product"
-      become_seller: "Become a seller"
+      become_seller: "Sell"
       admin: "Admin"
 
     user_nav:
@@ -198,6 +198,12 @@ en:
     new_follower: "<strong>%{user_name}</strong> followed you"
     new_product_like: "<strong>%{user_name}</strong> :heart: %{product_name}"
     new_product_comment: "<strong>%{user_name}</strong> :speech_balloon: %{product_name}"
+
+  become_seller:
+    seller_advice: "Here's going to be the 5 simple tips.. 😅"
+    become_seller_title: "Wish to sell on Sell My Closet?"
+    become_seller_text: "Before adding your first product, head over and read our <a href='/seller_advice'>5 simple tips for creating a better listing</a> 🤓"
+    become_seller_btn: "Add your first product"
 
   devise:
     confirmations:

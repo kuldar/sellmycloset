@@ -50,6 +50,7 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
 
   # Static pages
+  get :seller_advice, to: 'static_pages#seller_advice'
   get :become_seller, to: 'static_pages#become_seller'
   put :become_seller, to: 'users#become_seller'
 

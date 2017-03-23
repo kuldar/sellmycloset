@@ -6,8 +6,9 @@ class AvatarUploader < Shrine
   # plugin :determine_mime_type
   # plugin :remove_attachment
   # plugin :store_dimensions
-  plugin :validation_helpers
   # plugin :pretty_location
+  plugin :remote_url, max_size: 20*1024*1024
+  plugin :validation_helpers
   plugin :processing
   plugin :versions
 

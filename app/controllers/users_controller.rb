@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   def become_seller
     current_user.seller!
     flash[:success] = t('user.become_seller.flash_success')
-    redirect_to root_path
+    redirect_to new_product_path
   end
 
   def avatar

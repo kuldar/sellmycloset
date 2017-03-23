@@ -87,7 +87,7 @@
 
   @include min-width(60rem) {
     @include flex(1);
-    @include order(2);
+    @include order(3);
     padding-top: 0;
 
     .alert-container { margin-top: 0; }
@@ -97,7 +97,7 @@
 // Header Nav
 
 .header-nav {
-  @include order(3);
+  @include order(4);
   @include align-items(center);
   @include display(flex);
   @include flex-direction(row);
@@ -106,6 +106,7 @@
 }
 
 .header-nav-link {
+  @include order(2);
   padding: 0.5rem 1rem;
   line-height: 1rem;
   border-radius: 5rem;

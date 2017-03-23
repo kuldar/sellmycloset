@@ -12,10 +12,16 @@
 	overflow: hidden;
 	background-color: $white;
 	background-image: image-url('illustrations/signup_cta_bg.jpg');
-	background-position: top;
+	background-position: center -3rem;
 	background-size: cover;
 	background-repeat: no-repeat;
 	box-shadow: 0 1px 3px rgba($dark-gray, 0.1);
+}
+
+.signup-cta-pre-title-big {
+	margin-bottom: 1rem;
+	font-size: 1.25rem;
+	color: $dark-gray;
 }
 
 .signup-cta-pre-title {
@@ -27,6 +33,12 @@
 	margin: 0 2.5rem 1.5rem 0;
 	font-size: 1.5rem;
 	line-height: 1.125em;
+
+	a {
+		background-color: rgba($blue, 0.1);
+		color: $blue;
+		font-weight: 600;
+	}
 }
 
 .signup-cta-btns {

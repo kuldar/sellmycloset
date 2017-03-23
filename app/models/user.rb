@@ -48,7 +48,7 @@ class User < ApplicationRecord
                        presence: true
 
   before_validation :set_username
-  before_create     :set_avatar, :set_payout_margin
+  after_create      :set_avatar, :set_payout_margin
   after_commit      :subscribe_to_mailing_list, on: :create
 
   monetize :pending_balance_cents, :available_balance_cents, :total_earnings_cents
@@ -117,17 +117,12 @@ class User < ApplicationRecord
     )
   end
 
-  # def update_pending_balance(earnings)
-  #   self.pending_balance_cents += earnings
-  #   self.total_earnings_cents += earnings
-  # end
-
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
       user.name = auth.info.name
-      # user.remote_avatar_url = "#{auth.info.image.gsub('http:','https:')}?width=500&height=500"
+      user.avatar_remote_url = "#{auth.info.image.gsub('http:','https:')}?width=500&height=500"
     end
   end
 
@@ -158,8 +153,7 @@ class User < ApplicationRecord
     end
 
     def set_avatar
-      # self.remote_avatar_url ||= placeholder_avatar_url(email, 500)
-      # self.avatar = placeholder_avatar_url(email, 500)
+      self.avatar_remote_url = placeholder_avatar_url(email, 500) unless self.avatar
     end
 
     def set_payout_margin

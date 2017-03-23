@@ -18,3 +18,4 @@ Shrine.storages = {
 Shrine.plugin :activerecord
 Shrine.plugin :direct_upload
 Shrine.plugin :restore_cached_data
+Shrine.plugin :remote_url, max_size: 20*1024*1024

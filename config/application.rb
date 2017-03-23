@@ -8,7 +8,7 @@ module SellMyCloset
   class Application < Rails::Application
   
     # Set locale
-    config.i18n.default_locale = ENV['LOCALE'] || :et
+    config.i18n.default_locale = ENV['LOCALE'] || :en
 
     # Configuration needed for graceful degradation of form submission.
     config.action_view.embed_authenticity_token_in_remote_forms = true

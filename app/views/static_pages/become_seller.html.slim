@@ -1,5 +1,8 @@
 .main
-  .card.is-padded.is-small
-  	h1 How to become a seller?
-  	p This page will have the description of requirements of becoming a seller. For now, just click the button below.
-  	= link_to 'Convert me to seller!', become_seller_path, class: 'card-section-btn is-fb', method: :put
+  .card.is-small
+    .card-section
+      .signup-cta
+        .signup-cta-pre-title-big = t('become_seller.become_seller_title')
+        h1.signup-cta-title = emojify t('become_seller.become_seller_text').html_safe
+        .signup-cta-btns
+          = link_to t('become_seller.become_seller_btn'), become_seller_path, class: 'signup-cta-fb-btn', method: :put
