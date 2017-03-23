@@ -1,11 +1,11 @@
 .product.feed-product
 	.product-image-container
 		= link_to product.user, class: 'product-seller' do
-			= image_tag product.user.avatar_url(:thumb), class: 'product-seller-photo' if product.user.avatar
+			= image_tag product.user.avatar_url(:thumb, public: true), class: 'product-seller-photo' if product.user.avatar
 			.product-seller-name = product.user.name
 		
 		= link_to product, class: 'product-image' do
-			= image_tag product.product_images.first.image_url(:medium) if product.product_images.any?
+			= image_tag product.product_images.first.image_url(:medium, public: true) if product.product_images.any?
 
 	.product-info
 		.product-info-header

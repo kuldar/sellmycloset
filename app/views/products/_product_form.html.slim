@@ -6,7 +6,7 @@
     - if @product.product_images.count > 0
       - @product.product_images.each do |i|
         = content_tag :div, class: 'form-product-image-container', data: {id: i.id } do
-          = content_tag :div, class: 'form-product-image', style: "background-image:url('#{i.image_url(:medium)}');"
+          = content_tag :div, class: 'form-product-image', style: "background-image:url('#{i.image_url(:medium, public: true)}');"
             = link_to 'Delete', product_image_path(i), remote: true, method: :delete, class: 'form-product-image-delete'
 
 

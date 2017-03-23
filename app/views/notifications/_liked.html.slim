@@ -1,5 +1,5 @@
 = link_to product_path(notification.notifiable), class: "header-notifications-list-item #{'is-unread' if !notification.read_at?}" do
-  = image_tag notification.actor.avatar_url(:thumb), class: 'header-notifications-list-item-avatar' if notification.actor.avatar
+  = image_tag notification.actor.avatar_url(:thumb, public: true), class: 'header-notifications-list-item-avatar' if notification.actor.avatar
   .header-notifications-list-item-content
     .header-notifications-list-item-text = emojify t('notification.new_product_like', user_name: notification.actor.first_name, product_name: notification.notifiable.title).html_safe
     .header-notifications-list-item-timestamp #{time_ago_in_words(notification.created_at)} #{t('notification.ago')}

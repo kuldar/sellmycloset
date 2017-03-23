@@ -47,12 +47,12 @@ class UsersController < ApplicationController
 
   def avatar
     current_user.update_attribute :avatar, params[:user][:avatar]
-    render json: { avatar_url: current_user.avatar_url(:medium) }
+    render json: { avatar_url: current_user.avatar_url(:medium, public: true) }
   end
 
   def cover
     current_user.update_attribute :cover, params[:user][:cover]
-    render json: { cover_url: current_user.cover_url(:medium) }
+    render json: { cover_url: current_user.cover_url(:medium, public: true) }
   end
 
   private

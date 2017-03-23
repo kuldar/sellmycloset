@@ -4,7 +4,7 @@
     = content_tag :div, class: 'product-images', data: { 'images-count': @product.product_images.count } do
       - @product.product_images.each_with_index do |image, index|
         = content_tag :div, class: 'product-image-container', data: { 'image': index+1 } do
-          = link_to '', image.image_url(:big), class: 'product-image', style: "background-image: url('#{image.image_url(:medium)}');"
+          = link_to '', image.image_url(:big, public: true), class: 'product-image', style: "background-image: url('#{image.image_url(:medium, public: true)}');"
 
     - if current_user == @product.user
       .product-owner
@@ -20,7 +20,7 @@
       .product-seller
         .product-seller-overview
           = link_to @product.user, class: 'product-seller-photo' do
-            = image_tag @product.user.avatar_url(:thumb) if @product.user.avatar
+            = image_tag @product.user.avatar_url(:thumb, public: true) if @product.user.avatar
 
           .product-seller-info
             = link_to @product.user.name, @product.user, class: "product-seller-name"
