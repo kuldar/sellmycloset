@@ -101,6 +101,8 @@
   @include align-items(center);
   @include display(flex);
   @include flex-direction(row);
+  @include flex-wrap(wrap);
+  @include justify-content(center);
   font-size: 1rem;
   line-height: 1.25rem;
 }
@@ -141,7 +143,7 @@
   line-height: 1rem;
   border-radius: 5rem;
 
-  margin: 0 0.5rem;
+  margin: 0.5rem;
   font-weight: bold;
   color: $white;
   background-image: $orange-pink-gradient;
@@ -156,6 +158,10 @@
     position: relative;
     top: 1px;
   }
+
+  @include min-width(30rem) {
+    margin: 0 0.5rem;    
+  }
 }
 
 .header-nav-btn-outline {
@@ -163,7 +169,7 @@
   border-radius: 5rem;
   padding: 0.5rem 1rem;
   line-height: 1rem;
-  margin: 0 0.5rem;
+  margin: 0.5rem;
   color: $white;
   border: 1px solid rgba($white, 0.5);
 
@@ -175,6 +181,10 @@
   &:active {
     position: relative;
     top: 1px;
+  }
+
+  @include min-width(30rem) {
+    margin: 0 0.5rem;    
   }
 
 }

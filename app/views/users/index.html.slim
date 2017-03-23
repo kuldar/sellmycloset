@@ -1,6 +1,7 @@
-.grid#grid.is-loading
-	- @users.each do |user|
-		.grid-item = render 'shared/user_card', user: user
+.main
+  .grid#grid.is-loading
+  	- @users.each do |user|
+  		.grid-item = render 'shared/user_card', user: user
 		
 javascript:
 	$('#grid').imagesLoaded( function() {

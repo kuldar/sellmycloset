@@ -27,4 +27,5 @@ header.header
 
       - else
         = link_to t('.products'), '/products', class: 'header-nav-btn-outline'
+        = link_to t('.users'), '/users', class: 'header-nav-btn-outline'
         = link_to t('shared.header.sign_in_with_facebook'), user_facebook_omniauth_authorize_path, class: 'header-nav-btn'
