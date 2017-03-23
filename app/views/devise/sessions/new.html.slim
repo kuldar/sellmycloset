@@ -1,5 +1,5 @@
 .main.is-purple style="background-image: url('#{ image_path('home-hero-bg.jpg') }');"
-  .form-title Logi e-maili aadressiga sisse
+  .form-title = t('.sign_in_title')
 
   = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form' }) do |f|
     .card.is-small
@@ -15,7 +15,7 @@
           = f.password_field :password, autocomplete: "off", class: 'form-input', placeholder: t('example.password')
 
         .form-footer
-          = f.submit t('.sign_in'), class: 'form-btn is-main', data: { disable_with: "Login sisse.."}
+          = f.submit t('.sign_in'), class: 'form-btn is-main', data: { disable_with: t('.signing_in')}
 
           - if devise_mapping.rememberable?
             .form-checkbox-group.pull-right
@@ -23,7 +23,7 @@
               = f.label :remember_me, class: 'form-checkbox-label'
 
   .form-bottom
-    span.form-bottom-text Pole veel liitunud? Registeeru 
-    =<> link_to 'e-mailiga', new_user_registration_path, class: 'form-bottom-link'
-    span.form-bottom-text või
-    =< link_to 'Facebookiga', user_facebook_omniauth_authorize_path, class: 'form-bottom-link'
+    span.form-bottom-text = t('.not_joined')
+    =<> link_to t('.signup_with_email'), new_user_registration_path, class: 'form-bottom-link'
+    span.form-bottom-text = t('.or')
+    =< link_to t('.signup_with_facebook'), user_facebook_omniauth_authorize_path, class: 'form-bottom-link'

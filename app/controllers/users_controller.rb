@@ -10,31 +10,31 @@ class UsersController < ApplicationController
   end
 
   def likes
-    @view_title = 'Minu meeldimised'
+    @view_title = t('user.my_likes')
     @products = @user.liked_products
     render 'liked_products'
   end
 
   def following
-    @view_title = 'Keda ma fännan'
+    @view_title = t('user.my_followings')
     @users = @user.following
     render 'users_list'
   end
 
   def followers
-    @view_title = 'Minu fännid'
+    @view_title = t('user.my_followers')
     @users = @user.followers
     render 'users_list'
   end
 
   def sales
-    @view_title = 'Minu müügid'
+    @view_title = t('user.my_sales')
     @transactions = @user.sales
     render 'transactions/transactions_list'
   end
 
   def purchases
-    @view_title = 'Minu ostud'
+    @view_title = t('user.my_purchases')
     @transactions = @user.purchases
     render 'transactions/transactions_list'
   end

@@ -69,6 +69,11 @@ et:
     ago: "tagasi"
 
   user:
+    my_likes: "Minu meeldimised"
+    my_followings: "Keda ma fännan"
+    my_followers: "Minu fännid"
+    my_sales: "Minu müügid"
+    my_purchases: "Minu ostud"
     log_out: "Logi välja"
     change_avatar: "Muuda avatari"
     change_cover: "Muuda kaanepilti"
@@ -82,6 +87,7 @@ et:
     unfollow: "Loobu jälgimisest"
     become_seller:
       flash_success: "Oled nüüd müüja, congrats! :sparkles: <a href='/p/new'>Lisa oma esimene toode!</a>"
+
   
   product_images:
     delete: "Kustuta"
@@ -248,9 +254,12 @@ et:
       updated: "Seaded edukalt uuendatud! :+1:"
       new:
         sign_up: 'Loo uus konto'
-        sign_up_title: 'Liitu kasutades e-maili aadressi, või :point_down:'
+        sign_up_title: 'Liitu kasutades e-maili aadressi'
         sign_up_with_facebook: 'Liitu Facebooki abil'
         or_log_in: 'Või logi sisse'
+        signing_up: "Liitun.."
+        already_joined: "Juba liitunud?"
+        log_in: "Logi sisse"
 
       edit:
         save_changes: 'Salvesta'
@@ -260,8 +269,13 @@ et:
       signed_out: "Oled välja logitud, järgmise korrani! :wave:"
       already_signed_out: "Signed out successfully."
       new:
-        sign_in: 'Logi sisse'
-        sign_in_title: 'Logi sisse oma e-maili kasutades'
+        sign_in: "Logi sisse"
+        sign_in_title: "Logi sisse oma e-maili kasutades"
+        signing_in: "Login sisse"
+        not_joined: "Pole veel liitunud?"
+        signup_with_email: "Registreeru e-mailiga"
+        or: "või"
+        signup_with_facebook: "Facebookiga"
 
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."

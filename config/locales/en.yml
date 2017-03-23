@@ -69,6 +69,11 @@ en:
     ago: "ago"
 
   user:
+    my_likes: "My likes"
+    my_followings: "My followings"
+    my_followers: "My followers"
+    my_sales: "My sales"
+    my_purchases: "My purchases"
     change_avatar: "Change avatar"
     change_cover: "Change cover"
     settings: "Settings"
@@ -253,8 +258,11 @@ en:
       updated: "Your account has been updated successfully."
       new:
         sign_up: 'Sign up'
-        sign_up_title: 'Sign up using your email, or :point_down:'
+        sign_up_title: 'Sign up using your email'
         sign_up_with_facebook: 'Sign up with Facebook'
+        signing_up: "Signing up..."
+        already_joined: "Already joined?"
+        log_in: "Log in"
 
       edit:
         save_changes: 'Save changes'
@@ -265,8 +273,13 @@ en:
       already_signed_out: "Already signed out"
       new:
         sign_in: 'Sign in'
-        sign_in_title: 'Sign in using your email, or :point_down:'
+        sign_in_title: 'Sign in using your email'
         sign_in_with_facebook: 'Sign in with Facebook'
+        signing_in: 'Signing in..'
+        not_joined: "Not yet joined?"
+        signup_with_email: "Sign up with email"
+        or: "or"
+        signup_with_facebook: "using Facebook"
 
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
