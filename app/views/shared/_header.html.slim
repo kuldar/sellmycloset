@@ -18,11 +18,7 @@ header.header
         - elsif current_user.seller? || current_user.admin?
           = link_to t('.add_product'), new_product_path, class: 'header-nav-btn'
 
-        .header-nav-notifications data-behavior='notifications'
-          .header-nav-notifications-info
-            span.header-nav-notifications-icon 🔔
-            span.header-nav-notifications-counter data-behavior='unread-count' = Notification.where(recipient: current_user).unread.count
-          .header-nav-notifications-list data-behavior='notification-items'
+        = render 'shared/header_notifications'
 
         = link_to user_path(current_user), class: 'header-nav-user' do
           - if current_user.avatar

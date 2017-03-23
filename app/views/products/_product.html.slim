@@ -55,7 +55,7 @@
 
         .product-description
           => emojify @product.description
-          = link_to t("product.categories.#{@product.category.to_s}", count: 1), products_path(category: @product.category)
+          / = link_to t("product.categories.#{@product.category.to_s}", count: 1), products_path(category: @product.category)
 
         .product-info-footer
           - if @product.sold?

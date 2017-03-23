@@ -10,7 +10,7 @@ et:
 
   site:
     name: "Sell My Closet"
-    title: "Müü ja avasta parimaid stiilileide - SellMyCloset.ee"
+    title: "Müü ja avasta parimaid stiilileide - SellMyCloset.co"
     description: "See on Sell My Closet'i kirjeldus"
     facebook_url: "https://facebook.com/gosellmycloset"
     twitter_url: "https://twitter.com/gosellmycloset"
@@ -180,6 +180,14 @@ et:
       join_us: "Liitu ühe klikiga, ning avasta põnevamaid vähekasutatud moepakkumisi :sparkles:"
       sign_up_with_facebook: 'Liitu Facebooki abil'
       sign_up: 'Liitu e-mailiga'
+
+  notification:
+    all_notifications: "Näita kõiki"
+    ago: "tagasi"
+    deleted: "(kustutatud)"
+    new_follower: "<strong>%{user_name}</strong> hakkas sinu fänniks"
+    new_product_like: "<strong>%{user_name}</strong> :heart: %{product_name}"
+    new_product_comment: "<strong>%{user_name}</strong> :speech_balloon: %{product_name}"
 
   devise:
     confirmations:

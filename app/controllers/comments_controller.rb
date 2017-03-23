@@ -8,18 +8,20 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save!
 
-        Notification.create(
-          recipient: @product.user, 
-          actor: current_user, 
-          action: 'commented',
-          notifiable: @product)
+        unless @product.user == current_user
+          Notification.create(
+            recipient: @product.user, 
+            actor: current_user, 
+            action: 'commented',
+            notifiable: @comment)
+        end
 
-        (@product.commented_users.uniq - [current_user]).each do |user|
+        (@product.commented_users.uniq - [@product.user, current_user]).each do |user|
           Notification.create(
             recipient: user, 
             actor: current_user, 
             action: 'commented',
-            notifiable: @product)
+            notifiable: @comment)
         end
 
         format.html { redirect_to @product }
@@ -33,7 +35,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    @comment.destroy! if current_user == @comment.user
+    @comment.destroy if current_user == @comment.user
 
     respond_to do |format|
       if @comment.destroyed?

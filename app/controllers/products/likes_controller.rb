@@ -9,7 +9,7 @@ class Products::LikesController < ApplicationController
       recipient: @product.user,
       actor: current_user,
       action: 'liked',
-      notifiable: @product)
+      notifiable: @product) unless @product.user == current_user
 
     respond_to do |format|
       format.html { redirect_to @product }
@@ -19,6 +19,7 @@ class Products::LikesController < ApplicationController
 
   def destroy
     @product.likes.where(user_id: current_user.id).destroy_all
+
     respond_to do |format|
       format.html { redirect_to @product }
       format.js

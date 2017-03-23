@@ -21,28 +21,35 @@ class Product < ApplicationRecord
   }
 
   belongs_to :user
-  has_many  :likes
+
+  has_many  :product_images, dependent: :destroy
+
+  has_many  :likes, dependent: :destroy
   has_many  :liked_users, through: :likes, source: :user
 
   has_many  :comments, dependent: :destroy
   has_many  :commented_users, through: :comments, source: :user
 
   has_one   :sale, foreign_key: 'product_id', class_name: 'Transaction'
-  
-  has_many  :product_images, dependent: :destroy
-  # accepts_nested_attributes_for :product_images, allow_destroy: true
-  # validates :product_images, presence: true
 
-  # default_scope { where(status: :active).order(created_at: :desc) }
   default_scope { order(created_at: :desc) }
   scope :in_category, lambda { |category| where(category: category) }
+  scope :active, -> { where(status: :active) }
 
-  validates :title, :description, :price_cents, :user_id, :category, presence: true
   monetize :price_cents, numericality: { greater_than_or_equal_to: 5 }
 
-  # def earnings
-  #   price * MARGIN
-  # end
+  validates :title, 
+            :description, 
+            :price_cents, 
+            :user_id, 
+            :category, 
+              presence: true
+
+  before_destroy :clear_notifications
+
+  def earnings(user=nil)
+    earnings = total_price_cents * user.payout_margin
+  end
 
   def total_price_cents
     price_cents + shipping_price_cents
@@ -59,5 +66,11 @@ class Product < ApplicationRecord
   def shipping_price
     shipping_price_cents/100
   end
+
+  private
+
+    def clear_notifications
+      Notification.where(notifiable: self).destroy_all
+    end
 
 end

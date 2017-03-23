@@ -141,25 +141,42 @@
   }
 }
 
-.header-nav-notifications {
-  margin: 0 0.5rem 0 0;
-  color: $black;
-  line-height: 2rem;
-  height: 2rem;
-  padding: 0 0.75rem 0 0.5rem;
-  border-radius: 10rem;
-  position: relative;
-  background-color: $white;
-  box-shadow: 0 1px 2px rgba($black, 0.1);
+/////////////////////
+//  Notifications  //
+/////////////////////
 
+.header-notifications {
+  position: relative;
+  
   &.is-open {
-    .header-nav-notifications-list {
+    .header-notifications-list {
       display: block;
     }
   }
 
+  &.has-unread {
+    .header-notifications-link {
+      border-color: transparent;
+      background-color: $red;
+      box-shadow: 0 1px 2px rgba($black, 0.1);
+    }
+  }
+}
+
+.header-notifications-link {
+  display: block;
+  white-space: nowrap;
+  margin: 0 0.5rem 0 0;
+  line-height: 2rem;
+  height: 2rem;
+  padding: 0 0.75rem 0 0.5rem;
+  border-radius: 10rem;
+  color: $white;
+  border: 1px solid rgba($white, 0.5);
+
   &:hover {
     cursor: pointer;
+    border-color: rgba($white, 0.75);
   }
 
   &:active {
@@ -168,18 +185,14 @@
   }
 }
 
-.header-nav-notifications-info {
-  white-space: nowrap;
-}
-
-.header-nav-notifications-icon {}
-.header-nav-notifications-counter {
+.header-notifications-icon {}
+.header-notifications-counter {
   font-weight: bold;
 }
 
-.header-nav-notifications-list {
+.header-notifications-dropdown {
+  overflow: hidden;
   display: none;
-  width: 20rem;
   z-index: 100;
   top: 2.5rem;
   right: 0;
@@ -187,15 +200,68 @@
   background-color: $white;
   border-radius: 0.5rem;
   box-shadow: 0 2px 4px 1px rgba($black, 0.1);
-  padding: 1rem;
 }
 
-.header-nav-notifications-list-item {
-  display: block;
+.header-notifications-list {}
+
+.header-notifications-list-item {
+  @include display(flex);
+  padding: 0.5rem 1rem;
   border-bottom: 1px solid $light-gray;
-  padding: 0.5rem 0;
   line-height: 1rem;
 
-  &:last-child { border-bottom: none; }
-  &.is-unread { font-weight: bold; }
+  &:first-child {
+    padding-top: 1rem;
+  }
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 1rem;
+  }
+
+  &:hover {
+    text-decoration: none;
+    background-color: $light-gray;
+  }
+
+  &.is-unread {
+    background-color: rgba($blue, 0.1);
+
+    &:hover {
+      background-color: rgba(darken($blue, 10), 0.15);
+    }
+  }
+}
+
+.header-notifications-list-item-avatar {
+  border-radius: 10rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  display: block;
+  margin-right: 0.5rem;
+}
+
+.header-notifications-list-item-content {
+  @include flex(1);
+  strong { font-weight: 600; }
+}
+
+.header-notifications-list-item-text {
+  color: $black;
+  white-space: nowrap;
+}
+
+.header-notifications-list-item-timestamp {
+  white-space: nowrap;
+  color: $gray;
+  font-size: 0.875rem;
+  line-height: 1rem;
+}
+
+.header-notifications-dropdown-more-link {
+  white-space: nowrap;
+  display: block;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  color: $gray;
 }

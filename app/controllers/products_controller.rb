@@ -2,10 +2,10 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_seller, only: [:new, :create]
   before_action :authenticate_product_seller, only: [:edit, :update, :destroy]
+  # before_action :clean_notifications, only: :destroy
 
   def index
-    # @products = Product.active
-    @products = Product.in_category(params[:category])
+    @products = params[:category] ? Product.in_category(params[:category]) : Product.active
   end
 
   def show
@@ -21,7 +21,6 @@ class ProductsController < ApplicationController
     @product = current_user.products.build(product_params)
 
     if @product.save && set_images
-    # if @product.save
       flash[:success] = t('.flash_success', url: product_url(@product))
       redirect_to @product
     else
@@ -75,18 +74,14 @@ class ProductsController < ApplicationController
         product_images_attributes: [:id, :product_id, :image_data])
     end
 
-    # def save_images
-    #   unless params[:product_images].blank?
-    #     params[:product_images]['image'].each do |image|
-    #       @product_image = @product.product_images.create!(image: image)
-    #     end
-    #   end
-    # end
-
     def set_images
       unless params[:product_images].blank?
         ProductImage.where(id: params[:product_images]).update_all(product_id: @product.id)
       end
     end
+
+    # def clean_notifications
+    #   Notification.where("notifiable_id = ?", @product.id).destroy_all
+    # end
 
 end
