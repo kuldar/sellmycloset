@@ -1,0 +1,32 @@
+.main.is-purple style="background-image: url('#{ image_path('home-hero-bg.jpg') }');"
+  .form-title New Shipping Targets
+
+  = form_for @shipping_target do |f|
+    .card.is-small
+      .card-section.is-gray.is-padded
+        = render 'shared/error_messages', object: f.object
+        .form-hidden-fields
+
+        .form-group
+          = f.label :name, class: 'form-label'
+          = f.text_field :name, placeholder: 'name', class: 'form-input'
+
+        .form-group
+          = f.label :code, class: 'form-label'
+          = f.text_field :code, placeholder: 'code', class: 'form-input'
+
+        .form-group
+          = f.label :address, class: 'form-label'
+          = f.text_field :address, placeholder: 'address', class: 'form-input'
+
+        .form-group
+          = f.label :city, class: 'form-label'
+          = f.text_field :city, placeholder: 'city', class: 'form-input'
+
+        .form-group
+          = f.label :country, class: 'form-label'
+          = f.text_field :country, placeholder: 'country', class: 'form-input'
+        
+        
+        .form-footer.extra-padded
+          = f.button 'Add shiping target', class: 'form-btn is-main pull-left', data: { disable_with: "Adding.."}

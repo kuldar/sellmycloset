@@ -35,15 +35,15 @@ en:
 
   shared:
     header:
-      products: "Products"
+      sellers: "Sellers"
+      products: "Kuulutused"
       sign_in_with_facebook: "Log in with Facebook"
       log_in: "Log in"
       log_out: "Log out"
       join: "Join"
       add_product: "Add a product"
       my_products: "My product"
-      become_seller: "Sell"
-      admin: "Admin"
+      become_seller: "Start selling"
 
     user_nav:
       products_active:
@@ -71,6 +71,9 @@ en:
     ago: "ago"
 
   user:
+    confirm_remove_card: "Wish to remove the card?"
+    my_credit_card: "My credit card"
+    remove_card: "Remove card"
     my_likes: "My likes"
     my_followings: "My followings"
     my_followers: "My followers"
@@ -103,6 +106,8 @@ en:
 
   product:
     buy: "Buy"
+    sold: "Sold"
+    sold_ago_in_words: "Sold %{time_ago} ago"
     change: "Change"
     facebook_share: "Share on Facebook"
     twitter_share: "Share on Twitter"
@@ -182,12 +187,15 @@ en:
 
   transactions:
     new:
+      buy_product: "Buy the product"
+      shipping_target_id: "Shipping location"
       shipping: "shipping"
       choose_shipping: "Choose shipping"
       card_number: "Card number"
       cvv: "CVV"
       exp_date: "Expiration date"
       pay: "Pay"
+      paying: "Paying.."
       change_card: "Change the card"
 
   promos:

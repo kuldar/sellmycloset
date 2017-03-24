@@ -1,5 +1,7 @@
-.main
-  .card.is-small
+.main.is-purple style="background-image: url('#{ image_path('home-hero-bg.jpg') }');"
+  .form-title = t('.buy_product')
+
+  .card.is-xsmall
     .card-section
       .transaction-product-image-container
         = link_to @product.user, class: 'transaction-product-seller' do
@@ -24,50 +26,58 @@
       = form_for product_transaction_path, url: { action: 'show' }, method: 'post', data: { behavior: 'payment-form' } do |f|
 
           .form-group
-            select.form-select data-select="#{@product.id}" id="shipping_target" name="shipping_target"
-              option
-              option value="1" Mustamäe pakiautomaat
-              option value="2" Laagri pakiautomaat
-              option value="3" Viru Keskuse pakiautomaat
+            = f.label :shipping_target_id, class: 'form-label'
+            = select_tag :shipping_target_id, options_from_collection_for_select(@shipping_targets, 'id', 'name', current_user.shipping_target_id), prompt: true, class: 'form-select', data: { behavior: 'shipping-target-select' }
 
-          - if current_user.has_payment_info?
-            = f.hidden_field :buyer_id, value: current_user.id
-            = f.hidden_field :seller_id, value: @product.user.id
-            .clearfix
-              button.transaction-form-submit-btn.pull-left type='submit'
-                | <strong>#{ t('.pay') }</strong> <span class='price'>#{ number_to_currency @product.total_price }</span>
-              = link_to t('.change_card'), '#', class: 'form-link pull-right'
+          = f.hidden_field :buyer_id, value: current_user.id
+          = f.hidden_field :seller_id, value: @product.user.id
 
-          - else
-            .transaction-form-card
-              #error-message
-              
-              .transaction-form-section
-                label.transaction-form-label for='card-number' = t('.card_number')
-                #card-number.transaction-form-input
+          .transaction-form-card-container data-behavior='credit-card'
+            - if current_user.has_payment_info?
+              .form-group
+                label.form-label = t('user.my_credit_card')
+                .form-credit-card
+                  .form-credit-card-number
+                    span.form-credit-card-icon 💳
+                    span.form-credit-card-dots = "&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull;".html_safe
+                    = current_user.braintree_last_4
+                  = link_to t('user.remove_card'), remove_payment_method_path, class: 'form-credit-card-remove', data: {confirm: t('user.confirm_remove_card')}, method: :put
 
-              .transaction-form-section
-                label.transaction-form-label for='cvv' = t('.cvv')
-                #cvv.transaction-form-input
+            - else
+              .transaction-form-card
+                #error-message
+                input type='hidden' name='payment_method_nonce'
+                
+                .transaction-form-section
+                  label.transaction-form-label for='card-number' = t('.card_number')
+                  #card-number.transaction-form-input
 
-              .transaction-form-section
-                label.transaction-form-label for='expiration-date' = t('.exp_date')
-                #expiration-date.transaction-form-input
-              
-            = f.hidden_field :buyer_id, value: current_user.id
-            = f.hidden_field :seller_id, value: @product.user.id
-            input type='hidden' name='payment_method_nonce'
-            button.transaction-form-submit-btn type='submit' disabled=true data-behavior='payment-submit'
+                .transaction-form-sections
+                  .transaction-half-form-section
+                    label.transaction-form-label for='cvv' = t('.cvv')
+                    #cvv.transaction-form-input
+
+                  .transaction-half-form-section
+                    label.transaction-form-label for='expiration-date' = t('.exp_date')
+                    #expiration-date.transaction-form-input
+                  
+
+          .form-footer.extra-padded
+            = content_tag :button, type: 'submit', class: 'transaction-form-submit-btn', disabled: true, data: { behavior:'payment-submit', disable_with: t('.paying') } do
               | <strong>#{ t('.pay') }</strong> <span class="price">#{ number_to_currency(@product.total_price) }<span class="price">
 
 javascript:
   $(document).ready(function () {
-    $('[data-select="#{@product.id}"]').select2({
+    $("[data-behavior='shipping-target-select']").select2({
       placeholder: "#{ t('.choose_shipping') }"
     });
   });
+
+- if current_user.has_payment_info?
+  javascript:
+    document.querySelector('[data-behavior="payment-submit"]').removeAttribute('disabled');
   
-- unless current_user.has_payment_info?
+- else
   script#braintree-client-token type="application/json"
     = @braintree_client_token
 
@@ -121,6 +131,7 @@ javascript:
 
         form.addEventListener('submit', function (event) {
           event.preventDefault();
+          console.log('Submitted');
 
           hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
             if (tokenizeErr) {

@@ -17,25 +17,29 @@
   background-position: center;
   color: $white;
   box-shadow: 0 1px 3px rgba($dark-gray, 0.1);
-  &:after {
-    content: '';
-    z-index: 20;
-    background-color: red;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    @include background(linear-gradient(
-      rgba($black, 0) 20%,
-      rgba($black, 0.1) 30%,
-      rgba($black, 0.5) 50%,
-      rgba($black, 0.85))
-    );
-  }
 
   @include min-width(30rem) {
     padding: 2rem;
+  }
+
+  &.has-cover {
+
+    &:after {
+      content: '';
+      z-index: 20;
+      background-color: red;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      @include background(linear-gradient(
+        rgba($black, 0) 20%,
+        rgba($black, 0.1) 30%,
+        rgba($black, 0.5) 50%,
+        rgba($black, 0.85))
+      );
+    }
   }
 }
 

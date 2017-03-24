@@ -34,6 +34,6 @@
 
       div
         strong Shipping Target
-        div = @transaction.shipping_target
+        div = @transaction.shipping_target.name
 
       = link_to 'delete', product_transaction_path(@transaction.product), method: :delete, data: {confirm: 'sure?'}

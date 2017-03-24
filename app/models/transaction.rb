@@ -6,7 +6,8 @@ class Transaction < ApplicationRecord
     received: 2
   }
 
-	belongs_to :product
+	belongs_to :shipping_target
+  belongs_to :product
 	belongs_to :buyer, class_name: 'User'
 	belongs_to :seller, class_name: 'User'
 
@@ -14,13 +15,13 @@ class Transaction < ApplicationRecord
 
   monetize :product_price_cents, :shipping_price_cents
 
-  validates :product_id, 
+  validates :product_id,
             :seller_id, 
             :buyer_id, 
             :payout_margin, 
             :product_price, 
             :shipping_price, 
-            :shipping_target, 
+            :shipping_target_id, 
               presence: true
   
   private

@@ -29,7 +29,7 @@
         .form-groups
           .form-half-group
             = f.label :category, class: 'form-label'
-            = f.select :category, Product.categories.to_a.map { |w| [t('product.categories.' + w[0].to_s, count: 2), w[0]] }, {}, { class: 'form-select', data: { behavior: 'category-select' }, required: true }
+            = f.select :category, Product.categories.to_a.map { |w| [t('product.categories.' + w[0].to_s, count: 2), w[0]] }, { prompt: true }, { class: 'form-select', data: { behavior: 'category-select' }, required: true }
           .form-half-group
             = f.label :size, class: 'form-label'
             = f.text_field :size, placeholder: t('.product_size_placeholder'), class: 'form-input'
@@ -46,19 +46,20 @@
             .form-earnings-label = t('product.earnings')
             .form-earnings-number = @product.new_record? ? '' : humanized_money_with_symbol( (@product.price_cents*current_user.payout_margin)/100 )
         
-        .form-footer
+        .form-footer.extra-padded
           - if @product.new_record?
-            = f.button t('.add_product'), class: 'form-btn is-main pull-left', data: { disable_with: "Lisan toodet.."}, disabled: true
+            = f.button t('.add_product'), class: 'form-btn is-main pull-left', data: { disable_with: t('.adding_product')}, disabled: true
             = link_to t('site.need_help'), '#', class: 'form-link pull-right drift-open-chat'
           - else
-            = f.button t('.update_product'), class: 'form-btn is-main pull-left', data: { disable_with: 'Uuendan toodet..'}
+            = f.button t('.update_product'), class: 'form-btn is-main pull-left', data: { disable_with: t('.updating_product')}
             = link_to t('.delete_product'), @product, method: :delete, data: {confirm: t('.delete_product_confirmation')}, class: 'form-link pull-right'
 
 javascript:
   $(document).ready(function () {
 
     $("[data-behavior='category-select']").select2({
-      placeholder: "#{t('.product_category_placeholder')}"
+      placeholder: "#{t('.product_category_placeholder')}",
+      minimumResultsForSearch: Infinity
     });
 
     $('#new_product [required=required]').on("change paste keyup", function() {

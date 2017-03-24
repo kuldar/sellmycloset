@@ -23,6 +23,7 @@
 	}
 
 	&.is-small { max-width: 40rem; }
+	&.is-xsmall { max-width: 30rem; }
 
 	@include min-width(40rem) {
 		margin: 2rem auto;
@@ -55,9 +56,9 @@
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
-	background-color: $purple;
+	background-color: $dark-purple;
 
-	&:after {
+	&.has-bg:after {
 		content: '';
 		position: absolute;
 		z-index: 10;

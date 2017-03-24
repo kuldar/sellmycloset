@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170321164154) do
+ActiveRecord::Schema.define(version: 20170323223809) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -70,13 +70,24 @@ ActiveRecord::Schema.define(version: 20170321164154) do
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
+  create_table "shipping_targets", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.string "address"
+    t.string "city"
+    t.string "country"
+  end
+
   create_table "transactions", force: :cascade do |t|
     t.integer  "status",                  default: 1
     t.integer  "seller_id"
     t.integer  "buyer_id"
     t.integer  "product_id"
-    t.string   "shipping_target"
+    t.integer  "shipping_target_id"
     t.float    "payout_margin"
+    t.datetime "shipped_at"
+    t.datetime "arrived_at"
+    t.datetime "received_at"
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
     t.integer  "product_price_cents",     default: 0,     null: false
@@ -117,6 +128,8 @@ ActiveRecord::Schema.define(version: 20170321164154) do
     t.string   "uid"
     t.string   "provider"
     t.string   "braintree_customer_id"
+    t.string   "braintree_last_4"
+    t.integer  "shipping_target_id"
     t.integer  "available_balance_cents",    default: 0,     null: false
     t.string   "available_balance_currency", default: "EUR", null: false
     t.integer  "pending_balance_cents",      default: 0,     null: false

@@ -11,13 +11,21 @@ header.header
 
     / Header Nav
     nav.header-nav
+      = link_to products_path, class: 'header-nav-btn-outline' do
+        span.header-nav-btn-icon 👗
+        span.header-nav-btn-text = t('.products')
+
+      = link_to sellers_path, class: 'header-nav-btn-outline' do
+        span.header-nav-btn-icon 🙋
+        span.header-nav-btn-text = t('.sellers')
+
       - if user_signed_in?
+        - if current_user.buyer?
+          = link_to t('.become_seller'), become_seller_path, class: 'header-nav-btn-outline'
+        = render 'shared/header_notifications'
         - if current_user.seller? || current_user.admin?
           = link_to t('.add_product'), new_product_path, class: 'header-nav-btn'
 
-        = render 'shared/header_notifications'
-        - if current_user.buyer?
-          = link_to t('.become_seller'), become_seller_path, class: 'header-nav-btn-outline'
         = link_to user_path(current_user), class: 'header-nav-user' do
           - if current_user.avatar
             = image_tag current_user.avatar_url(:thumb, public: true), class: 'header-nav-avatar'
@@ -26,6 +34,4 @@ header.header
             = current_user.first_name
 
       - else
-        = link_to t('.products'), '/products', class: 'header-nav-btn-outline'
-        = link_to t('.users'), '/users', class: 'header-nav-btn-outline'
         = link_to t('shared.header.sign_in_with_facebook'), user_facebook_omniauth_authorize_path, class: 'header-nav-btn'

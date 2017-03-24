@@ -17,24 +17,25 @@ et:
     instagram_url: "https://instagram.com/gosellmycloset"
     twitter_handle: "@gosellmycloset"
     email: "hi@sellmycloset.co"
-    need_help: 'Vajad abi?'
+    need_help: "Vajad abi?"
 
   example:
-    name: 'Mari Maasikas'
-    username: 'mari'
-    email: 'mari89@gmail.com'
+    name: "Mari Maasikas"
+    username: "mari"
+    email: "mari89@gmail.com"
     phone_number: "55 1234 1234"
-    password: 'Vähemalt 6 tähemärki'
+    password: "Vähemalt 6 tähemärki"
     about: "Mis stiili kannad? Mis pakkumistest huvitatud oled? Lemmik film?"
-    country: 'Eesti'
-    city: 'Tallinn'
+    country: "Eesti"
+    city: "Tallinn"
     facebook_handle: "/marimaasikas"
     instagram_handle: "@marimaasikas"
-    payout_name: 'Mari Maasikas'
-    iban: 'EE382200221020145685'
+    payout_name: "Mari Maasikas"
+    iban: "EE382200221020145685"
 
   shared:
     header:
+      sellers: "Müüjad"
       products: "Kuulutused"
       sign_in_with_facebook: "Logi sisse Facebookiga"
       log_in: "Sisene"
@@ -42,25 +43,24 @@ et:
       join: "Liitu"
       add_product: "Lisa toode"
       my_products: "Minu tooted"
-      become_seller: "Müü"
-      admin: "Admin"
+      become_seller: "Hakka müüjaks"
 
     user_nav:
       products_active:
-        one: 'kuulutus'
-        other: 'kuulutust'
+        one: "kuulutus"
+        other: "kuulutust"
 
       sales:
-        one: 'müük'
-        other: 'müüki'
+        one: "müük"
+        other: "müüki"
 
       purchases:
-        one: 'ost'
-        other: 'ostu'
+        one: "ost"
+        other: "ostu"
 
       likes:
-        one: 'meeldimine'
-        other: 'meeldimist'
+        one: "meeldimine"
+        other: "meeldimist"
 
   home:
     hero_title: "Avasta enda jaoks midagi põnevat!"
@@ -71,6 +71,9 @@ et:
     ago: "tagasi"
 
   user:
+    confirm_remove_card: "Soovid kaardi eemaldada?"
+    my_credit_card: "Minu kaart"
+    remove_card: "Eemalda"
     my_likes: "Minu meeldimised"
     my_followings: "Keda ma fännan"
     my_followers: "Minu fännid"
@@ -96,50 +99,52 @@ et:
     delete_confirm: "Soovid pildi kustutada?"
 
   product:
-    buy: 'Osta'
-    change: 'Muuda toodet'
-    facebook_share: 'Jaga Facebookis'
-    twitter_share: 'Jaga Twitteris'
-    views: 'Vaatamisi'
-    size: 'suurus'
-    earnings: 'Teenid'
-    price: 'Müügihind'
+    buy: "Osta"
+    sold: "Müüdud"
+    sold_ago_in_words: "Müüdud %{time_ago} tagasi"
+    change: "Muuda toodet"
+    facebook_share: "Jaga Facebookis"
+    twitter_share: "Jaga Twitteris"
+    views: "Vaatamisi"
+    size: "suurus"
+    earnings: "Teenid"
+    price: "Müügihind"
     new_product_title: "Lisa müüki uus toode"
     edit_product_title: "Muuda oma toodet"
 
     categories:
-      choose_category: 'Vali kategooria'
-      other: 'Varia'
+      choose_category: "Vali kategooria"
+      other: "Varia"
       shirt:
-        one: 'Pluus'
-        other: 'Pluusid'
+        one: "Pluus"
+        other: "Pluusid"
 
       sweater:
-        one: 'Kampsun'
-        other: 'Kampsunid'
+        one: "Kampsun"
+        other: "Kampsunid"
 
       jacket:
-        one: 'Jakk'
-        other: 'Jakid'
+        one: "Jakk"
+        other: "Jakid"
 
       coat:
-        one: 'Mantel'
-        other: 'Mantlid'
+        one: "Mantel"
+        other: "Mantlid"
 
-      pants: 'Püksid'
+      pants: "Püksid"
       skirt:
-        one: 'Seelik'
-        other: 'Seelikud'
+        one: "Seelik"
+        other: "Seelikud"
 
       dress:
-        one: 'Kleit'
-        other: 'Kleidid'
+        one: "Kleit"
+        other: "Kleidid"
 
-      shoes: 'Jalanõud'
+      shoes: "Jalanõud"
 
       accessory:
-        one: 'Aksessuaar'
-        other: 'Aksessuaarid'
+        one: "Aksessuaar"
+        other: "Aksessuaarid"
 
   comments:
     confirm_deletion: "Soovid kommentaari kustutada?"
@@ -160,7 +165,9 @@ et:
       product_category_placeholder: "Püksid"
       product_size_placeholder: "S või 12"
       add_product: "Lisa toode müüki"
+      adding_product: "Lisan toodet.."
       update_product: "Uuenda toodet"
+      updating_product: "Uuendan toodet.."
       delete_product: "Kustuta toode"
       delete_product_confirmation: "Oled kindel, et soovid toote kustutada?"
 
@@ -177,20 +184,23 @@ et:
 
   transactions:
     new:
-      shipping: 'postikulu'
-      choose_shipping: 'Vali pakiautomaat'
-      card_number: 'Kaardi number'
-      cvv: 'CVV'
-      exp_date: 'Kehtivus'
-      pay: 'Maksa kaardiga'
-      change_card: 'Muuda krediitkaarti'
+      buy_product: "Osta toode"
+      shipping: "postikulu"
+      shipping_target_id: "Postiautomaat"
+      choose_shipping: "Vali pakiautomaat"
+      card_number: "Kaardi number"
+      cvv: "CVV"
+      exp_date: "Kehtivus"
+      pay: "Maksa kaardiga"
+      change_card: "Muuda krediitkaarti"
+      paying: "Maksan.."
 
   promos:
     signup_cta:
-      hey_stranger: 'Hei külaline!'
+      hey_stranger: "Hei külaline!"
       join_us: "Liitu ühe klikiga, ning avasta põnevamaid vähekasutatud moepakkumisi :sparkles:"
-      sign_up_with_facebook: 'Liitu Facebooki abil'
-      sign_up: 'Liitu e-mailiga'
+      sign_up_with_facebook: "Liitu Facebooki abil"
+      sign_up: "Liitu e-mailiga"
 
   notification:
     notifications: "Teavitused"
@@ -228,10 +238,13 @@ et:
     mailer:
       confirmation_instructions:
         subject: "Confirmation instructions"
+
       reset_password_instructions:
         subject: "Reset password instructions"
+
       unlock_instructions:
         subject: "Unlock instructions"
+
       password_change:
         subject: "Password Changed"
 
@@ -255,16 +268,17 @@ et:
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address."
       updated: "Seaded edukalt uuendatud! :+1:"
       new:
-        sign_up: 'Loo uus konto'
-        sign_up_title: 'Liitu kasutades e-maili aadressi'
-        sign_up_with_facebook: 'Liitu Facebooki abil'
-        or_log_in: 'Või logi sisse'
+        sign_up: "Loo uus konto"
+        sign_up_title: "Liitu kasutades e-maili aadressi"
+        sign_up_with_facebook: "Liitu Facebooki abil"
+        or_log_in: "Või logi sisse"
         signing_up: "Liitun.."
         already_joined: "Juba liitunud?"
         log_in: "Logi sisse"
 
       edit:
-        save_changes: 'Salvesta'
+        save_changes: "Salvesta"
+        shipping_target_placeholder: "Vali eelistatud postiautomaat"
 
     sessions:
       signed_in: "Teretulemast tagasi!"
@@ -287,40 +301,42 @@ et:
   activerecord:
     models:
       user:
-        one: 'Kasutaja'
-        other: 'Kasutajat'
+        one: "Kasutaja"
+        other: "Kasutajat"
       product:
-        one: 'Toode'
-        other: 'Toodet'
+        one: "Toode"
+        other: "Toodet"
 
     attributes:
       user:
-        email: 'E-maili aadress'
-        username: 'Kasutajanimi'
-        name: 'Täisnimi'
-        password: 'Parool'
-        password_confirmation: 'Parooli kinnitus'
-        remember_me: 'Hoia mind meeles'
-        about: 'Tutvustus'
-        phone_number: "Telefoninumber"
-        avatar: 'Avatar'
-        cover: 'Kaanepilt'
-        facebook_handle: 'Facebooki kasutaja'
+        email: "E-maili aadress"
+        username: "Kasutajanimi"
+        name: "Täisnimi"
+        password: "Parool"
+        password_confirmation: "Parooli kinnitus"
+        remember_me: "Hoia mind meeles"
+        about: "Tutvustus"
+        phone_number: "Telefoni number"
+        avatar: "Avatar"
+        cover: "Kaanepilt"
+        facebook_handle: "Facebooki kasutaja"
         instagram_handle: "Instagrami kasutaja"
-        country: 'Riik'
-        payout_name: 'Väljamakse nimi'
-        payout_iban: 'Väljamakse IBAN'
+        country: "Riik"
+        payout_name: "Pangakonto nimi"
+        payout_iban: "Pangakonto IBAN"
+        shipping_target_id: "Postiautomaat"
+
       product:
-        product_images: 'Tootepildid'
-        title: 'Nimi'
-        size: 'Suurus'
-        description: 'Kirjeldus'
-        price: 'Müügihind'
-        category: 'Kategooria'
+        product_images: "Tootepildid"
+        title: "Nimi"
+        size: "Suurus"
+        description: "Kirjeldus"
+        price: "Müügihind"
+        category: "Kategooria"
 
     errors:
       messages:
-        record_invalid: 'Valideerimine ebaõnnestus: %{errors}'
+        record_invalid: "Valideerimine ebaõnnestus: %{errors}"
         restrict_dependent_destroy:
           has_one: "Ei saa kirjet kustutada kuna sõltuv %{record} on olemas"
           has_many: "Ei saa kirjet kustutada kuna sõltuvad %{record} on olemas"
@@ -425,12 +441,12 @@ et:
         other: "%{count} sekundit"
 
     prompts:
-      day: Päev
-      hour: Tunde
-      minute: Minutit
-      month: Kuu
-      second: Sekundit
-      year: Aasta
+      day: "Päev"
+      hour: "Tunde"
+      minute: "Minutit"
+      month: "Kuu"
+      second: "Sekundit"
+      year: "Aasta"
   
   errors:
     format: "%{attribute} %{message}"
@@ -470,23 +486,23 @@ et:
       other_than: peab olema midagi muud kui %{count}
 
     template:
-      body: 'Probleeme ilmnes järgmiste väljadega:'
+      body: "Probleeme ilmnes järgmiste väljadega:"
       header:
-        one: Üks viga takistas %{model} salvestamist
+        one: "Üks viga takistas %{model} salvestamist"
         other: "%{count} viga takistasid %{model} salvestamist"
 
   helpers:
     select:
-      prompt: Palun vali
+      prompt: "Palun vali"
 
     submit:
-      create: Loo uus %{model}
-      submit: Salvesta %{model}
-      update: Uuenda %{model}
+      create: "Loo uus %{model}"
+      submit: "Salvesta %{model}"
+      update: "Uuenda %{model}"
 
   administrate:
     actions:
-      confirm: 'Oled kindel?'
+      confirm: "Oled kindel?"
 
   number:
     currency:
@@ -510,15 +526,15 @@ et:
       decimal_units:
         format: "%n %u"
         units:
-          billion: miljard
-          million: miljon
-          quadrillion: kvadriljon
-          thousand: tuhat
-          trillion: triljon
-          unit: ''
+          billion: "miljard"
+          million: "miljon"
+          quadrillion: "kvadriljon"
+          thousand: "tuhat"
+          trillion: "triljon"
+          unit: ""
 
       format:
-        delimiter: ''
+        delimiter: ""
         precision: 1
         significant: true
         strip_insignificant_zeros: true
@@ -539,9 +555,9 @@ et:
       words_connector: ", "
 
   time:
-    am: enne lõunat
+    am: "enne lõunat"
     formats:
       default: "%d. %B %Y, %H:%M"
       long: "%a, %d. %b %Y, %H:%M:%S %z"
       short: "%d.%m.%y, %H:%M"
-    pm: pärast lõunat
+    pm: "pärast lõunat"

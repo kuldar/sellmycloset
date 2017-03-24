@@ -1,5 +1,7 @@
 / User Card
-.user-card style="#{ 'background-image:url(' + user.cover_url(:medium, public: true) + ');' if user.cover }"
+= content_tag :div, 
+	class: "user-card #{'has-cover' if user.cover}", 
+	style: "background-image:url('#{ user.cover_url(:medium, public: true) if user.cover}');"
 
 	/ User Header
 	= link_to user_path(user), class: 'user-card-header' do
@@ -39,6 +41,7 @@
 			.user-card-stat-key = t('user.sales')
 			.user-card-stat-value class="#{ "is-muted" if user.products.sold.count == 0 }" = user.products.sold.count
 
-		= link_to followers_user_path(user), class: 'user-card-stat'
+		/ = link_to followers_user_path(user), class: 'user-card-stat'
+		span.user-card-stat
 			.user-card-stat-key = t('user.followers')
 			.user-card-stat-value data-follow-count="#{user.id}" class="#{ "is-muted" if user.followers.count == 0 }" = user.followers.count

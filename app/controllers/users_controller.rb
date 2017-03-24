@@ -15,6 +15,10 @@ class UsersController < ApplicationController
     render 'liked_products'
   end
 
+  def sellers
+    @users = User.sellers
+  end
+
   def following
     @view_title = t('user.my_followings')
     @users = @user.following
@@ -45,13 +49,19 @@ class UsersController < ApplicationController
     redirect_to new_product_path
   end
 
+  def remove_payment_method
+    current_user.update_attribute(:braintree_customer_id, nil)
+    current_user.update_attribute(:braintree_last_4, nil)
+    redirect_to edit_user_path(current_user)
+  end
+
   def avatar
-    current_user.update_attribute :avatar, params[:user][:avatar]
+    current_user.update_attribute(:avatar, params[:user][:avatar])
     render json: { avatar_url: current_user.avatar_url(:medium, public: true) }
   end
 
   def cover
-    current_user.update_attribute :cover, params[:user][:cover]
+    current_user.update_attribute(:cover, params[:user][:cover])
     render json: { cover_url: current_user.cover_url(:medium, public: true) }
   end
 

@@ -16,6 +16,8 @@ class AddColumnsToUsers < ActiveRecord::Migration[5.0]
       t.string  :uid
       t.string  :provider
       t.string  :braintree_customer_id
+      t.string  :braintree_last_4
+      t.integer :shipping_target_id
     end
 
     add_monetize :users, :available_balance

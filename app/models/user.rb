@@ -53,6 +53,8 @@ class User < ApplicationRecord
 
   monetize :pending_balance_cents, :available_balance_cents, :total_earnings_cents
 
+  scope :sellers, -> { where(role: :seller) }
+
   def to_param
     username
   end

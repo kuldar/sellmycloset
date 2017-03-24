@@ -41,7 +41,8 @@
             .product-seller-stat-name = t('user.sales')
             .product-seller-stat-number = @product.user.products.sold.count
 
-          = link_to followers_user_path(@product.user), class: 'product-seller-stat'
+          / = link_to followers_user_path(@product.user), class: 'product-seller-stat'
+          .product-seller-stat
             .product-seller-stat-name = t('user.followers')
             .product-seller-stat-number data-follow-count="#{ @product.user.id}" = @product.user.followers.count
 
@@ -59,7 +60,7 @@
 
         .product-info-footer
           - if @product.sold?
-            span.product-outline-btn Müüdud #{ time_ago_in_words(@product.sale.created_at) } tagasi
+            span.product-outline-btn = t('product.sold_ago_in_words', time_ago: time_ago_in_words(@product.sale.created_at))
           - else
             - if current_user == @product.user
               span.product-main-btn = humanized_money_with_symbol(@product.price)
@@ -73,7 +74,7 @@
             .product-meta-btn-container data-likes-counter="#{@product.id}"
               = render partial: 'products/likes_counter', locals: { product: @product }
 
-          - if current_user == @product.user
+          - if current_user == @product.user && !@product.sold?
             = link_to t('product.change'), edit_product_path(@product), class: 'product-outline-btn'
 
       .product-comments-container
