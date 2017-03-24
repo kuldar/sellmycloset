@@ -7,6 +7,8 @@ class AddColumnsToUsers < ActiveRecord::Migration[5.0]
       t.text    :cover_data
       t.text    :avatar_data
       t.text    :about
+      t.string  :city
+      t.string  :country
       t.string  :phone_number
       t.string  :instagram_handle
       t.string  :facebook_handle

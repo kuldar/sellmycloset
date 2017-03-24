@@ -48,7 +48,7 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
 
   # Shipping targets
-  resources :shipping_targets, only: [:index, :new, :create, :destroy]
+  # resources :shipping_targets, only: [:index, :new, :create, :destroy]
 
   # Static pages
   get :seller_advice, to: 'static_pages#seller_advice'
