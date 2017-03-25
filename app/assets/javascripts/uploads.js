@@ -86,6 +86,7 @@ $(document).on('turbolinks:load', function() {
       $.ajax('/users/cover', { method: 'PUT', data: params })
         .done(function(result) {
           $('.card-cover').attr('style', "background-image: url('" + result.cover_url + "');" );
+          $('.card-cover').addClass('has-bg');
         });
     }
   });

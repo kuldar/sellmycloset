@@ -19,6 +19,8 @@
 //= require lib/i18n/et
 //= require lib/jquery.swipebox
 //= require lib/autosize
+//= require lib/photoswipe
+//= require lib/photoswipe-ui-default
 //= require turbolinks
 //= require jquery-fileupload/vendor/jquery.ui.widget
 //= require jquery-fileupload/jquery.iframe-transport
@@ -26,3 +28,4 @@
 //= require uploads
 //= require notifications
 //= require header
+//= require lightbox

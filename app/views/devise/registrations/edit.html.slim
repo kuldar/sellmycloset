@@ -1,6 +1,6 @@
 .main.is-purple style="background-image: url('#{ image_path('home-hero-bg.jpg') }');"
   .form-title = t('user.settings')
-  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true, class: 'form' }) do |f|
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true, class: 'form', data: {behavior:'user-form'} }) do |f|
 
     .card.is-small
       = content_tag :div, 
@@ -23,6 +23,8 @@
 
       .card-section.is-gray.is-padded
         = devise_error_messages!
+
+        h2.form-group-title.is-first Veidi 🙋 sinust
 
         .form-groups
 
@@ -48,7 +50,7 @@
             = f.label :instagram_handle, class: 'form-label'
             = f.text_field :instagram_handle, class: 'form-input', placeholder: "#{ t('example.instagram_handle') }"
 
-        hr
+        h2.form-group-title Ostmiseks vajalik info ✍️
         .form-group
           = f.label :shipping_target_id, class: 'form-label'
           = collection_select :user, :shipping_target_id, @shipping_targets, :id, :name, { prompt: true, selected: current_user.shipping_target_id }, {class: 'form-select', data: { behavior: 'shipping-target-select' }}
@@ -70,7 +72,7 @@
                 span.form-credit-card-icon 💳
                 span.form-credit-card-dots = "&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull;".html_safe
                 = current_user.braintree_last_4
-              = link_to t('user.remove_card'), remove_payment_method_path, class: 'form-credit-card-remove', data: {confirm: t('user.confirm_remove_card')}, method: :put
+              = link_to t('user.remove_card'), remove_payment_method_path, method: :put, class: 'form-credit-card-remove', data: {confirm: t('user.confirm_remove_card')}
 
         - else
           hr
@@ -92,16 +94,17 @@
                 #expiration-date.transaction-form-input
 
         - if current_user.seller?
-          hr
-          .form-group
-            = f.label :payout_name, class: 'form-label'
-            = f.text_field :payout_name, class: 'form-input', placeholder: "#{ t('example.payout_name') }"
-          .form-group
-            = f.label :payout_iban, class: 'form-label'
-            = f.text_field :payout_iban, class: 'form-input', placeholder: "#{ t('example.iban') }"
+          h2.form-group-title Kuhu teenitud 💸 välja kanname?
+          .form-groups
+            .form-half-group
+              = f.label :payout_name, class: 'form-label'
+              = f.text_field :payout_name, class: 'form-input', placeholder: "#{ t('example.payout_name') }"
+            .form-half-group
+              = f.label :payout_iban, class: 'form-label'
+              = f.text_field :payout_iban, class: 'form-input', placeholder: "#{ t('example.iban') }"
 
         .form-footer.extra-padded
-          = f.submit t('.save_changes'), class: 'form-btn is-main', data: { disable_with: "Salvestan muudatused.."}
+          = f.submit t('.save_changes'), class: 'form-btn is-main', data: { disable_with: "Salvestan muudatused..", behavior: 'user-submit'}
 
 javascript:
   $(document).ready(function () {
@@ -116,19 +119,22 @@ javascript:
     = @braintree_client_token
 
   javascript:
-    var form = document.querySelector('[data-behavior="payment-form"]');
-    var submit = document.querySelector('[data-behavior="payment-submit"]');
+    var form = document.querySelector('[data-behavior="user-form"]');
+    var submit = document.querySelector('[data-behavior="user-submit"]');
     var clientToken = document.getElementById('braintree-client-token').innerHTML;
     var nonce = document.querySelector('[name="payment_method_nonce"]')
 
     braintree.client.create({
       authorization: clientToken
     }, function (clientErr, clientInstance) {
+
+      // Cancel, if error
       if (clientErr) {
         console.error(clientErr);
         return;
       }
 
+      // on success, create hosted fields
       braintree.hostedFields.create({
         client: clientInstance,
         vault: true,
@@ -160,8 +166,6 @@ javascript:
           console.error(hostedFieldsErr);
           return;
         }
-
-        submit.removeAttribute('disabled');
 
         form.addEventListener('submit', function (event) {
           event.preventDefault();

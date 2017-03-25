@@ -12,6 +12,23 @@
 	}
 }
 
+.form-group-title {
+  color: $gray;
+  line-height: 1em;
+  font-size: 1.25rem;
+  margin: 2rem;
+  text-align: center;
+  font-weight: bold;
+
+  @include min-width(40rem) {
+    text-align: left;
+    font-size: 2rem;
+    margin: 3rem 0 1.5rem 0;
+
+    &.is-first { margin-top: 1rem; }
+  }
+}
+
 // Form Group
 .form-group {
 	margin-bottom: 1rem;

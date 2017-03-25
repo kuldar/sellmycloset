@@ -16,6 +16,11 @@ body {
   font-size: 1rem;
   font-family: $main-font;
   line-height: 1.25em;
+
+  @include selection {
+    color: $white;
+    background-color: $purple;
+  }
 }
 
 // Remove underline and color from links

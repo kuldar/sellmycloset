@@ -9,14 +9,16 @@ class TransactionsController < ApplicationController
   end
 
   def new
-    @shipping_targets = ShippingTarget.all
+    @shipping_targets = ShippingTarget.in_estonia
     @braintree_client_token = generate_client_token
     @transaction = Transaction.new
   end
 
   def create
-    @shipping_targets = ShippingTarget.all
+    @shipping_targets = ShippingTarget.in_estonia
     shipping_target = ShippingTarget.find(params[:shipping_target_id])
+
+    current_user.update(phone_number: params[:phone_number]) unless current_user.phone_number?
 
     # Check if customer exists
     if current_user.has_payment_info?

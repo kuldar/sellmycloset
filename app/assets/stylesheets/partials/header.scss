@@ -85,7 +85,7 @@
 
   .alert-container { margin-top: 1rem; }
 
-  @include min-width(60rem) {
+  @include min-width(70rem) {
     @include flex(1);
     @include order(3);
     padding-top: 0;

@@ -93,7 +93,8 @@ $bezier: cubic-bezier(.175, .885, .32, 1.275);
 @import 'partials/secondary_nav';
 @import 'partials/select';
 
-@import 'lib/swipebox';
+@import 'lib/photoswipe';
+@import 'lib/photoswipe/default-skin';
 
 .emoji {
 	height: 1em;

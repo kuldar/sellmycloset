@@ -15,6 +15,7 @@ et:
     facebook_url: "https://facebook.com/gosellmycloset"
     twitter_url: "https://twitter.com/gosellmycloset"
     instagram_url: "https://instagram.com/gosellmycloset"
+    medium_url: "https://medium.com/sellmycloset"
     twitter_handle: "@gosellmycloset"
     email: "hi@sellmycloset.co"
     need_help: "Vajad abi?"
@@ -85,6 +86,7 @@ et:
     settings: "Seaded"
     add_product: "Lisa toode"
     products: "Tooteid"
+    phone_number: "Telefoni number"
     sales: "Müüke"
     followers: "Fänne"
     follow: "Jälgi"
@@ -186,7 +188,7 @@ et:
     new:
       buy_product: "Osta toode"
       shipping: "postikulu"
-      shipping_target_id: "Postiautomaat"
+      shipping_target: "Pakiautomaat"
       choose_shipping: "Vali pakiautomaat"
       card_number: "Kaardi number"
       cvv: "CVV"
@@ -194,6 +196,9 @@ et:
       pay: "Maksa kaardiga"
       change_card: "Muuda krediitkaarti"
       paying: "Maksan.."
+
+    create:
+      flash_success: "Toode edukalt ostetud! 🙌"
 
   promos:
     signup_cta:
@@ -278,7 +283,13 @@ et:
 
       edit:
         save_changes: "Salvesta"
-        shipping_target_placeholder: "Vali eelistatud postiautomaat"
+        shipping_target_placeholder: "Vali eelistatud pakiautomaat"
+        card_number: "Kaardi number"
+        cvv: "CVV"
+        exp_date: "Kehtivus"
+        pay: "Maksa kaardiga"
+        change_card: "Muuda krediitkaarti"
+        paying: "Maksan.."
 
     sessions:
       signed_in: "Teretulemast tagasi!"
@@ -324,7 +335,7 @@ et:
         country: "Riik"
         payout_name: "Pangakonto nimi"
         payout_iban: "Pangakonto IBAN"
-        shipping_target_id: "Postiautomaat"
+        shipping_target_id: "Pakiautomaat"
 
       product:
         product_images: "Tootepildid"

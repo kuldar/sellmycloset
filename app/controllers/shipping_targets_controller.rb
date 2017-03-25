@@ -1,7 +1,7 @@
 class ShippingTargetsController < ApplicationController
 
   def index
-    render json: ShippingTarget.all
+    render json: ShippingTarget.in_estonia
   end
 
   def new

@@ -5,7 +5,7 @@ class ProductImageUploader < Shrine
 
   # plugin :determine_mime_type
   # plugin :remove_attachment
-  # plugin :store_dimensions
+  plugin :store_dimensions
   plugin :validation_helpers
   # plugin :pretty_location
   plugin :processing

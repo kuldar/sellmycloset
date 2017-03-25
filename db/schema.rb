@@ -119,6 +119,8 @@ ActiveRecord::Schema.define(version: 20170323223809) do
     t.text     "cover_data"
     t.text     "avatar_data"
     t.text     "about"
+    t.string   "city"
+    t.string   "country"
     t.string   "phone_number"
     t.string   "instagram_handle"
     t.string   "facebook_handle"

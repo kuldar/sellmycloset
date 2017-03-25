@@ -1,10 +1,10 @@
 .main 
   .single-product
 
-    = content_tag :div, class: 'product-images', data: { 'images-count': @product.product_images.count } do
+    = content_tag :div, class: 'grid-images', data: { 'images-count': @product.product_images.count, behavior: 'product-images' } do
       - @product.product_images.each_with_index do |image, index|
-        = content_tag :div, class: 'product-image-container', data: { 'image': index+1 } do
-          = link_to '', image.image_url(:big, public: true), class: 'product-image', style: "background-image: url('#{image.image_url(:medium, public: true)}');"
+        = content_tag :div, class: 'grid-image-container', data: { 'image': index+1 } do
+          = link_to '', image.image_url(:big, public: true), class: 'grid-image', style: "background-image: url('#{image.image_url(:medium, public: true)}');", data: { size: "#{image.image[:big].width.to_s + 'x' + image.image[:big].height.to_s}", index: index+1, behavior: 'product-image' }
 
     - if current_user == @product.user
       .product-owner
@@ -90,3 +90,5 @@
             = t('comments.or')
             =<> link_to t('comments.sign_in'), new_user_session_path
             = t('comments.to_comment')
+
+= render 'shared/photoswipe'

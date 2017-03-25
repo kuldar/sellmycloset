@@ -15,6 +15,7 @@ en:
     facebook_url: "https://facebook.com/gosellmycloset"
     twitter_url: "https://twitter.com/gosellmycloset"
     instagram_url: "https://instagram.com/gosellmycloset"
+    medium_url: "https://medium.com/sellmycloset"
     twitter_handle: "@gosellmycloset"
     email: "hi@sellmycloset.co"
     need_help: 'Need help?'
@@ -84,6 +85,7 @@ en:
     settings: "Settings"
     add_product: "Add product"
     products: "Products"
+    phone_number: "Phone number"
     sales: "Sales"
     followers: "Followers"
     follow: "Follow"

@@ -52,7 +52,7 @@ class UsersController < ApplicationController
   def remove_payment_method
     current_user.update_attribute(:braintree_customer_id, nil)
     current_user.update_attribute(:braintree_last_4, nil)
-    redirect_to edit_user_path(current_user)
+    redirect_to :back
   end
 
   def avatar
