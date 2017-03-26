@@ -17,7 +17,6 @@
 //= require lib/imagesloaded.pkgd
 //= require lib/select2.full
 //= require lib/i18n/et
-//= require lib/jquery.swipebox
 //= require lib/autosize
 //= require lib/photoswipe
 //= require lib/photoswipe-ui-default
@@ -29,3 +28,4 @@
 //= require notifications
 //= require header
 //= require lightbox
+//= require google_analytics

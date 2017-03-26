@@ -3,6 +3,7 @@ require 'image_processing/mini_magick'
 class CoverUploader < Shrine
   include ImageProcessing::MiniMagick
 
+  plugin :determine_mime_type
   plugin :validation_helpers
   plugin :processing
   plugin :versions

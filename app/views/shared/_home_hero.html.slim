@@ -5,7 +5,7 @@
       .home-hero-subtitle = emojify t('home.hero_subtitle').html_safe
       .home-hero-buttons
         = link_to t('home.sign_in_with_facebook'), user_facebook_omniauth_authorize_path, class: 'home-hero-main-btn'
-        = link_to t('home.sign_in_with_email'), new_user_session_path, class: 'home-hero-outline-btn'
+        = link_to t('home.sign_up_with_email'), new_user_registration_path, class: 'home-hero-outline-btn'
 
     - if product
       .home-hero-product

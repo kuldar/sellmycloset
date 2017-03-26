@@ -12,7 +12,7 @@
     = render 'shared/secondary_nav'
     
 - else
-  = render 'shared/home_hero', product: @products.last
+  = render 'shared/home_hero', product: @products.active.first
 
 = render 'shared/category_nav'
 

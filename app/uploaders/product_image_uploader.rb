@@ -3,11 +3,9 @@ require 'image_processing/mini_magick'
 class ProductImageUploader < Shrine
   include ImageProcessing::MiniMagick
 
-  # plugin :determine_mime_type
-  # plugin :remove_attachment
+  plugin :determine_mime_type
   plugin :store_dimensions
   plugin :validation_helpers
-  # plugin :pretty_location
   plugin :processing
   plugin :versions
 

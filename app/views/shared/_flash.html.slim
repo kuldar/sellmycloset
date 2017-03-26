@@ -2,4 +2,8 @@
   .alert-container
     - flash.each do |message_type, message|
       = content_tag :div, class: "alert alert-#{message_type}" do
-        = emojify message.html_safe
+        - if message.kind_of?(Array)
+          - message.each do |m|
+            = emojify m['message'].html_safe
+        - else
+          = emojify message.html_safe

@@ -3,10 +3,7 @@ require 'image_processing/mini_magick'
 class AvatarUploader < Shrine
   include ImageProcessing::MiniMagick
 
-  # plugin :determine_mime_type
-  # plugin :remove_attachment
-  # plugin :store_dimensions
-  # plugin :pretty_location
+  plugin :determine_mime_type
   plugin :remote_url, max_size: 20*1024*1024
   plugin :validation_helpers
   plugin :processing
