@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 	# Users
   devise_for :users, 
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'registrations' },
-    path_names: { sign_in: 'signin', sign_up: 'join', }
+    path_names: { sign_in: 'signin', sign_up: 'join', edit: 'settings'}
 
   resources	 :users, path: 'u' do
     member do

@@ -74,25 +74,6 @@
                 = current_user.braintree_last_4
               = link_to t('user.remove_card'), remove_payment_method_path, method: :put, class: 'form-credit-card-remove', data: {confirm: t('user.confirm_remove_card')}
 
-        - else
-          hr
-          .transaction-form-card
-            #error-message
-            input type='hidden' name='payment_method_nonce'
-            
-            .transaction-form-section
-              label.transaction-form-label for='card-number' = t('.card_number')
-              #card-number.transaction-form-input
-
-            .transaction-form-sections
-              .transaction-half-form-section
-                label.transaction-form-label for='cvv' = t('.cvv')
-                #cvv.transaction-form-input
-
-              .transaction-half-form-section
-                label.transaction-form-label for='expiration-date' = t('.exp_date')
-                #expiration-date.transaction-form-input
-
         - if current_user.seller?
           h2.form-group-title Kuhu teenitud 💸 välja kanname?
           .form-groups
@@ -113,73 +94,3 @@ javascript:
       placeholder: "#{t('.shipping_target_placeholder')}"
     });
   });
-
-- unless current_user.has_payment_info?
-  script#braintree-client-token type="application/json"
-    = @braintree_client_token
-
-  javascript:
-    var form = document.querySelector('[data-behavior="user-form"]');
-    var submit = document.querySelector('[data-behavior="user-submit"]');
-    var clientToken = document.getElementById('braintree-client-token').innerHTML;
-    var nonce = document.querySelector('[name="payment_method_nonce"]')
-
-    braintree.client.create({
-      authorization: clientToken
-    }, function (clientErr, clientInstance) {
-
-      // Cancel, if error
-      if (clientErr) {
-        console.error(clientErr);
-        return;
-      }
-
-      // on success, create hosted fields
-      braintree.hostedFields.create({
-        client: clientInstance,
-        vault: true,
-        styles: {
-          'input': {
-            'font-family': 'Proxima Nova',
-            'font-size': '16px'
-          },
-          'input.invalid': {
-            'color': '#eb410d'
-          }
-        },
-        fields: {
-          number: {
-            selector: '#card-number',
-            placeholder: '4111 1111 1111 1111'
-          },
-          cvv: {
-            selector: '#cvv',
-            placeholder: '123'
-          },
-          expirationDate: {
-            selector: '#expiration-date',
-            placeholder: '10 / 2019'
-          }
-        }
-      }, function (hostedFieldsErr, hostedFieldsInstance) {
-        if (hostedFieldsErr) {
-          console.error(hostedFieldsErr);
-          return;
-        }
-
-        form.addEventListener('submit', function (event) {
-          event.preventDefault();
-
-          hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
-            if (tokenizeErr) {
-              console.error(tokenizeErr);
-              return;
-            }
-            
-            console.log('Got a nonce: ' + payload.nonce);
-            nonce.value = payload.nonce;
-            form.submit();
-          });
-        }, false);
-      });
-    });
