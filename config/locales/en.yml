@@ -37,7 +37,7 @@ en:
   shared:
     header:
       sellers: "Sellers"
-      products: "Kuulutused"
+      products: "Items"
       sign_in_with_facebook: "Log in with Facebook"
       log_in: "Log in"
       log_out: "Log out"
