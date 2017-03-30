@@ -11,7 +11,7 @@
         .product-views
           .product-views-count
             .product-views-count-label = t('product.views')
-            .product-views-count-number 121
+            .product-views-count-number = @product.impressionist_count
 
         .product-actions
           = link_to t('product.facebook_share'), "https://www.facebook.com/sharer/sharer.php?u=#{u product_url(@product)}", class: 'product-facebook-btn', target: '_blank'

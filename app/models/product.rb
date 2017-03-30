@@ -20,6 +20,8 @@ class Product < ApplicationRecord
     accessory:  9
   }
 
+  is_impressionable counter_cache: true, unique: true
+
   belongs_to :user
 
   has_many  :product_images, dependent: :destroy

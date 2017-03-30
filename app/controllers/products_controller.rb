@@ -3,12 +3,13 @@ class ProductsController < ApplicationController
   before_action :authenticate_seller, only: [:new, :create]
   before_action :authenticate_product_seller, only: [:edit, :update, :destroy]
 
+  impressionist actions: [:show], unique: [:impressionable_type, :impressionable_id, :session_hash]
+
   def index
     @products = params[:category] ? Product.active.in_category(params[:category]) : Product.active
   end
 
   def show
-    render layout: false if request.xhr?
   end
 
   def new

@@ -26,12 +26,12 @@ gem 'administrate', github: 'greetpoint/administrate', branch: 'rails5'
 gem 'twemoji',								 '3.0.1'
 gem 'money-rails',             '1.7.0'
 gem 'sucker_punch',            '2.0.2'
-
 gem 'fastimage',               '2.1.0'
 gem 'shrine',                  '2.5.0'
 gem 'aws-sdk',                 '2.8.7'
 gem 'roda',                    '2.24.0'
 gem 'jquery-fileupload-rails', '0.4.7'
+gem 'impressionist',           '1.5.2'
 
 group :development do
 	gem 'sqlite3', '1.3.11'

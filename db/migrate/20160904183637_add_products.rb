@@ -6,6 +6,7 @@ class AddProducts < ActiveRecord::Migration[5.0]
       t.string      :size
       t.integer     :category
   		t.integer     :status, default: 1
+      t.integer     :impressions_count, default: 0
       t.belongs_to  :user, foreign_key: true
 
   		t.timestamps
