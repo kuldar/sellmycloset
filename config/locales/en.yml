@@ -280,7 +280,14 @@ en:
         log_in: "Log in"
 
       edit:
-        save_changes: 'Save changes'
+        save_changes: "Save"
+        shipping_target_placeholder: "Pick a shipping target"
+        card_number: "Card number"
+        cvv: "CVV"
+        exp_date: "Expiration"
+        pay: "Pay with card"
+        change_card: "Change card"
+        paying: "Paying.."
 
     sessions:
       signed_in: "Successfully signed in :smile:"
