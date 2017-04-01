@@ -280,6 +280,9 @@ en:
         log_in: "Log in"
 
       edit:
+        about_title: "🙋 Bit about you"
+        payment_info_title: "✍ Your payment information️"
+        payout_title: "💸 Where should we send the money?"
         save_changes: "Save"
         shipping_target_placeholder: "Pick a shipping target"
         card_number: "Card number"

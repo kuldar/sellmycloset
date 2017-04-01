@@ -283,6 +283,9 @@ et:
         log_in: "Logi sisse"
 
       edit:
+        about_title: "Veidi 🙋 sinust"
+        payment_info_title: "Ostmiseks vajalik info ✍️"
+        payout_title: "Kuhu teenitud 💸 välja kanname?"
         save_changes: "Salvesta"
         shipping_target_placeholder: "Vali eelistatud pakiautomaat"
         card_number: "Kaardi number"
