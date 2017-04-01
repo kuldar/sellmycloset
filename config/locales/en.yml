@@ -172,7 +172,9 @@ en:
       product_category_placeholder: "Shoes"
       product_size_placeholder: "S or 12"
       add_product: "Add product"
+      adding_product: "Adding product.."
       update_product: "Update product"
+      updating_product: "Updating product.."
       delete_product: "Delete product"
       delete_product_confirmation: "Sure you want to delete the product?"
 
