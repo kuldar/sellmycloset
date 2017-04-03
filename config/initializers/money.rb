@@ -75,9 +75,9 @@ MoneyRails.configure do |config|
 
   # Set default money format globally.
   # Default value is nil meaning "ignore this option".
-  # config.default_format = {
-  #   symbol: 'XX'
-  # }
+  config.default_format = {
+    symbol_position: :after
+  }
 
   # Set default raise_error_on_money_parsing option
   # It will be raise error if assigned different currency
