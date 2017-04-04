@@ -6,7 +6,7 @@
     - unless signed_in?
       .grid-item = render 'shared/signup_cta'
     .grid-item = render 'shared/user_card', user: @user
-    - @user.products.active.each do |product|
+    - @user.products.sold.each do |product|
       .grid-item = render 'products/feed_product', product: product
 
 javascript:
