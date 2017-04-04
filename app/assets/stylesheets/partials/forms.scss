@@ -286,9 +286,22 @@
 //  Form Product Images  //
 ///////////////////////////
 
+.form-product-images-btn-container {
+  background-color: rgba($black, 0.3);
+  padding: 3rem 3rem;
+  max-width: 40rem;
+  border-radius: 0.5rem;
+  margin: 0 auto 0.5rem auto;
+  text-align: center;
+
+  @include min-width(40rem) {
+    margin: 0 auto 2rem auto;
+  }
+}
+
 .form-product-images-btn {
   text-align: center;
-  max-width: 25rem;
+  max-width: 20rem;
   display: block;
   line-height: 1rem;
   position: relative;
@@ -300,7 +313,7 @@
   font-size: 1.25rem;
   position: relative;
   z-index: 20;
-  margin: 1rem auto 1.5rem auto;
+  margin: 0 auto;
   color: $white;
 
   &:hover {
@@ -316,10 +329,6 @@
   &.is-disabled {
     opacity: 0.5;
     pointer-events: none;
-  }
-
-  @include min-width(40rem) {
-    margin: 2rem auto 0 auto;
   }
 }
 
