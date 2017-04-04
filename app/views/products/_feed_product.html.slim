@@ -1,34 +1,31 @@
 .product.feed-product
-	.product-image-container
-		= link_to product.user, class: 'product-seller' do
-			= image_tag product.user.avatar_url(:thumb, public: true), class: 'product-seller-photo' if product.user.avatar
-			.product-seller-name = product.user.name
-		
-		= link_to product, class: 'product-image' do
-			= image_tag product.product_images.first.image_url(:medium, public: true) if product.product_images.any?
+  .product-image-container
+    = link_to product.user, class: 'product-seller' do
+      = image_tag product.user.avatar_url(:thumb, public: true), class: 'product-seller-photo' if product.user.avatar
+      .product-seller-name = product.user.name
+    
+    = link_to product, class: 'product-image' do
+      = image_tag product.product_images.first.image_url(:medium, public: true) if product.product_images.any?
 
-	.product-info
-		.product-info-header
-			= link_to product.title, product, class: 'product-title'
-			- unless product.size.to_s.empty?
-				span.product-size = "#{product.size} #{t('product.size')}"
+  .product-info
+    .product-info-header
+      = link_to product.title, product, class: 'product-title'
 
-		.product-description
-			= emojify product.description
+    .product-description
+      = emojify product.description
 
-		.product-info-footer
-			- if product.sold?
-				span.product-outline-btn = t('product.sold')
-			- else
-				- if current_user == product.user
-						span.product-main-btn
-							span.price = humanized_money_with_symbol(product.price)
-				- else
-					= link_to new_product_transaction_path(product), class: 'product-main-btn' do
-						| <span class='prefix'>#{ t('product.buy') }</span>#{humanized_money_with_symbol(product.price)}
+    .product-info-footer
+      - if product.sold?
+        span.product-outline-btn = t('product.sold')
+      - else
+        - if current_user == product.user
+            = link_to t('product.change'), edit_product_path(product), class: 'product-outline-btn'
+        - else
+          = link_to new_product_transaction_path(product), class: 'product-main-btn' do
+            | <span class='prefix'>#{ t('product.buy') }</span>#{humanized_money_with_symbol(product.price)}
 
-			.product-meta
-				.product-meta-btn-container data-comments-counter="#{product.id}"
-					= render partial: 'products/comments_counter', locals: { product: product }
-				.product-meta-btn-container data-likes-counter="#{product.id}"
-					= render partial: 'products/likes_counter', locals: { product: product }
+      .product-meta
+        .product-meta-btn-container data-comments-counter="#{product.id}"
+          = render partial: 'products/comments_counter', locals: { product: product }
+        .product-meta-btn-container data-likes-counter="#{product.id}"
+          = render partial: 'products/likes_counter', locals: { product: product }
