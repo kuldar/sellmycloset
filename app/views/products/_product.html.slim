@@ -50,13 +50,12 @@
 
       .product-info
         .product-info-header
-          .product-title = @product.title
-          - unless @product.size.to_s.empty?
-            span.product-size = "#{@product.size} #{t('product.size')}"
+          .product-title
+            = @product.title
+            span.small = @product.size
 
         .product-description
           => emojify @product.description
-          / = link_to t("product.categories.#{@product.category.to_s}", count: 1), products_path(category: @product.category)
 
         .product-info-footer
           - if @product.sold?
