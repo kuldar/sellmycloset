@@ -18,7 +18,7 @@
 
         .transaction-product-cost
           .transaction-product-price = humanized_money_with_symbol(@product.price)
-          .transaction-shipping-price + €#{@product.shipping_price} #{ t('.shipping') }
+          .transaction-shipping-price + #{@product.shipping_price} #{ t('.shipping') } €
 
 
 
