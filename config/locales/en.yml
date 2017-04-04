@@ -212,6 +212,7 @@ en:
 
   notification:
     notifications: "Notifications"
+    no_notifications: "No notifications"
     ago: "ago"
     deleted: "(deleted)"
     all_notifications: "Show all notifications"
