@@ -109,7 +109,6 @@ et:
     facebook_share: "Jaga Facebookis"
     twitter_share: "Jaga Twitteris"
     views: "Vaatamisi"
-    size: "suurus"
     earnings: "Teenid"
     price: "Müügihind"
     new_product_title: "Lisa müüki uus toode"
@@ -159,11 +158,12 @@ et:
 
   products:
     product_form:
+      delete_image: "Kustuta"
       max_file_count_limit: "Lubatud lisada kuni 5 pilti"
       upload_images: "Lisa toote pildid"
       uploading_images: "Lisan pilte..."
       product_title_placeholder: "Valge Adidase särk"
-      product_description_placeholder: "Heas korras vähekantud valge Adidase särk. Suurus S"
+      product_description_placeholder: "Heas korras vähekantud valge Adidase särk."
       product_price_placeholder: "10 €"
       product_category_placeholder: "Püksid"
       product_size_placeholder: "S või 12"
