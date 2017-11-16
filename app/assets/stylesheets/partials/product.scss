@@ -380,14 +380,19 @@
   font-weight: bold;
   line-height: 1em;
   &:hover { text-decoration: none; }
+  .small {
+    color: $gray;
+    margin-left: 0.5rem;
+    font-weight: normal;
+  }
 }
 
-.product-size {
-  font-weight: normal;
-  margin-left: 0.75rem;
-  font-size: 1.125rem;
-  opacity: 0.5;
-}
+// .product-size {
+//   font-weight: normal;
+//   margin-left: 0.75rem;
+//   font-size: 1.125rem;
+//   opacity: 0.5;
+// }
 
 .product-outline-btn {
   text-align: center;
@@ -475,25 +480,6 @@ a.product-main-btn {
 .product-description {
   margin-bottom: 1rem;
   color: $dark-gray;
-}
-
-.product-hashtag {
-  font-weight: bold;
-  background-color: $light-gray;
-  padding: 0 0.25rem;
-  margin: 0 0.125rem;
-  display: inline-block;
-  white-space: nowrap;
-
-  &:hover {
-    text-decoration: none;
-    background-color: darken($light-gray, 3);
-  }
-
-  &:active {
-    position: relative;
-    top: 1px;
-  }
 }
 
 // Product Footer

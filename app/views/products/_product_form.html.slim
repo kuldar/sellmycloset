@@ -7,14 +7,14 @@
       - @product.product_images.each do |i|
         = content_tag :div, class: 'grid-image-container', data: {id: i.id } do
           = content_tag :div, class: 'grid-image', style: "background-image:url('#{i.image_url(:medium, public: true)}');"
-            = link_to 'Delete', product_image_path(i), remote: true, method: :delete, class: 'grid-image-delete'
+            = link_to t('.delete_image'), product_image_path(i), remote: true, method: :delete, class: 'grid-image-delete'
 
+  .form-product-images-btn-container
+    .form-product-images-btn
+      = file_field_tag :file, multiple: true, id: 'product_images', class: 'form-product-images-btn-input', data: { 'label-limit': t('.max_file_count_limit'), 'label-delete': t('product_images.delete'), 'label-delete-confirm': t('product_images.delete_confirm') }
 
-  .form-product-images-btn
-    = file_field_tag :file, multiple: true, id: 'product_images', class: 'form-product-images-btn-input', data: { 'label-limit': t('.max_file_count_limit'), 'label-delete': t('product_images.delete'), 'label-delete-confirm': t('product_images.delete_confirm') }
-
-    = content_tag :div, class: 'form-product-images-btn-text', data: { 'label-disabled': t('.uploading_images'), 'label': t('.upload_images') } do
-      = t('.upload_images')
+      = content_tag :div, class: 'form-product-images-btn-text', data: { 'label-disabled': t('.uploading_images'), 'label': t('.upload_images') } do
+        = t('.upload_images')
 
   = form_for @product do |f|
     .card.is-small
@@ -84,7 +84,7 @@ javascript:
         earningsNumber.html('&nbsp;');
       } else {
         var earnings = price*#{current_user.payout_margin};
-        earningsNumber.text('€'+parseFloat(earnings, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString().replace(/\./g, ','));
+        earningsNumber.text(parseFloat(earnings, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString().replace(/\./g, ',') + ' €');
       }
     });
   });

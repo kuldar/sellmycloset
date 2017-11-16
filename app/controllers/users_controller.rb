@@ -32,9 +32,6 @@ class UsersController < ApplicationController
   end
 
   def sales
-    @view_title = t('user.my_sales')
-    @transactions = @user.sales
-    render 'transactions/transactions_list'
   end
 
   def purchases

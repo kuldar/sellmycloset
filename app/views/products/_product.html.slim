@@ -37,11 +37,15 @@
             .product-seller-stat-name = t('user.products')
             .product-seller-stat-number = @product.user.products.count
 
-          .product-seller-stat
-            .product-seller-stat-name = t('user.sales')
-            .product-seller-stat-number = @product.user.products.sold.count
+          - if @product.user.products.sold.count > 0
+            = link_to sales_user_path(@product.user), class: 'product-seller-stat'
+              .product-seller-stat-name = t('user.sales')
+              .product-seller-stat-number class="#{ "is-muted" if @product.user.products.sold.count == 0 }" = @product.user.products.sold.count
+          - else
+            span.product-seller-stat
+              .product-seller-stat-name = t('user.sales')
+              .product-seller-stat-number class="#{ "is-muted" if @product.user.products.sold.count == 0 }" = @product.user.products.sold.count
 
-          / = link_to followers_user_path(@product.user), class: 'product-seller-stat'
           .product-seller-stat
             .product-seller-stat-name = t('user.followers')
             .product-seller-stat-number data-follow-count="#{ @product.user.id}" = @product.user.followers.count
@@ -50,13 +54,12 @@
 
       .product-info
         .product-info-header
-          .product-title = @product.title
-          - unless @product.size.to_s.empty?
-            span.product-size = "#{@product.size} #{t('product.size')}"
+          .product-title
+            = @product.title
+            span.small = @product.size
 
         .product-description
           => emojify @product.description
-          / = link_to t("product.categories.#{@product.category.to_s}", count: 1), products_path(category: @product.category)
 
         .product-info-footer
           - if @product.sold?

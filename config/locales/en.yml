@@ -115,7 +115,6 @@ en:
     facebook_share: "Share on Facebook"
     twitter_share: "Share on Twitter"
     views: "Views"
-    size: "Size"
     price: "Sale price"
     earnings: "You earn"
     new_product_title: "Add a new product"
@@ -163,11 +162,12 @@ en:
 
   products:
     product_form:
+      delete_image: "Delete"
       max_file_count_limit: "You can upload up to 5 images.."
       upload_images: "Select images"
       uploading_images: "Uploading images.."
       product_title_placeholder: "White Reebok shoes"
-      product_description_placeholder: "White Reebok running shoes, size 10. Used maybe twice - in a really good condition."
+      product_description_placeholder: "White Reebok running shoes. Used maybe twice - in a really good condition."
       product_price_placeholder: "€ 10"
       product_category_placeholder: "Shoes"
       product_size_placeholder: "S or 12"
@@ -212,6 +212,7 @@ en:
 
   notification:
     notifications: "Notifications"
+    no_notifications: "No notifications"
     ago: "ago"
     deleted: "(deleted)"
     all_notifications: "Show all notifications"
@@ -280,7 +281,17 @@ en:
         log_in: "Log in"
 
       edit:
-        save_changes: 'Save changes'
+        about_title: "🙋 Bit about you"
+        payment_info_title: "✍ Your payment information️"
+        payout_title: "💸 Where should we send the money?"
+        save_changes: "Save"
+        shipping_target_placeholder: "Pick a shipping target"
+        card_number: "Card number"
+        cvv: "CVV"
+        exp_date: "Expiration"
+        pay: "Pay with card"
+        change_card: "Change card"
+        paying: "Paying.."
 
     sessions:
       signed_in: "Successfully signed in :smile:"

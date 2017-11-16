@@ -7,4 +7,7 @@
     .header-notifications-list data-behavior='notifications-list'
       - @notifications.each do |notification|
         = render partial: "notifications/#{notification.action}", locals: {notification: notification}, formats: [:html]
-    = link_to t('notification.all_notifications'), notifications_path, class: 'header-notifications-dropdown-more-link'
+    - if @notifications.count > 0
+      = link_to t('notification.all_notifications'), notifications_path, class: 'header-notifications-dropdown-more-link'
+    - else
+      span.header-notifications-dropdown-more-link = t('notification.no_notifications')
