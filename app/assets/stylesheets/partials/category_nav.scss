@@ -16,6 +16,7 @@
   @include display(flex);
   @include flex-wrap(nowrap);
   @include flex-direction(column);
+  border-left: 1px solid $light-gray-3;
   max-width: 80rem;
   margin: 0 auto;
 
@@ -26,7 +27,6 @@
 }
 
 .category-nav-link {
-  // @include flex(1);
   @include flex-grow(1);
   font-weight: 600;
   color: $dark-gray;
@@ -36,7 +36,6 @@
   border-right: 1px solid $light-gray-3;
   border-top: 1px solid $light-gray-3;
 
-  &:first-child { border-left: 1px solid $light-gray-3; }
   &:hover {
     text-decoration: none;
     background-color: $light-gray;

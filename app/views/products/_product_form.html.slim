@@ -31,6 +31,14 @@
             = f.label :category, class: 'form-label'
             = f.select :category, Product.categories.to_a.map { |w| [t('product.categories.' + w[0].to_s, count: 2), w[0]] }, { prompt: true }, { class: 'form-select', data: { behavior: 'category-select' }, required: true }
           .form-half-group
+            = f.label :brand, class: 'form-label'
+            = f.text_field :brand, placeholder: t('.product_brand_placeholder'), class: 'form-input'
+
+        .form-groups
+          .form-half-group
+            = f.label :condition, class: 'form-label'
+            = f.select :condition, Product.conditions.to_a.map { |w| [t('product.conditions.' + w[0].to_s), w[0]] }, { prompt: true }, { class: 'form-select', data: { behavior: 'condition-select' }, required: true }
+          .form-half-group
             = f.label :size, class: 'form-label'
             = f.text_field :size, placeholder: t('.product_size_placeholder'), class: 'form-input'
 
@@ -45,7 +53,7 @@
           .form-half-group
             .form-earnings-label = t('product.earnings')
             .form-earnings-number = @product.new_record? ? '' : humanized_money_with_symbol( (@product.price_cents*current_user.payout_margin)/100 )
-        
+
         .form-footer.extra-padded
           - if @product.new_record?
             = f.button t('.add_product'), class: 'form-btn is-main pull-left', data: { disable_with: t('.adding_product')}, disabled: true
@@ -59,6 +67,11 @@ javascript:
 
     $("[data-behavior='category-select']").select2({
       placeholder: "#{t('.product_category_placeholder')}",
+      minimumResultsForSearch: Infinity
+    });
+
+    $("[data-behavior='condition-select']").select2({
+      placeholder: "#{t('.product_condition_placeholder')}",
       minimumResultsForSearch: Infinity
     });
 
@@ -79,7 +92,7 @@ javascript:
     $("#product_price").on("change paste keyup", function() {
       var price = $("#product_price").val();
       var earningsNumber = $(".form-earnings-number");
-      
+
       if (price == 0 || price.length === 0 ) {
         earningsNumber.html('&nbsp;');
       } else {

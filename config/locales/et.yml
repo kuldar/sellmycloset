@@ -96,7 +96,7 @@ et:
     become_seller:
       flash_success: "Oled nüüd müüja, congrats! :sparkles: <a href='/p/new'>Lisa oma esimene toode!</a>"
 
-  
+
   product_images:
     delete: "Kustuta"
     delete_confirm: "Soovid pildi kustutada?"
@@ -114,37 +114,48 @@ et:
     new_product_title: "Lisa müüki uus toode"
     edit_product_title: "Muuda oma toodet"
 
+    conditions:
+      used: "Kasutatud"
+      unused: "Uus"
+
     categories:
       choose_category: "Vali kategooria"
-      other: "Varia"
-      shirt:
+      tops:
+        one: "Top"
+        other: "Topid"
+      tshirts:
+        one: "T-särk"
+        other: "T-särgid"
+      shirts:
         one: "Pluus"
         other: "Pluusid"
-
-      sweater:
-        one: "Kampsun"
-        other: "Kampsunid"
-
-      jacket:
-        one: "Jakk"
-        other: "Jakid"
-
-      coat:
-        one: "Mantel"
-        other: "Mantlid"
-
-      pants: "Püksid"
-      skirt:
-        one: "Seelik"
-        other: "Seelikud"
-
-      dress:
+      dresses:
         one: "Kleit"
         other: "Kleidid"
-
+      knitwear:
+        one: "Kudum"
+        other: "Kudumid"
+      jackets:
+        one: "Jakk"
+        other: "Jakid"
+      coats:
+        one: "Mantel"
+        other: "Mantlid"
+      trousers: "Püksid"
+      jumpsuits:
+        one: "Pükskostüüm"
+        other: "Pükskostüümid"
+      skirts:
+        one: "Seelik"
+        other: "Seelikud"
+      nightwear: "Ööriided"
+      lingerie: "Pesu"
+      swimwear: "Ujumisriided"
       shoes: "Jalanõud"
-
-      accessory:
+      bags:
+        one: "Kott"
+        other: "Kotid"
+      accessories:
         one: "Aksessuaar"
         other: "Aksessuaarid"
 
@@ -157,6 +168,7 @@ et:
     to_comment: "et kommenteerida..."
 
   products:
+    no_products: "😢 Sellised tooted on kahjuks otsas…"
     product_form:
       delete_image: "Kustuta"
       max_file_count_limit: "Lubatud lisada kuni 5 pilti"
@@ -166,6 +178,8 @@ et:
       product_description_placeholder: "Heas korras vähekantud valge Adidase särk."
       product_price_placeholder: "10 €"
       product_category_placeholder: "Püksid"
+      product_condition_placeholder: "Kasutatud"
+      product_brand_placeholder: "Adidas"
       product_size_placeholder: "S või 12"
       add_product: "Lisa toode müüki"
       adding_product: "Lisan toodet.."
@@ -346,6 +360,8 @@ et:
         product_images: "Tootepildid"
         title: "Nimi"
         size: "Suurus"
+        condition: "Seisukord"
+        brand: "Bränd"
         description: "Kirjeldus"
         price: "Müügihind"
         category: "Kategooria"
@@ -356,7 +372,7 @@ et:
         restrict_dependent_destroy:
           has_one: "Ei saa kirjet kustutada kuna sõltuv %{record} on olemas"
           has_many: "Ei saa kirjet kustutada kuna sõltuvad %{record} on olemas"
-  
+
   date:
     abbr_day_names:
     - P
@@ -410,12 +426,12 @@ et:
     - oktoober
     - november
     - detsember
-    
+
     order:
     - :day
     - :month
     - :year
-  
+
   datetime:
     distance_in_words:
       about_x_hours:
@@ -463,7 +479,7 @@ et:
       month: "Kuu"
       second: "Sekundit"
       year: "Aasta"
-  
+
   errors:
     format: "%{attribute} %{message}"
     messages:
@@ -563,7 +579,7 @@ et:
     precision:
       format:
         delimiter: ''
-  
+
   support:
     array:
       last_word_connector: " ja "

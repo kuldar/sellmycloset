@@ -70,6 +70,8 @@ class ProductsController < ApplicationController
         :price,
         :status,
         :size,
+        :brand,
+        :condition,
         :category,
         product_images_attributes: [:id, :product_id, :image_data])
     end

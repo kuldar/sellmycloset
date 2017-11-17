@@ -1,4 +1,4 @@
-.main 
+.main
   .single-product
 
     = content_tag :div, class: 'grid-images', data: { 'images-count': @product.product_images.count, behavior: 'product-images' } do
@@ -56,7 +56,8 @@
         .product-info-header
           .product-title
             = @product.title
-            span.small = @product.size
+            span.small = @product.brand
+            span.small.right = t('product.conditions.' + @product.condition.to_s) + ' / ' + @product.size
 
         .product-description
           => emojify @product.description
@@ -70,9 +71,9 @@
             - else
               = link_to new_product_transaction_path(@product), class: 'product-main-btn' do
                 | <span class='prefix'>#{ t('product.buy') }</span>#{humanized_money_with_symbol(@product.price)}
-          
+
           .product-meta
-            .product-meta-btn-container data-comments-counter="#{@product.id}" 
+            .product-meta-btn-container data-comments-counter="#{@product.id}"
               = render partial: 'products/comments_counter', locals: { product: @product }
             .product-meta-btn-container data-likes-counter="#{@product.id}"
               = render partial: 'products/likes_counter', locals: { product: @product }

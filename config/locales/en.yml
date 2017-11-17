@@ -120,47 +120,51 @@ en:
     new_product_title: "Add a new product"
     edit_product_title: "Change the listing"
 
-    categories:
-      choose_category: 'Choose a category'
-      other:
-        one: "Other"
-        other: "Others"
+    conditions:
+      used: "Used"
+      unused: "New"
 
-      shirt:
+    categories:
+      choose_category: "Choose a category"
+      tops:
+        one: "Top"
+        other: "Tops"
+      tshirts:
+        one: "T-shirt"
+        other: "T-shirts"
+      shirts:
         one: "Shirt"
         other: "Shirts"
-
-      sweater:
-        one: "Sweater"
-        other: "Sweaters"
-
-      jacket:
-        one: "Jacket"
-        other: "Jackets"
-
-      coat:
-        one: "Coat"
-        other: "Coats"
-
-      pants: "Pants"
-
-      skirt:
-        one: "Skirt"
-        other: "Skirts"
-
-      dress:
+      dresses:
         one: "Dress"
         other: "Dresses"
-
-      shoes:
-        one: "Shoe"
-        other: "Shoes"
-
-      accessory:
+      knitwear: "Knitwear"
+      jackets:
+        one: "Jacket"
+        other: "Jackets"
+      coats:
+        one: "Coat"
+        other: "Coats"
+      trousers: "Trousers"
+      jumpsuits:
+        one: "Jumpsuit"
+        other: "Jumpsuits"
+      skirts:
+        one: "Skirt"
+        other: "Skirts"
+      nightwear: "Nightwear"
+      lingerie: "Lingerie"
+      swimwear: "Swimwear"
+      shoes: "Shoes"
+      bags:
+        one: "Bag"
+        other: "Bags"
+      accessories:
         one: "Accessory"
         other: "Accessories"
 
   products:
+    no_products: "No matching products found…"
     product_form:
       delete_image: "Delete"
       max_file_count_limit: "You can upload up to 5 images.."
@@ -170,6 +174,8 @@ en:
       product_description_placeholder: "White Reebok running shoes. Used maybe twice - in a really good condition."
       product_price_placeholder: "€ 10"
       product_category_placeholder: "Shoes"
+      product_condition_placeholder: "Used"
+      product_brand_placeholder: "Adidas"
       product_size_placeholder: "S or 12"
       add_product: "Add product"
       adding_product: "Adding product.."
@@ -318,7 +324,7 @@ en:
         cover: 'Cover image'
         payout_name: 'Bank account name'
         payment_iban: 'Bank account IBAN'
-  
+
   number:
     currency:
       format:

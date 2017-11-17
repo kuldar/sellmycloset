@@ -10,18 +10,22 @@
 - if user_signed_in?
   - if current_user.admin?
     = render 'shared/secondary_nav'
-    
+
 - else
   = render 'shared/home_hero', product: @products.active.first
 
 = render 'shared/category_nav'
 
 - if user_signed_in?
-  .main.has-grid
-    .grid#grid.is-loading
-      - @products.each do |product|
-        .grid-item
-          = render 'products/feed_product', product: product
+  - if @products.any?
+    .main.has-grid
+      .grid#grid.is-loading
+        - @products.each do |product|
+          .grid-item
+            = render 'products/feed_product', product: product
+  - else
+    .main
+      .no-products = t('products.no_products')
 
   javascript:
     $('#grid').imagesLoaded( function() {
@@ -29,7 +33,7 @@
       function getWindowWidth() {
         return Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
       }
-      
+
       $('#grid').wookmark({
         itemWidth: function () {
           return getWindowWidth() < 480 ? 300 : 360;

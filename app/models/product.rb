@@ -7,17 +7,28 @@ class Product < ApplicationRecord
     deleted:    3
   }
 
+  enum condition: {
+    used:    0,
+    unused:  1
+  }
+
   enum category: {
-    other:      0,
-    shirt:      1,
-    sweater:    2,
-    jacket:     3,
-    coat:       4,
-    pants:      5,
-    skirt:      6,
-    dress:      7,
-    shoes:      8,
-    accessory:  9
+    tops:         0,
+    tshirts:      1,
+    shirts:       2,
+    dresses:      3,
+    knitwear:     4,
+    jackets:      5,
+    coats:        6,
+    trousers:     7,
+    jumpsuits:    8,
+    skirts:       9,
+    nightwear:    10,
+    lingerie:     11,
+    swimwear:     12,
+    shoes:        13,
+    bags:         14,
+    accessories:  15
   }
 
   is_impressionable counter_cache: true, unique: true
@@ -40,11 +51,11 @@ class Product < ApplicationRecord
 
   monetize :price_cents, numericality: { greater_than_or_equal_to: 5 }
 
-  validates :title, 
-            :description, 
-            :price_cents, 
-            :user_id, 
-            :category, 
+  validates :title,
+            :description,
+            :price_cents,
+            :user_id,
+            :category,
               presence: true
 
   before_destroy :clear_notifications

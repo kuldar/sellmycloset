@@ -76,6 +76,8 @@ ActiveRecord::Schema.define(version: 20170330155142) do
     t.string   "description"
     t.string   "size"
     t.integer  "category"
+    t.string   "brand"
+    t.integer  "condition"
     t.integer  "status",            default: 1
     t.integer  "impressions_count", default: 0
     t.integer  "user_id"
