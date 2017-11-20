@@ -334,14 +334,14 @@ if Rails.env.staging? || Rails.env.development?
   ])
 
   Product.create!([
-    {title: "Nike vabaaja ketsid", description: "Täiesti kasutamata. Sai ostetud ja kodus avastatud et liiga väikesed siiskil", size: "39/40", category: "shoes", status: "active", user_id: 3, price_cents: 3000, price_currency: "EUR"},
-    {title: "Lühikesed teksapüksikud vööga", description: "Suveks sobivad! Paidliku sobivusega igale olenevalt suurusele.", size: "S", category: "pants", status: "active", user_id: 5, price_cents: 1500, price_currency: "EUR"},
-    {title: "Valge-beez triipudega kampsun", description: "Puhas ja vähe kantud kampsun. Paar korda pestud max. Ideaalne kevadepusa", size: "M", category: "sweater", status: "active", user_id: 5, price_cents: 800, price_currency: "EUR"},
-    {title: "Roosa Zara kleit", description: "Heas korras vähe kasutatud roosa kleit. Ostetud eelmine nädal", size: "12", category: "dress", status: "active", user_id: 4, price_cents: 1200, price_currency: "EUR"},
-    {title: "Vansi Zip-Up ketsid", description: "Kordagi pole kantud, suurus 38. Heas korras ja kvaliteetdsed! 👟", size: "38", category: "shoes", status: "active", user_id: 3, price_cents: 5000, price_currency: "EUR"},
-    {title: "GAPi punane tuulevest", description: "Heas korras, vähe kantud. Väga kerge ja peab tuulele hästi vastu.", size: "M", category: "other", status: "active", user_id: 3, price_cents: 800, price_currency: "EUR"},
-    {title: "Õhuline must kampsun", description: "Mugav ja õhuline. Eriti sobiv suvel sooja hoidmiseks.", size: "4/S", category: "sweater", status: "active", user_id: 3, price_cents: 2500, price_currency: "EUR"},
-    {title: "Must pitsiline H&M seelik", description: "Heas korras ning vähe kantud. Praktiliselt uus.", size: "S", category: "skirt", status: "active", user_id: 2, price_cents: 800, price_currency: "EUR"}
+    {title: "Nike vabaaja ketsid", description: "Täiesti kasutamata. Sai ostetud ja kodus avastatud et liiga väikesed siiskil", size: "39/40", condition: "used", brand: "Nike", category: "shoes", status: "active", user_id: 3, price_cents: 3000, price_currency: "EUR"},
+    {title: "Lühikesed teksapüksikud vööga", description: "Suveks sobivad! Paidliku sobivusega igale olenevalt suurusele.", size: "S", condition: "used", brand: "Adidas", category: "trousers", status: "active", user_id: 5, price_cents: 1500, price_currency: "EUR"},
+    {title: "Valge-beez triipudega kampsun", description: "Puhas ja vähe kantud kampsun. Paar korda pestud max. Ideaalne kevadepusa", size: "M", condition: "used", brand: "H&M", category: "knitwear", status: "active", user_id: 5, price_cents: 800, price_currency: "EUR"},
+    {title: "Roosa Zara kleit", description: "Heas korras vähe kasutatud roosa kleit. Ostetud eelmine nädal", size: "12", condition: "used", brand: "Zara", category: "dresses", status: "active", user_id: 4, price_cents: 1200, price_currency: "EUR"},
+    {title: "Vansi Zip-Up ketsid", description: "Kordagi pole kantud, suurus 38. Heas korras ja kvaliteetdsed! 👟", size: "38", condition: "used", brand: "Vans", category: "shoes", status: "active", user_id: 3, price_cents: 5000, price_currency: "EUR"},
+    {title: "GAPi punane tuulevest", description: "Heas korras, vähe kantud. Väga kerge ja peab tuulele hästi vastu.", size: "M", condition: "used", brand: "GAP", category: "jackets", status: "active", user_id: 3, price_cents: 800, price_currency: "EUR"},
+    {title: "Õhuline must kampsun", description: "Mugav ja õhuline. Eriti sobiv suvel sooja hoidmiseks.", size: "4/S", condition: "used", brand: "Zara", category: "knitwear", status: "active", user_id: 3, price_cents: 2500, price_currency: "EUR"},
+    {title: "Must pitsiline H&M seelik", description: "Heas korras ning vähe kantud. Praktiliselt uus.", size: "S", condition: "unused", brand: "H&M", category: "skirts", status: "active", user_id: 2, price_cents: 800, price_currency: "EUR"}
   ])
 
   Like.create!([
@@ -409,5 +409,5 @@ if Rails.env.staging? || Rails.env.development?
   #   {recipient_id: 5, actor_id: 3, read_at: nil, action: "commented", notifiable_id: 9, notifiable_type: "Comment"},
   #   {recipient_id: 4, actor_id: 3, read_at: nil, action: "followed", notifiable_id: 4, notifiable_type: "User"}
   # ])
-  
+
 end
