@@ -21,7 +21,7 @@ header.header
 
       - if user_signed_in?
         - if current_user.buyer?
-          = link_to t('.become_seller'), become_seller_path, class: 'header-nav-btn-outline'
+          = link_to t('.add_product'), become_seller_path, class: 'header-nav-btn'
         = render 'shared/header_notifications'
         - if current_user.seller? || current_user.admin?
           = link_to t('.add_product'), new_product_path, class: 'header-nav-btn'

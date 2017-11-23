@@ -8,7 +8,7 @@
   margin: 0 auto;
 
   @include min-width(60rem) {
-    margin: 0 auto 1rem auto;      
+    margin: 0 auto 1rem auto;
   }
 }
 
@@ -45,6 +45,7 @@
 // Grid image
 .grid-image {
   position: relative;
+  background-color: rgba($gray, 0.4);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -182,7 +183,7 @@
 ////////////////
 .grid-images[data-images-count='4'] {
 
-  .grid-image-container:first-child 
+  .grid-image-container:first-child
     .grid-image {
       height: 20rem;
   }
@@ -233,7 +234,7 @@
 ////////////////
 .grid-images[data-images-count='5'] {
 
-  .grid-image-container:first-child 
+  .grid-image-container:first-child
     .grid-image {
       height: 20rem;
   }

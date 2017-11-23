@@ -1,13 +1,14 @@
 = render 'shared/category_nav'
 
 .main
-  - if @products.any?
-    .grid#grid.is-loading
-    	- @products.each do |product|
-    		.grid-item
-    			= render 'products/feed_product', product: product
-  - else
-    .no-products = t('products.no_products')
+  .wrapper
+    - if @products.any?
+      .grid#grid.is-loading
+      	- @products.each do |product|
+      		.grid-item
+      			= render 'products/feed_product', product: product
+    - else
+      .no-products = t('products.no_products')
 
 javascript:
 	$('#grid').imagesLoaded( function() {

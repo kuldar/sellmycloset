@@ -1,17 +1,18 @@
 = render 'shared/category_nav'
 
 .main
-  .grid#grid.is-loading
-    - @users.each do |user|
-      .grid-item = render 'shared/user_card', user: user
-    
+  .wrapper
+    .grid#grid.is-loading
+      - @users.each do |user|
+        .grid-item = render 'shared/user_card', user: user
+
 javascript:
   $('#grid').imagesLoaded( function() {
 
     function getWindowWidth() {
       return Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
     }
-    
+
     $('#grid').wookmark({
       itemWidth: function () {
         return getWindowWidth() < 480 ? 300 : 360;

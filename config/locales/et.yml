@@ -44,7 +44,6 @@ et:
       join: "Liitu"
       add_product: "Lisa toode"
       my_products: "Minu tooted"
-      become_seller: "Hakka müüjaks"
 
     user_nav:
       products_active:
@@ -234,7 +233,6 @@ et:
     product_purchased: "<strong>%{user_name}</strong> ostis :moneybag: <strong class='is-green'>%{product_price}</strong> eest %{product_name}"
 
   become_seller:
-    seller_advice: "Siia tulevad 5 lihtsat nippi.. 😅"
     become_seller_title: "Soovid oma tooteid Sell My Closet'is müüa?"
     become_seller_text: "Enne müüma hakkamist, ole hea ja loe <a href='/seller_advice'>5 lihtsalt nippi parema kuulutuse loomiseks</a> 🤓"
     become_seller_btn: "Lisa oma esimene toode"

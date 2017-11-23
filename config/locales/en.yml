@@ -44,7 +44,6 @@ en:
       join: "Join"
       add_product: "Add a product"
       my_products: "My product"
-      become_seller: "Start selling"
 
     user_nav:
       products_active:
@@ -227,7 +226,6 @@ en:
     new_product_comment: "<strong>%{user_name}</strong> :speech_balloon: %{product_name}"
 
   become_seller:
-    seller_advice: "Here's going to be the 5 simple tips.. 😅"
     become_seller_title: "Wish to sell on Sell My Closet?"
     become_seller_text: "Before adding your first product, head over and read our <a href='/seller_advice'>5 simple tips for creating a better listing</a> 🤓"
     become_seller_btn: "Add your first product"

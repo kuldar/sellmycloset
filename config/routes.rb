@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  
+
   mount AvatarUploader::UploadEndpoint => '/avatars/upload'
   mount CoverUploader::UploadEndpoint => '/covers/upload'
   mount ProductImageUploader::UploadEndpoint => '/productimages/upload'
 
 	# Users
-  devise_for :users, 
+  devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'registrations' },
     path_names: { sign_in: 'signin', sign_up: 'join', edit: 'settings'}
 
@@ -38,7 +38,7 @@ Rails.application.routes.draw do
     resources :comments
     resource :transaction
   end
-  
+
   resources :products, path: 'products', only: :index
 
   # Product Images
@@ -51,7 +51,6 @@ Rails.application.routes.draw do
   # resources :shipping_targets, only: [:index, :new, :create, :destroy]
 
   # Static pages
-  get :seller_advice, to: 'static_pages#seller_advice'
   get :become_seller, to: 'static_pages#become_seller'
   put :become_seller, to: 'users#become_seller'
 
