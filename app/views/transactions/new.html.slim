@@ -21,9 +21,8 @@
           .transaction-shipping-price + #{@product.shipping_price}€ #{ t('.shipping') }
 
 
-
     .card-section.is-gray.is-padded
-      = form_for product_transaction_path, url: { action: 'show' }, method: 'post', data: { behavior: 'payment-form' } do |f|
+      = form_for product_transaction_path, url: { action: 'show' }, method: 'post' do |f|
 
           - unless current_user.phone_number?
             .form-group
@@ -37,38 +36,8 @@
           = f.hidden_field :buyer_id, value: current_user.id
           = f.hidden_field :seller_id, value: @product.user.id
 
-          .transaction-form-card-container data-behavior='credit-card'
-            - if current_user.has_payment_info?
-              .form-group
-                label.form-label = t('user.my_credit_card')
-                .form-credit-card
-                  .form-credit-card-number
-                    span.form-credit-card-icon 💳
-                    span.form-credit-card-dots = "&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull;".html_safe
-                    = current_user.braintree_last_4
-                  = link_to t('user.remove_card'), remove_payment_method_path, class: 'form-credit-card-remove', data: {confirm: t('user.confirm_remove_card')}, method: :put
-
-            - else
-              .transaction-form-card
-                #error-message
-                input type='hidden' name='payment_method_nonce'
-
-                .transaction-form-section
-                  label.transaction-form-label for='card-number' = t('.card_number')
-                  #card-number.transaction-form-input
-
-                .transaction-form-sections
-                  .transaction-half-form-section
-                    label.transaction-form-label for='cvv' = t('.cvv')
-                    #cvv.transaction-form-input
-
-                  .transaction-half-form-section
-                    label.transaction-form-label for='expiration-date' = t('.exp_date')
-                    #expiration-date.transaction-form-input
-
-
           .form-footer.extra-padded
-            = content_tag :button, type: 'submit', class: 'transaction-form-submit-btn', disabled: true, data: { behavior:'payment-submit', disable_with: t('.paying') } do
+            = content_tag :button, type: 'submit', class: 'transaction-form-submit-btn' do
               | <strong>#{ t('.pay') }</strong> <span class="price">#{ number_to_currency(@product.total_price) }<span class="price">
 
 javascript:
@@ -77,77 +46,3 @@ javascript:
       placeholder: "#{ t('.choose_shipping') }"
     });
   });
-
-- if current_user.has_payment_info?
-  javascript:
-    document.querySelector('[data-behavior="payment-submit"]').removeAttribute('disabled');
-
-- else
-  script#braintree-client-token type="application/json"
-    = @braintree_client_token
-
-  javascript:
-    var form = document.querySelector('[data-behavior="payment-form"]');
-    var submit = document.querySelector('[data-behavior="payment-submit"]');
-    var clientToken = document.getElementById('braintree-client-token').innerHTML;
-    var nonce = document.querySelector('[name="payment_method_nonce"]')
-
-    braintree.client.create({
-      authorization: clientToken
-    }, function (clientErr, clientInstance) {
-      if (clientErr) {
-        console.error(clientErr);
-        return;
-      }
-
-      braintree.hostedFields.create({
-        client: clientInstance,
-        vault: true,
-        styles: {
-          'input': {
-            'font-family': 'Proxima Nova',
-            'font-size': '16px'
-          },
-          'input.invalid': {
-            'color': '#eb410d'
-          }
-        },
-        fields: {
-          number: {
-            selector: '#card-number',
-            placeholder: '4111 1111 1111 1111'
-          },
-          cvv: {
-            selector: '#cvv',
-            placeholder: '123'
-          },
-          expirationDate: {
-            selector: '#expiration-date',
-            placeholder: '10 / 2019'
-          }
-        }
-      }, function (hostedFieldsErr, hostedFieldsInstance) {
-        if (hostedFieldsErr) {
-          console.error(hostedFieldsErr);
-          return;
-        }
-
-        submit.removeAttribute('disabled');
-
-        form.addEventListener('submit', function (event) {
-          event.preventDefault();
-          console.log('Submitted');
-
-          hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
-            if (tokenizeErr) {
-              console.error(tokenizeErr);
-              return;
-            }
-
-            console.log('Got a nonce: ' + payload.nonce);
-            nonce.value = payload.nonce;
-            form.submit();
-          });
-        }, false);
-      });
-    });

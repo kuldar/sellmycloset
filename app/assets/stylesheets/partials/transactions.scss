@@ -74,7 +74,7 @@
     right: 0;
     bottom: 0;
     @include background(linear-gradient(
-      rgba($black, 0)   30%, 
+      rgba($black, 0)   30%,
       rgba($black, 0.75))
     );
   }
@@ -132,6 +132,7 @@
   font-size: 1.325rem;
   font-weight: bold;
   line-height: 1em;
+  a { text-decoration: none; }
 }
 
 .transaction-product-description {
@@ -220,7 +221,7 @@
 .transaction-half-form-section {
   width: 100%;
   margin-bottom: 1rem;
-  
+
   &:first-child { padding-right: 0; }
   &:last-child {
     padding-left: 0;
@@ -231,7 +232,7 @@
     width: 50%;
     margin-bottom: 0;
     &:first-child { padding-right: 0.5rem; }
-    &:last-child { padding-left: 0.5rem; }    
+    &:last-child { padding-left: 0.5rem; }
   }
 }
 
@@ -283,6 +284,88 @@
     cursor: pointer;
     text-decoration: none;
     background-image: $orange-pink-gradient-hover;
+  }
+
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+}
+
+////////////////////////
+//  Transaction Info  //
+////////////////////////
+
+.transaction-info {}
+
+.transaction-info-item {}
+
+.transaction-info-item-name {
+  display: block;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.875em;
+  margin-bottom: 0.25rem;
+}
+
+.transaction-info-item-value {}
+
+//////////////////////////
+//  Transaction Status  //
+//////////////////////////
+
+.transaction-status {
+  background-color: $purple;
+  color: $white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin: 0 1rem 1rem 1rem;
+}
+
+.transaction-status-description {
+  font-weight: bold;
+  font-size: 1.125rem;
+  line-height: 1.25rem;
+  text-align: center;
+}
+
+.transaction-status-list {
+  margin-top: 1rem;
+}
+
+.transaction-status-list-item {
+  @include display(flex);
+  @include justify-content(space-between);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+
+  &:last-child { border-bottom: none; }
+}
+
+.transaction-status-list-item-name {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.875em;
+  opacity: 0.75;
+}
+
+.transaction-status-list-item-value {}
+
+.transaction-status-btn {
+  margin-top: 1rem;
+  display: block;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  line-height: 1rem;
+  border-radius: 5rem;
+  font-weight: bold;
+  color: $white;
+  background-image: $orange-pink-gradient;
+  box-shadow: 0 1px 2px rgba($black, 0.1);
+
+  &:hover {
+    background-image: $orange-pink-gradient-hover;
+    text-decoration: none;
   }
 
   &:active {

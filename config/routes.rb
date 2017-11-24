@@ -36,7 +36,11 @@ Rails.application.routes.draw do
 	resources :products, path: 'p' do
     resource :like, module: :products
     resources :comments
-    resource :transaction
+    resource :transaction do
+      put :mark_paid
+      put :mark_shipped
+      put :mark_received
+    end
   end
 
   resources :products, path: 'products', only: :index

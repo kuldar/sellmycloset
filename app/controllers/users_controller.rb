@@ -36,20 +36,12 @@ class UsersController < ApplicationController
 
   def purchases
     @view_title = t('user.my_purchases')
-    @transactions = @user.purchases
-    render 'transactions/transactions_list'
+    @purchases = @user.purchases
   end
 
   def become_seller
     current_user.seller!
-    flash[:success] = t('user.become_seller.flash_success')
     redirect_to new_product_path
-  end
-
-  def remove_payment_method
-    current_user.update_attribute(:braintree_customer_id, nil)
-    current_user.update_attribute(:braintree_last_4, nil)
-    redirect_to :back
   end
 
   def avatar

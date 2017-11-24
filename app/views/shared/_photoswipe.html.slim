@@ -1,14 +1,13 @@
 / Root element of PhotoSwipe. Must have class pswp.
 .pswp tabindex="-1" role="dialog" aria-hidden="true"
 
-  / Background of PhotoSwipe.
-     It's a separate element as animating opacity is faster than rgba().
+  / Background of PhotoSwipe. It's a separate element as animating opacity is faster than rgba().
   .pswp__bg
 
   / Slides wrapper with overflow:hidden.
   .pswp__scroll-wrap
 
-    / Container that holds slides. 
+    / Container that holds slides.
       PhotoSwipe keeps only 3 of them in the DOM to save memory.
       Don't modify these 3 pswp__item elements, data is added later on.
     .pswp__container

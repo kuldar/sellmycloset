@@ -1,0 +1,28 @@
+.main
+  .wrapper
+    - if @purchases.any?
+      .grid#grid.is-loading
+        - @purchases.each do |purchase|
+          .grid-item = render 'products/feed_product', product: purchase.product
+    - else
+      .no-products = t('products.no_products')
+
+javascript:
+  $('#grid').imagesLoaded( function() {
+
+    function getWindowWidth() {
+      return Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+    }
+
+    $('#grid').wookmark({
+      itemWidth: function () {
+        return getWindowWidth() < 480 ? 300 : 360;
+      },
+      offset: 0,
+      flexibleWidth: function () {
+        return getWindowWidth() < 480 ? '100%' : 480;
+      }
+    });
+
+    $('#grid').removeClass('is-loading');
+  });

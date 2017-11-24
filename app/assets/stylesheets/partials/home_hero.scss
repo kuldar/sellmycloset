@@ -10,13 +10,17 @@
   color: $white;
   padding: 0 1rem;
 
-  .product-image { max-height: 20rem; }
+  .product-image {
+    min-height: 10rem;
+    max-height: 20rem;
+    background-color: $purple;
+  }
 
   .product-image-container {
     // display: none;
     // @include min-width(40rem) {
     //   display: block;
-    // }    
+    // }
   }
 
   @include min-width(40rem) {
@@ -38,7 +42,7 @@
   padding: 2rem 0;
 
   @include min-width(30rem) {
-    padding: 2rem 0 4rem 0;    
+    padding: 2rem 0 4rem 0;
   }
 
   @include min-width(50rem) {

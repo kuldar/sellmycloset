@@ -91,8 +91,6 @@ en:
     follow: "Follow"
     following: "Following"
     unfollow: "Unfollow"
-    become_seller:
-      flash_success: "You're now a seller, congrats. :sparkles: <a href='/p/new'>Add your first product!</a>"
 
   comments:
     add_a_comment: "Add a comment"
@@ -204,9 +202,22 @@ en:
       card_number: "Card number"
       cvv: "CVV"
       exp_date: "Expiration date"
-      pay: "Pay"
+      pay: "Buy"
       paying: "Paying.."
       change_card: "Change the card"
+
+    create:
+      flash_success: "Product successfully bought! 🙌"
+
+    show:
+      shipping_target: "Package will be sent to"
+      payment_request: "Before we can send the package, please make the payment below"
+      name: "Name"
+      bank_account: "Bank account"
+      total_price: "Total sum"
+      mark_as_paid: "Mark as paid"
+      mark_as_shipped: "Mark as shipped"
+      mark_as_received: "Mark as received"
 
   promos:
     signup_cta:
@@ -286,6 +297,7 @@ en:
 
       edit:
         about_title: "🙋 Bit about you"
+        saving_changes: "Saving changes.."
         payment_info_title: "✍ Your payment information️"
         payout_title: "💸 Where should we send the money?"
         save_changes: "Save"

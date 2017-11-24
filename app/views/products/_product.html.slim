@@ -64,7 +64,10 @@
 
         .product-info-footer
           - if @product.sold?
-            span.product-outline-btn = t('product.sold_ago_in_words', time_ago: time_ago_in_words(@product.sale.created_at))
+            - if @product.user == current_user || @product.sale.buyer == current_user
+              = link_to 'Vaata tehingut', product_transaction_path(@product), class: 'product-main-btn'
+            - else
+              span.product-outline-btn = t('product.sold_ago_in_words', time_ago: time_ago_in_words(@product.sale.created_at))
           - else
             - if current_user == @product.user
               span.product-main-btn = humanized_money_with_symbol(@product.price)

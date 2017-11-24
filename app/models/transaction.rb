@@ -2,8 +2,9 @@ class Transaction < ApplicationRecord
 
   enum status: {
     sold:     0,
-    shipped:  1,
-    received: 2
+    paid:     1,
+    shipped:  2,
+    received: 3
   }
 
 	belongs_to :shipping_target
@@ -16,14 +17,14 @@ class Transaction < ApplicationRecord
   monetize :product_price_cents, :shipping_price_cents
 
   validates :product_id,
-            :seller_id, 
-            :buyer_id, 
-            :payout_margin, 
-            :product_price, 
-            :shipping_price, 
-            :shipping_target_id, 
+            :seller_id,
+            :buyer_id,
+            :payout_margin,
+            :product_price,
+            :shipping_price,
+            :shipping_target_id,
               presence: true
-  
+
   private
 
     def clear_notifications

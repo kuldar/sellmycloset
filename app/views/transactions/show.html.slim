@@ -1,39 +1,90 @@
 .main.is-purple style="background-image: url('#{ image_path('home-hero-bg.jpg') }');"
-  .form-title Tehing
-  .card.is-small
-    .card-section.is-gray.is-padded
-      div
-        strong Product
-        div = link_to @transaction.product.title, product_path(@transaction.product)
-        br
+  .form-title
+    - if current_user == @transaction.buyer
+      = t('.product_purchased')
+    - else
+      = t('.product_sold')
 
-      div
-        strong Product Price
-        div = humanized_money_with_symbol(@transaction.product_price)
-        br
+  .card.is-xsmall
+    .card-section
+      .transaction-product-image-container
+        = link_to @product.user, class: 'transaction-product-seller' do
+          = image_tag @product.user.avatar_url(:thumb, public: true), class: 'transaction-product-seller-photo' if @product.user.avatar
+          .transaction-product-seller-name = @product.user.name
 
-      div
-        strong Payout Margin
-        div = @transaction.payout_margin
-        br
+        .transaction-product-image style="background-image:url('#{ @product.product_images.first.image_url(:medium, public: true) if @product.product_images.any? }')"
 
-      div
-        strong Seller
-        div = link_to @transaction.seller.name, user_path(@transaction.seller)
-        br
+    .card-section.is-padded
+      .transaction-product-body
+        .transaction-product-info
+          .transaction-product-title = link_to @product.title, product_path(@product)
+          .transaction-product-description = emojify(@product.description)
 
-      div
-        strong Buyer
-        div = link_to @transaction.buyer.name, user_path(@transaction.buyer)
-        br
+        .transaction-product-cost
+          .transaction-product-price = humanized_money_with_symbol(@product.price)
+          .transaction-shipping-price + #{@product.shipping_price}€ #{ t('.shipping') }
 
-      div
-        strong Shipping Price
-        div = humanized_money_with_symbol(@transaction.shipping_price)
-        br
+    .card-section
+      - if current_user == @transaction.buyer
 
-      div
-        strong Shipping Target
-        div = @transaction.shipping_target.name
+        - if @transaction.sold?
+          .transaction-status
+            .transaction-status-description = t('.payment_request')
+            .transaction-status-list
+              .transaction-status-list-item
+                .transaction-status-list-item-name = t('.name')
+                .transaction-status-list-item-value = @transaction.seller.payout_name
+              .transaction-status-list-item
+                .transaction-status-list-item-name = t('.bank_account')
+                .transaction-status-list-item-value = @transaction.seller.payout_iban
+              .transaction-status-list-item
+                .transaction-status-list-item-name = t('.total_price')
+                .transaction-status-list-item-value = humanized_money_with_symbol(@product.total_price)
+            = link_to t('.mark_as_paid'), mark_paid_product_transaction_path, class: 'transaction-status-btn', method: :put
 
-      = link_to 'delete', product_transaction_path(@transaction.product), method: :delete, data: {confirm: 'sure?'}
+        - if @transaction.paid?
+          .transaction-status
+            .transaction-status-description = t('.payment_made')
+
+        - if @transaction.shipped?
+          .transaction-status
+            .transaction-status-description = t('.shipment_sent')
+            = link_to t('.mark_as_received'), mark_received_product_transaction_path, class: 'transaction-status-btn', method: :put
+
+        - if @transaction.received?
+          .transaction-status
+            .transaction-status-description = t('.shipment_received')
+
+        .card-section.is-gray.is-padded
+          .transaction-info
+            .transaction-info-item
+              .transaction-info-item-name = t('.shipping_target')
+              .transaction-info-item-value = @transaction.shipping_target.name
+
+    - if current_user == @transaction.seller
+      - if @transaction.sold?
+        .transaction-status
+          .transaction-status-description = t('.purchase_made')
+
+      - if @transaction.paid?
+        .transaction-status
+          .transaction-status-description = t('.shipping_request')
+          .transaction-status-list
+            .transaction-status-list-item
+              .transaction-status-list-item-name = t('.shipping_target')
+              .transaction-status-list-item-value = @transaction.shipping_target.name
+            .transaction-status-list-item
+              .transaction-status-list-item-name = t('.buyer_name')
+              .transaction-status-list-item-value = @transaction.buyer.name
+            .transaction-status-list-item
+              .transaction-status-list-item-name = t('.buyer_phone')
+              .transaction-status-list-item-value = @transaction.buyer.phone_number
+          = link_to t('.mark_as_shipped'), mark_shipped_product_transaction_path, class: 'transaction-status-btn', method: :put
+
+      - if @transaction.shipped?
+        .transaction-status
+          .transaction-status-description = t('.shipment_sent')
+
+      - if @transaction.received?
+          .transaction-status
+            .transaction-status-description = t('.shipment_received')

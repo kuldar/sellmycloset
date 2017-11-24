@@ -64,16 +64,6 @@
             = f.label :phone_number, class: 'form-label'
             = f.telephone_field :phone_number, class: 'form-input', placeholder: "#{ t('example.phone_number') }"
 
-        - if current_user.has_payment_info?
-          .form-group
-            label.form-label = t('user.my_credit_card')
-            .form-credit-card
-              .form-credit-card-number
-                span.form-credit-card-icon 💳
-                span.form-credit-card-dots = "&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull;".html_safe
-                = current_user.braintree_last_4
-              = link_to t('user.remove_card'), remove_payment_method_path, method: :put, class: 'form-credit-card-remove', data: {confirm: t('user.confirm_remove_card')}
-
         - if current_user.seller?
           h2.form-group-title = t('.payout_title')
           .form-groups
@@ -85,7 +75,7 @@
               = f.text_field :payout_iban, class: 'form-input', placeholder: "#{ t('example.iban') }"
 
         .form-footer.extra-padded
-          = f.submit t('.save_changes'), class: 'form-btn is-main', data: { disable_with: "Salvestan muudatused..", behavior: 'user-submit'}
+          = f.submit t('.save_changes'), class: 'form-btn is-main', data: { disable_with: t('.saving_changes'), behavior: 'user-submit'}
 
 javascript:
   $(document).ready(function () {

@@ -38,6 +38,8 @@ et:
     header:
       sellers: "Müüjad"
       products: "Kuulutused"
+      purchases: "Ostud"
+      sales: "Müügid"
       sign_in_with_facebook: "Logi sisse Facebookiga"
       log_in: "Sisene"
       log_out: "Välju"
@@ -92,8 +94,6 @@ et:
     follow: "Jälgi"
     following: "Jälgid"
     unfollow: "Loobu jälgimisest"
-    become_seller:
-      flash_success: "Oled nüüd müüja, congrats! :sparkles: <a href='/p/new'>Lisa oma esimene toode!</a>"
 
 
   product_images:
@@ -207,12 +207,31 @@ et:
       card_number: "Kaardi number"
       cvv: "CVV"
       exp_date: "Kehtivus"
-      pay: "Maksa kaardiga"
+      pay: "Osta"
       change_card: "Muuda krediitkaarti"
       paying: "Maksan.."
 
     create:
       flash_success: "Toode edukalt ostetud! 🙌"
+
+    show:
+      shipping_target: "Paki sihtkoht"
+      payment_request: "Enne kui saame pakendi teele panna palume teha järgneva pangaülekande."
+      shipping_request: "Toote eest on makstud! 💰 Kontrolli, et raha on laekunud ning pane saadetis teele!"
+      purchase_made: "Toode on müüdud ja ootab ostjapoolset makset!"
+      shipment_sent: "Toode on teele pandud! 👏"
+      payment_made: "Toote eest on makstud! 👏 Saadame teavituse kui müüja paki teele paneb."
+      shipment_received: "Toode edukalt kätte saadud! 🎉"
+      name: "Nimi"
+      bank_account: "Pangakonto"
+      total_price: "Summa"
+      mark_as_paid: "Märgi makstuks"
+      mark_as_shipped: "Märgi saadetuks"
+      mark_as_received: "Sain paki kätte"
+      buyer_name: "Ostja nimi"
+      buyer_phone: "Ostja telefon"
+      product_sold: "Toode edukalt müüdud!"
+      product_purchased: "Toode edukalt ostetud!"
 
   promos:
     signup_cta:
@@ -297,14 +316,14 @@ et:
 
       edit:
         about_title: "Veidi 🙋 sinust"
+        saving_changes: "Salvestan muudatused..."
         payment_info_title: "Ostmiseks vajalik info ✍️"
-        payout_title: "Kuhu teenitud 💸 välja kanname?"
+        payout_title: "Kuhu 💸 välja maksame?"
         save_changes: "Salvesta"
         shipping_target_placeholder: "Vali eelistatud pakiautomaat"
         card_number: "Kaardi number"
         cvv: "CVV"
         exp_date: "Kehtivus"
-        pay: "Maksa kaardiga"
         change_card: "Muuda krediitkaarti"
         paying: "Maksan.."
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170330155142) do
+ActiveRecord::Schema.define(version: 20171124081421) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -108,7 +108,7 @@ ActiveRecord::Schema.define(version: 20170330155142) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.integer  "status",                  default: 1
+    t.integer  "status",                  default: 0
     t.integer  "seller_id"
     t.integer  "buyer_id"
     t.integer  "product_id"

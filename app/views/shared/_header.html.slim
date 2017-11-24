@@ -20,6 +20,16 @@ header.header
         span.header-nav-btn-text = t('.sellers')
 
       - if user_signed_in?
+        - if current_user.sales.count > 0
+          = link_to sales_user_path(current_user), class: 'header-nav-btn-outline' do
+            span.header-nav-btn-icon 💰
+            span.header-nav-btn-text = t('.sales')
+
+        - if current_user.purchases.count > 0
+          = link_to purchases_user_path(current_user), class: 'header-nav-btn-outline' do
+            span.header-nav-btn-icon 💃
+            span.header-nav-btn-text = t('.purchases')
+
         - if current_user.buyer?
           = link_to t('.add_product'), become_seller_path, class: 'header-nav-btn'
         = render 'shared/header_notifications'
