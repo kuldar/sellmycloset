@@ -1,6 +1,9 @@
 .seller-advice
   .seller-advice-hero
-    h2.seller-advice-title = t('seller_advice.title', user_name: current_user.first_name)
+    - if current_user
+      h2.seller-advice-title = t('seller_advice.title_user', user_name: current_user.first_name)
+    - else
+      h2.seller-advice-title = t('seller_advice.title')
     h1.seller-advice-subtitle = t('seller_advice.subtitle').html_safe
     .seller-advice-illustration-container
       img.seller-advice-illustration src="#{ image_path('illustrations/example-product.svg') }"

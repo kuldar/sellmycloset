@@ -252,7 +252,8 @@ et:
     product_purchased: "<strong>%{user_name}</strong> ostis :moneybag: <strong class='is-green'>%{product_price}</strong> eest %{product_name}"
 
   seller_advice:
-    title: "Tsau %{user_name} 👋"
+    title: "Tsau 👋"
+    title_user: "Tsau %{user_name} 👋"
     subtitle: "Siin on paar nõuannet <strong>kuidas oma esimese tootega silma paista!</strong>"
     section_title_1: "Toote kirjeldus"
     section_title_2: "Toote pildid"
