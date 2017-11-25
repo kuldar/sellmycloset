@@ -1,0 +1,237 @@
+/////////////////////
+//  Seller Advice  //
+/////////////////////
+
+.seller-advice {}
+.seller-advice-hero {
+  padding-top: 4rem;
+  background-color: $purple;
+  background-image: image-url('home-hero-bg.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  @include min-width(40rem) {
+    padding-top: 6rem;
+  }
+}
+
+.seller-advice-title {
+  margin-bottom: 1rem;
+  color: $white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+  line-height: 2rem;
+
+  @include min-width(40rem) {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+}
+
+.seller-advice-subtitle {
+  margin: 0 auto 4rem auto;
+  max-width: 27rem;
+  color: $white;
+  text-align: center;
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+
+  @include min-width(40rem) {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+  }
+}
+
+.seller-advice-illustration-container {
+  position: relative;
+  margin: 0 auto -3rem auto;
+  max-width: 300px;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px rgba($black, 0.15);
+}
+
+.seller-advice-illustration {
+  display: block;
+  width: 100%;
+}
+
+.seller-advice-illustration-emoji {
+  position: absolute;
+  display: none;
+
+  @include min-width(40rem) {
+    display: block;
+  }
+}
+
+.emoji-1 {
+  top: -20px;
+  left: -90px;
+  font-size: 3rem;
+  transform: rotate(-10.5deg);
+}
+
+.emoji-2 {
+  top: 130px;
+  left: -110px;
+  font-size: 2rem;
+  transform: rotate(-29.5deg);
+}
+
+.emoji-3 {
+  top: 250px;
+  left: -70px;
+  font-size: 1.5rem;
+  transform: rotate(-50.5deg);
+}
+
+.emoji-4 {
+  top: -20px;
+  right: -90px;
+  font-size: 3rem;
+  transform: rotate(18.5deg);
+}
+
+.emoji-5 {
+  top: 90px;
+  right: -150px;
+  font-size: 2rem;
+  transform: rotate(18.5deg);
+}
+
+.emoji-6 {
+  top: 150px;
+  right: -90px;
+  font-size: 2rem;
+  transform: rotate(18.5deg);
+}
+
+.emoji-7 {
+  top: 240px;
+  right: -80px;
+  font-size: 2.5rem;
+  transform: rotate(32deg);
+}
+
+.seller-advice-sections-container {
+  @include clearfix;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 3rem 0 5rem 0;
+  max-width: 64rem;
+}
+
+.seller-advice-sections-title {
+  @include display(flex);
+  @include align-items(center);
+  margin: 3rem 0;
+
+  hr {
+    @include flex(1);
+    height: 1px;
+    border: none;
+    background-color: $gray;
+    opacity: 0.5;
+  }
+
+  span {
+    padding: 0 1rem;
+    color: $gray;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2rem;
+  }
+
+  @include min-width(50rem) {
+    margin: 5rem 0;
+  }
+}
+
+.seller-advice-sections {
+  @include display(flex);
+  @include flex-direction(column);
+
+  @include min-width(45rem) {
+    @include flex-direction(row);
+  }
+}
+
+.seller-advice-sections-column {
+  width: 100%;
+  padding: 0 2rem;
+
+  @include min-width(45rem) {
+    width: 50%;
+  }
+
+  &:first-child {
+    margin-bottom: 3rem;
+    @include min-width(45rem) { margin-bottom: 0; }
+  }
+}
+
+.seller-advice-section {
+  @include display(flex);
+  margin-bottom: 3rem;
+
+  &:last-child { margin-bottom: 0; }
+  @include min-width(45rem) { margin-bottom: 5rem; }
+}
+
+.seller-advice-section-icon {
+  margin-right: 1.5rem;
+  font-size: 2rem;
+}
+
+.seller-advice-section-content {
+  @include flex(1);
+}
+
+.seller-advice-section-title {
+  margin-bottom: 1rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+}
+
+.seller-advice-section-description {
+  color: $dark-gray;
+}
+
+.seller-advice-footer {
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.seller-advice-footer-title {
+  color: $gray;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.seller-advice-footer-btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 5rem;
+  background-image: $orange-pink-gradient;
+  box-shadow: 0 1px 2px rgba($black, 0.1);
+  color: $white;;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+
+  &:hover {
+    background-image: $orange-pink-gradient-hover;
+    text-decoration: none;
+  }
+
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+}

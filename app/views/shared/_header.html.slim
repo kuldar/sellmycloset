@@ -31,7 +31,7 @@ header.header
             span.header-nav-btn-text = t('.purchases')
 
         - if current_user.buyer?
-          = link_to t('.add_product'), become_seller_path, class: 'header-nav-btn'
+          = link_to t('.add_product'), seller_advice_path, class: 'header-nav-btn'
         = render 'shared/header_notifications'
         - if current_user.seller? || current_user.admin?
           = link_to t('.add_product'), new_product_path, class: 'header-nav-btn'

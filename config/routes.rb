@@ -56,7 +56,7 @@ Rails.application.routes.draw do
 
   # Static pages
   get :terms, to: 'static_pages#terms'
-  get :become_seller, to: 'static_pages#become_seller'
+  get :seller_advice, to: 'static_pages#seller_advice'
   put :become_seller, to: 'users#become_seller'
 
   # Sellers path

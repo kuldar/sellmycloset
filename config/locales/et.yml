@@ -251,9 +251,42 @@ et:
     new_product_comment: "<strong>%{user_name}</strong> :speech_balloon: %{product_name}"
     product_purchased: "<strong>%{user_name}</strong> ostis :moneybag: <strong class='is-green'>%{product_price}</strong> eest %{product_name}"
 
-  become_seller:
-    become_seller_title: "Soovid oma tooteid Sell My Closet'is müüa?"
-    become_seller_text: "Enne müüma hakkamist, ole hea ja loe <a href='/seller_advice'>5 lihtsalt nippi parema kuulutuse loomiseks</a> 🤓"
+  seller_advice:
+    title: "Tsau %{user_name} 👋"
+    subtitle: "Siin on paar nõuannet <strong>kuidas oma esimese tootega silma paista!</strong>"
+    section_title_1: "Toote kirjeldus"
+    section_title_2: "Toote pildid"
+    section_title_3: "Peale toote lisamist"
+    section_1:
+      icon: "👠"
+      title: "Kirjelda toote seisukorda – kas midagi on kulunud? Kus? Mis?"
+      description: "Enne müüki vaata oma toode hoolega – kas esinevad mõned plekid? Ehk hargneb niit kuskilt? Mida põhjalikumalt toodet kirjeldad, seda vähem tuleb igale ostja küsimusele eraldi vastata. 😁"
+    section_2:
+      icon: "🔎"
+      title: "Lisa toote mõõdud, materjalid ja muud olulised detailid"
+      description: "Lisaks seisukorrale, ole hea ja pane kirja toote mõõdud ning muud olulised detailid millest ostja võiks huvitatud olla. Kuna üle interneti rõivaid selga proovida ei saa, siis on oluline et ostja saaks võimalikult hea ettekujutuse suurustest ja proportsioonidest."
+    section_3:
+      icon: "🤳"
+      title: "Üks pilt ütleb enam kui tuhat emojit"
+      description: "Sinu tootega kaasenevad pildid on ehk kõige olulisem osa müügi kiirendamiseks. Kuna ostjal puudub võimalus toodet ise katsuda siis on oluline, et pildid annaksid edasi võimalikult palju infot toote kohta, olles samal ajal ilusad vaadata. 💯"
+    section_4:
+      icon: "🛀"
+      title: "Enne pildistamist pese riided ning triigi suuremad voldid välja"
+      description: "Enne toote pildistamist soovitame riided kiirelt pessu visata ja viisakamatel riietel suuremad voldid välja triikida. Aita ostjal ette kujutada, milline toode tema seljas välja näeks."
+    section_5:
+      icon: "🌤"
+      title: "Hea valgus on saladus 90% heade piltide taga"
+      description: "Valgus on fotograafide suurim salatrikk. Heade tootefotode tegemiseks ei ole vaja professionaalset kaamerat ega stuudiot. Kõige paremad pildid jäävad tugeva ja hajutatud valgusega – näiteks pilvisel päeval õues. Samuti aitab, kui pilte teha kõige suuremate akende läheduses."
+    section_6:
+      icon: "🎁"
+      title: "Jää ostjale meelde viisaka ja isikliku pakendiga"
+      description: "Keegi ostis toote? Kasuta seda võimalust jätta ostjale endast meeldejääv mälestus viisaka ning omanäolise pakendiga. Võid kindel olla, et järgmine kord kui uue toote lisad on sinu eelnevad ostjad seda enam huvitatud."
+    section_7:
+      icon: "👏"
+      title: "Jaga toodet sõpradega, vaid ühe klikiga"
+      description: "Peale kuulutuse lisamist on sul võimalik toodet Facebooki jagada vaid ühe klikiga."
+
+    footer_title: "Let’s do this! 💯"
     become_seller_btn: "Lisa oma esimene toode"
 
   devise:

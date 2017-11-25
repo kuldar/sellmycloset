@@ -1,0 +1,77 @@
+.seller-advice
+  .seller-advice-hero
+    h2.seller-advice-title = t('seller_advice.title', user_name: current_user.first_name)
+    h1.seller-advice-subtitle = t('seller_advice.subtitle').html_safe
+    .seller-advice-illustration-container
+      img.seller-advice-illustration src="#{ image_path('illustrations/example-product.svg') }"
+
+      .seller-advice-illustration-emoji.emoji-1 😍
+      .seller-advice-illustration-emoji.emoji-2 😲
+      .seller-advice-illustration-emoji.emoji-3 👍
+      .seller-advice-illustration-emoji.emoji-4 😎
+      .seller-advice-illustration-emoji.emoji-5 ✨
+      .seller-advice-illustration-emoji.emoji-6 💸
+      .seller-advice-illustration-emoji.emoji-7 💥
+
+  .main
+    .seller-advice-sections-container
+      h3.seller-advice-sections-title <hr/><span>#{ t('seller_advice.section_title_1') }</span><hr/>
+      .seller-advice-sections
+
+        .seller-advice-sections-column
+          .seller-advice-section
+            .seller-advice-section-icon = t('seller_advice.section_1.icon')
+            .seller-advice-section-content
+              h4.seller-advice-section-title = t('seller_advice.section_1.title')
+              .seller-advice-section-description = t('seller_advice.section_1.description')
+
+        .seller-advice-sections-column
+          .seller-advice-section
+            .seller-advice-section-icon = t('seller_advice.section_2.icon')
+            .seller-advice-section-content
+              h4.seller-advice-section-title = t('seller_advice.section_2.title')
+              .seller-advice-section-description = t('seller_advice.section_2.description')
+
+      h3.seller-advice-sections-title <hr/><span>#{ t('seller_advice.section_title_2') }</span><hr/>
+      .seller-advice-sections
+
+        .seller-advice-sections-column
+          .seller-advice-section
+            .seller-advice-section-icon = t('seller_advice.section_3.icon')
+            .seller-advice-section-content
+              h4.seller-advice-section-title = t('seller_advice.section_3.title')
+              .seller-advice-section-description = t('seller_advice.section_3.description')
+
+          .seller-advice-section
+            .seller-advice-section-icon = t('seller_advice.section_4.icon')
+            .seller-advice-section-content
+              h4.seller-advice-section-title = t('seller_advice.section_4.title')
+              .seller-advice-section-description = t('seller_advice.section_4.description')
+
+        .seller-advice-sections-column
+          .seller-advice-section
+            .seller-advice-section-icon = t('seller_advice.section_5.icon')
+            .seller-advice-section-content
+              h4.seller-advice-section-title = t('seller_advice.section_5.title')
+              .seller-advice-section-description = t('seller_advice.section_5.description')
+
+      h3.seller-advice-sections-title <hr/><span>#{ t('seller_advice.section_title_3') }</span><hr/>
+      .seller-advice-sections
+
+        .seller-advice-sections-column
+          .seller-advice-section
+            .seller-advice-section-icon = t('seller_advice.section_6.icon')
+            .seller-advice-section-content
+              h4.seller-advice-section-title = t('seller_advice.section_6.title')
+              .seller-advice-section-description = t('seller_advice.section_6.description')
+
+        .seller-advice-sections-column
+          .seller-advice-section
+            .seller-advice-section-icon = t('seller_advice.section_7.icon')
+            .seller-advice-section-content
+              h4.seller-advice-section-title = t('seller_advice.section_7.title')
+              .seller-advice-section-description = t('seller_advice.section_7.description')
+
+  .seller-advice-footer
+    .seller-advice-footer-title = t('seller_advice.footer_title')
+    = link_to t('seller_advice.become_seller_btn'), become_seller_path, class: 'seller-advice-footer-btn', method: :put
