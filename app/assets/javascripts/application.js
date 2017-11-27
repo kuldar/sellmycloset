@@ -26,6 +26,6 @@
 //= require jquery-fileupload/jquery.fileupload
 //= require uploads
 //= require notifications
+//= require segment
 //= require header
 //= require lightbox
-//= require google_analytics

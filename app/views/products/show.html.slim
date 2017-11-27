@@ -15,3 +15,16 @@
 
 = render 'shared/category_nav'
 = render 'product'
+
+javascript:
+  (function() {
+    var productInfo = {
+      productId: #{@product.id},
+      productTitle: "#{@product.title}",
+      productDescription: "#{@product.description}",
+      productSeller: "#{@product.user}",
+      productCategory: "#{@product.category}"
+    }
+
+    analytics.track('Viewed Product', productInfo)
+  })()
